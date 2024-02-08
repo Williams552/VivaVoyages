@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\VivaVoyages.props" />
+</Project>
