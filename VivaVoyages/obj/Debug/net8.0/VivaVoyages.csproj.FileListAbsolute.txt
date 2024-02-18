@@ -134,3 +134,4 @@ D:\FPT SP 24\VivaVoyages\VivaVoyages\obj\Debug\net8.0\refint\VivaVoyages.dll
 D:\FPT SP 24\VivaVoyages\VivaVoyages\obj\Debug\net8.0\VivaVoyages.pdb
 D:\FPT SP 24\VivaVoyages\VivaVoyages\obj\Debug\net8.0\VivaVoyages.genruntimeconfig.cache
 D:\FPT SP 24\VivaVoyages\VivaVoyages\obj\Debug\net8.0\ref\VivaVoyages.dll
+D:\FPT SP 24\VivaVoyages\VivaVoyages\obj\Debug\net8.0\VivaVoyages.sourcelink.json

@@ -4,9 +4,10 @@ namespace VivaVoyages.Models
 {
     public class ApplicationDbContext : DbContext
     {
-        ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
         }
+        public DbSet<Customer> Customers { get; set; }
     }
 }
