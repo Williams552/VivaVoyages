@@ -1,22 +1,32 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-overpass: Overpass;
+  --font-nunito: Nunito;
+
+  /* font sizes */
+  --font-size-17xl: 36px;
+  --font-size-xl: 20px;
+  --font-size-9xl: 28px;
+  --font-size-5xl: 24px;
+
+  /* Colors */
+  --white: #fff;
+  --black-2-5: #444b59;
+  --color-darkslateblue-100: #2b4e93;
+  --color-darkslateblue-200: #2b4d93;
+
+  /* Gaps */
+  --gap-base: 16px;
+
+  /* Paddings */
+  --padding-5xl: 24px;
+  --padding-13xl: 32px;
+
+  /* Border radiuses */
+  --br-61xl: 80px;
 }

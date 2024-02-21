@@ -1,10 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using VivaVoyages.Models;
 
 namespace VivaVoyages.Controllers
@@ -28,7 +22,6 @@ namespace VivaVoyages.Controllers
             {
                 // Check if the email is already in use
 
-
                 // Add the new customer to the database
                 _db.Customers.Add(obj);
                 _db.SaveChanges();
@@ -47,7 +40,6 @@ namespace VivaVoyages.Controllers
             return View();
         }
         [HttpPost]
-        [HttpPost]
         public IActionResult Login(string email, string password)
         {
             var customer = _db.Customers.FirstOrDefault(c => c.email == email && c.password == password);
@@ -59,7 +51,7 @@ namespace VivaVoyages.Controllers
             }
             else{
                 // If login fails, return to login page with an error
-                ModelState.AddModelError(" ", "Invalid login attempt");
+                ModelState.AddModelError(" ", "Email or password is wrong");
                 return View();
             }
         }
