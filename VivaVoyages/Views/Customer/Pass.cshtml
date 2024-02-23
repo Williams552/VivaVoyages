@@ -1,0 +1,85 @@
+@model Customer
+
+@{
+    ViewData["Title"] = "Login";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <form asp-action="Login" asp-controller="Customer" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="login-page">
+                <div class="login">
+                    <div class="login-child"></div>
+                    <div class="dont-have-a-container" id="dontHaveA">
+                        <span>
+                            <span>Don’t have a account,</span>
+                            <span class="span"> </span>
+                        </span>
+                        <b class="sign-up">Sign up</b>
+                    </div>
+                    <div class="welcome-back">WELCOME BACK!</div>
+                    <div class="input-field">
+                        <div class="username">
+                            <div class="username1">Email</div>
+                            <div class="email-wrapper">
+                                <input asp-for="email" id="email" />
+                            </div>
+                        </div>
+                        <span asp-validation-for="email" class="text-danger"></span>
+                        <div class="password">
+                            <div class="username1">Password</div>
+                            <div class="frame-parent">
+                                <input asp-for="password" id="password" />
+                            </div>
+                        </div>
+                        <span asp-validation-for="password" class="text-danger"></span>
+                    </div>
+                    <div class="sign-in" id="signInContainer">
+                        <div class="sign-in1">Sign In</div>
+                    </div>
+        </form>
+        <div class="social-title">
+            <img class="social-title-child" alt="" src="./public/vector-1.svg" />
+
+            <div class="or-continue-with-wrapper">
+                <div class="email">or continue with</div>
+            </div>
+        </div>
+        <div class="social-login" id="socialLoginContainer">
+            <div class="social-login-inner">
+                <img class="frame-item" alt="" src="./public/frame-18.svg" />
+            </div>
+        </div>
+        <div class="remenber">
+            <div class="group-parent">
+                <img class="frame-inner" alt="" src="./public/group-2.svg" />
+
+                <div class="remember-me-wrapper">
+                    <div class="remember-me">Remember me</div>
+                </div>
+            </div>
+            <div class="forget-password-wrapper">
+                <div class="forget-password" id="forgetPasswordText">
+                    Forget password?
+                </div>
+            </div>
+        </div>
+        <div class="vivavoyages">VivaVoyages</div>
+
+    </main>
+</body>
+
+</html>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
