@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace VivaVoyages.Models;
+namespace VivaVoyages.mol;
 
 public partial class Order
 {
@@ -22,8 +22,6 @@ public partial class Order
     public virtual ICollection<Passenger> Passengers { get; set; } = new List<Passenger>();
 
     public virtual Staff Staff { get; set; } = null!;
-
-    public virtual ICollection<Passenger> Passengers { get; set; } = new List<Passenger>();
 
     public virtual Tour Tour { get; set; } = null!;
 }

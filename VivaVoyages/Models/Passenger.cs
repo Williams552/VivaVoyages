@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace VivaVoyages.Models;
+namespace VivaVoyages.mol;
 
 public partial class Passenger
 {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace VivaVoyages.Models;
+namespace VivaVoyages.mol;
 
 public partial class VivaVoyagesContext : DbContext
 {

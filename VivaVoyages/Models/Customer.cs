@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace VivaVoyages.Models;
+namespace VivaVoyages.mol;
 
 public partial class Customer
 {
@@ -19,8 +16,6 @@ public partial class Customer
     public string PhoneNumber { get; set; } = null!;
 
     public string Password { get; set; } = null!;
-    [NotMapped]
-    public string? confirmPassword { get; set; }
 
     public string Status { get; set; } = null!;
 
