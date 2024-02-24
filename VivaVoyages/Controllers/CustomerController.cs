@@ -5,8 +5,8 @@ namespace VivaVoyages.Controllers
 {
     public class CustomerController : Controller
     {
-        private readonly ApplicationDbContext _db;
-        public CustomerController(ApplicationDbContext db)
+        private readonly VivaVoyagesContext _db;
+        public CustomerController(VivaVoyagesContext db)
         {
             _db = db;
         }
@@ -42,7 +42,7 @@ namespace VivaVoyages.Controllers
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
-            var customer = _db.Customers.FirstOrDefault(c => c.email == email && c.password == password);
+            var customer = _db.Customers.FirstOrDefault(c => c.Email == email && c.Password == password);
 
             if (customer != null)
             {
@@ -51,14 +51,14 @@ namespace VivaVoyages.Controllers
             }
             else{
                 // If login fails, return to login page with an error
-                ModelState.AddModelError(" ", "Email or password is wrong");
+                ViewBag.Error = "Email or password is wrong";
                 return View();
             }
         }
         [HttpPost]
         public JsonResult emailIsUnique(string email)
         {
-            var customer = _db.Customers.FirstOrDefault(c => c.email == email);
+            var customer = _db.Customers.FirstOrDefault(c => c.Email == email);
             if (customer != null)
             {
                 // email exists

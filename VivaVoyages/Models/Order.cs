@@ -17,5 +17,7 @@ public partial class Order
 
     public virtual Account Account { get; set; } = null!;
 
+    public virtual ICollection<Passenger> Passengers { get; set; } = new List<Passenger>();
+
     public virtual Tour Tour { get; set; } = null!;
 }
