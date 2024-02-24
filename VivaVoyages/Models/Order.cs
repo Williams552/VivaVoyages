@@ -7,7 +7,9 @@ public partial class Order
 {
     public int OrderId { get; set; }
 
-    public int AccountId { get; set; }
+    public int CustomerId { get; set; }
+
+    public int StaffId { get; set; }
 
     public int TourId { get; set; }
 
@@ -15,7 +17,11 @@ public partial class Order
 
     public DateTime DateCreated { get; set; }
 
-    public virtual Account Account { get; set; } = null!;
+    public virtual Customer Customer { get; set; } = null!;
+
+    public virtual ICollection<Passenger> Passengers { get; set; } = new List<Passenger>();
+
+    public virtual Staff Staff { get; set; } = null!;
 
     public virtual Tour Tour { get; set; } = null!;
 }

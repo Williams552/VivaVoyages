@@ -108,10 +108,19 @@
   color: var(--color-darkslateblue-100);
 }
 .sign-in1 {
-  position: relative;
+  position: absolute;
+  width: 579px;
+  height: 77px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   letter-spacing: 0.1em;
   font-weight: 800;
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
 }
+
 .sign-in {
   position: absolute;
   top: calc(50% + 158px);
@@ -265,7 +274,8 @@
   color: var(--black-2-5);
   font-family: var(--font-nunito);
 }
-#email,#password {
+#email,
+#password {
   border: none;
   outline: none;
   width: 100%;

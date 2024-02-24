@@ -18,4 +18,6 @@ public partial class Staff
     public string Role { get; set; } = null!;
 
     public string Status { get; set; } = null!;
+
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

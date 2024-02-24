@@ -5,6 +5,8 @@ namespace VivaVoyages.Models;
 
 public partial class Passenger
 {
+    public int PassengerId { get; set; }
+
     public int OrderId { get; set; }
 
     public string FullName { get; set; } = null!;
