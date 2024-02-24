@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace VivaVoyages.mol;
+namespace VivaVoyages.Models;
 
 public partial class PriceComponent
 {
