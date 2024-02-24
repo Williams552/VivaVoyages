@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3bwDTiOxU+niBQ/dL4DlpN8JxXieSPTqTenQ/7Yuw08=",
+  "Hash": "JFCjhlqgUzzNLbUxqUIbyTE+m1GDU27XmC4pInDTAaY=",
   "Source": "VivaVoyages",
   "BasePath": "_content/VivaVoyages",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\style.css",
+      "SourceId": "VivaVoyages",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\",
+      "BasePath": "_content/VivaVoyages",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
       "Identity": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\favicon.ico",
