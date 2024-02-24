@@ -121,6 +121,7 @@
   color: #FFFFFF;
 }
 
+
 .sign-in {
   position: absolute;
   top: calc(50% + 158px);
@@ -276,7 +277,10 @@
 }
 #email,
 #password {
+#email,
+#password {
   border: none;
   outline: none;
   width: 100%;
 }
+

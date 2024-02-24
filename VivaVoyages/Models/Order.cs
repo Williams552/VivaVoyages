@@ -23,5 +23,7 @@ public partial class Order
 
     public virtual Staff Staff { get; set; } = null!;
 
+    public virtual ICollection<Passenger> Passengers { get; set; } = new List<Passenger>();
+
     public virtual Tour Tour { get; set; } = null!;
 }
