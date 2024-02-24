@@ -17,8 +17,11 @@ public partial class Customer
     public string PhoneNumber { get; set; } = null!;
 
     public string Password { get; set; } = null!;
+
     [NotMapped]
-    public string confirmPassword { get; set; } = null!;
+    public String confirmPassword { get; set; } = null!;
 
     public string Status { get; set; } = null!;
+
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

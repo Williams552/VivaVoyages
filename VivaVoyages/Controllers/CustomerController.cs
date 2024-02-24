@@ -40,6 +40,7 @@ namespace VivaVoyages.Controllers
             return View();
         }
         [HttpPost]
+        [HttpPost]
         public IActionResult Login(string email, string password)
         {
             var customer = _db.Customers.FirstOrDefault(c => c.Email == email && c.Password == password);
@@ -49,12 +50,14 @@ namespace VivaVoyages.Controllers
                 // Successful login, redirect to home or dashboard
                 return RedirectToAction("Index", "Home");
             }
-            else{
+            else
+            {
                 // If login fails, return to login page with an error
                 ViewBag.Error = "Email or password is wrong";
                 return View();
             }
         }
+
         [HttpPost]
         public JsonResult emailIsUnique(string email)
         {
