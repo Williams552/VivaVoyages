@@ -24,4 +24,6 @@ public partial class Tour
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
     public virtual ICollection<Place> Places { get; set; } = new List<Place>();
+
+    public virtual PriceComponent? PriceComponent { get; set; }
 }
