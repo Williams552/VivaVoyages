@@ -36,7 +36,7 @@ namespace VivaVoyages.Controllers
             var destination = await _context.Destinations
                 .Include(d => d.Place)
                 .Include(d => d.Tour)
-                .FirstOrDefaultAsync(m => m.PlaceId == id);
+                .FirstOrDefaultAsync(m => m.DestinationId == id);
             if (destination == null)
             {
                 return NotFound();
@@ -58,7 +58,7 @@ namespace VivaVoyages.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PlaceId,TourId,Description,DateVisit")] Destination destination)
+        public async Task<IActionResult> Create([Bind("DestinationId,PlaceId,TourId,Description,DateVisit")] Destination destination)
         {
             if (ModelState.IsValid)
             {
@@ -94,9 +94,9 @@ namespace VivaVoyages.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PlaceId,TourId,Description,DateVisit")] Destination destination)
+        public async Task<IActionResult> Edit(int id, [Bind("DestinationId,PlaceId,TourId,Description,DateVisit")] Destination destination)
         {
-            if (id != destination.PlaceId)
+            if (id != destination.DestinationId)
             {
                 return NotFound();
             }
@@ -110,7 +110,7 @@ namespace VivaVoyages.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DestinationExists(destination.PlaceId))
+                    if (!DestinationExists(destination.DestinationId))
                     {
                         return NotFound();
                     }
@@ -137,7 +137,7 @@ namespace VivaVoyages.Controllers
             var destination = await _context.Destinations
                 .Include(d => d.Place)
                 .Include(d => d.Tour)
-                .FirstOrDefaultAsync(m => m.PlaceId == id);
+                .FirstOrDefaultAsync(m => m.DestinationId == id);
             if (destination == null)
             {
                 return NotFound();
@@ -163,7 +163,7 @@ namespace VivaVoyages.Controllers
 
         private bool DestinationExists(int id)
         {
-            return _context.Destinations.Any(e => e.PlaceId == id);
+            return _context.Destinations.Any(e => e.DestinationId == id);
         }
     }
 }

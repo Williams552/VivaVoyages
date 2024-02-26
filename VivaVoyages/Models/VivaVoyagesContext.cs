@@ -39,7 +39,7 @@ public partial class VivaVoyagesContext : DbContext
     {
         modelBuilder.Entity<Coupon>(entity =>
         {
-            entity.HasKey(e => e.CouponCode).HasName("PK__Coupons__D3490801E96C340C");
+            entity.HasKey(e => e.CouponCode).HasName("PK__Coupons__D3490801FB9AA8BB");
 
             entity.Property(e => e.CouponCode)
                 .HasMaxLength(255)
@@ -49,7 +49,7 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64B85B617E67");
+            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64B89B9D2D10");
 
             entity.ToTable("Customer");
 
@@ -76,30 +76,29 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Destination>(entity =>
         {
-            entity.HasKey(e => new { e.PlaceId, e.TourId }).HasName("PK__Destinat__C326E5EFC07CDA24");
+            entity.HasKey(e => e.DestinationId).HasName("PK__Destinat__DB5FE4AC379C521A");
 
             entity.ToTable("Destination");
 
-            entity.Property(e => e.PlaceId).HasColumnName("PlaceID");
-            entity.Property(e => e.TourId).HasColumnName("TourID");
+            entity.Property(e => e.DestinationId).HasColumnName("DestinationID");
             entity.Property(e => e.Description)
                 .HasMaxLength(255)
                 .IsUnicode(false);
+            entity.Property(e => e.PlaceId).HasColumnName("PlaceID");
+            entity.Property(e => e.TourId).HasColumnName("TourID");
 
             entity.HasOne(d => d.Place).WithMany(p => p.Destinations)
                 .HasForeignKey(d => d.PlaceId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Destinati__Place__36B12243");
 
             entity.HasOne(d => d.Tour).WithMany(p => p.Destinations)
                 .HasForeignKey(d => d.TourId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Destinati__TourI__35BCFE0A");
         });
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF0B00C0A0");
+            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF6098F615");
 
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
@@ -128,7 +127,7 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Passenger>(entity =>
         {
-            entity.HasKey(e => e.PassengerId).HasName("PK__Passenge__88915F907189A31F");
+            entity.HasKey(e => e.PassengerId).HasName("PK__Passenge__88915F9070B116A9");
 
             entity.Property(e => e.PassengerId).HasColumnName("PassengerID");
             entity.Property(e => e.FullName)
@@ -147,7 +146,7 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Place>(entity =>
         {
-            entity.HasKey(e => e.PlaceId).HasName("PK__Places__D5222B4E3B32100C");
+            entity.HasKey(e => e.PlaceId).HasName("PK__Places__D5222B4ECCF98A4C");
 
             entity.Property(e => e.PlaceId).HasColumnName("PlaceID");
             entity.Property(e => e.Address)
@@ -163,7 +162,7 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Staff>(entity =>
         {
-            entity.HasKey(e => e.StaffId).HasName("PK__Staff__96D4AAF7A39C6A0E");
+            entity.HasKey(e => e.StaffId).HasName("PK__Staff__96D4AAF77C951CC9");
 
             entity.Property(e => e.StaffId).HasColumnName("StaffID");
             entity.Property(e => e.Address)
@@ -188,7 +187,7 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Tour>(entity =>
         {
-            entity.HasKey(e => e.TourId).HasName("PK__Tour__604CEA10958F920D");
+            entity.HasKey(e => e.TourId).HasName("PK__Tour__604CEA10E1A3D8BC");
 
             entity.ToTable("Tour");
 
