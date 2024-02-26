@@ -37,16 +37,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @item.Description
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateVisit)
+                @item.DateVisit
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Place.PlaceId)
+                @item.Place.PlaceId
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Tour.TourId)
+                @item.Tour.TourId
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.DestinationId">Edit</a> |

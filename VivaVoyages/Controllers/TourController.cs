@@ -33,6 +33,7 @@ namespace VivaVoyages.Controllers
             }
 
             var tour = await _context.Tours
+                .Include(d => d.Destinations)
                 .FirstOrDefaultAsync(m => m.TourId == id);
             if (tour == null)
             {
