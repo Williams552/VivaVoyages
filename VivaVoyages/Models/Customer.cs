@@ -25,6 +25,8 @@ public partial class Customer
     [Display(Name = "Confirm Password")]
     public String confirmPassword { get; set; } = null!;
 
+    public string resetCode { get; set; }
+
     public string Status { get; set; } = null!;
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();

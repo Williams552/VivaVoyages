@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using VivaVoyages.Models;
 using IEmailSender = Microsoft.AspNetCore.Identity.UI.Services.IEmailSender;
+using System.Data;
 
 namespace VivaVoyages.Controllers
 {
@@ -15,6 +16,7 @@ namespace VivaVoyages.Controllers
     {
         private readonly VivaVoyagesContext _db;
         private readonly IEmailSender _emailSender;
+        private string Email = "";
 
         public CustomerController(VivaVoyagesContext db, IEmailSender emailSender)
         {
@@ -102,13 +104,19 @@ namespace VivaVoyages.Controllers
         public IActionResult ForgotPassword(string email)
         {
             var customer = _db.Customers.FirstOrDefault(c => c.Email == email);
+            this.Email = email;
             if (customer != null)
             {
                 string resetCode = Guid.NewGuid().ToString();
+                customer.resetCode = resetCode;
+                _db.SaveChanges();
                 SendEmail(email, "Reset Code", resetCode);
+
+                return RedirectToAction("ResetPassword");
             }
-            return RedirectToAction("Login");
+            return View();
         }
+
 
         [HttpPost]
         public async Task<IActionResult> SendEmail(string email, string subject, string message)
@@ -119,42 +127,34 @@ namespace VivaVoyages.Controllers
 
         public IActionResult ResetPassword()
         {
-            // TODO: Your code here
+
             return View();
         }
         [HttpPost]
-        public IActionResult ResetPassword(string resetCodeCus, string newPassword)
+        public IActionResult ResetPassword(ForgotPassword forgotPassword)
         {
-            // Lấy email từ TempData
-            string email = TempData["ResetPasswordEmail"] as string;
-            string resetCode = TempData["ResetCode"] as string;
-
-            if (email != null && resetCode != null && newPassword != null)
+            var customer = _db.Customers.FirstOrDefault(c => c.Email == forgotPassword.Email);
+            if (customer != null)
             {
-                var customer = _db.Customers.FirstOrDefault(c => c.Email == email);
-                if (customer != null)
+                if (customer.resetCode == forgotPassword.ResetCode) // Thay bằng cách kiểm tra reset code hợp lệ
                 {
-                    if (resetCodeCus == resetCode) // Thay bằng cách kiểm tra reset code hợp lệ
-                    {
-                        customer.Password = newPassword;
-                        _db.SaveChanges();
-                        return RedirectToAction("Login");
-                    }
-                    else
-                    {
-                        ViewBag.Error = "Reset code is wrong";
-                        return View();
-                    }
+                    customer.Password = forgotPassword.NewPassword;
+                    _db.SaveChanges();
+                    return RedirectToAction("Login");
                 }
                 else
                 {
-                    ViewBag.Error = "Email not found";
+                    ViewBag.Error = "Reset code is wrong";
                     return View();
                 }
             }
-
-            return View();
+            else
+            {
+                ViewBag.Error = "Email not found";
+                return View();
+            }
         }
+
 
     }
 }

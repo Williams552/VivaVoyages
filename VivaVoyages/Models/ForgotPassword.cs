@@ -8,7 +8,7 @@ namespace VivaVoyages.Models
     public class ForgotPassword
     {
         public string Email { get; set; }
-        public string ResetPassword { get; set; }
+        public string ResetCode { get; set; }
         public string NewPassword { get; set; }
     }
 }
