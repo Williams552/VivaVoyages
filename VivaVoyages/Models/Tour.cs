@@ -21,9 +21,7 @@ public partial class Tour
 
     public decimal? Tax { get; set; }
 
+    public virtual ICollection<Destination> Destinations { get; set; } = new List<Destination>();
+
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
-
-    public virtual ICollection<Place> Places { get; set; } = new List<Place>();
-
-    public virtual PriceComponent? PriceComponent { get; set; }
 }
