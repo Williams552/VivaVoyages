@@ -9,47 +9,67 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = VivaVoyages
 build_property.RootNamespace = VivaVoyages
-build_property.ProjectDir = D:\FPT SP 24\VivaVoyages\VivaVoyages\
+build_property.ProjectDir = P:\SE1707_SP24\PRN211\VivaVoyages-1\VivaVoyages\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\FPT SP 24\VivaVoyages\VivaVoyages
+build_property.MSBuildProjectDirectory = P:\SE1707_SP24\PRN211\VivaVoyages-1\VivaVoyages
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/FPT SP 24/VivaVoyages/VivaVoyages/Views/Customer/Login.cshtml]
+[P:/SE1707_SP24/PRN211/VivaVoyages-1/VivaVoyages/Views/Customer/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT SP 24/VivaVoyages/VivaVoyages/Views/Customer/Register.cshtml]
+[P:/SE1707_SP24/PRN211/VivaVoyages-1/VivaVoyages/Views/Customer/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT SP 24/VivaVoyages/VivaVoyages/Views/Home/Index.cshtml]
+[P:/SE1707_SP24/PRN211/VivaVoyages-1/VivaVoyages/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT SP 24/VivaVoyages/VivaVoyages/Views/Home/Privacy.cshtml]
+[P:/SE1707_SP24/PRN211/VivaVoyages-1/VivaVoyages/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT SP 24/VivaVoyages/VivaVoyages/Views/Shared/Error.cshtml]
+[P:/SE1707_SP24/PRN211/VivaVoyages-1/VivaVoyages/Views/Profile/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/SE1707_SP24/PRN211/VivaVoyages-1/VivaVoyages/Views/Profile/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/SE1707_SP24/PRN211/VivaVoyages-1/VivaVoyages/Views/Profile/FavoriteTour.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxGYXZvcml0ZVRvdXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/SE1707_SP24/PRN211/VivaVoyages-1/VivaVoyages/Views/Profile/GetCustomerTours.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxHZXRDdXN0b21lclRvdXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/SE1707_SP24/PRN211/VivaVoyages-1/VivaVoyages/Views/Profile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/SE1707_SP24/PRN211/VivaVoyages-1/VivaVoyages/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT SP 24/VivaVoyages/VivaVoyages/Views/Shared/_ValidationScriptsPartial.cshtml]
+[P:/SE1707_SP24/PRN211/VivaVoyages-1/VivaVoyages/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT SP 24/VivaVoyages/VivaVoyages/Views/_ViewImports.cshtml]
+[P:/SE1707_SP24/PRN211/VivaVoyages-1/VivaVoyages/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT SP 24/VivaVoyages/VivaVoyages/Views/_ViewStart.cshtml]
+[P:/SE1707_SP24/PRN211/VivaVoyages-1/VivaVoyages/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT SP 24/VivaVoyages/VivaVoyages/Views/Shared/_Layout.cshtml]
+[P:/SE1707_SP24/PRN211/VivaVoyages-1/VivaVoyages/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-t3yr9ihamo

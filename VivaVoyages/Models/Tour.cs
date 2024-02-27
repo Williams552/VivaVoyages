@@ -7,6 +7,8 @@ public partial class Tour
 {
     public int TourId { get; set; }
 
+    public string TourName { get; set; }
+
     public string Destination { get; set; } = null!;
 
     public DateOnly DateStart { get; set; }

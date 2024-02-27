@@ -7,7 +7,7 @@ public partial class Order
 {
     public int OrderId { get; set; }
 
-    public int AccountId { get; set; }
+    public int customerId { get; set; }
 
     public int TourId { get; set; }
 
@@ -15,7 +15,7 @@ public partial class Order
 
     public DateTime DateCreated { get; set; }
 
-    public virtual Account Account { get; set; } = null!;
+    public virtual Customer Customer { get; set; } = null!;
 
     public virtual Tour Tour { get; set; } = null!;
 }

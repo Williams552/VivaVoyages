@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {}
+    "P:\\SE1707_SP24\\PRN211\\VivaVoyages-1\\VivaVoyages\\VivaVoyages.csproj": {}
   },
   "projects": {
-    "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {
+    "P:\\SE1707_SP24\\PRN211\\VivaVoyages-1\\VivaVoyages\\VivaVoyages.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+        "projectUniqueName": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-1\\VivaVoyages\\VivaVoyages.csproj",
         "projectName": "VivaVoyages",
-        "projectPath": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
-        "packagesPath": "C:\\Users\\tiend\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\obj\\",
+        "projectPath": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-1\\VivaVoyages\\VivaVoyages.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-1\\VivaVoyages\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tiend\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
