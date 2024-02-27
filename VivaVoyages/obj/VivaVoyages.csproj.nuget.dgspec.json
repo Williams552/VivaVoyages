@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {}
+    "D:\\VivaVoyages\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {}
   },
   "projects": {
-    "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {
+    "D:\\VivaVoyages\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+        "projectUniqueName": "D:\\VivaVoyages\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
         "projectName": "VivaVoyages",
-        "projectPath": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
-        "packagesPath": "C:\\Users\\tiend\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\obj\\",
+        "projectPath": "D:\\VivaVoyages\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+        "packagesPath": "C:\\Users\\truon\\.nuget\\packages\\",
+        "outputPath": "D:\\VivaVoyages\\VivaVoyages\\VivaVoyages\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tiend\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\truon\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,6 +38,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.3.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.2, )"
@@ -59,6 +61,17 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.2, )"
+<<<<<<< HEAD
+=======
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "PagedList.Mvc": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+>>>>>>> origin/quan
             }
           },
           "imports": [
