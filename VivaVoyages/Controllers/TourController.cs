@@ -60,25 +60,44 @@ namespace VivaVoyages.Controllers
             {
                 // Add the tour to the context
                 _context.Add(tour);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
+
 
                 // If there are destinations provided, associate them with the tour
                 if (destinations != null && destinations.Any())
                 {
-                    foreach (var destination in destinations)
+                    using (var context = new VivaVoyagesContext())
                     {
-                        // Make sure to set the TourId for each destination to the newly created tour's Id
-                        destination.TourId = tour.TourId;
-                        _context.Add(destination);
+                        foreach (var destination in destinations)
+                        {
+                            // Make sure to set the TourId for each destination to the newly created tour's Id
+                            destination.TourId = tour.TourId;
+                            context.Add(destination);
+                        }
                         await _context.SaveChangesAsync();
                     }
                 }
 
-                // Save changes to the database
-
-
                 return RedirectToAction(nameof(Index));
             }
+            return View(tour);
+        }
+
+        // GET: Tour/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var tour = await _context.Tours.FindAsync(id);
+            
+            if (tour == null)
+            {
+                return NotFound();
+            }
+
             return View(tour);
         }
 
