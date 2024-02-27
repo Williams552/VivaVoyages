@@ -1,0 +1,51 @@
+@model Order
+
+<h2>Create Order</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="CustomerId">Customer</label>
+        <select asp-for="CustomerId" asp-items="@(new SelectList(ViewBag.Customers, "CustomerId", "Name"))"
+            class="form-control"></select>
+        <span asp-validation-for="CustomerId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="StaffId">Staff</label>
+        <select asp-for="StaffId" asp-items="@(new SelectList(ViewBag.Staff, "StaffId", "Name"))"
+            class="form-control"></select>
+        <span asp-validation-for="StaffId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TourId">Tour</label>
+        <select asp-for="TourId" asp-items="@(new SelectList(ViewBag.Tours, "TourId", "Name"))"
+            class="form-control"></select>
+        <span asp-validation-for="TourId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status">Status</label>
+        <input asp-for="Status" class="form-control" />
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DateCreated">Date Created</label>
+        <input asp-for="DateCreated" type="datetime-local" class="form-control" />
+        <span asp-validation-for="DateCreated" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

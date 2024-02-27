@@ -101,17 +101,15 @@ namespace VivaVoyages.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public IActionResult ForgotPassword(string email)
+        public IActionResult ForgotPassword(ForgotPassword model)
         {
-            var customer = _db.Customers.FirstOrDefault(c => c.Email == email);
-            this.Email = email;
+            var customer = _db.Customers.FirstOrDefault(c => c.Email == model.Email);
+            this.Email = model.Email;
             if (customer != null)
             {
-                string resetCode = Guid.NewGuid().ToString();
-                customer.resetCode = resetCode;
-                _db.SaveChanges();
-                SendEmail(email, "Reset Code", resetCode);
-
+                model.ResetCode = Guid.NewGuid().ToString();
+                SendEmail(model.Email, "Reset Password", "Reset code: " + model.ResetCode);
+                TempData["Email"] = model.Email;
                 return RedirectToAction("ResetPassword");
             }
             return View();
@@ -125,10 +123,11 @@ namespace VivaVoyages.Controllers
             return View();
         }
 
-        public IActionResult ResetPassword()
+        public IActionResult ResetPassword(string Email)
         {
-
-            return View();
+            var forgotPassword = new ForgotPassword();
+            forgotPassword.Email = TempData["Email"] as string;
+            return View(forgotPassword);
         }
         [HttpPost]
         public IActionResult ResetPassword(ForgotPassword forgotPassword)
