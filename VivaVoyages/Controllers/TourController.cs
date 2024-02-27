@@ -33,7 +33,7 @@ namespace VivaVoyages.Controllers
             }
 
             var tour = await _context.Tours
-                .Include(d => d.Destinations)
+                .Include(d => d.Destinations) //add them de view dc cai table trong view
                 .FirstOrDefaultAsync(m => m.TourId == id);
             if (tour == null)
             {
@@ -54,29 +54,30 @@ namespace VivaVoyages.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TourId,ExpectedProfit,DateStart,TourDates,MaxPasseger,TourGuide,Cost,Tax")] Tour tour)
+        public async Task<IActionResult> Create(Tour tour, List<Destination> destinations)
         {
             if (ModelState.IsValid)
             {
+                // Add the tour to the context
                 _context.Add(tour);
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
+
+                // If there are destinations provided, associate them with the tour
+                if (destinations != null && destinations.Any())
+                {
+                    foreach (var destination in destinations)
+                    {
+                        // Make sure to set the TourId for each destination to the newly created tour's Id
+                        destination.TourId = tour.TourId;
+                        _context.Add(destination);
+                        await _context.SaveChangesAsync();
+                    }
+                }
+
+                // Save changes to the database
+
+
                 return RedirectToAction(nameof(Index));
-            }
-            return View(tour);
-        }
-
-        // GET: Tour/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var tour = await _context.Tours.FindAsync(id);
-            if (tour == null)
-            {
-                return NotFound();
             }
             return View(tour);
         }
