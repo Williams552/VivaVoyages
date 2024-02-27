@@ -5,6 +5,8 @@ namespace VivaVoyages.Models;
 
 public partial class Destination
 {
+    public int DestinationId { get; set; }
+
     public int? PlaceId { get; set; }
 
     public int? TourId { get; set; }
