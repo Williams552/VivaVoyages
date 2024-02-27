@@ -64,10 +64,19 @@
                     @foreach (var destination in Model.Destinations)
                     {
                         <div class="destination">
-                            <label asp-for="destination.Description" class="control-label"></label>
-                            <input asp-for="destination.Description" class="form-control" />
-                            <span asp-validation-for="destination.Description" class="text-danger"></span>
-                            <input type="hidden" asp-for="destination.Description" />
+                            <label asp-for="@destination.Description" class="control-label"></label>
+                            <input asp-for="@destination.Description" class="form-control" />
+                            <span asp-validation-for="@destination.Description" class="text-danger"></span>
+
+                            <label asp-for="@destination.PlaceId" class="control-label"></label>
+                            <input asp-for="@destination.PlaceId" class="form-control" />
+                            <span asp-validation-for="@destination.PlaceId" class="text-danger"></span>
+
+                            <label asp-for="@destination.DateVisit" class="control-label"></label>
+                            <input asp-for="@destination.DateVisit" class="form-control" />
+                            <span asp-validation-for="@destination.DateVisit" class="text-danger"></span>
+
+                            <input type="hidden" asp-for="@destination.DestinationId" />
                         </div>
                     }
                 </div>

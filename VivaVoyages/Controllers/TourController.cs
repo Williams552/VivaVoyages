@@ -84,6 +84,7 @@ namespace VivaVoyages.Controllers
         }
 
         // GET: Tour/Edit/5
+        // GET: Tour/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -91,8 +92,10 @@ namespace VivaVoyages.Controllers
                 return NotFound();
             }
 
-            var tour = await _context.Tours.FindAsync(id);
-            
+            var tour = await _context.Tours
+                .Include(d => d.Destinations) // Include destinations
+                .FirstOrDefaultAsync(m => m.TourId == id);
+
             if (tour == null)
             {
                 return NotFound();
@@ -106,7 +109,7 @@ namespace VivaVoyages.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TourId,ExpectedProfit,DateStart,TourDates,MaxPasseger,TourGuide,Cost,Tax")] Tour tour)
+        public async Task<IActionResult> Edit(int id, Tour tour, List<Destination> destinations)
         {
             if (id != tour.TourId)
             {
@@ -118,6 +121,21 @@ namespace VivaVoyages.Controllers
                 try
                 {
                     _context.Update(tour);
+
+                    // Clear existing destinations associated with the tour
+                    var existingDestinations = _context.Destinations.Where(d => d.TourId == id);
+                    _context.Destinations.RemoveRange(existingDestinations);
+
+                    // Add updated destinations
+                    if (destinations != null && destinations.Any())
+                    {
+                        foreach (var destination in destinations)
+                        {
+                            destination.TourId = tour.TourId;
+                            _context.Add(destination);
+                        }
+                    }
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
