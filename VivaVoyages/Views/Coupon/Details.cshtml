@@ -1,7 +1,7 @@
 @model VivaVoyages.Models.Coupon
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -17,6 +17,12 @@
     <h4>Coupon</h4>
     <hr />
     <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CouponCode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CouponCode)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Discount)
         </dt>

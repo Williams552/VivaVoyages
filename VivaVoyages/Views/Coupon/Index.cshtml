@@ -1,7 +1,7 @@
 @model IEnumerable<VivaVoyages.Models.Coupon>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -19,6 +19,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.CouponCode)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Discount)
             </th>
             <th>
@@ -33,6 +36,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CouponCode)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Discount)
             </td>

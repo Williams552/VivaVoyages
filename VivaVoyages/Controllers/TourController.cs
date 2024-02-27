@@ -46,6 +46,7 @@ namespace VivaVoyages.Controllers
         // GET: Tour/Create
         public IActionResult Create()
         {
+                                    //Note: Add selectlist
             return View();
         }
 
@@ -84,7 +85,6 @@ namespace VivaVoyages.Controllers
         }
 
         // GET: Tour/Edit/5
-        // GET: Tour/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -120,23 +120,30 @@ namespace VivaVoyages.Controllers
             {
                 try
                 {
+                    // Update tour
                     _context.Update(tour);
+                    await _context.SaveChangesAsync();
 
-                    // Clear existing destinations associated with the tour
-                    var existingDestinations = _context.Destinations.Where(d => d.TourId == id);
-                    _context.Destinations.RemoveRange(existingDestinations);
-
-                    // Add updated destinations
-                    if (destinations != null && destinations.Any())
+                    // Update or add destinations
+                    foreach (var destination in destinations)
                     {
-                        foreach (var destination in destinations)
+                        using (var context = new VivaVoyagesContext())
                         {
-                            destination.TourId = tour.TourId;
-                            _context.Add(destination);
+                            // Check if the destination already exists in the database
+                            if (destination.DestinationId > 0)
+                            {
+                                // Update existing destination
+                                _context.Update(destination);
+                            }
+                            else
+                            {
+                                // Add new destination
+                                destination.TourId = tour.TourId;
+                                _context.Add(destination);
+                            }
+                            await context.SaveChangesAsync();
                         }
                     }
-
-                    await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -163,6 +170,7 @@ namespace VivaVoyages.Controllers
             }
 
             var tour = await _context.Tours
+                .Include(d => d.Destinations) //add them de view dc cai table trong view
                 .FirstOrDefaultAsync(m => m.TourId == id);
             if (tour == null)
             {
@@ -178,10 +186,20 @@ namespace VivaVoyages.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var tour = await _context.Tours.FindAsync(id);
-            if (tour != null)
+            if (tour == null)
             {
-                _context.Tours.Remove(tour);
+                return NotFound();
             }
+
+            // Delete associated destinations
+            var destinations = await _context.Destinations.Where(d => d.TourId == id).ToListAsync();
+            if (destinations != null && destinations.Any())
+            {
+                _context.Destinations.RemoveRange(destinations);
+            }
+
+            // Remove the tour
+            _context.Tours.Remove(tour);
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
