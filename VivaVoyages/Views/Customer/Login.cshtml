@@ -9,80 +9,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styleLogin.css" asp-append-version="true" />
     <title>Document</title>
 </head>
 
 <body>
     <main>
-        <form asp-action="Login" asp-controller="Customer" method="post">
-            <div class="login-page">
-                <div class="login">
-                    <div class="login-child"></div>
-                    <div class="dont-have-a-container" id="dontHaveA">
-                        <span>
-                            <span>Don’t have a account,</span>
-                            <span class="span"> </span>
-                        </span>
-                        <b class="sign-up">Sign up</b>
-                    </div>
-                    <div class="welcome-back">WELCOME BACK!</div>
-                    @if (ViewBag.Error != null)
-                    {
-                        <div class="alert alert-danger">
-                            @ViewBag.Error
-                        </div>
-                    }
-                    <div class="input-field">
-                        <div class="username">
-                            <div class="username1">Email</div>
-                            <div class="email-wrapper">
-                                <input asp-for="Email" id="email" />
-                                <input asp-for="Email" id="email" />
-                            </div>
-                        </div>
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                        <div class="password">
-                            <div class="username1">Password</div>
-                            <div class="frame-parent">
-                                <input type="password" asp-for="Password" id="password" />
-                                <input type="password" asp-for="Password" id="password" />
-                            </div>
-                        </div>
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    </div>
-                    <div class="sign-in" id="signInContainer">
-                        <button type="submit" class="sign-in1">Sign In</button>
-                    </div>
-        </form>
-        <div class="social-title">
-            <img class="social-title-child" alt="" src="./public/vector-1.svg" />
-
-            <div class="or-continue-with-wrapper">
-                <div class="email">or continue with</div>
-            </div>
-        </div>
-        <div class="social-login" id="socialLoginContainer">
-            <div class="social-login-inner">
-                <img class="frame-item" alt="" src="./public/frame-18.svg" />
-            </div>
-        </div>
-        <div class="remenber">
-            <div class="group-parent">
-                <img class="frame-inner" alt="" src="./public/group-2.svg" />
-
-                <div class="remember-me-wrapper">
-                    <div class="remember-me">Remember me</div>
+        <div class="div-0">
+            <div class="div-1">
+                <div class="div-2">WELCOME BACK!</div>
+                <div class="div-3">
+                    <span>
+                        Don’t have a account,
+                    </span>
+                    <span>
+                        Sign up
+                    </span>
                 </div>
-            </div>
-            <div class="forget-password-wrapper">
-                <div class="forget-password" id="forgetPasswordText">
-                    Forget password?
+                <form action="Login" method="post">
+                    <div class="div-4">Username</div>
+                    <div class="div-5"><input type="text" asp-for="Email" class="input-1"></div>
+                    <div class="div-6">Password</div>
+                    <div class="div-7">
+                        <input type="password" asp-for="Password" class="input-1">
+                    </div>
+                    <div class="div-8">
+                        <div class="div-9">
+                            <img loading="lazy"
+                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/c06ed290ebdd75e58decf1a1bfc209f4262d66a202a6ccba111b150a077904cb?"
+                                class="img-3" />
+                            <div class="div-10">Remember me</div>
+                        </div>
+                        <div class="div-11">Forget password?</div>
+                    </div>
+                    <div class="div-12"><button type="submit" class="button-1">Sign In</button></div>
+                </form>
+                <div class="div-13">or continue with</div>
+                <div class="div-14">
+                    <img loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d75b7c634575ade6789413d6246c57e1f2368e399f218876d894e2420b20421?"
+                        class="img-4" />
                 </div>
             </div>
         </div>
-        <div class="vivavoyages">VivaVoyages</div>
-
     </main>
 </body>
 

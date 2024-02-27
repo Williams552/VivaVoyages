@@ -1,0 +1,185 @@
+.tours-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.tour-item {
+    width: 300px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.tour-item:hover {
+    /* Thiết lập kiểu dáng khi di chuột vào */
+    transform: translateY(-5px); /* Di chuyển phần tử lên trên 5px */
+}
+
+.tour-imagea {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.tour-list {
+    margin-top: 10px;
+}
+
+.tour-list p {
+    margin: 5px 0;
+}
+
+.tour-list strong {
+    font-weight: bold;
+}
+
+/*-------------tourdetails-------------*/
+.flex-it {
+    display: flex;
+    justify-content: space-between; /* Canh các phần tử theo hai bên */
+}
+
+.tour-info {
+    flex-grow: 1; /* Phần tử này sẽ mở rộng để lấp đầy không gian trống */
+}
+
+.it-cp {
+    display: flex;
+    align-items: center; /* Căn chỉnh các phần tử con theo trục dọc */
+}
+
+.it-cp p {
+    margin-right: 10px; /* Khoảng cách giữa cost và booking */
+}
+
+.col-it {
+    display: flex;
+    flex-direction: column;
+}
+
+.it-cp p{
+    margin-top: -40px;
+}
+
+.col-it a{
+    margin-bottom: 5px;
+}
+
+/* Tour Details Container */
+.tour-details {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Tour Image Styles */
+.img-dt {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.tour-image {
+    max-width: 500px;
+    max-height: 500px;
+    
+    border-radius: 20px;
+    padding: 5px;
+}
+
+/* Definition List Styles */
+.dl-horizontal dt {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dl-horizontal dd {
+    margin-left: 0;
+    margin-bottom: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .tour-image {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/*---Tour search---*/
+
+/* Style cho container chứa thanh tìm kiếm */
+.search-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style cho input và button trong thanh tìm kiếm */
+.search-container input[type=text] {
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Style cho danh sách các tour */
+.tours-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Style cho từng tour */
+.tour-item {
+    width: 300px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.tour-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.tour-list {
+    padding: 10px 0;
+}
+
+.tour-list p {
+    margin: 5px 0;
+}
+
+.tour-list a{
+    text-decoration: none;
+    color: black;
+}
+
+.tour-list a:hover{
+    color: gold;
+}
+
+.tini{
+    font-size: small;
+}

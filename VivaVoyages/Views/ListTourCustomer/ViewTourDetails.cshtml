@@ -1,0 +1,55 @@
+@model Tour
+@{
+    ViewData["Title"] = "ViewTourDetails";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/TourList.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="flex-it">
+        <div class="tour-info">
+            <dt>@Model.TourName</dt>
+        </div>
+        <div class="it-cp">
+            <p><strong>@Model.Cost</strong>đ/guest</p>
+            <div class="col-it">
+                <a href="#" class="btn btn-danger">Booking</a>
+                <a class="btn btn-primary" href="#">Contact</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="img-dt">
+        <img src="@Url.Content(@Model.ImagePath)" alt="Tour Image" class="tour-image">
+    </div>
+
+    <div class="tour-details">
+        <dl class="dl-horizontal">
+            <p><strong>Tour code: </strong>@Model.TourId</p>
+           
+            <p><strong>Date Start: </strong>@Model.DateStart</p>
+            <p><strong>Tour Dates: </strong>@Model.TourDates</p>
+            <p><strong>Max Passenger: </strong>@Model.MaxPasseger</p>
+            <p><strong>Tour Guide: </strong>@Model.TourGuide</p>
+            <p><strong>Tax: </strong>@Model.Tax</p>
+
+        </dl>
+    </div>
+    @foreach (var destination in Model.Destinations)
+{
+    <p><strong>Description: </strong>@destination.Description</p>
+}
+
+</body>
+
+</html>

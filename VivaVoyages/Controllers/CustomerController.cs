@@ -1,20 +1,34 @@
+using System.Net;
+using System.Net.Mail;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using VivaVoyages.Models;
+using IEmailSender = Microsoft.AspNetCore.Identity.UI.Services.IEmailSender;
+using System.Data;
 
 namespace VivaVoyages.Controllers
 {
     public class CustomerController : Controller
     {
         private readonly VivaVoyagesContext _db;
-        public CustomerController(VivaVoyagesContext db)
+        private readonly IEmailSender _emailSender;
+        private string Email = "";
+
+        public CustomerController(VivaVoyagesContext db, IEmailSender emailSender)
         {
             _db = db;
+            _emailSender = emailSender;
         }
 
         public IActionResult Register()
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Register(Customer obj)
         {
@@ -23,6 +37,12 @@ namespace VivaVoyages.Controllers
                 // Check if the email is already in use
 
                 // Add the new customer to the database
+                var isExists = _db.Customers.Any(c => c.Email == obj.Email);
+                if (isExists)
+                {
+                    ModelState.AddModelError("Email", "Email already exists");
+                    return View(obj);
+                }
                 _db.Customers.Add(obj);
                 _db.SaveChanges();
 
@@ -39,7 +59,6 @@ namespace VivaVoyages.Controllers
             // TODO: Your code here
             return View();
         }
-        [HttpPost]
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
@@ -64,18 +83,77 @@ namespace VivaVoyages.Controllers
             var customer = _db.Customers.FirstOrDefault(c => c.Email == email);
             if (customer != null)
             {
-                // email exists
-                // You can return a JSON object with a property to indicate the email exists
-                // For example: return Json(new { emailExists = true });
                 return Json(new { emailExists = true });
             }
             else
             {
-                // email does not exist
-                // You can return a JSON object with a property to indicate the email does not exist
-                // For example: return Json(new { emailExists = false });
                 return Json(new { emailExists = false });
             }
         }
+
+        [AllowAnonymous]
+        public IActionResult ForgotPassword()
+        {
+            // TODO: Your code here
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public IActionResult ForgotPassword(ForgotPassword model)
+        {
+            var customer = _db.Customers.FirstOrDefault(c => c.Email == model.Email);
+            this.Email = model.Email;
+            if (customer != null)
+            {
+                model.ResetCode = Guid.NewGuid().ToString();
+                SendEmail(model.Email, "Reset Password", "Reset code: " + model.ResetCode);
+                TempData["Email"] = model.Email;
+                return RedirectToAction("ResetPassword");
+            }
+            return View();
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> SendEmail(string email, string subject, string message)
+        {
+            await _emailSender.SendEmailAsync(email, subject, message);
+            return View();
+        }
+
+        public IActionResult ResetPassword(string Email)
+        {
+            var forgotPassword = new ForgotPassword();
+            forgotPassword.Email = TempData["Email"] as string;
+            return View(forgotPassword);
+        }
+        [HttpPost]
+        public IActionResult ResetPassword(ForgotPassword forgotPassword)
+        {
+            var customer = _db.Customers.FirstOrDefault(c => c.Email == forgotPassword.Email);
+            if (customer != null)
+            {
+                if (customer.resetCode == forgotPassword.ResetCode) // Thay bằng cách kiểm tra reset code hợp lệ
+                {
+                    customer.Password = forgotPassword.NewPassword;
+                    _db.SaveChanges();
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    ViewBag.Error = "Reset code is wrong";
+                    return View();
+                }
+            }
+            else
+            {
+                ViewBag.Error = "Email not found";
+                return View();
+            }
+        }
+
+
     }
 }
