@@ -135,7 +135,7 @@ namespace VivaVoyages.Controllers
             var customer = _db.Customers.FirstOrDefault(c => c.Email == forgotPassword.Email);
             if (customer != null)
             {
-                if (customer.resetCode == forgotPassword.ResetCode) // Thay bằng cách kiểm tra reset code hợp lệ
+                if (customer.ResetCode == forgotPassword.ResetCode) // Thay bằng cách kiểm tra reset code hợp lệ
                 {
                     customer.Password = forgotPassword.NewPassword;
                     _db.SaveChanges();
