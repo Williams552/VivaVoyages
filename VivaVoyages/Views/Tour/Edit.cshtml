@@ -23,6 +23,11 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="TourId" />
                 <div class="form-group">
+                    <label asp-for="TourName" class="control-label"></label>
+                    <input asp-for="TourName" class="form-control" />
+                    <span asp-validation-for="TourName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
                     <label asp-for="ExpectedProfit" class="control-label"></label>
                     <input asp-for="ExpectedProfit" class="form-control" />
                     <span asp-validation-for="ExpectedProfit" class="text-danger"></span>
