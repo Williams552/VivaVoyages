@@ -19,6 +19,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.TourName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ExpectedProfit)
             </th>
             <th>
@@ -45,6 +48,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TourName)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ExpectedProfit)
             </td>
