@@ -5,16 +5,44 @@
       "PackagePath": "staticwebassets\\VivaVoyages.bundle.scp.css"
     },
     {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\TourList.css",
+      "PackagePath": "staticwebassets\\css\\TourList.css"
+    },
+    {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\style.css",
-      "PackagePath": "staticwebassets\\css\\style.css"
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\styleLogin.css",
+      "PackagePath": "staticwebassets\\css\\styleLogin.css"
     },
     {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-arthouse-studio-4344664.jpg",
+      "PackagePath": "staticwebassets\\img\\pexels-arthouse-studio-4344664.jpg"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-phuong-tran-9552977.jpg",
+      "PackagePath": "staticwebassets\\img\\pexels-phuong-tran-9552977.jpg"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-pixabay-358229.jpg",
+      "PackagePath": "staticwebassets\\img\\pexels-pixabay-358229.jpg"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-quan-tran-14742500.jpg",
+      "PackagePath": "staticwebassets\\img\\pexels-quan-tran-14742500.jpg"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-vanessa-sezini-11566333.jpg",
+      "PackagePath": "staticwebassets\\img\\pexels-vanessa-sezini-11566333.jpg"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\xe.jpg",
+      "PackagePath": "staticwebassets\\img\\xe.jpg"
     },
     {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\site.js",
