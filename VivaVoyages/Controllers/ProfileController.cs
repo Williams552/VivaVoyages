@@ -9,9 +9,9 @@ namespace VivaVoyages.Controllers
 {
     public class ProfileController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly VivaVoyagesContext _context;
 
-        public ProfileController(ApplicationDbContext context)
+        public ProfileController(VivaVoyagesContext context)
         {
             this._context = context;
         }
@@ -41,25 +41,25 @@ namespace VivaVoyages.Controllers
         public IActionResult Edit(Customer customer)
         {
 
-            if (string.IsNullOrEmpty(customer.fullName))
+            if (string.IsNullOrEmpty(customer.FullName))
             {
                 ModelState.AddModelError("fullName", "Full Name is required");
                 // Trả về view với model để người dùng có thể nhập lại thông tin
                 return View(customer);
             }
-            if (string.IsNullOrEmpty(customer.phoneNumber))
+            if (string.IsNullOrEmpty(customer.PhoneNumber))
             {
                 ModelState.AddModelError("phoneNumber", "Phone number is required");
                 // Trả về view với model để người dùng có thể nhập lại thông tin
                 return View(customer);
             }
-            if (string.IsNullOrEmpty(customer.address))
+            if (string.IsNullOrEmpty(customer.Address))
             {
                 ModelState.AddModelError("address", "Address is required");
                 // Trả về view với model để người dùng có thể nhập lại thông tin
                 return View(customer);
             }
-            if (string.IsNullOrEmpty(customer.email))
+            if (string.IsNullOrEmpty(customer.Email))
             {
                 ModelState.AddModelError("email", "Email is required");
                 // Trả về view với model để người dùng có thể nhập lại thông tin
@@ -113,7 +113,7 @@ namespace VivaVoyages.Controllers
                 }
 
                 // Cập nhật mật khẩu - trong thực tế, bạn nên băm mật khẩu này
-                customer.password = password;
+                customer.Password = password;
                 _context.SaveChanges();
 
                 return RedirectToAction("Index");
@@ -136,7 +136,7 @@ namespace VivaVoyages.Controllers
         {
             // Lấy thông tin các tour mà khách hàng đã đặt
             var customerTours = await _context.Orders
-                .Where(o => o.customerId == customerId)
+                .Where(o => o.CustomerId == customerId)
                 .Include(o => o.Tour)
                 .Select(o => new
                 {

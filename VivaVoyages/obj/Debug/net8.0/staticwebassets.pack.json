@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\TourList.css"
     },
     {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\profile.css",
+      "PackagePath": "staticwebassets\\css\\profile.css"
+    },
+    {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

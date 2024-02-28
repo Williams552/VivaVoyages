@@ -20,7 +20,7 @@ public partial class Customer
     public string PhoneNumber { get; set; } = null!;
 
     public string Password { get; set; } = null!;
-    
+
     [NotMapped]
     [Display(Name = "Confirm Password")]
     public String confirmPassword { get; set; } = null!;
