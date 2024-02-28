@@ -20,7 +20,7 @@ public partial class Customer
     public string PhoneNumber { get; set; } = null!;
 
     public string Password { get; set; } = null!;
-
+    
     [NotMapped]
     [Display(Name = "Confirm Password")]
     public String confirmPassword { get; set; } = null!;
@@ -30,4 +30,6 @@ public partial class Customer
     public string Status { get; set; } = null!;
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+
+    public virtual ICollection<Passenger> Passengers { get; set; } = new List<Passenger>();
 }

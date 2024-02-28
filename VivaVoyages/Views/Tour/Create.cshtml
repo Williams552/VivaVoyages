@@ -1,25 +1,116 @@
-@model VivaVoyages.Models.Order
+@model VivaVoyages.Models.Tour
 
-<h2>Create New Order</h2>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<form asp-action="Create">
-    <div class="form-group">
-        <label asp-for="CustomerId">Customer</label>
-        <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var destinationIndex = 0;
+
+            $("#addDestinationBtn").click(function () {
+                var destinationHtml = `<div class="destination" id="destination_${destinationIndex}">
+                                            <div class="form-group">
+                                                <p>${destinationIndex}</p>
+                                                <label for="Destinations_${destinationIndex}__Description" class="control-label">Destination</label>
+                                                <input type="text" id="Destinations_${destinationIndex}__Description" name="Destinations[${destinationIndex}].Description" class="form-control" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Destinations_${destinationIndex}__PlaceId" class="control-label">PlaceId</label>
+                                                <input type="number" id="Destinations_${destinationIndex}__PlaceId" name="Destinations[${destinationIndex}].PlaceId" class="form-control" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Destinations_${destinationIndex}__DateVisit" class="control-label">DateVisit</label>
+                                                <input type="date" id="Destinations_${destinationIndex}__DateVisit" name="Destinations[${destinationIndex}].DateVisit" class="form-control" />
+                                            </div>
+                                            <button type="button" class="btn btn-danger deleteDestinationBtn" data-destination-index="${destinationIndex}">Delete Destination</button>
+                                        </div>`;
+                $("#destinationsContainer").append(destinationHtml);
+                destinationIndex++;
+            });
+
+            // Event delegation for dynamically added delete buttons
+            $("#destinationsContainer").on("click", ".deleteDestinationBtn", function () {
+                var destinationIndexToDelete = $(this).data("destination-index");
+                $("#destination_" + destinationIndexToDelete).remove();
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <h4>Tour</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="ExpectedProfit" class="control-label"></label>
+                    <input asp-for="ExpectedProfit" class="form-control" />
+                    <span asp-validation-for="ExpectedProfit" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateStart" class="control-label"></label>
+                    <input asp-for="DateStart" class="form-control" />
+                    <span asp-validation-for="DateStart" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TourDates" class="control-label"></label>
+                    <input asp-for="TourDates" class="form-control" />
+                    <span asp-validation-for="TourDates" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaxPasseger" class="control-label"></label>
+                    <input asp-for="MaxPasseger" class="form-control" />
+                    <span asp-validation-for="MaxPasseger" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TourGuide" class="control-label"></label>
+                    <input asp-for="TourGuide" class="form-control" />
+                    <span asp-validation-for="TourGuide" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cost" class="control-label"></label>
+                    <input asp-for="Cost" class="form-control" />
+                    <span asp-validation-for="Cost" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Tax" class="control-label"></label>
+                    <input asp-for="Tax" class="form-control" />
+                    <span asp-validation-for="Tax" class="text-danger"></span>
+                </div>
+
+                <div id="destinationsContainer">
+                    <!-- Destination fields will be dynamically added here -->
+                </div>
+
+                <button type="button" id="addDestinationBtn" class="btn btn-primary">Add Destination</button>
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="StaffId">Staff</label>
-        <select asp-for="StaffId" class="form-control" asp-items="ViewBag.StaffId"></select>
+
+
+
+    <div>
+        <a asp-action="Index">Back to List</a>
     </div>
-    <div class="form-group">
-        <label asp-for="TourId">Tour</label>
-        <select asp-for="TourId" class="form-control" asp-items="ViewBag.TourId"></select>
-    </div>
-    <div class="form-group">
-        <label asp-for="Status">Status</label>
-        <input asp-for="Status" class="form-control" />
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
-    </div>
-</form>
+
+</body>
+
+</html>
