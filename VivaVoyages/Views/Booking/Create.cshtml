@@ -1,0 +1,51 @@
+@model List<VivaVoyages.Models.Passenger>
+
+<h2>Book Tour</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <h3>Passenger Information</h3>
+    <form asp-controller="Booking" asp-action="Save" method="post">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            var passenger = Model[i];
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Passenger @(i + 1)</h5>
+                    <div class="form-group">
+                        <label asp-for="@passenger.FullName">Full Name:</label>
+                        <input asp-for="@passenger.FullName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@passenger.Age">Age:</label>
+                        <input asp-for="@passenger.Age" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@passenger.Gender">Gender:</label>
+                        <select asp-for="@passenger.Gender" class="form-control">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@passenger.SingleRoom">Single Room:</label>
+                        <input asp-for="@passenger.SingleRoom" type="checkbox" class="form-check-input" />
+                    </div>
+                </div>
+            </div>
+        }
+        <button type="submit" class="btn btn-primary">Book Tour</button>
+    </form>
+}
+else
+{
+    <h3>Enter Number of Passengers</h3>
+    <form asp-controller="Booking" asp-action="Create" method="post">
+        <div class="form-group">
+            <label for="numberOfPassengers">Number of Passengers:</label>
+            <input type="number" class="form-control" id="numberOfPassengers" name="numberOfPassengers">
+        </div>
+        <button type="submit" class="btn btn-primary">Next</button>
+    </form>
+}

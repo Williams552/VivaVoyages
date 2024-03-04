@@ -7,9 +7,9 @@ public partial class Tour
 {
     public int TourId { get; set; }
 
-    public string TourName { get; set; } = null!;
+    public string TourName { get; set; }
 
-    public string ExpectedProfit { get; set; } = null!;
+    public string ExpectedProfit { get; set; }
 
     public DateOnly DateStart { get; set; }
 
@@ -17,13 +17,13 @@ public partial class Tour
 
     public int MaxPasseger { get; set; }
 
-    public string TourGuide { get; set; } = null!;
+    public string TourGuide { get; set; }
 
     public decimal Cost { get; set; }
 
     public decimal? Tax { get; set; }
 
-    public string? ImagePath { get; set; }
+    public string ImagePath { get; set; }
 
     public virtual ICollection<Destination> Destinations { get; set; } = new List<Destination>();
 
