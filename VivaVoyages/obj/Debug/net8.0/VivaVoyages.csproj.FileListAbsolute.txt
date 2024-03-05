@@ -390,3 +390,6 @@ E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsof
 E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+P:\SE1707_SP24\PRN211\VivaVoyages\VivaVoyages\obj\Debug\net8.0\VivaVoyages.dll
+P:\SE1707_SP24\PRN211\VivaVoyages\VivaVoyages\obj\Debug\net8.0\refint\VivaVoyages.dll
+P:\SE1707_SP24\PRN211\VivaVoyages\VivaVoyages\obj\Debug\net8.0\VivaVoyages.pdb
