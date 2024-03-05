@@ -126,6 +126,57 @@ namespace VivaVoyages.Controllers
             return View(destination);
         }
 
+        public async Task<IActionResult> EditAndReturn(int? id, int? tourId)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var destination = await _context.Destinations.FindAsync(id);
+            if (destination == null)
+            {
+                return NotFound();
+            }
+            ViewData["PlaceId"] = new SelectList(_context.Places, "PlaceId", "PlaceId", destination.PlaceId);
+            ViewData["TourId"] = tourId; // Pass the TourId to the view
+            return View(destination);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditAndReturn(int id, [Bind("DestinationId,PlaceId,TourId,Description,DateVisit")] Destination destination)
+        {
+            if (id != destination.DestinationId)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(destination);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!DestinationExists(destination.DestinationId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                // Redirect to tour edit view with the TourId
+                return RedirectToAction("Edit", "Tour", new { id = destination.TourId });
+            }
+            ViewData["PlaceId"] = new SelectList(_context.Places, "PlaceId", "PlaceId", destination.PlaceId);
+            return View(destination);
+        }
+
         // GET: Destination/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

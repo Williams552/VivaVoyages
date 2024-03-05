@@ -64,25 +64,38 @@
                 </div>
 
                 <!-- Destination Inputs -->
-                <div class="form-group">
-                    <h4>Destinations</h4>
-                    @foreach (var destination in Model.Destinations)
+                <div>
+                    <h2>Destinations</h2>
+                    @if (Model.Destinations.Any())
                     {
-                        <div class="destination">
-                            <label asp-for="@destination.Description" class="control-label"></label>
-                            <input asp-for="@destination.Description" class="form-control" />
-                            <span asp-validation-for="@destination.Description" class="text-danger"></span>
+                        <table>
+                            <tr>
+                                <th>Destination ID</th>
+                                <th>Description</th>
+                                <th>Date Visit</th>
+                                <th>Place Id</th>
+                                <th> </th>
+                            </tr>
+                            @foreach (var destination in Model.Destinations)
+                            {
+                                <tr>
+                                    <td>@destination.DestinationId</td>
+                                    <td>@destination.Description</td>
+                                    <td>@destination.DateVisit</td>
+                                    <td>@destination.PlaceId</td>
+                                    <td>
+                                        <a asp-action="EditAndReturn" asp-controller="Destination"
+                                            asp-route-id="@destination.DestinationId" asp-route-tourId="@Model.TourId">Edit
+                                            Destination</a>
+                                    </td>
 
-                            <label asp-for="@destination.PlaceId" class="control-label"></label>
-                            <input asp-for="@destination.PlaceId" class="form-control" />
-                            <span asp-validation-for="@destination.PlaceId" class="text-danger"></span>
-
-                            <label asp-for="@destination.DateVisit" class="control-label"></label>
-                            <input asp-for="@destination.DateVisit" class="form-control" />
-                            <span asp-validation-for="@destination.DateVisit" class="text-danger"></span>
-
-                            <input type="hidden" asp-for="@destination.DestinationId" />
-                        </div>
+                                </tr>
+                            }
+                        </table>
+                    }
+                    else
+                    {
+                        <p>No destinations found for this tour.</p>
                     }
                 </div>
 
