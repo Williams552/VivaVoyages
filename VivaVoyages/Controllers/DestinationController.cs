@@ -89,6 +89,24 @@ namespace VivaVoyages.Controllers
             return View(destination);
         }
 
+
+          public async Task<IActionResult> EditAndReturn(int? id, int? tourId)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var destination = await _context.Destinations.FindAsync(id);
+            if (destination == null)
+            {
+                return NotFound();
+            }
+            ViewData["PlaceId"] = new SelectList(_context.Places, "PlaceId", "PlaceId", destination.PlaceId);
+            ViewData["TourId"] = tourId; // Pass the TourId to the view
+            return View(destination);
+        }
+
         // POST: Destination/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -126,22 +144,7 @@ namespace VivaVoyages.Controllers
             return View(destination);
         }
 
-        public async Task<IActionResult> EditAndReturn(int? id, int? tourId)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var destination = await _context.Destinations.FindAsync(id);
-            if (destination == null)
-            {
-                return NotFound();
-            }
-            ViewData["PlaceId"] = new SelectList(_context.Places, "PlaceId", "PlaceId", destination.PlaceId);
-            ViewData["TourId"] = tourId; // Pass the TourId to the view
-            return View(destination);
-        }
+      
 
         [HttpPost]
         [ValidateAntiForgeryToken]

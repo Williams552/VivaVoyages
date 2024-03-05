@@ -645,3 +645,4 @@ D:\PRN211\VivaVoyages\VivaVoyages\obj\Debug\net8.0\VivaVoyages.pdb
 D:\PRN211\VivaVoyages\VivaVoyages\obj\Debug\net8.0\VivaVoyages.genruntimeconfig.cache
 D:\PRN211\VivaVoyages\VivaVoyages\obj\Debug\net8.0\ref\VivaVoyages.dll
 E:\SWP\VivaVoyages\VivaVoyages\obj\Debug\net8.0\VivaVoya.872B1ECC.Up2Date
+E:\SWP\VivaVoyages\VivaVoyages\obj\Debug\net8.0\scopedcss\Views\Shared\_LayoutDashboard.cshtml.rz.scp.css

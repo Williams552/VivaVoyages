@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "r4ZdGN0/YR+FSIbHV2im5ucsOWltM7bLoxlqkL4Qnls=",
+  "Hash": "TEhkcAPcqAsAUB+ig1xln/3u2JZSXxYFXDT/ujQ9+Uc=",
   "Source": "VivaVoyages",
   "BasePath": "_content/VivaVoyages",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\styleHome.css",
+      "SourceId": "VivaVoyages",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\",
+      "BasePath": "_content/VivaVoyages",
+      "RelativePath": "css/styleHome.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\styleHome.css"
     },
     {
       "Identity": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\styleLogin.css",

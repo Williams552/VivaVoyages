@@ -46,7 +46,7 @@ namespace VivaVoyages.Controllers
         // GET: Tour/Create
         public IActionResult Create()
         {
-            //Note: Add selectlist
+            ViewData["Place"] = _context.Places.ToList();
             return View();
         }
 
@@ -81,6 +81,9 @@ namespace VivaVoyages.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["PlaceId"] = new SelectList(_context.Places, "PlaceId", "PlaceId");
+
             return View(tour);
         }
 

@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\styleHome.css",
+      "PackagePath": "staticwebassets\\css\\styleHome.css"
+    },
+    {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\styleLogin.css",
       "PackagePath": "staticwebassets\\css\\styleLogin.css"
     },
