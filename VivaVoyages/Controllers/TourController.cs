@@ -46,7 +46,7 @@ namespace VivaVoyages.Controllers
         // GET: Tour/Create
         public IActionResult Create()
         {
-                                    //Note: Add selectlist
+            ViewData["Place"] = _context.Places.ToList();
             return View();
         }
 
@@ -81,6 +81,9 @@ namespace VivaVoyages.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["PlaceId"] = new SelectList(_context.Places, "PlaceId", "PlaceId");
+
             return View(tour);
         }
 
@@ -127,23 +130,20 @@ namespace VivaVoyages.Controllers
                     // Update or add destinations
                     foreach (var destination in destinations)
                     {
-                        using (var context = new VivaVoyagesContext())
+                        // Check if the destination already exists in the database
+                        if (destination.DestinationId > 0)
                         {
-                            // Check if the destination already exists in the database
-                            if (destination.DestinationId > 0)
-                            {
-                                // Update existing destination
-                                _context.Update(destination);
-                            }
-                            else
-                            {
-                                // Add new destination
-                                destination.TourId = tour.TourId;
-                                _context.Add(destination);
-                            }
-                            await context.SaveChangesAsync();
+                            // Update existing destination
+                            _context.Update(destination);
+                        }
+                        else
+                        {
+                            // Add new destination
+                            destination.TourId = tour.TourId;
+                            _context.Add(destination);
                         }
                     }
+                    await _context.SaveChangesAsync(); // Save changes after the loop
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -160,6 +160,7 @@ namespace VivaVoyages.Controllers
             }
             return View(tour);
         }
+
 
         // GET: Tour/Delete/5
         public async Task<IActionResult> Delete(int? id)

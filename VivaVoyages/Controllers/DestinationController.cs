@@ -89,6 +89,24 @@ namespace VivaVoyages.Controllers
             return View(destination);
         }
 
+
+          public async Task<IActionResult> EditAndReturn(int? id, int? tourId)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var destination = await _context.Destinations.FindAsync(id);
+            if (destination == null)
+            {
+                return NotFound();
+            }
+            ViewData["PlaceId"] = new SelectList(_context.Places, "PlaceId", "PlaceId", destination.PlaceId);
+            ViewData["TourId"] = tourId; // Pass the TourId to the view
+            return View(destination);
+        }
+
         // POST: Destination/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -123,6 +141,42 @@ namespace VivaVoyages.Controllers
             }
             ViewData["PlaceId"] = new SelectList(_context.Places, "PlaceId", "PlaceId", destination.PlaceId);
             ViewData["TourId"] = new SelectList(_context.Tours, "TourId", "TourId", destination.TourId);
+            return View(destination);
+        }
+
+      
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditAndReturn(int id, [Bind("DestinationId,PlaceId,TourId,Description,DateVisit")] Destination destination)
+        {
+            if (id != destination.DestinationId)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(destination);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!DestinationExists(destination.DestinationId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                // Redirect to tour edit view with the TourId
+                return RedirectToAction("Edit", "Tour", new { id = destination.TourId });
+            }
+            ViewData["PlaceId"] = new SelectList(_context.Places, "PlaceId", "PlaceId", destination.PlaceId);
             return View(destination);
         }
 
