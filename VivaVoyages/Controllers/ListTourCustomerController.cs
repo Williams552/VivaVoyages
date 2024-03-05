@@ -27,26 +27,24 @@ namespace VivaVoyages.Controllers
         }
 
         public IActionResult ViewTourDetails(int id)
-{
-    var tour = _db.Tours.Include(t => t.Destinations).FirstOrDefault(t => t.TourId == id);
-    if (tour != null)
-    {
-        return View(tour);
-    }
-    return RedirectToAction("Index", "Home");
-}
+        {
 
-
-
+            var tour = _db.Tours.Include(t => t.Destinations).FirstOrDefault(t => t.TourId == id);
+            if (tour != null)
+            {
+                Destination[] des = _db.Destinations.Include(d => d.Place).Where(d => d.TourId == id).ToArray();
+                ViewData["des"] = des;
+                return View(tour);
+            }
+            return RedirectToAction("Index", "Home");
+        }
 
         public IActionResult ListToursSearch()
         {
             IEnumerable<Tour> listem = _db.Tours.ToList();
             return View(listem);
         }
-
-
-
+        
         public IActionResult SearchTours(string searchTerm)
         {
             if (string.IsNullOrEmpty(searchTerm))
@@ -58,12 +56,6 @@ namespace VivaVoyages.Controllers
             var foundTours = _db.Tours.Where(t => t.TourName.ToLower().Contains(searchTermLower)).ToList();
             return View("ListTours", foundTours);
         }
-
-
-
-
-
-
 
     }
 }

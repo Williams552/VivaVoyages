@@ -1,6 +1,8 @@
 @model Tour
+    
 @{
     ViewData["Title"] = "ViewTourDetails";
+    IEnumerable<Destination> des = ViewData["des"] as IEnumerable<Destination>;
 }
 
 <!DOCTYPE html>
@@ -36,19 +38,17 @@
     <div class="tour-details">
         <dl class="dl-horizontal">
             <p><strong>Tour code: </strong>@Model.TourId</p>
-           
             <p><strong>Date Start: </strong>@Model.DateStart</p>
             <p><strong>Tour Dates: </strong>@Model.TourDates</p>
             <p><strong>Max Passenger: </strong>@Model.MaxPasseger</p>
             <p><strong>Tour Guide: </strong>@Model.TourGuide</p>
             <p><strong>Tax: </strong>@Model.Tax</p>
-
+            @foreach (var item in des)
+            {
+                <p><strong>Place: </strong>@item.Place.PlaceName</p>
+            }
         </dl>
     </div>
-    @foreach (var destination in Model.Destinations)
-{
-    <p><strong>Description: </strong>@destination.Description</p>
-}
 
 </body>
 
