@@ -1,0 +1,51 @@
+@model VivaVoyages.Models.Destination
+
+@{
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit Destination</title>
+</head>
+<body>
+
+<h4>Edit Destination</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditAndReturn" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="DestinationId" />
+            <input type="hidden" asp-for="TourId" />
+            <div class="form-group">
+                <label asp-for="PlaceId" class="control-label"></label>
+                <select asp-for="PlaceId" class="form-control" asp-items="ViewBag.PlaceId"></select>
+                <span asp-validation-for="PlaceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateVisit" class="control-label"></label>
+                <input asp-for="DateVisit" class="form-control" />
+                <span asp-validation-for="DateVisit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-controller="Tour" asp-route-id="@Model.TourId">Back to Tour Edit</a>
+</div>
+
+</body>
+</html>

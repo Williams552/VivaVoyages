@@ -1,0 +1,27 @@
+@model List<Passenger>
+
+<h1>List of Passengers</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Passenger Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>SingleRoom</th>
+            <!-- Add other columns as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var passenger in Model)
+        {
+            <tr>
+                <td>@passenger.FullName</td>
+                <td>@passenger.Age</td>
+                <td>@passenger.Gender</td>
+                <td>@passenger.SingleRoom</td>
+                <!-- Add other columns as needed -->
+            </tr>
+        }
+    </tbody>
+</table>

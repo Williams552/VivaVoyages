@@ -30,10 +30,9 @@ namespace VivaVoyages.Controllers
         {
 
             var tour = _db.Tours.Include(t => t.Destinations).FirstOrDefault(t => t.TourId == id);
+            tour.Destinations = _db.Destinations.Include(d => d.Place).Where(d => d.TourId == id).ToList();
             if (tour != null)
             {
-                Destination[] des = _db.Destinations.Include(d => d.Place).Where(d => d.TourId == id).ToArray();
-                ViewData["des"] = des;
                 return View(tour);
             }
             return RedirectToAction("Index", "Home");

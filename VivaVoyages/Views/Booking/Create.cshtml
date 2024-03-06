@@ -1,0 +1,169 @@
+@model Order
+
+@{
+    ViewData["Title"] = "ViewTourDetails";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Tour Information -->
+        <div class="col-md-6">
+            <div class="card">
+                <img src="@Url.Content(@Model.Tour.ImagePath)" alt="Tour Image" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Tour.TourName</h5>
+                    <p class="card-text"><strong>@Model.Tour.Cost</strong>đ/guest</p>
+                </div>
+                <p>
+                    @foreach (var destination in Model.Tour.Destinations)
+                    {
+                    <p>@destination.Place.PlaceName</p>
+                    <p>@destination.Description</p>
+                    }
+                </p>
+            </div>
+        </div>
+
+        <!-- Tour Details -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Tour code:</dt>
+                        <dd class="col-sm-8">@Model.TourId</dd>
+
+                        <dt class="col-sm-4">Date Start:</dt>
+                        <dd class="col-sm-8">@Model.Tour.DateStart</dd>
+
+                        <dt class="col-sm-4">Tour Dates:</dt>
+                        <dd class="col-sm-8">@Model.Tour.TourDates</dd>
+
+                        <dt class="col-sm-4">Max Passenger:</dt>
+                        <dd class="col-sm-8">@Model.Tour.MaxPasseger</dd>
+
+                        <dt class="col-sm-4">Tour Guide:</dt>
+                        <dd class="col-sm-8">@Model.Tour.TourGuide</dd>
+
+                        <dt class="col-sm-4">Tax:</dt>
+                        <dd class="col-sm-8">@Model.Tour.Tax</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Information -->
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Customer Information</h5>
+            <dl class="row">
+                <dt class="col-sm-4">Full Name:</dt>
+                <dd class="col-sm-8">@Model.Customer.FullName</dd>
+
+                <dt class="col-sm-4">Address:</dt>
+                <dd class="col-sm-8">@Model.Customer.Address</dd>
+
+                <dt class="col-sm-4">Phone Number:</dt>
+                <dd class="col-sm-8">@Model.Customer.PhoneNumber</dd>
+
+                <dt class="col-sm-4">Gender:</dt>
+                <dd class="col-sm-8">@Model.Customer.Gender</dd>
+
+                <dt class="col-sm-4">Date of Birth:</dt>
+                <dd class="col-sm-8">@Model.Customer.Dob.ToString("yyyy-MM-dd")</dd>
+            </dl>
+        </div>
+    </div>
+
+    <!-- Passengers Section -->
+    <div id="passenger-section" class="mt-4">
+        <h3>Passengers</h3>
+        <div id="passenger-container">
+            <!-- Container for passenger inputs -->
+        </div>
+        <button type="button" id="addPassenger" class="btn btn-success">Add Passenger</button>
+    </div>
+
+    <!-- Book Tour Form -->
+    <form id="bookTourForm" method="post" asp-action="Create" asp-controller="Booking">
+        <input type="hidden" name="TourId" value="@Model.TourId" />
+        <input type="hidden" name="CustomerId" value="@Model.CustomerId" />
+        <input type="hidden" id="passengersJson" name="PassengersJson" />
+        <button type="submit" class="btn btn-primary mt-3">Book</button>
+    </form>
+
+
+
+    @section scripts {
+        <script>
+            $(document).ready(function () {
+                var passengersList = []; // Danh sách hành khách
+
+                // Function to add a new set of passenger inputs
+                function addPassengerInput(orderId) {
+                    var passengerHtml = '<div class="passenger-inputs">' +
+                        '<label for="Passengers[' + passengersList.length + '].FullName">Full Name:</label>' +
+                        '<input type="text" name="Passengers[' + passengersList.length + '].FullName" class="form-control" />' +
+                        '<label for="Passengers[' + passengersList.length + '].Age">Age:</label>' +
+                        '<input type="number" name="Passengers[' + passengersList.length + '].Age" class="form-control" />' +
+                        '<label for="Passengers[' + passengersList.length + '].Gender">Gender:</label>' +
+                        '<input type="text" name="Passengers[' + passengersList.length + '].Gender" class="form-control" />' +
+                        '<label for="Passengers[' + passengersList.length + '].SingleRoom">Single Room:</label>' +
+                        '<input type="checkbox" name="Passengers[' + passengersList.length + '].SingleRoom" />' +
+                        '<input type="hidden" name="Passengers[' + passengersList.length + '].OrderID" value="' + orderId + '" />' +
+                        '<button type="button" class="btn btn-danger btn-sm remove-passenger">Remove</button>' +
+                        '</div>';
+
+                    $("#passenger-container").append(passengerHtml);
+
+                    // Create a new passenger object with OrderID and add it to passengersList
+                    passengersList.push({
+                        FullName: '',
+                        Age: 0,
+                        Gender: '',
+                        SingleRoom: false,
+                        OrderID: orderId
+                    });
+                }
+
+                // Event handler for the "Add Passenger" button
+                $("#addPassenger").click(function () {
+                    // Assume you have the current OrderID available (replace 1 with the actual OrderID)
+                    var currentOrderId = 1;
+                    addPassengerInput(currentOrderId);
+                });
+
+                // Event handler for dynamically added "Remove" button
+                $(document).on('click', '.remove-passenger', function () {
+                    var index = $(this).closest('.passenger-inputs').index();
+                    passengersList.splice(index, 1); // Xóa hành khách khỏi danh sách
+                    $(this).closest('.passenger-inputs').remove();
+                });
+
+                // Event handler for input changes
+                $(document).on('input', '.passenger-inputs input', function () {
+                    // Update the corresponding property in passengersList
+                    var index = $(this).closest('.passenger-inputs').index();
+                    var property = $(this).attr('name').split('.')[1];
+                    passengersList[index][property] = $(this).val();
+                });
+
+                // Event handler for checkbox changes
+                $(document).on('change', '.passenger-inputs input[type="checkbox"]', function () {
+                    // Update the corresponding property in passengersList
+                    var index = $(this).closest('.passenger-inputs').index();
+                    var property = $(this).attr('name').split('.')[1];
+                    passengersList[index][property] = $(this).prop('checked');
+                });
+
+                // Submit form when the "Book" button is clicked
+                $('#bookTourForm').submit(function (e) {
+                    // Update the hidden field with the current passengersList
+                    $('#passengersJson').val(JSON.stringify(passengersList));
+
+                    // Continue with form submission
+                    return true;
+                });
+            });
+        </script>
+    }

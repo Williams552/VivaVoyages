@@ -2,8 +2,7 @@
     
 @{
     ViewData["Title"] = "ViewTourDetails";
-    IEnumerable<Destination> des = ViewData["des"] as IEnumerable<Destination>;
-}
+    }
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +22,7 @@
         <div class="it-cp">
             <p><strong>@Model.Cost</strong>đ/guest</p>
             <div class="col-it">
-                <a href="#" class="btn btn-danger">Booking</a>
+                <a asp-action="Create" asp-controller="Booking" asp-route-id="@Model.TourId" class="btn btn-primary">Booking</a>
                 <a class="btn btn-primary" href="#">Contact</a>
             </div>
         </div>
@@ -43,13 +42,13 @@
             <p><strong>Max Passenger: </strong>@Model.MaxPasseger</p>
             <p><strong>Tour Guide: </strong>@Model.TourGuide</p>
             <p><strong>Tax: </strong>@Model.Tax</p>
-            @foreach (var item in des)
+            @foreach (var item in Model.Destinations)
             {
-                <p><strong>Place: </strong>@item.Place.PlaceName</p>
+                <p><strong>Place Name: </strong>@item.Place.PlaceName</p>
+                <p><strong>Description: </strong>@item.Description</p>
             }
         </dl>
     </div>
-
 </body>
 
 </html>

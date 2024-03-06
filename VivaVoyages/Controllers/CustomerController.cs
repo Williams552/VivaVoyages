@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using VivaVoyages.Models;
 using IEmailSender = Microsoft.AspNetCore.Identity.UI.Services.IEmailSender;
 using System.Data;
+using Microsoft.AspNetCore.Http;
+using System.Text.Json;
 
 namespace VivaVoyages.Controllers
 {
@@ -67,6 +69,7 @@ namespace VivaVoyages.Controllers
             if (customer != null)
             {
                 // Successful login, redirect to home or dashboard
+                HttpContext.Session.SetObject("LoggedInCustomer", customer);
                 return RedirectToAction("Index", "Home");
             }
             else
