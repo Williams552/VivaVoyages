@@ -1,24 +1,36 @@
-  .div {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .div-2 {
+    body {
+      width: 100%;
+      padding: 0 200px 0 200px;
+
+    }
+    
+    .div-2 {
     background-color: rgba(253, 244, 230, 1);
     align-self: stretch;
     width: 100%;
     padding: 40px 0 40px 62px;
   }
+  
+  .div {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
+
   @media (max-width: 991px) {
     .div-2 {
       max-width: 100%;
       padding-left: 20px;
+     
     }
   }
   .div-3 {
     gap: 20px;
     display: flex;
+    
   }
   @media (max-width: 991px) {
     .div-3 {
@@ -98,6 +110,15 @@
     flex-grow: 1;
     white-space: nowrap;
   }
+
+  .div-7 a{
+    text-decoration: none;
+    color: #262626;
+    
+  } 
+    
+
+  
   @media (max-width: 991px) {
     .div-7 {
       white-space: initial;
@@ -1607,6 +1628,12 @@
     margin-top: 159px;
     flex-grow: 1;
     flex-direction: column;
+  }
+
+  .div-128 img{
+    width: 200px;
+    margin-bottom: 15px;
+    margin-top: -150px;
   }
   @media (max-width: 991px) {
     .div-128 {
