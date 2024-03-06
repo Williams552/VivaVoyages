@@ -55,28 +55,36 @@ public partial class VivaVoyagesContext : DbContext
 
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
             entity.Property(e => e.Address)
+                .IsRequired()
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Dob).HasColumnName("DOB");
+            entity.Property(e => e.Dob).HasColumnName("DOB");
             entity.Property(e => e.Email)
+                .IsRequired()
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.FullName)
+                .IsRequired()
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Gender)
                 .HasMaxLength(1)
                 .IsUnicode(false);
             entity.Property(e => e.Password)
+                .IsRequired()
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.PhoneNumber)
+                .IsRequired()
                 .HasMaxLength(20)
                 .IsUnicode(false);
             entity.Property(e => e.ResetCode)
                 .HasMaxLength(20)
+                .HasMaxLength(20)
                 .IsUnicode(false);
             entity.Property(e => e.Status)
+                .IsRequired()
                 .HasMaxLength(20)
                 .IsUnicode(false);
         });
@@ -115,6 +123,7 @@ public partial class VivaVoyagesContext : DbContext
             entity.Property(e => e.DateCreated).HasColumnType("datetime");
             entity.Property(e => e.StaffId).HasColumnName("StaffID");
             entity.Property(e => e.Status)
+                .IsRequired()
                 .HasMaxLength(20)
                 .IsUnicode(false);
             entity.Property(e => e.TourId).HasColumnName("TourID");
@@ -145,6 +154,7 @@ public partial class VivaVoyagesContext : DbContext
             entity.Property(e => e.PassengerId).HasColumnName("PassengerID");
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
             entity.Property(e => e.FullName)
+                .IsRequired()
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Gender)
@@ -169,12 +179,14 @@ public partial class VivaVoyagesContext : DbContext
 
             entity.Property(e => e.PlaceId).HasColumnName("PlaceID");
             entity.Property(e => e.Address)
+                .IsRequired()
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Description)
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.PlaceName)
+                .IsRequired()
                 .HasMaxLength(255)
                 .IsUnicode(false);
         });
@@ -185,21 +197,27 @@ public partial class VivaVoyagesContext : DbContext
 
             entity.Property(e => e.StaffId).HasColumnName("StaffID");
             entity.Property(e => e.Address)
+                .IsRequired()
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Email)
+                .IsRequired()
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.FullName)
+                .IsRequired()
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Password)
+                .IsRequired()
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Role)
+                .IsRequired()
                 .HasMaxLength(20)
                 .IsUnicode(false);
             entity.Property(e => e.Status)
+                .IsRequired()
                 .HasMaxLength(20)
                 .IsUnicode(false);
         });
@@ -213,6 +231,7 @@ public partial class VivaVoyagesContext : DbContext
             entity.Property(e => e.TourId).HasColumnName("TourID");
             entity.Property(e => e.Cost).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.ExpectedProfit)
+                .IsRequired()
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.ImagePath)
@@ -220,9 +239,11 @@ public partial class VivaVoyagesContext : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.Tax).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.TourGuide)
+                .IsRequired()
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.TourName)
+                .IsRequired()
                 .HasMaxLength(255)
                 .IsUnicode(false);
         });
