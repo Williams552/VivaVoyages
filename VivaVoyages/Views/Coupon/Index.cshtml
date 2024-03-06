@@ -1,61 +1,177 @@
-@model IEnumerable<VivaVoyages.Models.Coupon>
+@* @model IEnumerable<VivaVoyages.Models.Coupon>
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+<meta name="viewport" content="width=device-width" />
+<title>Index</title>
 </head>
 <body>
 <p>
-    <a asp-action="Create">Create New</a>
+<a asp-action="Create">Create New</a>
 </p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CouponCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Discount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateStart)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateEnd)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+<thead>
+<tr>
+<th>
+@Html.DisplayNameFor(model => model.CouponCode)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.Discount)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.DateStart)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.DateEnd)
+</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CouponCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Discount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateStart)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateEnd)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CouponCode">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CouponCode">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CouponCode">Delete</a>
-            </td>
-        </tr>
+<tr>
+<td>
+@Html.DisplayFor(modelItem => item.CouponCode)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.Discount)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.DateStart)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.DateEnd)
+</td>
+<td>
+<a asp-action="Edit" asp-route-id="@item.CouponCode">Edit</a> |
+<a asp-action="Details" asp-route-id="@item.CouponCode">Details</a> |
+<a asp-action="Delete" asp-route-id="@item.CouponCode">Delete</a>
+</td>
+</tr>
 }
-    </tbody>
+</tbody>
 </table>
 </body>
+</html> *@
+
+@model IEnumerable<VivaVoyages.Models.Coupon>
+
+@{
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html data-bs-theme="light" lang="en" style>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Index</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/css/theme.bootstrap_4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/Ludens---1-Index-Table-with-Search--Sort-Filters-v20.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Search-Form-.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-6 d-md-flex">
+                <h2 class="text-truncate fs-1 fw-bold text-primary d-md-flex flex-grow-0 mb-4">Coupon</h2>
+            </div>
+        </div>
+        <div id="TableSorterCard" class="card">
+            <div class="card-header py-3">
+                <div class="row table-topper align-items-center">
+                    <div class="col-12 col-sm-5 col-md-6 text-start" style="margin: 0px;padding: 5px 15px;"></div>
+                    <div class="col align-self-center"><a
+                            class="btn btn-primary border rounded-pill float-end d-md-flex justify-content-md-center align-items-md-center"
+                            role="button" style="width: 185.562px;height: 50.6px;"><i class="fa fa-plus asp-action="
+                                Create""></i> Add new coupon</a></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table id="ipi-table" class="table table-sm table-bordered table tablesorter">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CouponCode)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Discount)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DateStart)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DateEnd)
+                                    </th>
+                                    <th class="text-center filter-false sorter-false">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CouponCode)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Discount)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DateStart)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DateEnd)
+                                        </td>
+                                        <td class="text-center align-middle" style="max-height: 60px;height: 60px;"><a
+                                                class="btn btnMaterial btn-flat primary semicircle" role="button"
+                                                asp-action="Details" asp-route-id="@item.CouponCode"><i
+                                                    class="far fa-eye"></i> detail</a> @*Detail*@
+                                            <a class="btn btnMaterial btn-flat success semicircle" role="button"
+                                                asp-action="Edit" asp-route-id="@item.CouponCode"><i
+                                                    class="fas fa-pen"></i> edit</a> @*Edit*@
+                                            <a class="btn btnMaterial btn-flat accent btnNoBorders checkboxHover"
+                                                role="button" style="margin-left: 5px;" data-bs-toggle="modal"
+                                                data-bs-target="#delete-modal" asp-action="Delete"
+                                                asp-route-id="@item.CouponCode"><i class="fas fa-trash btnNoBorders"
+                                                    style="color: #DC3545;"></i> delete</a> @*Delete*@
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/jquery.tablesorter.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-filter.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-storage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script
+        src="assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20-Ludens---1-Index-Table-with-Search--Sort-Filters.js"></script>
+    <script
+        src="assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20-Ludens---Material-UI-Actions.js"></script>
+</body>
+
 </html>

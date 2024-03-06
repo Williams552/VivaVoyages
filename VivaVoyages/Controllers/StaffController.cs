@@ -37,7 +37,7 @@ namespace VivaVoyages.Controllers
             if (staff != null)
             {
                 // Successful login, redirect to home or dashboard
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Tour");
             }
             else
             {
