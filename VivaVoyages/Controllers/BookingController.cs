@@ -37,26 +37,28 @@ namespace VivaVoyages.Controllers
         // POST: Booking/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(int tourId, int customerId, string passengersJson)
+        public IActionResult Create(int tourId, string passengersJson)
         {
             try
             {
-                List<Passenger> passengers = JsonConvert.DeserializeObject<List<Passenger>>(passengersJson);
                 Customer customer = HttpContext.Session.GetObject<Customer>("LoggedInCustomer");
-                customer.CustomerId = 0;
+
+                //Add the passengers to the database
+                List<Passenger> passengers = JsonConvert.DeserializeObject<List<Passenger>>(passengersJson);
+                foreach (var passenger in passengers)
+                {
+                    passenger.CustomerId = customer.CustomerId;
+                    _context.Passengers.Add(passenger);
+                }
+
                 Order order = new Order
                 {
-                    CustomerId = customerId,
-                    Customer = customer,
+                    CustomerId = customer.CustomerId,
                     TourId = tourId,
                     StaffId = _context.Staff.FirstOrDefault().StaffId,
                     DateCreated = DateTime.Now,
                     Status = "Pending"
                 };
-
-
-                // Set the Passengers for the Customer
-                order.Customer.Passengers = passengers;
 
                 // Add the Order to the context
                 _context.Orders.Add(order);

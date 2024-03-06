@@ -87,7 +87,6 @@
     <!-- Book Tour Form -->
     <form id="bookTourForm" method="post" asp-action="Create" asp-controller="Booking">
         <input type="hidden" name="TourId" value="@Model.TourId" />
-        <input type="hidden" name="CustomerId" value="@Model.CustomerId" />
         <input type="hidden" id="passengersJson" name="PassengersJson" />
         <button type="submit" class="btn btn-primary mt-3">Book</button>
     </form>
