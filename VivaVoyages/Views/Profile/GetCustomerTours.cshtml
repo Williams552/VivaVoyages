@@ -1,0 +1,43 @@
+@model Customer
+@{
+    ViewData["Title"] = "GetCustomerTours";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true" />
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+
+        <div class="container">
+            <div class="row">
+                <!-- Left Column -->
+                <div class="col-md-4">
+                    <div class="div">
+                        <div class="div-2">
+                            <img loading="lazy" srcset="..." class="img" />
+                            <div class="div-3">@Model.FullName</div>
+                        </div>
+                        <div class="div-4"></div>
+                        <a class="div-5">Account</a>
+                        <a class="div-7">Personal Information</a>
+                        <a asp-action="ChangePassword" asp-route-id="@Model.CustomerId" class="div-9"
+                            style="text-decoration: none;">Change Password</a>
+                        <div class="div-10">Favorite Tour</div>
+                        <div class="div-11">Tour management</div>
+                        <div class="div-12">sign out</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

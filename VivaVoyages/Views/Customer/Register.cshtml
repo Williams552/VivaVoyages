@@ -7,12 +7,6 @@
 <form asp-action="Register" asp-controller="Customer" method="post">
 
     <div class="form-group">
-        <label asp-for="FullName"></label>
-        <input asp-for="FullName" class="form-control" />
-        <span asp-validation-for="FullName" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
         <label asp-for="Email"></label>
         <input asp-for="Email" class="form-control" />
         <span asp-validation-for="Email" class="text-danger"></span>
@@ -29,6 +23,12 @@
         <input asp-for="confirmPassword" type="password" class="form-control" />
         <span asp-validation-for="confirmPassword" class="text-danger"></span>
     </div> *@
+
+    <div class="form-group">
+        <label asp-for="FullName"></label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
 
     <div class="form-group">
         <label asp-for="PhoneNumber"></label>

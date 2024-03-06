@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Desktop\\Chuyennganhki5\\PRN211\\MyProject\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {}
+    "E:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Desktop\\Chuyennganhki5\\PRN211\\MyProject\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {
+    "E:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\Chuyennganhki5\\PRN211\\MyProject\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+        "projectUniqueName": "E:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
         "projectName": "VivaVoyages",
-        "projectPath": "C:\\Users\\HP\\Desktop\\Chuyennganhki5\\PRN211\\MyProject\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\Chuyennganhki5\\PRN211\\MyProject\\VivaVoyages\\VivaVoyages\\obj\\",
+        "projectPath": "E:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+        "packagesPath": "C:\\Users\\cartu\\.nuget\\packages\\",
+        "outputPath": "E:\\SWP\\VivaVoyages\\VivaVoyages\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\cartu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,10 +45,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNet.Mvc": {
-              "target": "Package",
-              "version": "[5.3.0, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.2, )"
@@ -95,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
