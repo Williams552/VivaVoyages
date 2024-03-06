@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TEhkcAPcqAsAUB+ig1xln/3u2JZSXxYFXDT/ujQ9+Uc=",
+  "Hash": "Jc5zYPpqc/P6zYY4qcEvaYNZ5IhGzcgiKej0sMk+DQk=",
   "Source": "VivaVoyages",
   "BasePath": "_content/VivaVoyages",
   "Mode": "Default",
@@ -262,6 +262,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\pexels-vanessa-sezini-11566333.jpg"
+    },
+    {
+      "Identity": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\ThePhong3.png",
+      "SourceId": "VivaVoyages",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\",
+      "BasePath": "_content/VivaVoyages",
+      "RelativePath": "img/ThePhong3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\ThePhong3.png"
     },
     {
       "Identity": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\xe.jpg",

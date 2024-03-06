@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\ThePhong3.png",
+      "PackagePath": "staticwebassets\\img\\ThePhong3.png"
+    },
+    {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-arthouse-studio-4344664.jpg",
       "PackagePath": "staticwebassets\\img\\pexels-arthouse-studio-4344664.jpg"
     },
