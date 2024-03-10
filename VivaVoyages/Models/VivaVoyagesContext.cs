@@ -33,7 +33,7 @@ public partial class VivaVoyagesContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=(local);Database=VivaVoyages;uid=sa;pwd=tiendat2003;encrypt=true;trustServerCertificate=true;");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-KKL2EJV\\SQLEXPRESS;Database=VivaVoyages;uid=sa;pwd=123123;encrypt=true;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -119,6 +119,9 @@ public partial class VivaVoyagesContext : DbContext
             entity.Property(e => e.CouponCode)
                 .HasMaxLength(255)
                 .IsUnicode(false);
+            entity.Property(e => e.CouponCode)
+                .HasMaxLength(255)
+                .IsUnicode(false);
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
             entity.Property(e => e.DateCreated).HasColumnType("datetime");
             entity.Property(e => e.StaffId).HasColumnName("StaffID");
@@ -127,6 +130,14 @@ public partial class VivaVoyagesContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false);
             entity.Property(e => e.TourId).HasColumnName("TourID");
+
+            entity.HasOne(d => d.CouponCodeNavigation).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.CouponCode)
+<<<<<<< HEAD
+                .HasConstraintName("FK__Orders__CouponCo__2F10007B");
+=======
+                .HasConstraintName("FK__Orders__CouponCo__4222D4EF");
+>>>>>>> origin/Truong
 
             entity.HasOne(d => d.CouponCodeNavigation).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CouponCode)

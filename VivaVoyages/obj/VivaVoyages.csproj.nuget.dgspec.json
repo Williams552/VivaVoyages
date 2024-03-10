@@ -14,7 +14,7 @@
         "outputPath": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tiend\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\truon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
