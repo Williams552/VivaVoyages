@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\VivaVoyages.bundle.scp.css"
     },
     {
+      "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\Stylehome.css",
+      "PackagePath": "staticwebassets\\css\\Stylehome.css"
+    },
+    {
       "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\TourList.css",
       "PackagePath": "staticwebassets\\css\\TourList.css"
     },
@@ -15,10 +19,6 @@
     {
       "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
-    },
-    {
-      "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\styleHome.css",
-      "PackagePath": "staticwebassets\\css\\styleHome.css"
     },
     {
       "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\styleLogin.css",
