@@ -133,11 +133,7 @@ public partial class VivaVoyagesContext : DbContext
 
             entity.HasOne(d => d.CouponCodeNavigation).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CouponCode)
-<<<<<<< HEAD
                 .HasConstraintName("FK__Orders__CouponCo__2F10007B");
-=======
-                .HasConstraintName("FK__Orders__CouponCo__4222D4EF");
->>>>>>> origin/Truong
 
             entity.HasOne(d => d.CouponCodeNavigation).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CouponCode)
