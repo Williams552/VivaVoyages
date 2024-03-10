@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "notfound";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/TourList.css" asp-append-version="true" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="search-container">
+       <form action="@Url.Action("SearchTours", "ListTourCustomer")" method="get">
+
+            <input required type="text" name="searchTerm" placeholder="Search tours...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+       <h1 class="not-found-text">Not Found Tour</h1>
+
+</body>
+</html>
