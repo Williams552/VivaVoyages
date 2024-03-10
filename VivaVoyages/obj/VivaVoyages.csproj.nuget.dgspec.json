@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\FPT SP 24\\VivaVoyages-1\\VivaVoyages\\VivaVoyages.csproj": {}
+    "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {}
   },
   "projects": {
-    "d:\\FPT SP 24\\VivaVoyages-1\\VivaVoyages\\VivaVoyages.csproj": {
+    "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\FPT SP 24\\VivaVoyages-1\\VivaVoyages\\VivaVoyages.csproj",
+        "projectUniqueName": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
         "projectName": "VivaVoyages",
-        "projectPath": "d:\\FPT SP 24\\VivaVoyages-1\\VivaVoyages\\VivaVoyages.csproj",
+        "projectPath": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
         "packagesPath": "C:\\Users\\tiend\\.nuget\\packages\\",
-        "outputPath": "d:\\FPT SP 24\\VivaVoyages-1\\VivaVoyages\\obj\\",
+        "outputPath": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tiend\\AppData\\Roaming\\NuGet\\NuGet.Config",
