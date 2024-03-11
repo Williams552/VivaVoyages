@@ -96,24 +96,31 @@ namespace VivaVoyages.Controllers
         // POST: Profile/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ChangePassword(int customerID, string password, string confirmPassword)
+        public IActionResult ChangePassword(int customerID, string oldPassword, string newPassword, string confirmPassword)
         {
             try
             {
-                if (password != confirmPassword)
-                {
-                    ModelState.AddModelError(string.Empty, "Password and Confirm Password do not match.");
-                    return View();
-                }
-
                 var customer = _context.Customers.Find(customerID);
                 if (customer == null)
                 {
                     return NotFound();
                 }
 
-                // Cập nhật mật khẩu - trong thực tế, bạn nên băm mật khẩu này
-                customer.Password = password;
+                // Kiểm tra mật khẩu cũ
+                if (customer.Password != oldPassword)
+                {
+                    ModelState.AddModelError(string.Empty, "Old password is incorrect.");
+                    return View(customer); // Đảm bảo truyền đối tượng customer để giữ id và các thông tin khác
+                }
+
+                if (newPassword != confirmPassword)
+                {
+                    ModelState.AddModelError(string.Empty, "New Password and Confirm Password do not match.");
+                    return View(customer);
+                }
+
+                // Cập nhật mật khẩu mới - trong thực tế, bạn nên băm mật khẩu này
+                customer.Password = newPassword;
                 _context.SaveChanges();
 
                 return RedirectToAction("Index");
@@ -125,38 +132,42 @@ namespace VivaVoyages.Controllers
             }
         }
 
-        public IActionResult FavoriteTour(int id)
+
+
+        public async Task<IActionResult> GetCustomerTours(int id)
         {
-            return View();
-        }
+            var customer = await _context.Customers
+                .FirstOrDefaultAsync(c => c.CustomerId == id);
+            if (customer == null)
+            {
+                // Khách hàng không tồn tại
+                return NotFound($"Customer with ID {id} not found.");
+            }
+            ViewData["CustomerId"] = customer.CustomerId;
+            ViewData["FullName"] = customer.FullName;
 
-
-
-        public async Task<IActionResult> GetCustomerTours(int customerId)
-        {
-            // Lấy thông tin các tour mà khách hàng đã đặt
             var customerTours = await _context.Orders
-                .Where(o => o.CustomerId == customerId)
+                .Where(o => o.CustomerId == id)
                 .Include(o => o.Tour)
-                .Select(o => new
+                .Select(o => new CustomerTourView
                 {
-                    o.Tour.TourName,
-                    o.Tour.MaxPasseger,
+                    TourName = o.Tour.TourName,
+                    MaxPassenger = o.Tour.MaxPasseger,
                     DateStart = o.Tour.DateStart.ToString("dd/MM/yyyy"),
-                    o.Tour.TourDates,
-                    o.Tour.TourGuide,
-                    o.Tour.Cost
+                    TourDates = o.Tour.TourDates,
+                    TourGuide = o.Tour.TourGuide,
+                    Cost = o.Tour.Cost
                 })
                 .ToListAsync();
 
-            if (customerTours == null || customerTours.Count == 0)
+            if (!customerTours.Any())
             {
+                // Không tìm thấy tours cho khách hàng này
                 return NotFound("No tours found for this customer.");
             }
 
-            // Lưu ý: Bạn cần tạo một ViewModel hoặc sử dụng dynamic để truyền dữ liệu vào View
-            // Đây chỉ là ví dụ trả về dữ liệu dưới dạng JSON
-            return Json(customerTours);
+            // Trả về view với danh sách các tours
+            return View(customerTours);
         }
 
     }

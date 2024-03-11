@@ -7939,24 +7939,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cartu\\.nuget\\packages\\": {}
+    "C:\\Users\\admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+      "projectUniqueName": "P:\\SE1707_SP24\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
       "projectName": "VivaVoyages",
-      "projectPath": "E:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
-      "packagesPath": "C:\\Users\\cartu\\.nuget\\packages\\",
-      "outputPath": "E:\\SWP\\VivaVoyages\\VivaVoyages\\obj\\",
+      "projectPath": "P:\\SE1707_SP24\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+      "outputPath": "P:\\SE1707_SP24\\PRN211\\VivaVoyages\\VivaVoyages\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\cartu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7969,6 +7971,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -8023,7 +8030,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
