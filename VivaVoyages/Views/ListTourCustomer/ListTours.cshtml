@@ -1,5 +1,3 @@
-
-
 @{
     ViewData["Title"] = "ListTours";
 }
@@ -7,43 +5,53 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/TourList.css" asp-append-version="true" />
     <title>Document</title>
 </head>
+
 <body>
     <div class="search-container">
-        <form action="@Url.Action("SearchTours", "Customer")" method="get">
-            <input type="text" name="searchTerm" placeholder="Search tours...">
+        <form action="@Url.Action("SearchTours", "ListTourCustomer")" method="get">
+
+            <input required type="text" name="searchTerm" placeholder="Search tours...">
             <button type="submit">Search</button>
         </form>
     </div>
-    <div class="tours-container">
-    @foreach(var item in Model)
-    {
-        <div class="tour-item">
-            <a asp-action="ViewTourDetails" asp-route-id="@item.TourId">
-                <img src="@Url.Content(item.ImagePath)" alt="Tour Image" class="tour-imagea">
-            </a>   
-            <div class="tour-list">
-                <p class="tini">
-                    <span>@item.DateStart.ToString("dd/MM/yyyy")</span> - <span>@item.TourDates day</span>
-                </p>
-                <a asp-action="ViewTourDetails" asp-route-id="@item.TourId">
-                    <p>@item.TourName</p>
-                </a>
-                <p><strong>Tour code:</strong> @item.TourId</p>
-                
-                <p><strong>Cost:</strong> @item.Cost</p>
-            </div>
-        </div>
-    }
-    </div>
-    
 
-</div>
+    <div class="tours-container">
+        @foreach (var item in Model)
+        {
+            <div class="tour-item">
+                <a asp-action="ViewTourDetails" asp-route-id="@item.TourId">
+                    <img src="@Url.Content(item.ImagePath)" alt="Tour Image" class="tour-imagea">
+                </a>
+                <div class="tour-list">
+                    <p class="tini">
+                        <span>@item.DateStart.ToString("dd/MM/yyyy")</span> - <span>@item.TourDates day</span>
+                    </p>
+                    <a asp-action="ViewTourDetails" asp-route-id="@item.TourId">
+                        <p>@item.TourName</p>
+                    </a>
+                    <p><strong>Tour code:</strong> @item.TourId</p>
+
+                    <p><strong>Cost:</strong> @item.Cost</p>
+                </div>
+            </div>
+        }
+
+    </div>
+
+
+    </div>
+    <ul id="pagination-container"></ul>
+
+    <script src="~/js/page.js"></script>
+
 
 </body>
+
 </html>

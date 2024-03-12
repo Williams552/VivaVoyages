@@ -8,7 +8,7 @@ public partial class VivaVoyagesContext : DbContext
 {
     public VivaVoyagesContext()
     {
-        
+
     }
 
     public VivaVoyagesContext(DbContextOptions<VivaVoyagesContext> options)
