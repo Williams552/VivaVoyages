@@ -11,15 +11,15 @@ public partial class Passenger
 
     public int OrderId { get; set; }
 
-    public string FullName { get; set; } = null!;
+    public string FullName { get; set; }
 
     public int? Age { get; set; }
 
-    public string? Gender { get; set; }
+    public string Gender { get; set; }
 
     public bool SingleRoom { get; set; }
 
-    public virtual Customer Customer { get; set; } = null!;
+    public virtual Customer? Customer { get; set; }
 
-    public virtual Order Order { get; set; } = null!;
+    public virtual Order? Order { get; set; }
 }

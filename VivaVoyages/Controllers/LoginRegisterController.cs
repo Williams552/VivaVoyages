@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using VivaVoyages.Models;
+using IEmailSender = Microsoft.AspNetCore.Identity.UI.Services.IEmailSender;
 
 namespace VivaVoyages.Controllers
 {
@@ -54,17 +49,14 @@ namespace VivaVoyages.Controllers
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
-            var customer = _db.Customers.FirstOrDefault(c => c.Email == email && c.Password == password);
-
-            if (customer != null)
+            try
             {
-                // Successful login, redirect to home or dashboard
+                var customer = _db.Customers.FirstOrDefault(c => c.Email == email && c.Password == password);
                 HttpContext.Session.SetObject("LoggedInCustomer", customer);
                 return RedirectToAction("Index", "Home");
             }
-            else
+            catch (System.Exception e)
             {
-                // If login fails, return to login page with an error
                 ViewBag.Error = "Email or password is wrong";
                 return View();
             }
@@ -148,7 +140,7 @@ namespace VivaVoyages.Controllers
             {
                 // Successful login, redirect to dashboard
                 HttpContext.Session.SetObject("LoggedInStaff", staff);
-                return RedirectToAction("Index", "Dashboard");
+                return RedirectToAction("Index", "Tour");
             }
             else
             {

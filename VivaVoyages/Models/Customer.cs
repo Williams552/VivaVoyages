@@ -25,7 +25,7 @@ public partial class Customer
 
     public string Status { get; set; } = null!;
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public virtual ICollection<Order>? Orders { get; set; } = new List<Order>();
 
-    public virtual ICollection<Passenger> Passengers { get; set; } = new List<Passenger>();
+    public virtual ICollection<Passenger>? Passengers { get; set; } = new List<Passenger>();
 }
