@@ -57,34 +57,47 @@ namespace VivaVoyages.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Tour tour, List<Destination> destinations)
         {
+            // Handle image upload
+            if (tour.ImageFile != null && tour.ImageFile.Length > 0)
+            {
+                var imagePath = "wwwroot/img/" + "Tour" + tour.TourName + tour.ImageFile.FileName.Substring(tour.ImageFile.FileName.LastIndexOf("."));
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    await tour.ImageFile.CopyToAsync(stream);
+                }
+                tour.ImagePath = "~/img/" + "Tour" + tour.TourName + tour.ImageFile.FileName.Substring(tour.ImageFile.FileName.LastIndexOf("."));
+            }
+
+            ModelState.Remove("ImagePath");
             if (ModelState.IsValid)
             {
-                // Add the tour to the context
                 _context.Add(tour);
                 await _context.SaveChangesAsync();
 
 
-                // If there are destinations provided, associate them with the tour
                 if (destinations != null && destinations.Any())
                 {
                     using (var context = new VivaVoyagesContext())
                     {
                         foreach (var destination in destinations)
                         {
-                            // Make sure to set the TourId for each destination to the newly created tour's Id
                             destination.TourId = tour.TourId;
                             context.Add(destination);
                         }
                         await _context.SaveChangesAsync();
                     }
                 }
-
                 return RedirectToAction(nameof(Index));
             }
-
-            ViewData["PlaceId"] = new SelectList(_context.Places, "PlaceId", "PlaceId");
-
-            return View(tour);
+            else
+            {
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    ModelState.AddModelError(string.Empty, error.ErrorMessage);
+                }
+                ViewData["Place"] = _context.Places.ToList();
+                return View(tour);
+            }
         }
 
         // GET: Tour/Edit/5
@@ -201,6 +214,16 @@ namespace VivaVoyages.Controllers
 
             // Remove the tour
             _context.Tours.Remove(tour);
+
+            // Get the image path before deleting the tour
+            var imagePath = tour.ImagePath;
+
+            // Delete the associated image file
+            if (!string.IsNullOrEmpty(imagePath) && System.IO.File.Exists(imagePath))
+            {
+                System.IO.File.Delete(imagePath);
+            }
+
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

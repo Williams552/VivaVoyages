@@ -19,7 +19,7 @@ public partial class Passenger
 
     public bool SingleRoom { get; set; }
 
-    public virtual Customer Customer { get; set; }
+    public virtual Customer? Customer { get; set; }
 
-    public virtual Order Order { get; set; }
+    public virtual Order? Order { get; set; }
 }

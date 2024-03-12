@@ -15,7 +15,7 @@ public partial class Destination
 
     public DateOnly? DateVisit { get; set; }
 
-    public virtual Place Place { get; set; }
+    public virtual Place? Place { get; set; }
 
-    public virtual Tour Tour { get; set; }
+    public virtual Tour? Tour { get; set; }
 }
