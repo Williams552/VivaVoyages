@@ -23,9 +23,26 @@ public class HomeController : Controller
         return View();
     }
 
+            public IActionResult Profile()
+        {
+            // Kiểm tra xem người dùng đã đăng nhập chưa
+            if (!User.Identity.IsAuthenticated)
+            {
+                // Chưa đăng nhập, chuyển hướng đến trang đăng nhập
+                return RedirectToAction("Login", "Customer");
+            }
+            else
+            {
+                // Đã đăng nhập, chuyển hướng đến trang Profile/Index
+                return RedirectToAction("Index", "Profile");
+            }
+        }
+
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
+

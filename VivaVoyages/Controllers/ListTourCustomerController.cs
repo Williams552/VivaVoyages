@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using VivaVoyages.Models;
-using PagedList;
+
 
 
 namespace VivaVoyages.Controllers
@@ -43,7 +43,7 @@ namespace VivaVoyages.Controllers
             IEnumerable<Tour> listem = _db.Tours.ToList();
             return View(listem);
         }
-        
+
         public IActionResult SearchTours(string searchTerm)
         {
             if (string.IsNullOrEmpty(searchTerm))
@@ -51,10 +51,27 @@ namespace VivaVoyages.Controllers
                 var allTours = _db.Tours.ToList();
                 return View("ListTours", allTours);
             }
+
             var searchTermLower = searchTerm.ToLower();
             var foundTours = _db.Tours.Where(t => t.TourName.ToLower().Contains(searchTermLower)).ToList();
-            return View("ListTours", foundTours);
+
+            // Kiểm tra nếu không có tour nào được tìm thấy
+            if (foundTours.Count == 0)
+            {
+                return RedirectToAction("notfound");
+            }
+
+            return View("ListToursSearch", foundTours);
         }
+
+
+        public IActionResult notfound()
+        {
+            // TODO: Your code here
+            return View();
+        }
+
+       
 
     }
 }

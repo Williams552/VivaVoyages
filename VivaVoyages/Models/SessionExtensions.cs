@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using System.Text.Json;
+using VivaVoyages.Models;
 
 public static class SessionExtensions
 {
@@ -12,5 +13,16 @@ public static class SessionExtensions
     {
         var value = session.GetString(key);
         return value == null ? default : JsonSerializer.Deserialize<T>(value);
+    }
+
+    public static bool IsTLoggedIn<T>(this ISession session,string key)
+    {
+        var value = session.GetString(key);
+        return value == null ? false : true;
+    }
+
+    public static void Remove(this ISession session, string key)
+    {
+        session.Remove(key);
     }
 }

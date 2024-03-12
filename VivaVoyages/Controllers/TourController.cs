@@ -16,6 +16,7 @@ namespace VivaVoyages.Controllers
         public TourController(VivaVoyagesContext context)
         {
             _context = context;
+            
         }
 
         // GET: Tour
@@ -233,5 +234,7 @@ namespace VivaVoyages.Controllers
         {
             return _context.Tours.Any(e => e.TourId == id);
         }
+
+
     }
 }
