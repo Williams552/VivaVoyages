@@ -98,7 +98,7 @@
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\",
       "BasePath": "_content/VivaVoyages",
-      "RelativePath": "css/styleHome.css",
+      "RelativePath": "css/Stylehome.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -109,7 +109,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleHome.css"
+      "OriginalItemSpec": "wwwroot\\css\\Stylehome.css"
     },
     {
       "Identity": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\styleLogin.css",
