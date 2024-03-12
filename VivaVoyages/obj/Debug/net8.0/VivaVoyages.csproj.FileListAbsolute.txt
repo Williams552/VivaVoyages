@@ -2064,3 +2064,14 @@ D:\FPT SP 24\VivaVoyages\VivaVoyages\bin\Debug\net8.0\Microsoft.Web.Infrastructu
 D:\FPT SP 24\VivaVoyages\VivaVoyages\bin\Debug\net8.0\X.PagedList.dll
 D:\FPT SP 24\VivaVoyages\VivaVoyages\bin\Debug\net8.0\X.PagedList.Mvc.dll
 D:\FPT SP 24\VivaVoyages\VivaVoyages\bin\Debug\net8.0\X.PagedList.Web.Common.dll
+E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\JetBrains.Annotations.dll
+E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\System.Web.Mvc.dll
+E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\System.Web.Razor.dll
+E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\System.Web.Helpers.dll
+E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\System.Web.WebPages.Deployment.dll
+E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\System.Web.WebPages.Razor.dll
+E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\System.Web.WebPages.dll
+E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\Microsoft.Web.Infrastructure.dll
+E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\X.PagedList.dll
+E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\X.PagedList.Mvc.dll
+E:\SWP\VivaVoyages\VivaVoyages\bin\Debug\net8.0\X.PagedList.Web.Common.dll

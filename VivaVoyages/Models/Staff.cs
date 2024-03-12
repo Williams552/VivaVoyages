@@ -19,5 +19,5 @@ public partial class Staff
 
     public string Status { get; set; } = null!;
 
-    public virtual ICollection<Order>? Orders { get; set; } = new List<Order>();
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }
