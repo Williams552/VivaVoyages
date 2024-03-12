@@ -13,32 +13,37 @@
 </head>
 <body>
     <div class="search-container">
-        <form action="@Url.Action("SearchTours", "Customer")" method="get">
+        <form action="@Url.Action("SearchTours", "ListTourCustomer")" method="get">
             <input type="text" name="searchTerm" placeholder="Search tours...">
             <button type="submit">Search</button>
         </form>
     </div>
+
     <div class="tours-container">
-        @if (Model.Any())
-        {
-            @foreach(var item in Model)
-            {
-                <div class="tour-item">
-                    <a asp-action="ViewTourDetails" asp-route-id="@item.TourID"><img src="@Url.Content(item.ImagePath)" alt="Tour Image" class="tour-imagea"> </a>   
-                    <div class="tour-list">
-                        <p><strong>Date Start:</strong> @item.DateStart</p>
-                        <p><strong>Tour Dates:</strong> @item.TourDates</p>
-                        <p><strong>Name:</strong> @item.TourName</p>
-                        
-                        <p><strong>Cost:</strong> @item.Cost</p>
-                    </div>
-                </div>
-            }
-        }
-        else
-        {
-            <p>No tours found.</p>
-        }
+    @foreach(var item in Model)
+    {
+        <div class="tour-item">
+            <a asp-action="ViewTourDetails" asp-route-id="@item.TourId">
+                <img src="@Url.Content(item.ImagePath)" alt="Tour Image" class="tour-imagea">
+            </a>   
+            <div class="tour-list">
+                <p class="tini">
+                    <span>@item.DateStart.ToString("dd/MM/yyyy")</span> - <span>@item.TourDates day</span>
+                </p>
+                <a asp-action="ViewTourDetails" asp-route-id="@item.TourId">
+                    <p>@item.TourName</p>
+                </a>
+                <p><strong>Tour code:</strong> @item.TourId</p>
+                
+                <p><strong>Cost:</strong> @item.Cost</p>
+            </div>
+        </div>
+    }
+   
     </div>
+    
+
+</div>
+
 </body>
-</html> 
+</html>
