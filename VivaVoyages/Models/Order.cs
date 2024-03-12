@@ -27,5 +27,5 @@ public partial class Order
 
     public virtual Staff? Staff { get; set; }
 
-    public virtual Tour Tour { get; set; }
+    public virtual Tour Tour { get; set; } = null!;
 }

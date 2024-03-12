@@ -5,7 +5,7 @@ namespace VivaVoyages.Models;
 
 public partial class Coupon
 {
-    public string CouponCode { get; set; }
+    public string CouponCode { get; set; } = null!;
 
     public decimal Discount { get; set; }
 
