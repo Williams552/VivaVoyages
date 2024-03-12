@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\TourList.css"
     },
     {
+      "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\css\\js\\bootstrap.min.js"
+    },
+    {
       "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\profile.css",
       "PackagePath": "staticwebassets\\css\\profile.css"
     },
@@ -31,6 +35,14 @@
     {
       "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\1.png",
       "PackagePath": "staticwebassets\\img\\1.png"
+    },
+    {
+      "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\10.png",
+      "PackagePath": "staticwebassets\\img\\10.png"
+    },
+    {
+      "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\11.png",
+      "PackagePath": "staticwebassets\\img\\11.png"
     },
     {
       "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\2.png",
@@ -69,6 +81,14 @@
       "PackagePath": "staticwebassets\\img\\ThePhong3.png"
     },
     {
+      "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\img\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\nha trang.jpg",
+      "PackagePath": "staticwebassets\\img\\nha trang.jpg"
+    },
+    {
       "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-arthouse-studio-4344664.jpg",
       "PackagePath": "staticwebassets\\img\\pexels-arthouse-studio-4344664.jpg"
     },
@@ -93,8 +113,16 @@
       "PackagePath": "staticwebassets\\img\\thac ban gioc.png"
     },
     {
+      "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\vungtau.jpg",
+      "PackagePath": "staticwebassets\\img\\vungtau.jpg"
+    },
+    {
       "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\xe.jpg",
       "PackagePath": "staticwebassets\\img\\xe.jpg"
+    },
+    {
+      "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
     },
     {
       "Id": "D:\\PRN211\\VivaVoyages\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\site.js",
