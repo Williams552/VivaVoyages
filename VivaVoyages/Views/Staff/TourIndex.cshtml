@@ -1,0 +1,90 @@
+@model IEnumerable<VivaVoyages.Models.Tour>
+
+@{
+    ViewData["Title"] = "TourIndex";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+
+<body>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TourName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExpectedProfit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateStart)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TourDates)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaxPasseger)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TourGuide)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tax)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TourName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExpectedProfit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateStart)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TourDates)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaxPasseger)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TourGuide)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tax)
+                    </td>
+                    <td>
+                        <a asp-action="TourCancel" asp-route-id="@item.TourId">Cancel this tour!</a> |
+                        <a asp-action="DetailTourOrder" asp-route-id="@item.TourId">Details</a> |
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+
+</html>

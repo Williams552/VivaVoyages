@@ -36,7 +36,7 @@ namespace VivaVoyages.Controllers
                     return View(obj);
                 }
                 _db.Customers.Add(obj);
-                _db.Customers.SaveChanges();
+                _db.SaveChanges();
 
                 // Redirect to the login page or any other desired page
                 return RedirectToAction("Login");
@@ -119,7 +119,7 @@ namespace VivaVoyages.Controllers
                     customer.Password = forgotPassword.NewPassword;
 
                     _db.Customers.Update(customer);
-                    _db.Customers.SaveChanges();
+                    _db.SaveChanges();
                     return RedirectToAction("Login");
                 }
                 else

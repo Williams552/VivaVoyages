@@ -1,0 +1,131 @@
+@model VivaVoyages.Models.Tour
+@{
+    ViewData["Title"] = "DetailTourOrder";
+}
+
+@{
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+
+<body>
+
+    <div>
+        <h4>Tour</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TourName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TourName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ExpectedProfit)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ExpectedProfit)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DateStart)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DateStart)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TourDates)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TourDates)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MaxPasseger)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MaxPasseger)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TourGuide)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TourGuide)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Cost)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Cost)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Tax)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Tax)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <h2>Destinations</h2>
+        @if (Model.Destinations.Any())
+        {
+            <table>
+                <tr>
+                    <th>Destination ID</th>
+                    <th>Description</th>
+                    <th>Date Visit</th>
+                </tr>
+                @foreach (var destination in Model.Destinations)
+                {
+                    <tr>
+                        <td>@destination.DestinationId</td>
+                        <td>@destination.Description</td>
+                        <td>@destination.DateVisit</td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>No destinations found for this tour.</p>
+        }
+    </div>
+    <div>
+        <h2>Orders</h2>
+        @if (Model.Orders.Any())
+        {
+            <table>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Status</th>
+                    <th>Date Created</th>
+                </tr>
+                @foreach (var order in Model.Orders)
+                {
+                    <tr>
+                        <td>@order.OrderId</td>
+                        <td>@order.Status</td>
+                        <td>@order.DateCreated</td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>No destinations found for this tour.</p>
+        }
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.TourId">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>
+
+</html>

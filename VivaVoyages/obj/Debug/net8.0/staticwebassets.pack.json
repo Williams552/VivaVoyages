@@ -29,6 +29,42 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\1.png",
+      "PackagePath": "staticwebassets\\img\\1.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\2.png",
+      "PackagePath": "staticwebassets\\img\\2.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\3.png",
+      "PackagePath": "staticwebassets\\img\\3.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\4.png",
+      "PackagePath": "staticwebassets\\img\\4.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\5.png",
+      "PackagePath": "staticwebassets\\img\\5.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\6.png",
+      "PackagePath": "staticwebassets\\img\\6.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\7.png",
+      "PackagePath": "staticwebassets\\img\\7.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\8.png",
+      "PackagePath": "staticwebassets\\img\\8.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\9.png",
+      "PackagePath": "staticwebassets\\img\\9.png"
+    },
+    {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\ThePhong3.png",
       "PackagePath": "staticwebassets\\img\\ThePhong3.png"
     },
@@ -51,6 +87,10 @@
     {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-vanessa-sezini-11566333.jpg",
       "PackagePath": "staticwebassets\\img\\pexels-vanessa-sezini-11566333.jpg"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\thac ban gioc.png",
+      "PackagePath": "staticwebassets\\img\\thac ban gioc.png"
     },
     {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\xe.jpg",
