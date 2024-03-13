@@ -138,9 +138,19 @@ namespace VivaVoyages.Controllers
 
             if (staff != null)
             {
-                // Successful login, redirect to dashboard
+                // Successful login, save into session
                 HttpContext.Session.SetObject("LoggedInStaff", staff);
-                return RedirectToAction("Index", "Tour");
+
+                //Check If the account is admin or not to redirect properly
+                if (staff.Role == "Administrator")
+                {
+                    // If yes, Redirect to dashboard
+                    return RedirectToAction("Index", "Tour");
+                }
+                else
+                {   // If no, Redirect to staff page
+                    return RedirectToAction("PendingOrders", "Staff");
+                }
             }
             else
             {

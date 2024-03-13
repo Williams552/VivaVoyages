@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using VivaVoyages.Models;
+using VivaVoyages.Filters;
 
 namespace VivaVoyages.Controllers
 {
+    [ServiceFilter(typeof(StaffLoginFilter))]
     public class StaffController : Controller
     {
         private readonly VivaVoyagesContext _context;
@@ -17,6 +19,7 @@ namespace VivaVoyages.Controllers
         public StaffController(VivaVoyagesContext context)
         {
             _context = context;
+
         }
 
         public async Task<IActionResult> TourIndex()

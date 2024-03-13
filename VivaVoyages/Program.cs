@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using VivaVoyages.Filters;
 using VivaVoyages.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,11 @@ builder.Services.AddSession(options =>
     {
         options.IdleTimeout = TimeSpan.FromMinutes(1); // Set session timeout
     });
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<LoginChecker>();
+builder.Services.AddScoped<StaffLoginFilter>();
+builder.Services.AddScoped<AdminLoginFilter>();
+builder.Services.AddScoped<CustomerLoginFilter>();
 
 
 var app = builder.Build();
