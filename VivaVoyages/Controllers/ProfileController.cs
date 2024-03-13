@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using VivaVoyages.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using VivaVoyages.Filters;
 
 namespace VivaVoyages.Controllers
 {
+    [ServiceFilter(typeof(CustomerLoginFilter))]
     public class ProfileController : Controller
     {
         private readonly VivaVoyagesContext _context;

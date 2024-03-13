@@ -81,13 +81,13 @@
 
     <header>
         <nav class="navbar navbar-expand-md py-3" style="background: #fdf4e6;">
-            <div class="container"><a class="navbar-brand d-flex align-items-center" href="Home"><span><img width="100" height="80" src="~/img/ThePhong3.png"></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-3"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="container"><a class="navbar-brand d-flex align-items-center" asp-controller="Home"><span><img width="100" height="80" src="~/img/ThePhong3.png"></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-3"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-3">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><a class="nav-link active" href="ListTourCustomer/ListTours"><strong>List Tour</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="ListTourCustomer/ListTours"><strong>Promotion Tour</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><strong>Hand book</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><strong>Support</strong></a></li>
+                        <li class="nav-item"><a class="nav-link active" asp-controller="ListTourCustomer" asp-action="ListTours"><strong>List Tour</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="ListTourCustomer" asp-action="ListTours"><strong>Promotion Tour</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="ListTourCustomer" asp-action="ListTours"><strong>Hand book</strong></a></li>
+                        <li class="nav-item"><a class="nav-link"asp-controller="ListTourCustomer" asp-action="ListTours"><strong>Support</strong></a></li>
                     </ul> 
                     <a href="profile/index">
     <i style="font-size: 50px; color: #000000;" class="bi bi-person"></i>
