@@ -27,7 +27,7 @@
                             <div class="div-3">@ViewData["FullName"]</div>
                         </div>
                         <div class="div-4"></div>
-                        <a class="div-5" style="text-decoration: none;">Account</a>
+                        <a asp-action="Index" asp-route-id="@ViewData["CustomerId"]" class="div-5" style="text-decoration: none;">Account</a>
                         <a asp-action="Index" asp-route-id="@ViewData["CustomerId"]" class="div-9"
                             style="text-decoration: none;">Personal Information</a>
                         <a asp-action="ChangePassword" asp-route-id="@ViewData["CustomerId"]" class="div-9"
@@ -48,11 +48,12 @@
                                 <thead>
                                     <tr>
                                         <th>Tour Name</th>
-                                        <th>Max Passengers</th>
+                                        <th>Passengers</th>
                                         <th>Date Start</th>
                                         <th>Tour Dates</th>
                                         <th>Tour Guide</th>
                                         <th>Cost</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,11 +61,12 @@
                                     {
                                         <tr>
                                             <td>@tour.TourName</td>
-                                            <td>@tour.MaxPassenger</td>
+                                            <td>@tour.PassengerCount</td>
                                             <td>@tour.DateStart</td>
                                             <td>@tour.TourDates</td>
                                             <td>@tour.TourGuide</td>
                                             <td>@tour.Cost</td>
+                                            <td>@tour.Status</td>
                                         </tr>
                                     }
                                 </tbody>
