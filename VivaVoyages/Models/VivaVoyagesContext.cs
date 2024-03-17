@@ -39,17 +39,17 @@ public partial class VivaVoyagesContext : DbContext
     {
         modelBuilder.Entity<Coupon>(entity =>
         {
-            entity.HasKey(e => e.CouponCode).HasName("PK__Coupons__D34908015475BA3F");
+            entity.HasKey(e => e.CouponCode).HasName("PK__Coupons__D349080100AFA52C");
 
             entity.Property(e => e.CouponCode)
                 .HasMaxLength(255)
                 .IsUnicode(false);
-            entity.Property(e => e.Discount).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.Discount).HasColumnType("money");
         });
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64B83C792147");
+            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64B8E47B597A");
 
             entity.ToTable("Customer");
 
@@ -83,7 +83,7 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Destination>(entity =>
         {
-            entity.HasKey(e => e.DestinationId).HasName("PK__Destinat__DB5FE4AC619CFB0C");
+            entity.HasKey(e => e.DestinationId).HasName("PK__Destinat__DB5FE4AC83DBDD35");
 
             entity.ToTable("Destination");
 
@@ -105,7 +105,7 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAFA73D34C8");
+            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF49FD71AF");
 
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.CouponCode)
@@ -117,6 +117,7 @@ public partial class VivaVoyagesContext : DbContext
             entity.Property(e => e.Status)
                 .HasMaxLength(20)
                 .IsUnicode(false);
+            entity.Property(e => e.Total).HasColumnType("money");
             entity.Property(e => e.TourId).HasColumnName("TourID");
 
             entity.HasOne(d => d.CouponCodeNavigation).WithMany(p => p.Orders)
@@ -140,7 +141,7 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Passenger>(entity =>
         {
-            entity.HasKey(e => e.PassengerId).HasName("PK__Passenge__88915F90A1DFC7ED");
+            entity.HasKey(e => e.PassengerId).HasName("PK__Passenge__88915F90BA8DD316");
 
             entity.Property(e => e.PassengerId).HasColumnName("PassengerID");
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
@@ -165,13 +166,16 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Place>(entity =>
         {
-            entity.HasKey(e => e.PlaceId).HasName("PK__Places__D5222B4EC5EAFAA6");
+            entity.HasKey(e => e.PlaceId).HasName("PK__Places__D5222B4EA163472A");
 
             entity.Property(e => e.PlaceId).HasColumnName("PlaceID");
             entity.Property(e => e.Address)
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Description)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.ImagePath)
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.PlaceName)
@@ -181,7 +185,7 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Staff>(entity =>
         {
-            entity.HasKey(e => e.StaffId).HasName("PK__Staff__96D4AAF74EDC865C");
+            entity.HasKey(e => e.StaffId).HasName("PK__Staff__96D4AAF7ADA735C0");
 
             entity.Property(e => e.StaffId).HasColumnName("StaffID");
             entity.Property(e => e.Address)
@@ -206,18 +210,17 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Tour>(entity =>
         {
-            entity.HasKey(e => e.TourId).HasName("PK__Tour__604CEA10B0DCB5BD");
+            entity.HasKey(e => e.TourId).HasName("PK__Tour__604CEA10C948E0FF");
 
             entity.ToTable("Tour");
 
             entity.Property(e => e.TourId).HasColumnName("TourID");
-            entity.Property(e => e.Cost).HasColumnType("decimal(10, 2)");
-            entity.Property(e => e.ExpectedProfit)
-                .HasMaxLength(255)
-                .IsUnicode(false);
+            entity.Property(e => e.Cost).HasColumnType("money");
+            entity.Property(e => e.ExpectedProfit).HasColumnType("money");
             entity.Property(e => e.ImagePath)
                 .HasMaxLength(255)
                 .IsUnicode(false);
+            entity.Property(e => e.SingleRoomCost).HasColumnType("money");
             entity.Property(e => e.Tax).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.TourGuide)
                 .HasMaxLength(255)
