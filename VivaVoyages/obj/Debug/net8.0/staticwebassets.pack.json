@@ -9,8 +9,12 @@
       "PackagePath": "staticwebassets\\css\\TourList.css"
     },
     {
-      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\js\\bootstrap.min.js",
-      "PackagePath": "staticwebassets\\css\\js\\bootstrap.min.js"
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\animate.min.css",
+      "PackagePath": "staticwebassets\\css\\animate.min.css"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\handbook.css",
+      "PackagePath": "staticwebassets\\css\\handbook.css"
     },
     {
       "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\pikaday.min.css",
@@ -49,6 +53,18 @@
       "PackagePath": "staticwebassets\\img\\11.png"
     },
     {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\12.jpg",
+      "PackagePath": "staticwebassets\\img\\12.jpg"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\13.jpg",
+      "PackagePath": "staticwebassets\\img\\13.jpg"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\14.jpeg",
+      "PackagePath": "staticwebassets\\img\\14.jpeg"
+    },
+    {
       "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\2.png",
       "PackagePath": "staticwebassets\\img\\2.png"
     },
@@ -81,8 +97,8 @@
       "PackagePath": "staticwebassets\\img\\9.png"
     },
     {
-      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\ThePhong3.png",
-      "PackagePath": "staticwebassets\\img\\ThePhong3.png"
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\Logo.png",
+      "PackagePath": "staticwebassets\\img\\Logo.png"
     },
     {
       "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\TourDaNang.png",
@@ -97,8 +113,32 @@
       "PackagePath": "staticwebassets\\img\\amm.png"
     },
     {
-      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\js\\bootstrap.min.js",
-      "PackagePath": "staticwebassets\\img\\js\\bootstrap.min.js"
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\dalat.png",
+      "PackagePath": "staticwebassets\\img\\dalat.png"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\dalat1.png",
+      "PackagePath": "staticwebassets\\img\\dalat1.png"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\dalat2.png",
+      "PackagePath": "staticwebassets\\img\\dalat2.png"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\dalat3.png",
+      "PackagePath": "staticwebassets\\img\\dalat3.png"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\dallat4.png",
+      "PackagePath": "staticwebassets\\img\\dallat4.png"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\handbook.jpg",
+      "PackagePath": "staticwebassets\\img\\handbook.jpg"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\login.webp",
+      "PackagePath": "staticwebassets\\img\\login.webp"
     },
     {
       "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\mobile.jpeg",
@@ -151,6 +191,10 @@
     {
       "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\bs-init.js",
+      "PackagePath": "staticwebassets\\js\\bs-init.js"
     },
     {
       "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\page.js",
