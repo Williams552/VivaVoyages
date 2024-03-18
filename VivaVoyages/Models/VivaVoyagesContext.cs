@@ -45,6 +45,7 @@ public partial class VivaVoyagesContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Discount).HasColumnType("money");
+            entity.Property(e => e.Discount).HasColumnType("money");
         });
 
         modelBuilder.Entity<Customer>(entity =>
@@ -96,11 +97,11 @@ public partial class VivaVoyagesContext : DbContext
 
             entity.HasOne(d => d.Place).WithMany(p => p.Destinations)
                 .HasForeignKey(d => d.PlaceId)
-                .HasConstraintName("FK__Destinati__Place__38996AB5");
+                .HasConstraintName("FK__Destinati__Place__4BAC3F29");
 
             entity.HasOne(d => d.Tour).WithMany(p => p.Destinations)
                 .HasForeignKey(d => d.TourId)
-                .HasConstraintName("FK__Destinati__TourI__37A5467C");
+                .HasConstraintName("FK__Destinati__TourI__4AB81AF0");
         });
 
         modelBuilder.Entity<Order>(entity =>
@@ -118,25 +119,26 @@ public partial class VivaVoyagesContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false);
             entity.Property(e => e.Total).HasColumnType("money");
+            entity.Property(e => e.Total).HasColumnType("money");
             entity.Property(e => e.TourId).HasColumnName("TourID");
 
             entity.HasOne(d => d.CouponCodeNavigation).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CouponCode)
-                .HasConstraintName("FK__Orders__CouponCo__2F10007B");
+                .HasConstraintName("FK__Orders__CouponCo__4222D4EF");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Orders__Customer__2C3393D0");
+                .HasConstraintName("FK__Orders__Customer__3F466844");
 
             entity.HasOne(d => d.Staff).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.StaffId)
-                .HasConstraintName("FK__Orders__StaffID__2D27B809");
+                .HasConstraintName("FK__Orders__StaffID__403A8C7D");
 
             entity.HasOne(d => d.Tour).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.TourId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Orders__TourID__2E1BDC42");
+                .HasConstraintName("FK__Orders__TourID__412EB0B6");
         });
 
         modelBuilder.Entity<Passenger>(entity =>
@@ -156,12 +158,12 @@ public partial class VivaVoyagesContext : DbContext
             entity.HasOne(d => d.Customer).WithMany(p => p.Passengers)
                 .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Passenger__Custo__34C8D9D1");
+                .HasConstraintName("FK__Passenger__Custo__47DBAE45");
 
             entity.HasOne(d => d.Order).WithMany(p => p.Passengers)
                 .HasForeignKey(d => d.OrderId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Passenger__Order__33D4B598");
+                .HasConstraintName("FK__Passenger__Order__46E78A0C");
         });
 
         modelBuilder.Entity<Place>(entity =>
@@ -173,6 +175,9 @@ public partial class VivaVoyagesContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Description)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.ImagePath)
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.ImagePath)
@@ -217,9 +222,12 @@ public partial class VivaVoyagesContext : DbContext
             entity.Property(e => e.TourId).HasColumnName("TourID");
             entity.Property(e => e.Cost).HasColumnType("money");
             entity.Property(e => e.ExpectedProfit).HasColumnType("money");
+            entity.Property(e => e.Cost).HasColumnType("money");
+            entity.Property(e => e.ExpectedProfit).HasColumnType("money");
             entity.Property(e => e.ImagePath)
                 .HasMaxLength(255)
                 .IsUnicode(false);
+            entity.Property(e => e.SingleRoomCost).HasColumnType("money");
             entity.Property(e => e.SingleRoomCost).HasColumnType("money");
             entity.Property(e => e.Tax).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.TourGuide)

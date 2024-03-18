@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace VivaVoyages.Models;
 
 public partial class Tour
 {
     public int TourId { get; set; }
 
-    public string TourName { get; set; } = null!;
+    public string TourName { get; set; }
+
+    public decimal? ExpectedProfit { get; set; }
 
     public decimal ExpectedProfit { get; set; }
 
@@ -18,7 +21,7 @@ public partial class Tour
 
     public int MaxPasseger { get; set; }
 
-    public string TourGuide { get; set; } = null!;
+    public string TourGuide { get; set; }
 
     public decimal Cost { get; set; }
 

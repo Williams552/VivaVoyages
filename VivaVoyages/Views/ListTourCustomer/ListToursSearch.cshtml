@@ -13,9 +13,11 @@
 </head>
 <body>
     <div class="search-container">
-        <form action="@Url.Action("SearchTours", "ListTourCustomer")" method="get">
+        <form id="search-form" action="@Url.Action("SearchTours", "ListTourCustomer")" method="get">
+           <div class="input-group">
             <input type="text" name="searchTerm" placeholder="Search tours...">
-            <button type="submit">Search</button>
+            <button type="submit" class="search-button"><i id="search-icon" class="bi bi-search"></i></button>
+        </div>
         </form>
     </div>
 
@@ -35,7 +37,7 @@
                 </a>
                 <p><strong>Tour code:</strong> @item.TourId</p>
                 
-                <p><strong>Cost:</strong> @item.Cost</p>
+                <p><strong>Cost:</strong> @(item.Cost + item.ExpectedProfit)đ</p>
             </div>
         </div>
     }
