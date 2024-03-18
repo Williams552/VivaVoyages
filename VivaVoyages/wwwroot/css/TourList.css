@@ -19,6 +19,7 @@
     transform: translateY(-5px); /* Di chuyển phần tử lên trên 5px */
 }
 
+
 .tour-imagea {
     max-width: 100%;
     height: auto;
@@ -52,7 +53,7 @@
     align-items: center; /* Căn chỉnh các phần tử con theo trục dọc */
 }
 
-.it-cp p {
+.it-cp h5 {
     margin-right: 10px; /* Khoảng cách giữa cost và booking */
 }
 
@@ -61,7 +62,7 @@
     flex-direction: column;
 }
 
-.it-cp p{
+.it-cp h5{
     margin-top: -40px;
 }
 
@@ -85,8 +86,8 @@
 }
 
 .tour-image {
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 650px;
+    height: 500px;
     
     border-radius: 20px;
     padding: 5px;
@@ -111,34 +112,7 @@
     }
 }
 
-/*---Tour search---*/
 
-/* Style cho container chứa thanh tìm kiếm */
-.search-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Style cho input và button trong thanh tìm kiếm */
-.search-container input[type=text] {
-    padding: 10px;
-    width: 300px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.search-container button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.search-container button:hover {
-    background-color: #0056b3;
-}
 
 /* Style cho danh sách các tour */
 .tours-container {
@@ -210,6 +184,433 @@
     margin-right: 10px;
 }
 
+
+
 #pagination-container button:hover {
     background-color: #45a049; 
+}
+
+.roww{
+    display: flex;
+    justify-content: space-between;
+}
+.img-place{
+margin-top: 30px;
+padding-left:20px ;
+
+}
+.img-place img{
+    
+  width: 210px;
+  height: 220px;
+  border-radius: 20px;
+ 
+  padding-bottom: 10px;
+  
+  
+}
+
+.cas{
+    background-color: #f9f9f9;
+    width: 500px;
+    padding:20px 20px;
+    border-radius: 5px;
+    border: 1px #ccc solid;
+}
+
+.hdv{
+    background-color: #f9f9f9;
+    width: 500px;
+    padding:20px 10px 50px 20px;
+    border-radius: 5px;
+    border: 1px #ccc solid;
+    
+}
+
+.hdv h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.hdv p{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.flex-cost{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 10px 0;
+}
+
+.dt-it{
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-dt{
+    margin-left: 70px ;
+    color: red;
+}
+
+.center {
+    text-align: center; /* Để căn giữa nội dung ngang */
+    display: flex;
+    justify-content: center; /* Để căn giữa nội dung theo chiều ngang */
+    align-items: center; /* Để căn giữa nội dung theo chiều dọc */
+    margin-top: 30px;
+}
+
+
+
+
+
+.container-dt{
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.lt{
+    
+    padding-top: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 350px;
+    height: 100%;
+   
+}
+
+.deatil-item{
+    flex: 7;
+    width: 100%;
+    
+}
+
+.it-content{
+    margin-left: 20px;
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
+
+.content-i{
+   margin-top: 15px;
+   
+}
+
+.descri{
+    width: 700px;
+    margin-left: 40px;
+    position: relative;
+    text-align: justify;
+  
+}
+
+
+.ll {
+    position: absolute;
+        left: -15px; /* Điều chỉnh vị trí của đường đứt so với nội dung */
+        top: 0;
+        height: 100%; /* Chiều cao của đường đứt */
+        border-left: 1px dashed #007bff; /* Kích thước và màu sắc của đường đứt */
+}
+
+
+.dp{
+    display: flex;
+}
+
+
+.line-circle-container {
+    
+   
+    position: relative;
+    
+}
+
+.line {
+    width: 2px; /* Độ rộng của đường dọc */
+    height: 100%; /* Chiều cao của đường dọc sẽ kéo dài từ đầu đến cuối của container */
+    background-color: black; /* Màu sắc của đường dọc */
+    
+   
+}
+
+
+.dp {
+    padding-top: 5px;
+    margin-left: 10px; /* Khoảng cách giữa đường dọc và nội dung bên phải */
+    padding-left: 10px; /* Khoảng cách giữa nội dung và đường dọc */
+    border-left: 1px dashed black; /* Đường viền bên trái của nội dung */
+    
+}
+
+#icon{
+position: absolute;
+color:#007bff;
+font-size: 25px;
+margin-left: -12px;
+}
+
+.loat{
+    float: left;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+
+.cd {
+    position: relative; /* Đặt vị trí tương đối */
+}
+
+.count {
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    margin-left: 37px;
+    margin-top: 4px;
+    color: #fff;
+}
+
+#ds{
+    font-size: small;
+}
+
+.tourdt p{
+    margin-top: -10px;
+}
+
+.tourdt{
+    margin-bottom: 40px;
+}
+
+.it-content{
+    display: flex;
+}
+/* list tour viewtourdetail*/
+.other-tours {
+   
+  margin-top: 10px;
+}
+
+.tour-items {
+    display: flex; /* Sử dụng flexbox để hiển thị các tour ngang */
+    justify-content: space-around;
+}
+
+.tour-item {
+   
+    margin-right: 10px;
+    width: 350px;
+    
+}
+
+.tour-item:last-child {
+    margin-right: 0; /* Không có khoảng cách bên phải cho tour cuối cùng */
+    
+}
+
+.tour-info a{
+    text-decoration: none;
+    color: black;
+}
+
+.tour-info a:hover{
+    color: gold;
+}
+
+#ctbt img{
+    border-radius: 5px;
+}
+
+
+.search-container{
+    margin: 30px 0 20px 0;
+
+}
+
+ /* Modal */
+#modal-container{
+    width: 100%;
+    min-height: 100vh;
+    background:  rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease-in-out;
+    z-index: 3;
+}
+
+#modal{
+    background: #fff;
+    max-width: 500px;
+    position: relative;
+    padding-bottom: 20px;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.25s ease-in-out;
+   
+}
+
+#btn-close{
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 20px;
+}
+
+#modal-container.show{
+    opacity: 1;
+    pointer-events: all;
+}
+
+#modal-container.show #modal{
+    top: 100px;
+}
+
+#bk{
+    margin-right: 10px;
+}
+
+#call{
+    margin-right: 10px;
+}
+
+.contact{
+    background-color: #fff;
+    border: #000000 1px solid;
+    color: black;
+}
+.contact:hover{
+    background-color: #dfdfdf;
+    color: #000000;
+}
+
+
+/*---Tour search---*/
+
+/* Style cho container chứa thanh tìm kiếm */
+.search-container {
+    align-items: center;
+    margin-bottom: 40px;
+  
+}
+
+.input-group{
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    display: flex;
+}
+
+/* Style cho input và button trong thanh tìm kiếm */
+.search-container input[type=text] {
+    padding: 10px;
+    width: 400px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.search-container button {
+    padding: 10.5px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    position: absolute;
+    margin-right: -350px;
+    
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+.search-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+   
+}
+
+.search-button:focus {
+    outline: none;
+}
+
+/* Modal1 */
+#modal-container1{
+    width: 100%;
+    min-height: 100vh;
+    background:  rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease-in-out;
+    z-index: 2
+}
+
+#modal1{
+    background: #fff;
+    max-width: 500px;
+    position: relative;
+    padding-bottom: 35px;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.25s ease-in-out;
+    
+}
+
+#btn-close1{
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 20px;
+}
+
+#modal-container1.show1{
+    opacity: 1;
+    pointer-events: all;
+}
+
+#modal-container1.show1 #modal1{
+    top: 100px;
+}
+
+.modal-header1{
+    display: flex;
+    padding: 20px 20px;
+    justify-content: space-between;
+    border-bottom: 1px #dedede solid;
+    width: 100%;
+    align-items: center;
+
+}
+
+.modal-body1{
+    margin-top: 10px;
+    padding: 0 20px;
+}
+
+
+.center i{
+    margin-right: 10px;
+    font-size: 30px;
+}
+
+.caa{
+    border-bottom: 1px solid #ccc;
 }

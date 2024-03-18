@@ -42,14 +42,20 @@ namespace VivaVoyages.Controllers
             try
             {
                 Customer customer = HttpContext.Session.GetObject<Customer>("LoggedInCustomer");
+                int numbOfPassenger =0;
+                int numbOfSR =0;
 
                 //Add the passengers to the database
                 List<Passenger> passengers = JsonConvert.DeserializeObject<List<Passenger>>(passengersJson);
                 foreach (var passenger in passengers)
                 {
+                    numbOfPassenger ++;
+                    if(passenger.SingleRoom == true) numbOfSR ++;
                     passenger.CustomerId = customer.CustomerId;
                     _context.Passengers.Add(passenger);
+                    
                 }
+                var tour =  _context.Tours.Find(tourId);
 
                 Order order = new Order
                 {
@@ -57,7 +63,9 @@ namespace VivaVoyages.Controllers
                     TourId = tourId,
                     StaffId = _context.Staff.FirstOrDefault().StaffId,
                     DateCreated = DateTime.Now,
-                    Status = "Pending"
+                    Status = "Pending",
+                    Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR))*(1+tour.Tax/100)
+
                 };
 
                 // Add the Order to the context

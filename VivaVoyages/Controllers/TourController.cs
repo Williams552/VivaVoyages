@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using VivaVoyages.Filters;
 using VivaVoyages.Models;
 
 namespace VivaVoyages.Controllers
 {
+    //[ServiceFilter(typeof(AdminLoginFilter))]
     public class TourController : Controller
     {
         private readonly VivaVoyagesContext _context;
@@ -16,7 +18,7 @@ namespace VivaVoyages.Controllers
         public TourController(VivaVoyagesContext context)
         {
             _context = context;
-            
+
         }
 
         // GET: Tour

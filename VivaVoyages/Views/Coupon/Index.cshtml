@@ -1,65 +1,3 @@
-@* @model IEnumerable<VivaVoyages.Models.Coupon>
-
-@{
-Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-<meta name="viewport" content="width=device-width" />
-<title>Index</title>
-</head>
-<body>
-<p>
-<a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-<thead>
-<tr>
-<th>
-@Html.DisplayNameFor(model => model.CouponCode)
-</th>
-<th>
-@Html.DisplayNameFor(model => model.Discount)
-</th>
-<th>
-@Html.DisplayNameFor(model => model.DateStart)
-</th>
-<th>
-@Html.DisplayNameFor(model => model.DateEnd)
-</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-@foreach (var item in Model) {
-<tr>
-<td>
-@Html.DisplayFor(modelItem => item.CouponCode)
-</td>
-<td>
-@Html.DisplayFor(modelItem => item.Discount)
-</td>
-<td>
-@Html.DisplayFor(modelItem => item.DateStart)
-</td>
-<td>
-@Html.DisplayFor(modelItem => item.DateEnd)
-</td>
-<td>
-<a asp-action="Edit" asp-route-id="@item.CouponCode">Edit</a> |
-<a asp-action="Details" asp-route-id="@item.CouponCode">Details</a> |
-<a asp-action="Delete" asp-route-id="@item.CouponCode">Delete</a>
-</td>
-</tr>
-}
-</tbody>
-</table>
-</body>
-</html> *@
-
 @model IEnumerable<VivaVoyages.Models.Coupon>
 
 @{
@@ -74,83 +12,80 @@ Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <title>Index</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/css/theme.bootstrap_4.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
-    <link rel="stylesheet" href="assets/css/Ludens---1-Index-Table-with-Search--Sort-Filters-v20.css">
-    <link rel="stylesheet" href="assets/css/Pretty-Search-Form-.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-sm-6 col-md-6 d-md-flex">
-                <h2 class="text-truncate fs-1 fw-bold text-primary d-md-flex flex-grow-0 mb-4">Coupon</h2>
-            </div>
-        </div>
-        <div id="TableSorterCard" class="card">
-            <div class="card-header py-3">
-                <div class="row table-topper align-items-center">
-                    <div class="col-12 col-sm-5 col-md-6 text-start" style="margin: 0px;padding: 5px 15px;"></div>
-                    <div class="col align-self-center"><a
-                            class="btn btn-primary border rounded-pill float-end d-md-flex justify-content-md-center align-items-md-center"
-                            role="button" style="width: 185.562px;height: 50.6px;"><i class="fa fa-plus asp-action="
-                                Create""></i> Add new coupon</a></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="table-responsive">
-                        <table id="ipi-table" class="table table-sm table-bordered table tablesorter">
-                            <thead class="thead-dark">
+    <div class="container">
+        <div></div>
+        <div style="padding: 35px;">
+            <div class="row" style="border-radius: 23px;border: 1.4px solid rgb(24,113,203);">
+                <div class="col m-auto">
+                    <div class="row" style="border-bottom: 0.6px solid rgb(20,114,208);">
+                        <div class="col">
+                            <h1>Coupons</h1>
+                            <p>This is Coupons</p>
+                        </div>
+                        <div class="col"></div>
+                        <div class="col d-lg-flex justify-content-center justify-content-lg-end align-items-lg-center">
+                            <ul class="list-inline d-grid d-lg-flex">
+                                <li class="list-inline-item d-md-flex justify-content-md-center align-items-md-center">
+                                    <button class="btn btn-primary btn-lg" type="button" asp-action="Create"
+                                        style="padding: 17px 16px;font-size: 22px;">Add new coupon</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="table-responsive" style="margin: 10px;">
+                        <table class="table table-striped">
+                            <thead>
                                 <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.CouponCode)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Discount)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.DateStart)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.DateEnd)
-                                    </th>
-                                    <th class="text-center filter-false sorter-false">Action</th>
+                                    <th>CouponCode</th>
+                                    <th>Discount</th>
+                                    <th>DateStart</th>
+                                    <th>DateEnd</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
-                            <tbody class="text-center">
+                            <tbody>
                                 @foreach (var item in Model)
                                 {
                                     <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.CouponCode)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Discount)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.DateStart)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.DateEnd)
-                                        </td>
-                                        <td class="text-center align-middle" style="max-height: 60px;height: 60px;"><a
-                                                class="btn btnMaterial btn-flat primary semicircle" role="button"
-                                                asp-action="Details" asp-route-id="@item.CouponCode"><i
-                                                    class="far fa-eye"></i> detail</a> @*Detail*@
-                                            <a class="btn btnMaterial btn-flat success semicircle" role="button"
-                                                asp-action="Edit" asp-route-id="@item.CouponCode"><i
-                                                    class="fas fa-pen"></i> edit</a> @*Edit*@
-                                            <a class="btn btnMaterial btn-flat accent btnNoBorders checkboxHover"
-                                                role="button" style="margin-left: 5px;" data-bs-toggle="modal"
-                                                data-bs-target="#delete-modal" asp-action="Delete"
-                                                asp-route-id="@item.CouponCode"><i class="fas fa-trash btnNoBorders"
-                                                    style="color: #DC3545;"></i> delete</a> @*Delete*@
+                                        <td class="m-auto">@item.CouponCode</td>
+                                        <td class="m-auto">@item.Discount</td>
+                                        <td class="m-auto">@item.DateStart</td>
+                                        <td class="m-auto">@item.DateEnd</td>
+                                        <td class="text-center m-auto">
+                                            <a asp-action="Detail" asp-route-id="@item.CouponCode" class="btn"
+                                                style="width: 90px;height: 45px;color: rgb(0,128,255);font-size: 20px;"><svg
+                                                    class="bi bi-info-square" xmlns="http://www.w3.org/2000/svg" width="1em"
+                                                    height="1em" fill="currentColor" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z">
+                                                    </path>
+                                                    <path
+                                                        d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0">
+                                                    </path>
+                                                </svg></a>
+                                            <a asp-action="Edit" asp-route-id="@item.CouponCode" class="btn"
+                                                style="width: 90px;height: 45px;color: rgb(0,128,255);font-size: 20px;"><svg
+                                                    class="bi bi-pen" xmlns="http://www.w3.org/2000/svg" width="1em"
+                                                    height="1em" fill="currentColor" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z">
+                                                    </path>
+                                                </svg></a>
+                                            <a asp-action="Delete" asp-route-id="@item.CouponCode" class="btn"
+                                                style="width: 90px;height: 45px;color: rgb(0,128,255);font-size: 20px;"><svg
+                                                    class="bi bi-trash" xmlns="http://www.w3.org/2000/svg" width="1em"
+                                                    height="1em" fill="currentColor" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z">
+                                                    </path>
+                                                    <path
+                                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z">
+                                                    </path>
+                                                </svg></a>
                                         </td>
                                     </tr>
                                 }
@@ -161,17 +96,9 @@ Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
             </div>
         </div>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/jquery.tablesorter.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-filter.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-storage.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script
-        src="assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20-Ludens---1-Index-Table-with-Search--Sort-Filters.js"></script>
-    <script
-        src="assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20-Ludens---Material-UI-Actions.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 </body>
 
 </html>

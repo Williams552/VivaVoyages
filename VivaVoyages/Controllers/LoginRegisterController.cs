@@ -49,13 +49,13 @@ namespace VivaVoyages.Controllers
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
-            try
+            var customer = _db.Customers.FirstOrDefault(c => c.Email == email && c.Password == password);
+            if (customer != null)
             {
-                var customer = _db.Customers.FirstOrDefault(c => c.Email == email && c.Password == password);
                 HttpContext.Session.SetObject("LoggedInCustomer", customer);
                 return RedirectToAction("Index", "Home");
             }
-            catch (System.Exception e)
+            else
             {
                 ViewBag.Error = "Email or password is wrong";
                 return View();
@@ -138,9 +138,19 @@ namespace VivaVoyages.Controllers
 
             if (staff != null)
             {
-                // Successful login, redirect to dashboard
+                // Successful login, save into session
                 HttpContext.Session.SetObject("LoggedInStaff", staff);
-                return RedirectToAction("Index", "Tour");
+
+                //Check If the account is admin or not to redirect properly
+                if (staff.Role == "Administrator")
+                {
+                    // If yes, Redirect to dashboard
+                    return RedirectToAction("Index", "Tour");
+                }
+                else
+                {   // If no, Redirect to staff page
+                    return RedirectToAction("PendingOrders", "Staff");
+                }
             }
             else
             {
@@ -148,6 +158,12 @@ namespace VivaVoyages.Controllers
                 ViewBag.Error = "Email or password is wrong";
                 return View();
             }
+        }
+        //sign out
+        public IActionResult SignOut()
+        {
+            HttpContext.Session.Remove("LoggedInCustomer");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

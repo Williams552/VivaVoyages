@@ -1,6 +1,6 @@
 @model Staff
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "StaffLogin";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +25,7 @@
                         Sign up
                     </span>
                 </div>
-                <form action="Login" method="post">
+                <form action="StaffLogin" method="post">
                     <div class="div-4">Username</div>
                     <div class="div-5"><input type="text" asp-for="Email" class="input-1"></div>
                     <div class="div-6">Password</div>
@@ -54,7 +54,8 @@
     </main>
 </body>
 
-</html>
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+<head>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+</head>

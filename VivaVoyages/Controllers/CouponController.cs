@@ -65,6 +65,7 @@ namespace VivaVoyages.Controllers
         }
 
         // GET: Coupon/Edit/5
+        [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -84,7 +85,7 @@ namespace VivaVoyages.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("CouponCode,Discount,DateStart,DateEnd")] Coupon coupon)
         {
             if (id != coupon.CouponCode)

@@ -123,7 +123,6 @@ D:\FPT SP 24\VivaVoyages\VivaVoyages\obj\Debug\net8.0\staticwebassets.pack.json
 D:\FPT SP 24\VivaVoyages\VivaVoyages\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\FPT SP 24\VivaVoyages\VivaVoyages\obj\Debug\net8.0\scopedcss\bundle\VivaVoyages.styles.css
 D:\FPT SP 24\VivaVoyages\VivaVoyages\obj\Debug\net8.0\scopedcss\projectbundle\VivaVoyages.bundle.scp.css
-D:\FPT SP 24\VivaVoyages\VivaVoyages\obj\Debug\net8.0\VivaVoyages.csproj.CopyComplete
 D:\FPT SP 24\VivaVoyages\VivaVoyages\obj\Debug\net8.0\VivaVoyages.dll
 D:\FPT SP 24\VivaVoyages\VivaVoyages\obj\Debug\net8.0\refint\VivaVoyages.dll
 D:\FPT SP 24\VivaVoyages\VivaVoyages\obj\Debug\net8.0\VivaVoyages.pdb
@@ -2341,3 +2340,4 @@ P:\SE1707_SP24\PRN211\VivaVoyages-2\VivaVoyages\obj\Debug\net8.0\refint\VivaVoya
 P:\SE1707_SP24\PRN211\VivaVoyages-2\VivaVoyages\obj\Debug\net8.0\VivaVoyages.pdb
 P:\SE1707_SP24\PRN211\VivaVoyages-2\VivaVoyages\obj\Debug\net8.0\VivaVoyages.genruntimeconfig.cache
 P:\SE1707_SP24\PRN211\VivaVoyages-2\VivaVoyages\obj\Debug\net8.0\ref\VivaVoyages.dll
+D:\FPT SP 24\VivaVoyages\VivaVoyages\obj\Debug\net8.0\VivaVoya.872B1ECC.Up2Date

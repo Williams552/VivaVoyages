@@ -19,14 +19,40 @@ namespace VivaVoyages.Models
 
         public IActionResult CheckStaff()
         {
-            var staffCheck = _httpContextAccessor.HttpContext.Session.GetString("LoggedInStaff");
-            
-            if (staffCheck == null)
+            // Check if staff is logged in
+            if (!_httpContextAccessor.HttpContext.Session.IsTLoggedIn<Staff>("LoggedInStaff"))
             {
                 return new RedirectToActionResult("StaffLogin", "LoginRegister", null);
             }
-
             return null;
+
+        }
+        public IActionResult CheckAdmin()
+        {   // Check if the the Staff account is logged in or not first
+            if (_httpContextAccessor.HttpContext.Session.IsTLoggedIn<Staff>("LoggedInStaff"))
+            {
+                // Set varriable to see if it is admin or not
+                var role = _httpContextAccessor.HttpContext.Session.GetObject<Staff>("LoggedInStaff").Role;
+                // Check if its is admin or not
+                if (role == "Administrator")
+                {
+                    // If yes, dont do anything
+                    return null;
+                }
+                return new RedirectToActionResult("StaffLogin", "LoginRegister", null);
+            }
+            return new RedirectToActionResult("StaffLogin", "LoginRegister", null);
+
+        }
+        public IActionResult CheckCustomer()
+        {
+            // Check if staff is logged in
+            if (!_httpContextAccessor.HttpContext.Session.IsTLoggedIn<Customer>("LoggedInCustomer"))
+            {
+                return new RedirectToActionResult("Login", "LoginRegister", null);
+            }
+            return null;
+
         }
     }
 }
