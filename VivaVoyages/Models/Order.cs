@@ -19,6 +19,8 @@ public partial class Order
 
     public DateTime DateCreated { get; set; }
 
+    public decimal? Total { get; set; }
+
     public virtual Coupon? CouponCodeNavigation { get; set; }
 
     public virtual Customer Customer { get; set; } = null!;

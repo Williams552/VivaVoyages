@@ -10,7 +10,7 @@ public partial class Tour
 
     public string TourName { get; set; } = null!;
 
-    public string ExpectedProfit { get; set; } = null!;
+    public decimal ExpectedProfit { get; set; }
 
     public DateOnly DateStart { get; set; }
 
@@ -24,11 +24,15 @@ public partial class Tour
 
     public decimal? Tax { get; set; }
 
+    public decimal? SingleRoomCost { get; set; }
+
     public string? ImagePath { get; set; }
-    
     [NotMapped]
     public IFormFile ImageFile { get; set; }
+
     public virtual ICollection<Destination> Destinations { get; set; } = new List<Destination>();
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+
+
 }
