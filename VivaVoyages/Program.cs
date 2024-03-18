@@ -12,7 +12,7 @@ builder.Services.AddDbContext<VivaVoyagesContext>(options =>
 builder.Services.AddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, EmailSender>();
 builder.Services.AddSession(options =>
     {
-        options.IdleTimeout = TimeSpan.FromMinutes(1); // Set session timeout
+        options.IdleTimeout = TimeSpan.FromDays(1); // Set session timeout
     });
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<LoginChecker>();

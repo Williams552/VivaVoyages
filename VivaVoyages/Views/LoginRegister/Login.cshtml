@@ -1,7 +1,7 @@
 @model Customer
 
 @{
-    Layout = "_EmptyLayout";
+    Layout = "";
     ViewData["Title"] = "Login";
 }
 
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css " />
     <link rel="stylesheet" href="~/css/animate.min.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/styleLogin.css" asp-append-version="true" />
-    @section Scripts {
+    @section Script{
         <partial name="_ValidationScriptsPartial" />
     }
 </head>
@@ -21,19 +21,27 @@
             <div class="text-center" id="info" style="height: 563px;margin-top: 62px;"><img id="ventaspro-logo"
                     src="/img/Logo.png" width="200">
                 <h3 class="text-center"></h3>
-                <form class="text-start" id="form-login">
-                    <div class="mb-3"><label class="form-label" id="lbl-usuario" for="txt-usuario">Email</label><input
-                            class="form-control" type="text" id="txt-usuario"></div>
+                <form class="text-start" id="form-login" asp-action="Login" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="mb-3"><label class="form-label" id="lbl-usuario" for="txt-usuario">Email</label>
+                    <input asp-for="Email" class="form-control" type="text" id="txt-usuario"></div>
                     <div class="mb-3"><label class="form-label" id="lbl-password"
-                            for="txt-password">Password</label><input class="form-control" type="password"
-                            id="txt-password">
+                            for="txt-password">Password</label>
+                    <input asp-for="Password" class="form-control" type="password"id="txt-password">
                     </div>
-                </form><button class="btn btn-primary" id="btn-sesion" type="submit"
-                    style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;width: 89.8625px;">Login</button>
-                    <button
-                    class="btn btn-primary" id="btn-sesion-1" type="submit"
-                    style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;margin-left: 81px;">Register</button>
-
+                    <input type="hidden" asp-for="CustomerId" />
+                    <input type="hidden" asp-for="FullName" />
+                    <input type="hidden" asp-for="Address" />
+                    <input type="hidden" asp-for="PhoneNumber" />
+                    <input type="hidden" asp-for="Gender" />
+                    <input type="hidden" asp-for="Dob" />
+                    <input type="hidden" asp-for="ResetCode" />
+                    <input type="hidden" asp-for="Status" />
+                    <button class="btn btn-primary" id="btn-sesion" type="submit"
+                        style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;width: 89.8625px;">Login</button><button
+                        class="btn btn-primary" id="btn-sesion-1" type="button" asp-action="Register"
+                        style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;margin-left: 81px;">Register</button>
+                </form>
             </div>
         </div>
         <script src="~/js/bootstrap.min.js"></script>

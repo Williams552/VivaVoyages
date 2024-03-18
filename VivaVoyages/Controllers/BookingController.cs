@@ -57,8 +57,12 @@ namespace VivaVoyages.Controllers
                     TourId = tourId,
                     StaffId = _context.Staff.FirstOrDefault().StaffId,
                     DateCreated = DateTime.Now,
-                    Status = "Pending"
+                    Status = "Pending",
                 };
+
+                decimal singleRoomNumber = passengers.Where(p => p.SingleRoom == true).Count();
+                //Calulator Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR))*(1+tour.Tax/100)
+                order.Total = ((order.Tour.Cost + order.Tour.ExpectedProfit) * passengers.Count + (singleRoomNumber * order.Tour.SingleRoomCost)) * (1 + order.Tour.Tax / 100);
 
                 // Add the Order to the context
                 _context.Orders.Add(order);
