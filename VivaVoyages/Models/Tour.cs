@@ -13,8 +13,6 @@ public partial class Tour
 
     public decimal? ExpectedProfit { get; set; }
 
-    public decimal ExpectedProfit { get; set; }
-
     public DateOnly DateStart { get; set; }
 
     public int TourDates { get; set; }
