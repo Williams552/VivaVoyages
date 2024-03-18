@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             tours[i].style.display = 'block';
         }
     }
-
+    
     // Tạo các nút phân trang
     var paginationContainer = document.getElementById('pagination-container');
     for (var i = 1; i <= totalPages; i++) {
@@ -33,6 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             var pageNumber = parseInt(this.textContent);
             showPage(pageNumber);
+            // Di chuyển lên đầu trang
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
         paginationContainer.appendChild(button);
     }
