@@ -1,62 +1,50 @@
 @model Customer
 
 @{
+    Layout = "";
     ViewData["Title"] = "Login";
 }
-<!DOCTYPE html>
-<html lang="en">
+
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css " />
+    <link rel="stylesheet" href="~/css/animate.min.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/styleLogin.css" asp-append-version="true" />
-    <title>Document</title>
+    @section Script{
+        <partial name="_ValidationScriptsPartial" />
+    }
 </head>
 
 <body>
     <main>
-        <div class="div-0">
-            <div class="div-1">
-                <div class="div-2">WELCOME BACK!</div>
-                <div class="div-3">
-                    <span>
-                        Don’t have a account,
-                    </span>
-                    <span>
-                        Sign up
-                    </span>
-                </div>
-                <form action="Login" method="post">
-                    <div class="div-4">Username</div>
-                    <div class="div-5"><input type="text" asp-for="Email" class="input-1"></div>
-                    <div class="div-6">Password</div>
-                    <div class="div-7">
-                        <input type="password" asp-for="Password" class="input-1">
+        <div id="main">
+            <div class="text-center" id="info" style="height: 563px;margin-top: 62px;"><img id="ventaspro-logo"
+                    src="/img/Logo.png" width="200">
+                <h3 class="text-center"></h3>
+                <form class="text-start" id="form-login" asp-action="Login" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="mb-3"><label class="form-label" id="lbl-usuario" for="txt-usuario">Email</label>
+                    <input asp-for="Email" class="form-control" type="text" id="txt-usuario"></div>
+                    <div class="mb-3"><label class="form-label" id="lbl-password"
+                            for="txt-password">Password</label>
+                    <input asp-for="Password" class="form-control" type="password"id="txt-password">
                     </div>
-                    <div class="div-8">
-                        <div class="div-9">
-                            <img loading="lazy"
-                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/c06ed290ebdd75e58decf1a1bfc209f4262d66a202a6ccba111b150a077904cb?"
-                                class="img-3" />
-                            <div class="div-10">Remember me</div>
-                        </div>
-                        <div class="div-11">Forget password?</div>
-                    </div>
-                    <div class="div-12"><button type="submit" class="button-1">Sign In</button></div>
-                    <div class="div-12"><button asp-action="StaffLogin" class="button-1">Staff Login</button></div>
+                    <input type="hidden" asp-for="CustomerId" />
+                    <input type="hidden" asp-for="FullName" />
+                    <input type="hidden" asp-for="Address" />
+                    <input type="hidden" asp-for="PhoneNumber" />
+                    <input type="hidden" asp-for="Gender" />
+                    <input type="hidden" asp-for="Dob" />
+                    <input type="hidden" asp-for="ResetCode" />
+                    <input type="hidden" asp-for="Status" />
+                    <button class="btn btn-primary" id="btn-sesion" type="submit"
+                        style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;width: 89.8625px;">Login</button><button
+                        class="btn btn-primary" id="btn-sesion-1" type="button" asp-action="Register"
+                        style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;margin-left: 81px;">Register</button>
                 </form>
-                <div class="div-13">or continue with</div>
-                <div class="div-14">
-                    <img loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d75b7c634575ade6789413d6246c57e1f2368e399f218876d894e2420b20421?"
-                        class="img-4" />
-                </div>
             </div>
         </div>
+        <script src="~/js/bootstrap.min.js"></script>
+        <script src="~/js/bs-init.js"></script>
     </main>
 </body>
-
-</html>
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}

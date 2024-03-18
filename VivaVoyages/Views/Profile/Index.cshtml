@@ -4,6 +4,12 @@
     ViewData["Title"] = "Profile";
 }
 
+@if (TempData["ChangePasswordSuccess"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["ChangePasswordSuccess"]
+    </div>
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +38,7 @@
                         <a asp-action="ChangePassword" asp-route-id="@Model.CustomerId" class="div-9" style="text-decoration: none;">Change Password</a>
                 
                         <a asp-action="GetCustomerTours" asp-route-id="@Model.CustomerId" class="div-11" style="text-decoration: none;">Tour management</a>
-                        <div class="div-12">sign out</div>
+                        <a style="text-decoration: none;" class="div-12" asp-action="SignOut" asp-controller="LoginRegister">sign out</a>
                     </div>
                 </div>
 

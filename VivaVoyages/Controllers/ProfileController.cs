@@ -18,14 +18,9 @@ namespace VivaVoyages.Controllers
             this._context = context;
         }
 
-        public IActionResult Index(int? id = 1)
+        public IActionResult Index()
         {
-            var customer = _context.Customers.Find(id);
-            if (customer == null)
-            {
-                return NotFound();
-            }
-
+            var customer = HttpContext.Session.GetObject<Customer>("LoggedInCustomer");
             return View(customer);
         }
 
@@ -121,6 +116,8 @@ namespace VivaVoyages.Controllers
                     ModelState.AddModelError(string.Empty, "New Password and Confirm Password do not match.");
                     return View(customer);
                 }
+
+                TempData["ChangePasswordSuccess"] = "Password changed successfully.";
 
                 // Cập nhật mật khẩu mới - trong thực tế, bạn nên băm mật khẩu này
                 customer.Password = newPassword;

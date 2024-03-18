@@ -7,11 +7,11 @@ public partial class Place
 {
     public int PlaceId { get; set; }
 
-    public string PlaceName { get; set; } = null!;
+    public string PlaceName { get; set; }
 
-    public string Address { get; set; } = null!;
+    public string Address { get; set; }
 
-    public string? Description { get; set; }
+    public string Description { get; set; }
 
     public string? ImagePath { get; set; }
 
