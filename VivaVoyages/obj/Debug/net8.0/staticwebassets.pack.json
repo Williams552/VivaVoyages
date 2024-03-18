@@ -13,8 +13,16 @@
       "PackagePath": "staticwebassets\\css\\fontawesome-all.min.css"
     },
     {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\handbook.css",
+      "PackagePath": "staticwebassets\\css\\handbook.css"
+    },
+    {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\css\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\pikaday.min.css",
+      "PackagePath": "staticwebassets\\css\\pikaday.min.css"
     },
     {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\profile.css",
@@ -47,6 +55,18 @@
     {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\11.png",
       "PackagePath": "staticwebassets\\img\\11.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\12.jpg",
+      "PackagePath": "staticwebassets\\img\\12.jpg"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\13.jpg",
+      "PackagePath": "staticwebassets\\img\\13.jpg"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\14.jpeg",
+      "PackagePath": "staticwebassets\\img\\14.jpeg"
     },
     {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\2.png",
@@ -89,8 +109,44 @@
       "PackagePath": "staticwebassets\\img\\TourDaNang.png"
     },
     {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\account.jpg",
+      "PackagePath": "staticwebassets\\img\\account.jpg"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\amm.png",
+      "PackagePath": "staticwebassets\\img\\amm.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\dalat.png",
+      "PackagePath": "staticwebassets\\img\\dalat.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\dalat1.png",
+      "PackagePath": "staticwebassets\\img\\dalat1.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\dalat2.png",
+      "PackagePath": "staticwebassets\\img\\dalat2.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\dalat3.png",
+      "PackagePath": "staticwebassets\\img\\dalat3.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\dallat4.png",
+      "PackagePath": "staticwebassets\\img\\dallat4.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\handbook.jpg",
+      "PackagePath": "staticwebassets\\img\\handbook.jpg"
+    },
+    {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\img\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\mobile.jpeg",
+      "PackagePath": "staticwebassets\\img\\mobile.jpeg"
     },
     {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\nha trang.jpg",
@@ -117,8 +173,16 @@
       "PackagePath": "staticwebassets\\img\\pexels-vanessa-sezini-11566333.jpg"
     },
     {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\qr.jpg",
+      "PackagePath": "staticwebassets\\img\\qr.jpg"
+    },
+    {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\thac ban gioc.png",
       "PackagePath": "staticwebassets\\img\\thac ban gioc.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\visa.png",
+      "PackagePath": "staticwebassets\\img\\visa.png"
     },
     {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\vungtau.jpg",
@@ -137,8 +201,16 @@
       "PackagePath": "staticwebassets\\js\\page.js"
     },
     {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\pikaday.min.js",
+      "PackagePath": "staticwebassets\\js\\pikaday.min.js"
+    },
+    {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\theme.js",
+      "PackagePath": "staticwebassets\\js\\theme.js"
     },
     {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\LICENSE",

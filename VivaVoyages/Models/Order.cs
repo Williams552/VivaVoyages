@@ -13,21 +13,21 @@ public partial class Order
 
     public int TourId { get; set; }
 
-    public string CouponCode { get; set; }
+    public string? CouponCode { get; set; }
 
-    public string Status { get; set; }
+    public string Status { get; set; } = null!;
 
     public DateTime DateCreated { get; set; }
 
     public decimal? Total { get; set; }
 
-    public virtual Coupon CouponCodeNavigation { get; set; }
+    public virtual Coupon? CouponCodeNavigation { get; set; }
 
-    public virtual Customer Customer { get; set; }
+    public virtual Customer Customer { get; set; } = null!;
 
     public virtual ICollection<Passenger> Passengers { get; set; } = new List<Passenger>();
 
-    public virtual Staff Staff { get; set; }
+    public virtual Staff? Staff { get; set; }
 
-    public virtual Tour Tour { get; set; }
+    public virtual Tour Tour { get; set; } = null!;
 }
