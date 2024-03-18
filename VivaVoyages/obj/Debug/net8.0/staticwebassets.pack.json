@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\TourList.css"
     },
     {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\fontawesome-all.min.css",
+      "PackagePath": "staticwebassets\\css\\fontawesome-all.min.css"
+    },
+    {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\css\\js\\bootstrap.min.js"
     },

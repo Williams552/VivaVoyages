@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+vSm9nCK5gELbypc1IxQS563CYm1i0VezeTdhftoG0w=",
+  "Hash": "SNbXEwjbayGg/WTrp2SrL+9LnBpEu+rhrVist/whezQ=",
   "Source": "VivaVoyages",
   "BasePath": "_content/VivaVoyages",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\SWP\\VivaVoyages\\VivaVoyages\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\VivaVoyages.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\fontawesome-all.min.css",
+      "SourceId": "VivaVoyages",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\",
+      "BasePath": "_content/VivaVoyages",
+      "RelativePath": "css/fontawesome-all.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\fontawesome-all.min.css"
     },
     {
       "Identity": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\js\\bootstrap.min.js",
