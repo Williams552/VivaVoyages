@@ -12,7 +12,7 @@ builder.Services.AddDbContext<VivaVoyagesContext>(options =>
 builder.Services.AddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, EmailSender>();
 builder.Services.AddSession(options =>
     {
-        options.IdleTimeout = TimeSpan.FromDays(1); // Set session timeout
+        options.IdleTimeout = TimeSpan.FromDays(1); // Set session timeout for 1 fucking day
     });
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<LoginChecker>();
@@ -46,3 +46,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+//"Server=LAPTOP-VPP4I6FK;Database=VivaVoyages;uid=carturbo69;pwd=0909051619;encrypt=true;trustServerCertificate=true;"
