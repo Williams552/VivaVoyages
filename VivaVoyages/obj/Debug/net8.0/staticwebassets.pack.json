@@ -1,367 +1,399 @@
 {
   "Files": [
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\VivaVoyages.bundle.scp.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\VivaVoyages.bundle.scp.css",
       "PackagePath": "staticwebassets\\VivaVoyages.bundle.scp.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\TourList.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\TourList.css",
       "PackagePath": "staticwebassets\\css\\TourList.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\js\\bootstrap.min.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\css\\js\\bootstrap.min.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\profile.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\pikaday.min.css",
+      "PackagePath": "staticwebassets\\css\\pikaday.min.css"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\profile.css",
       "PackagePath": "staticwebassets\\css\\profile.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\site.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\styleHome.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\styleHome.css",
       "PackagePath": "staticwebassets\\css\\styleHome.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\styleLogin.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\css\\styleLogin.css",
       "PackagePath": "staticwebassets\\css\\styleLogin.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\favicon.ico",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\1.png",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\1.png",
       "PackagePath": "staticwebassets\\img\\1.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\10.png",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\10.png",
       "PackagePath": "staticwebassets\\img\\10.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\11.png",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\11.png",
       "PackagePath": "staticwebassets\\img\\11.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\2.png",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\2.png",
       "PackagePath": "staticwebassets\\img\\2.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\3.png",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\3.png",
       "PackagePath": "staticwebassets\\img\\3.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\4.png",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\4.png",
       "PackagePath": "staticwebassets\\img\\4.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\5.png",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\5.png",
       "PackagePath": "staticwebassets\\img\\5.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\6.png",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\6.png",
       "PackagePath": "staticwebassets\\img\\6.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\7.png",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\7.png",
       "PackagePath": "staticwebassets\\img\\7.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\8.png",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\8.png",
       "PackagePath": "staticwebassets\\img\\8.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\9.png",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\9.png",
       "PackagePath": "staticwebassets\\img\\9.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\ThePhong3.png",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\ThePhong3.png",
       "PackagePath": "staticwebassets\\img\\ThePhong3.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\TourDaNang.png",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\TourDaNang.png",
       "PackagePath": "staticwebassets\\img\\TourDaNang.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\js\\bootstrap.min.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\account.jpg",
+      "PackagePath": "staticwebassets\\img\\account.jpg"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\amm.png",
+      "PackagePath": "staticwebassets\\img\\amm.png"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\img\\js\\bootstrap.min.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\nha trang.jpg",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\mobile.jpeg",
+      "PackagePath": "staticwebassets\\img\\mobile.jpeg"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\nha trang.jpg",
       "PackagePath": "staticwebassets\\img\\nha trang.jpg"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-arthouse-studio-4344664.jpg",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-arthouse-studio-4344664.jpg",
       "PackagePath": "staticwebassets\\img\\pexels-arthouse-studio-4344664.jpg"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-phuong-tran-9552977.jpg",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-phuong-tran-9552977.jpg",
       "PackagePath": "staticwebassets\\img\\pexels-phuong-tran-9552977.jpg"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-pixabay-358229.jpg",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-pixabay-358229.jpg",
       "PackagePath": "staticwebassets\\img\\pexels-pixabay-358229.jpg"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-quan-tran-14742500.jpg",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-quan-tran-14742500.jpg",
       "PackagePath": "staticwebassets\\img\\pexels-quan-tran-14742500.jpg"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-vanessa-sezini-11566333.jpg",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\pexels-vanessa-sezini-11566333.jpg",
       "PackagePath": "staticwebassets\\img\\pexels-vanessa-sezini-11566333.jpg"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\thac ban gioc.png",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\qr.jpg",
+      "PackagePath": "staticwebassets\\img\\qr.jpg"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\thac ban gioc.png",
       "PackagePath": "staticwebassets\\img\\thac ban gioc.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\vungtau.jpg",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\visa.png",
+      "PackagePath": "staticwebassets\\img\\visa.png"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\vungtau.jpg",
       "PackagePath": "staticwebassets\\img\\vungtau.jpg"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\xe.jpg",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\xe.jpg",
       "PackagePath": "staticwebassets\\img\\xe.jpg"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\bootstrap.min.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\page.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\page.js",
       "PackagePath": "staticwebassets\\js\\page.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\site.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\pikaday.min.js",
+      "PackagePath": "staticwebassets\\js\\pikaday.min.js"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\js\\theme.js",
+      "PackagePath": "staticwebassets\\js\\theme.js"
+    },
+    {
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
