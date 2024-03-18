@@ -8,10 +8,12 @@ namespace VivaVoyages.Models
     public class CustomerTourView
     {
         public string TourName { get; set; }
-        public int MaxPassenger { get; set; }
+        public int PassengerCount { get; set; }
         public string DateStart { get; set; }
         public int TourDates { get; set; }
         public string TourGuide { get; set; }
         public decimal Cost { get; set; }
+
+        public string Status { get; set; }
     }
 }

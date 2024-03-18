@@ -67,6 +67,7 @@ namespace VivaVoyages.Controllers
                 // Trả về view với model để người dùng có thể nhập lại thông tin
                 return View(customer);
             }
+            customer.Status = "Active";
             _context.Customers.Update(customer);
             _context.SaveChanges();
             return RedirectToAction("Index");
@@ -148,19 +149,23 @@ namespace VivaVoyages.Controllers
             ViewData["CustomerId"] = customer.CustomerId;
             ViewData["FullName"] = customer.FullName;
 
-            var customerTours = await _context.Orders
-                .Where(o => o.CustomerId == id)
-                .Include(o => o.Tour)
-                .Select(o => new CustomerTourView
-                {
-                    TourName = o.Tour.TourName,
-                    MaxPassenger = o.Tour.MaxPasseger,
-                    DateStart = o.Tour.DateStart.ToString("dd/MM/yyyy"),
-                    TourDates = o.Tour.TourDates,
-                    TourGuide = o.Tour.TourGuide,
-                    Cost = o.Tour.Cost
-                })
-                .ToListAsync();
+        var customerTours = await _context.Orders
+        .Where(o => o.CustomerId == id)
+        .Include(o => o.Tour)
+        .Include(o => o.Passengers) // Đảm bảo include thông tin về Passenger
+        .GroupBy(o => o.TourId)
+        .Select(g => new CustomerTourView
+        {
+            TourName = g.First().Tour.TourName,
+            PassengerCount = g.SelectMany(o => o.Passengers).Count(), // Tính tổng số hành khách cho mỗi Tour
+            DateStart = g.First().Tour.DateStart.ToString("dd/MM/yyyy"),
+            TourDates = g.First().Tour.TourDates,
+            TourGuide = g.First().Tour.TourGuide,
+            Cost = g.First().Tour.Cost,
+            Status = g.First().Status
+            // Các thuộc tính khác như trước
+        })
+        .ToListAsync();
 
             if (!customerTours.Any())
             {

@@ -1,0 +1,24 @@
+.title {
+    text-align: center; /* Để căn giữa nội dung ngang */
+
+    justify-content: center; /* Để căn giữa nội dung theo chiều ngang */
+    align-items: center; /* Để căn giữa nội dung theo chiều dọc */
+    margin-top: 15px;
+}
+
+.bi{
+    float: left;
+    margin-right: 5px;
+}
+
+.content{
+    text-align: justify;
+    justify-content: center; /* Để căn giữa nội dung theo chiều ngang */
+    align-items: center; /* Để căn giữa nội dung theo chiều dọc */
+}
+
+.imgaa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

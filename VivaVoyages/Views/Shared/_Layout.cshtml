@@ -7,6 +7,7 @@
     <title>Untitled</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css "/>
     <link rel="stylesheet" href="~/css/Stylehome.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/TourList.css" asp-append-version="true">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         /* Thêm mã CSS tại đây */
@@ -86,17 +87,34 @@
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item"><a class="nav-link active" asp-controller="ListTourCustomer" asp-action="ListTours"><strong>List Tour</strong></a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="ListTourCustomer" asp-action="ListTours"><strong>Promotion Tour</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="ListTourCustomer" asp-action="ListTours"><strong>Hand book</strong></a></li>
-                        <li class="nav-item"><a class="nav-link"asp-controller="ListTourCustomer" asp-action="ListTours"><strong>Support</strong></a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="handbook"><strong>Hand book</strong></a></li>
+                        <li  class="nav-item"><a id="btn-open1" class="nav-link" href="#"><strong>Support</strong></a></li>
                     </ul> 
-                    <a asp-controller="Profile" asp-action="Index">
-    <i style="font-size: 50px; color: #000000;" class="bi bi-person"></i>
+                    <a href="profile/index">
+    <i style="font-size: 30px; color: #000000;" class="bi bi-person"></i>
 </a>
                 </div>
             </div>
         </nav>
     </header>
-    
+                    @* MODAL *@
+         <div id="modal-container1"  >
+                        <div class="modaldemo1" id="modal1">
+                            <div class="modal-header1">
+                                    <h5>Contact</h5>
+                               
+                                    <button id="btn-close1"><i class="bi bi-x"></i></button>
+                            </div>
+                            <div class="modal-body1">
+                                    <p>Email: vivavoyages8@gmail.com</p>
+                                    <p>Phone: 0706506774</p>
+                                    <i>Address: An Binh, Ninh Kieu, can Tho, FPT University</i>
+
+                            </div>
+                        </div>   
+                </div>
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -146,6 +164,29 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+
+     <script>
+            const btn_open1= document.getElementById('btn-open1');
+            const btn_close1= document.getElementById('btn-close1');
+            const modal_container1 = document.getElementById('modal-container1');
+            const modal_demo1= document.getElementById('modal1');
+
+            btn_open1.addEventListener('click', ()=>{
+                   
+                   modal_container1.classList.add('show1');
+            });
+            btn_close1.addEventListener('click', ()=>{
+                   
+                   modal_container1.classList.remove('show1');
+            });
+
+            modal_container1.addEventListener('click', (e)=>{
+                if(!modal_demo1.contains(e.target)){
+                    btn_close1.click();
+                }
+            });
+        </script>
 </body>
 
 </html>
