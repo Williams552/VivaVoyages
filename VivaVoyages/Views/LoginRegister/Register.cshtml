@@ -4,8 +4,8 @@
     ViewData["Title"] = "Register";
 }
 
-<form asp-action="Register" asp-controller="Customer" method="post">
-
+<form asp-action="Register" asp-controller="Customer" method="post" style="margin-top: 30px; margin-bottom: 20px">
+<h2 class="text-center">Register</h2>
     <div class="form-group">
         <label asp-for="Email"></label>
         <input asp-for="Email" class="form-control" />
@@ -41,7 +41,7 @@
         <input asp-for="Address" class="form-control" />
         <span asp-validation-for="Address" class="text-danger"></span>
     </div>
-
+<br>
     <input asp-for="Status" value="true" hidden>
 
     <div class="form-group">

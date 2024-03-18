@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\js\\bootstrap.min.js"
     },
     {
+      "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\css\\pikaday.min.css",
+      "PackagePath": "staticwebassets\\css\\pikaday.min.css"
+    },
+    {
       "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\css\\profile.css",
       "PackagePath": "staticwebassets\\css\\profile.css"
     },
@@ -85,8 +89,20 @@
       "PackagePath": "staticwebassets\\img\\TourDaNang.png"
     },
     {
+      "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\img\\account.jpg",
+      "PackagePath": "staticwebassets\\img\\account.jpg"
+    },
+    {
+      "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\img\\amm.png",
+      "PackagePath": "staticwebassets\\img\\amm.png"
+    },
+    {
       "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\img\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\img\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\img\\mobile.jpeg",
+      "PackagePath": "staticwebassets\\img\\mobile.jpeg"
     },
     {
       "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\img\\nha trang.jpg",
@@ -113,8 +129,16 @@
       "PackagePath": "staticwebassets\\img\\pexels-vanessa-sezini-11566333.jpg"
     },
     {
+      "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\img\\qr.jpg",
+      "PackagePath": "staticwebassets\\img\\qr.jpg"
+    },
+    {
       "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\img\\thac ban gioc.png",
       "PackagePath": "staticwebassets\\img\\thac ban gioc.png"
+    },
+    {
+      "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\img\\visa.png",
+      "PackagePath": "staticwebassets\\img\\visa.png"
     },
     {
       "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\img\\vungtau.jpg",
@@ -133,8 +157,16 @@
       "PackagePath": "staticwebassets\\js\\page.js"
     },
     {
+      "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\js\\pikaday.min.js",
+      "PackagePath": "staticwebassets\\js\\pikaday.min.js"
+    },
+    {
       "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\js\\theme.js",
+      "PackagePath": "staticwebassets\\js\\theme.js"
     },
     {
       "Id": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-2\\VivaVoyages\\wwwroot\\lib\\bootstrap\\LICENSE",

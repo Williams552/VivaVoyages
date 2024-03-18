@@ -1,3 +1,5 @@
+
+
 .div {
   border-radius: 20px;
   border: 2px solid #000;
@@ -97,4 +99,9 @@
   font-family: Overpass, sans-serif;
   text-transform: uppercase;
   margin-top: 43px;
+}
+
+.row {
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
