@@ -171,6 +171,7 @@ namespace VivaVoyages.Controllers
             .GroupBy(o => o.TourId)
             .Select(g => new CustomerTourView
             {
+                OrderId = g.First().OrderId,
                 TourName = g.First().Tour.TourName,
                 PassengerCount = g.SelectMany(o => o.Passengers).Count(), // Tính tổng số hành khách cho mỗi Tour
                 DateStart = g.First().Tour.DateStart.ToString("dd/MM/yyyy"),

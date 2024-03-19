@@ -74,7 +74,7 @@ namespace VivaVoyages.Controllers
                 // Save changes to the database
                 _context.SaveChanges();
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Payment", new { orderId = order.OrderId });
             }
             catch (Exception ex)
             {

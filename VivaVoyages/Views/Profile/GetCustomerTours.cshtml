@@ -54,6 +54,7 @@
                                         <th>Tour Guide</th>
                                         <th>Cost</th>
                                         <th>Status</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,6 +68,12 @@
                                             <td>@tour.TourGuide</td>
                                             <td>@tour.Cost</td>
                                             <td>@tour.Status</td>
+                                            <td>
+                        @if (tour.Status == "Pending")
+                        {
+                            <a href="@Url.Action("Index", "Payment", new { orderId = tour.OrderId })" class="btn btn-primary">Payment</a>
+                        }
+                    </td>
                                         </tr>
                                     }
                                 </tbody>
