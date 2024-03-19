@@ -4,25 +4,19 @@
     ViewData["Title"] = "Profile";
 }
 
-@if (TempData["ChangePasswordSuccess"] != null)
-{
-    <div class="alert alert-success" role="alert">
-        @TempData["ChangePasswordSuccess"]
-    </div>
-}
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true" />
     <title>Document</title>
 </head>
 
 <body>
     <main>
-
+        @if (TempData["ChangePasswordSuccess"] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                @TempData["ChangePasswordSuccess"]
+            </div>
+        }
         <div class="container">
             <div class="row">
                 <!-- Left Column -->
@@ -35,10 +29,13 @@
                         <div class="div-4"></div>
                         <a class="div-5">Account</a>
                         <a class="div-7">Personal Information</a>
-                        <a asp-action="ChangePassword" asp-route-id="@Model.CustomerId" class="div-9" style="text-decoration: none;">Change Password</a>
-                
-                        <a asp-action="GetCustomerTours" asp-route-id="@Model.CustomerId" class="div-11" style="text-decoration: none;">Tour management</a>
-                        <a style="text-decoration: none;" class="div-12" asp-action="SignOut" asp-controller="LoginRegister">sign out</a>
+                        <a asp-action="ChangePassword" asp-route-id="@Model.CustomerId" class="div-9"
+                            style="text-decoration: none;">Change Password</a>
+
+                        <a asp-action="GetCustomerTours" asp-route-id="@Model.CustomerId" class="div-11"
+                            style="text-decoration: none;">Tour management</a>
+                        <a style="text-decoration: none;" class="div-12" asp-action="SignOut"
+                            asp-controller="LoginRegister">sign out</a>
                     </div>
                 </div>
 
@@ -87,5 +84,3 @@
         </div>
     </main>
 </body>
-
-</html>
