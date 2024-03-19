@@ -149,6 +149,7 @@ namespace VivaVoyages.Controllers
         [HttpPost]
         public IActionResult StaffLogin(string email, string password)
         {
+            // password = HashPassword(password);
             var staff = _db.Staff.FirstOrDefault(c => c.Email == email && c.Password == password);
 
             if (staff != null)

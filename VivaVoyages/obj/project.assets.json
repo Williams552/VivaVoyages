@@ -8191,11 +8191,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+      "projectUniqueName": "d:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
       "projectName": "VivaVoyages",
-      "projectPath": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+      "projectPath": "d:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
       "packagesPath": "C:\\Users\\tiend\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\obj\\",
+      "outputPath": "d:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tiend\\AppData\\Roaming\\NuGet\\NuGet.Config",
