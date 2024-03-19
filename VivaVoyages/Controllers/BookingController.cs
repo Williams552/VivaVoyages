@@ -152,14 +152,8 @@ namespace VivaVoyages.Controllers
                     return RedirectToAction("OrderNotFound", "Error");
                 }
 
-                // Remove the order
-                _context.Orders.Remove(order);
-
-                // Remove associated passengers
-                var passengers = _context.Passengers.Where(p => p.OrderId == id);
-                _context.Passengers.RemoveRange(passengers);
-
-                // Save changes to the database
+                order.Status = "Cancelled";
+                _context.Update(order);
                 await _context.SaveChangesAsync();
             }
             catch (Exception ex)
