@@ -5,6 +5,7 @@ using VivaVoyages.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using VivaVoyages.Filters;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
 namespace VivaVoyages.Controllers
 {
@@ -102,8 +103,6 @@ namespace VivaVoyages.Controllers
                 return NotFound();
             }
 
-            // Chú ý: Sử dụng model Customer có thể tiết lộ thông tin không mong muốn.
-            // Trong ví dụ này, chúng ta sẽ chỉ sử dụng customerId và password fields.
             return View(customer);
         }
 
@@ -135,7 +134,7 @@ namespace VivaVoyages.Controllers
 
                 TempData["ChangePasswordSuccess"] = "Password changed successfully.";
 
-                // Cập nhật mật khẩu mới - trong thực tế, bạn nên băm mật khẩu này
+                newPassword = HashPassword(newPassword);
                 customer.Password = newPassword;
                 _context.SaveChanges();
                 ViewData["SuccessMessage"] = "Password changed successfully.";
@@ -171,6 +170,7 @@ namespace VivaVoyages.Controllers
             .GroupBy(o => o.TourId)
             .Select(g => new CustomerTourView
             {
+                OrderId = g.First().OrderId,
                 TourName = g.First().Tour.TourName,
                 PassengerCount = g.SelectMany(o => o.Passengers).Count(), // Tính tổng số hành khách cho mỗi Tour
                 DateStart = g.First().Tour.DateStart.ToString("dd/MM/yyyy"),
@@ -190,6 +190,23 @@ namespace VivaVoyages.Controllers
 
             // Trả về view với danh sách các tours
             return View(customerTours);
+        }
+
+        public IActionResult SignOut()
+        {
+            HttpContext.Session.Remove("LoggedInCustomer");
+            return RedirectToAction("Index", "Home");
+        }
+        //PBKDF2 Hashing
+        public string HashPassword(string password)
+        {
+            var hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                password: password,
+                salt: new byte[128 / 8],
+                prf: KeyDerivationPrf.HMACSHA1,
+                iterationCount: 10000,
+                numBytesRequested: 256 / 8));
+            return hashed;
         }
 
     }
