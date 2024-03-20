@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using VivaVoyages.Models;
 using VivaVoyages.Filters;
+using X.PagedList;
 
 namespace VivaVoyages.Controllers
 {
@@ -120,6 +121,20 @@ namespace VivaVoyages.Controllers
 
             return RedirectToAction("PendingOrders", "Staff"); // Redirect to a suitable page
         }
+        public async Task<IActionResult> CustomerManagement()
+        {
+            return View(await _context.Customers.ToListAsync());
+        }
+
+        public async Task<IActionResult> CustomerOrder(int customerId)
+        {
+            var Orders =  _context.Orders
+                .Where(o => o.CustomerId == customerId)
+                .ToListAsync();
+            return View(await Orders);
+        }
+
+
 
 
     }
