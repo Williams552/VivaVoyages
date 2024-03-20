@@ -25,12 +25,12 @@
             <div class="container" id="images">
                 <div class="heading">
                     <h2 style="Overpass, sans-serif;" class="text-center">Tour payment</h2>
-                    <h6 class="text-start" style="Overpass, sans-serif;">Order code: @Model.OrderId</h6>
-                    <h6 class="text-start" style="Overpass, sans-serif;">Total Amount: @Model.Total</h6>
-                    <div class="text-end mt-4">
+                    <h6 class="text-start" style="Overpass, sans-serif; color: red">Order code: @Model.OrderId</h6>
+                    <h6 class="text-start" style="Overpass, sans-serif; color: red">Total Amount: @Model.Total</h6>
+                    <div class="text-start mt-4">
                         <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Back to Home</a>
                     </div>
-                    
+
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
@@ -70,7 +70,7 @@
                 $('#formContainer').html(`
                     <div class="card">
                         <div class="card-body">
-                            <form action="@Url.Action("ProcessPayment", "Payment")" method="post">
+                            <form class="img1" action="@Url.Action("ProcessPayment", "Payment")" method="post">
         @Html.AntiForgeryToken()
                             <img width="300" height="300" src="/img/qr.jpg">
                             <br>
@@ -85,7 +85,7 @@
                 $('#formContainer').html(`
                     <div class="card">
                         <div class="card-body">
-                           <form action="@Url.Action("ProcessPayment", "Payment")" method="post">
+                           <form  action="@Url.Action("ProcessPayment", "Payment")" method="post">
         @Html.AntiForgeryToken()
                                 <div class="form-group">
                                     <label>Number card:</label>
