@@ -24,10 +24,13 @@
         <section class="portfolio-block projects-cards">
             <div class="container" id="images">
                 <div class="heading">
-                    <h2 style="font-family: Alef, sans-serif;" class="text-center">Tour payment</h2>
+                    <h2 style="Overpass, sans-serif;" class="text-center">Tour payment</h2>
+                    <h6 class="text-start" style="Overpass, sans-serif;">Order code: @Model.OrderId</h6>
+                    <h6 class="text-start" style="Overpass, sans-serif;">Total Amount: @Model.Total</h6>
                     <div class="text-end mt-4">
                         <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Back to Home</a>
                     </div>
+                    
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
@@ -36,6 +39,7 @@
                                 <img class="card-img-top scale-on-hover" src="~/img/mobile.jpeg" alt="Card Image"
                                     id="image1">
                             </div>
+
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">

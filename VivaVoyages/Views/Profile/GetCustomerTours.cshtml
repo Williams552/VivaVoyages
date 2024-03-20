@@ -27,7 +27,8 @@
                             <div class="div-3">@ViewData["FullName"]</div>
                         </div>
                         <div class="div-4"></div>
-                        <a asp-action="Index" asp-route-id="@ViewData["CustomerId"]" class="div-5" style="text-decoration: none;">Account</a>
+                        <a asp-action="Index" asp-route-id="@ViewData["CustomerId"]" class="div-5"
+                            style="text-decoration: none;">Account</a>
                         <a asp-action="Index" asp-route-id="@ViewData["CustomerId"]" class="div-9"
                             style="text-decoration: none;">Personal Information</a>
                         <a asp-action="ChangePassword" asp-route-id="@ViewData["CustomerId"]" class="div-9"
@@ -44,15 +45,15 @@
                         <h2>Customer Tours</h2>
                         @if (Model != null && Model.Any())
                         {
-                            <table class="table">
+                            <table class="table" >
                                 <thead>
                                     <tr>
-                                        <th>Tour Name</th>
+                                        <th class="tn">Tour Name</th>
                                         <th>Passengers</th>
                                         <th>Date Start</th>
                                         <th>Tour Dates</th>
                                         <th>Tour Guide</th>
-                                        <th>Cost</th>
+                                        <th>Total</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -61,19 +62,20 @@
                                     @foreach (var tour in Model)
                                     {
                                         <tr>
-                                            <td>@tour.TourName</td>
+                                            <td class="tn">@tour.TourName</td>
                                             <td>@tour.PassengerCount</td>
                                             <td>@tour.DateStart</td>
                                             <td>@tour.TourDates</td>
                                             <td>@tour.TourGuide</td>
-                                            <td>@tour.Cost</td>
+                                            <td>@tour.Total</td>
                                             <td>@tour.Status</td>
                                             <td>
-                        @if (tour.Status == "Pending")
-                        {
-                            <a href="@Url.Action("Index", "Payment", new { orderId = tour.OrderId })" class="btn btn-primary">Payment</a>
-                        }
-                    </td>
+                                                @if (tour.Status == "Pending")
+                                                {
+                                                    <a href="@Url.Action("Index", "Payment", new { orderId = tour.OrderId })"
+                                                        class="btn btn-primary">Payment</a>
+                                                }
+                                            </td>
                                         </tr>
                                     }
                                 </tbody>
