@@ -121,6 +121,8 @@ namespace VivaVoyages.Controllers
                 return NotFound();
             }
 
+            ViewData["Place"] = _context.Places.ToList();
+
             return View(tour);
         }
 
@@ -135,7 +137,7 @@ namespace VivaVoyages.Controllers
             {
                 return NotFound();
             }
-
+            ModelState.Remove("ImageFile");
             if (ModelState.IsValid)
             {
                 try

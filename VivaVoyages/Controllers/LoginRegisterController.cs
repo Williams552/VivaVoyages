@@ -67,25 +67,25 @@ namespace VivaVoyages.Controllers
         {
             password = HashPassword(password);
             var customer = _db.Customers.FirstOrDefault(c => c.Email == email && c.Password == password);
-            if (customer.Status == "Active")
+            if (customer != null)
             {
-                if (customer != null)
+                if (customer.Status == "Active")
                 {
                     HttpContext.Session.SetObject("LoggedInCustomer", customer);
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ModelState.AddModelError("Email", "Email or password is wrong");
-                    return View();
+                    // If the account is not active, redirect to the verify email
+                    return RedirectToAction("VerifyEmail", "LoginRegister", new { Email = email });
                 }
+
             }
             else
             {
-                // If the account is not active, redirect to the verify email
-                return RedirectToAction("VerifyEmail", "LoginRegister", new { Email = email });
+                ModelState.AddModelError("Email", "Email or password is wrong");
+                return View();
             }
-
         }
 
         [AllowAnonymous]
@@ -140,7 +140,9 @@ namespace VivaVoyages.Controllers
             {
                 if (customer.ResetCode == forgotPassword.ResetCode) // Thay bằng cách kiểm tra reset code hợp lệ
                 {
+                    forgotPassword.NewPassword = HashPassword(forgotPassword.NewPassword);
                     customer.Password = forgotPassword.NewPassword;
+                    customer.ResetCode = "";
 
                     _db.Customers.Update(customer);
                     _db.SaveChanges();
@@ -224,6 +226,7 @@ namespace VivaVoyages.Controllers
             if (customer.ResetCode == Code)
             {
                 customer.Status = "Active";
+                customer.ResetCode = "";
                 _db.Customers.Update(customer);
                 _db.SaveChanges();
                 return RedirectToAction("Login");

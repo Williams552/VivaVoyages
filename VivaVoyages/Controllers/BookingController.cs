@@ -43,6 +43,13 @@ namespace VivaVoyages.Controllers
         {
             try
             {
+                //check passengersJson
+                if (passengersJson=="[]")
+                {
+                    ModelState.AddModelError("Passengers", "Please enter the passengers information");
+                    return RedirectToAction("Create", new { id = tourId });
+                }
+
                 Customer customer = HttpContext.Session.GetObject<Customer>("LoggedInCustomer");
                 int numbOfPassenger = 0;
                 int numbOfSR = 0;

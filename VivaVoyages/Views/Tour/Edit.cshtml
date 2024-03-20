@@ -1,7 +1,7 @@
 @model VivaVoyages.Models.Tour
 
 @{
-    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+    Layout = "_LayoutDashboard";
 }
 
 <!DOCTYPE html>
@@ -11,17 +11,57 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Edit</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var destinationIndex = @Model.Destinations.Count;
+
+            $("#addDestinationBtn").click(function () {
+                var destinationHtml = `<div class="destination" id="destination_${destinationIndex}">
+                                            <div class="form-group">
+                                                <p>${destinationIndex}</p>
+                                                <label for="Destinations_${destinationIndex}__Description" class="control-label">Description</label>
+                                                <input type="text" id="Destinations_${destinationIndex}__Description" name="Destinations[${destinationIndex}].Description" class="form-control" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Destinations_${destinationIndex}__PlaceId" class="control-label">PlaceId</label>
+                                                <select id="Destinations_${destinationIndex}__PlaceId" name="Destinations[${destinationIndex}].PlaceId" class="form-control">
+                                                    <option value="">Select a place</option> <!-- Default option -->
+        @foreach (var place in ViewBag.Place)
+        {
+                                                                                    <option value="@place.PlaceId">ID: @place.PlaceId place: @place.PlaceName</option>
+        }
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Destinations_${destinationIndex}__DateVisit" class="control-label">DateVisit</label>
+                                                <input type="date" id="Destinations_${destinationIndex}__DateVisit" name="Destinations[${destinationIndex}].DateVisit" class="form-control" />
+                                            </div>
+                                            <button type="button" class="btn btn-danger deleteDestinationBtn" data-destination-index="${destinationIndex}">Delete Destination</button>
+                                        </div>`;
+                $("#destinationsContainer").append(destinationHtml);
+                destinationIndex++;
+            });
+
+            // Event delegation for dynamically added delete buttons
+            $("#destinationsContainer").on("click", ".deleteDestinationBtn", function () {
+                var destinationIndexToDelete = $(this).data("destination-index");
+                $("#destination_" + destinationIndexToDelete).remove();
+            });
+        });
+    </script>
+
 </head>
 
 <body>
 
-    <h4>Tour</h4>
+    <h4>Edit Tour</h4>
     <hr />
     <div class="row">
         <div class="col-md-4">
-            <form asp-action="Edit">
+            <form asp-action="Edit" enctype="multipart/form-data" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="TourId" />
                 <div class="form-group">
                     <label asp-for="TourName" class="control-label"></label>
                     <input asp-for="TourName" class="form-control" />
@@ -63,48 +103,50 @@
                     <span asp-validation-for="Tax" class="text-danger"></span>
                 </div>
 
-                <!-- Destination Inputs -->
-                <div>
-                    <h2>Destinations</h2>
-                    @if (Model.Destinations.Any())
-                    {
-                        <table>
-                            <tr>
-                                <th>Destination ID</th>
-                                <th>Description</th>
-                                <th>Date Visit</th>
-                                <th>Place Id</th>
-                                <th> </th>
-                            </tr>
-                            @foreach (var destination in Model.Destinations)
-                            {
-                                <tr>
-                                    <td>@destination.DestinationId</td>
-                                    <td>@destination.Description</td>
-                                    <td>@destination.DateVisit</td>
-                                    <td>@destination.PlaceId</td>
-                                    <td>
-                                        <a asp-action="EditAndReturn" asp-controller="Destination"
-                                            asp-route-id="@destination.DestinationId" asp-route-tourId="@Model.TourId">Edit
-                                            Destination</a>
-                                    </td>
-
-                                </tr>
-                            }
-                        </table>
-                    }
-                    else
-                    {
-                        <p>No destinations found for this tour.</p>
-                    }
-                    
+                <div class="form-group">
+                    <label asp-for="ImageFile" class="control-label">Tour Image</label>
+                    <input asp-for="ImageFile" class="form-control" />
                 </div>
 
-
+                <div id="destinationsContainer">
+                    @foreach (var destination in Model.Destinations)
+                    {
+                        <div class="destination" id="destination_@destination.DestinationId">
+                            <div class="form-group">
+                                <label for="Destinations_@destination.Description" class="control-label">Description</label>
+                                <input type="text" id="Destinations_@destination.Description"
+                                    name="Destinations[@destination.DestinationId].Description" class="form-control"
+                                    value="@destination.Description" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Destinations_@destination.PlaceId" class="control-label">PlaceId</label>
+                                <select id="Destinations_@destination.PlaceId"
+                                    name="Destinations[@destination.DestinationId].PlaceId" class="form-control">
+                                    <option value="">Select a place</option> <!-- Default option -->
+                                    @foreach (var place in ViewBag.Place)
+                                    {
+                                        <option value="@place.PlaceId" selected="@(place.PlaceId == destination.PlaceId)">ID:
+                                            @place.PlaceId place: @place.PlaceName</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Destinations_@destination.DateVisit" class="control-label">DateVisit</label>
+                                <input type="date" id="Destinations_@destination.DateVisit"
+                                    name="Destinations[@destination.DestinationId].DateVisit" class="form-control"
+                                    value="@destination.DateVisit" />
+                            </div>
+                            <button type="button" class="btn btn-danger deleteDestinationBtn"
+                                data-destination-index="@destination.DestinationId">Delete Destination</button>
+                        </div>
+                    }
+                </div>
+                <button type="button" id="addDestinationBtn" class="btn btn-primary">Add Destination</button>
 
                 <div class="form-group">
                     <input type="submit" value="Save" class="btn btn-primary" />
                 </div>
+                <input type="hidden" asp-for="TourId" />
             </form>
         </div>
     </div>
@@ -112,7 +154,4 @@
     <div>
         <a asp-action="Index">Back to List</a>
     </div>
-
 </body>
-
-</html>

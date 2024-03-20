@@ -110,7 +110,11 @@
                         '<label for="Passengers[' + passengersList.length + '].Age">Age:</label>' +
                         '<input type="number" name="Passengers[' + passengersList.length + '].Age" class="form-control" />' +
                         '<label for="Passengers[' + passengersList.length + '].Gender">Gender:</label>' +
-                        '<input type="text" name="Passengers[' + passengersList.length + '].Gender" class="form-control" />' +
+                        '<div class="gender-radios">' +
+                        '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="M">Male</label>' +
+                        '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="F">Female</label>' +
+                        '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="O">Other</label>' +
+                        '</div>' +
                         '<label for="Passengers[' + passengersList.length + '].SingleRoom">Single Room:</label>' +
                         '<input type="checkbox" name="Passengers[' + passengersList.length + '].SingleRoom" />' +
                         '<input type="hidden" name="Passengers[' + passengersList.length + '].OrderID" value="' + orderId + '" />' +
