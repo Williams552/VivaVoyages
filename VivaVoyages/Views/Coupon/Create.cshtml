@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 
-<html>
+@* <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
@@ -51,4 +51,60 @@
 </div>
 
 </body>
+</html> *@
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" style="padding: 15px;">
+            <div class="col" style="padding: 24px;padding-top: 48px;padding-bottom: 12px;padding-right: 36px;padding-left: 36px;">
+                <div class="border rounded border-2 border-black">
+                    <div style="padding: 15px;">
+                        <div class="row" style="border-bottom-width: 15px;border-bottom-color: rgb(11,14,17);padding-bottom: 15px;">
+                            <div class="col">
+                                <h1 class="d-xl-flex justify-content-xl-start align-items-xl-end" style="border-bottom-color: rgb(33, 37, 41);color: #2b4d93;">Add new Coupon</h1>
+                            </div>
+                            <div class="col d-md-flex justify-content-md-end align-items-md-start"><button class="btn btn-primary d-md-flex" type="button" style="margin-top: 6px;margin-right: 18px;">Back <i class="fa fa-reply d-md-flex justify-content-md-end align-items-md-end"></i></button></div>
+                        </div>
+                        <form asp-action="Create">
+                            <div class="border-2 border-black border-top">
+                                <div class="row form-group" style="border-top-width: 18px;border-top-color: rgb(0,0,0);padding-top: 15px;padding-bottom: 15px;">
+                                    <div class="col d-flex m-auto"><label class="col-form-label fs-2 text-primary d-flex d-lg-flex justify-content-md-start align-items-md-center justify-content-lg-start align-items-lg-center" for="CouponCode"><br /><span style="color: rgba(var(--bs-primary-rgb),var(--bs-text-opacity));">Coupon Code:</span><br /><br /></label></div>
+                                    <div class="col d-flex my-auto">
+                                        <div class="input-group"><input id="CouponCode" class="border rounded-pill border-2 border-primary form-control form-control-sm" type="text" placeholder="NEWSPRING2023" required /></div>
+                                    </div>
+                                    <div class="col m-auto"></div>
+                                </div>
+                            </div>
+                            <div class="border-2 border-black border-top">
+                                <div class="row form-group" style="border-top-width: 18px;border-top-color: rgb(0,0,0);padding-top: 15px;padding-bottom: 15px;">
+                                    <div class="col d-flex m-auto"><label class="col-form-label fs-2 text-primary d-flex d-lg-flex justify-content-md-start align-items-md-center justify-content-lg-start align-items-lg-center" for="CouponCode"><br /><span style="color: rgba(var(--bs-primary-rgb),var(--bs-text-opacity));">Period:</span></label></div>
+                                    <div class="col-sm-6 d-flex my-auto">
+                                        <div class="input-group"><input class="form-control" type="date" />
+                                            <p class="text-center text-primary-emphasis m-auto input-group-text" style="background: rgba(248,249,250,0);border-width: 0px;">TO</p><input class="form-control" type="date" />
+                                        </div>
+                                    </div>
+                                    <div class="col m-auto"></div>
+                                </div>
+                            </div>
+                            <div class="border-2 border-black border-top">
+                                <div class="row form-group" style="border-top-width: 18px;border-top-color: rgb(0,0,0);padding-top: 15px;padding-bottom: 15px;">
+                                    <div class="col d-sm-flex d-md-flex d-xxl-flex justify-content-sm-end justify-content-md-end justify-content-xxl-end" style="padding-right: 48px;"><input class="btn btn-primary" type="submit" /></div>
+                                    <div class="col d-xxl-flex justify-content-xxl-start" style="padding-left: 48px;"><button class="btn btn-danger" type="button">Cancel</button></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
