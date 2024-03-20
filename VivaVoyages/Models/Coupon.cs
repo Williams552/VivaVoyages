@@ -14,4 +14,6 @@ public partial class Coupon
     public DateOnly DateEnd { get; set; }
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+
+    public virtual ICollection<Tour> Tours { get; set; } = new List<Tour>();
 }
