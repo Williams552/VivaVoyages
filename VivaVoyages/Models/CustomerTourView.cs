@@ -7,6 +7,7 @@ namespace VivaVoyages.Models
 {
     public class CustomerTourView
     {
+        public int OrderId { get; set; }
         public string TourName { get; set; }
         public int PassengerCount { get; set; }
         public string DateStart { get; set; }

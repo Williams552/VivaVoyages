@@ -2,6 +2,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using VivaVoyages.Models;
 using IEmailSender = Microsoft.AspNetCore.Identity.UI.Services.IEmailSender;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System.Security.Cryptography;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace VivaVoyages.Controllers
 {
@@ -30,11 +34,15 @@ namespace VivaVoyages.Controllers
                     ModelState.AddModelError("Email", "Email already exists");
                     return View(obj);
                 }
-                _db.Customers.Add(obj);
-                _db.SaveChanges();
+                else
+                {
+                    obj.Password = HashPassword(obj.Password);
+                    _db.Customers.Add(obj);
+                    _db.SaveChanges();
 
-                // Redirect to the login page or any other desired page
-                return RedirectToAction("Login");
+                    // Redirect to the login page or any other desired page
+                    return RedirectToAction("Login");
+                }
             }
 
             // If ModelState is not valid, return to the registration view with validation errors
@@ -49,6 +57,7 @@ namespace VivaVoyages.Controllers
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
+            password = HashPassword(password);
             var customer = _db.Customers.FirstOrDefault(c => c.Email == email && c.Password == password);
             if (customer != null)
             {
@@ -57,7 +66,7 @@ namespace VivaVoyages.Controllers
             }
             else
             {
-                ViewBag.Error = "Email or password is wrong";
+                ModelState.AddModelError("Email", "Email or password is wrong");
                 return View();
             }
         }
@@ -78,7 +87,13 @@ namespace VivaVoyages.Controllers
             this.Email = model.Email;
             if (customer != null)
             {
-                model.ResetCode = Guid.NewGuid().ToString();
+                //ResetCode = 8 random number
+                var random = new Random();
+                var resetCode = random.Next(10000000, 99999999).ToString();
+                customer.ResetCode = resetCode;
+                _db.Customers.Update(customer);
+                _db.SaveChanges();
+
                 SendEmail(model.Email, "Reset Password", "Reset code: " + model.ResetCode);
                 TempData["Email"] = model.Email;
                 return RedirectToAction("ResetPassword");
@@ -164,6 +179,17 @@ namespace VivaVoyages.Controllers
         {
             HttpContext.Session.Remove("LoggedInCustomer");
             return RedirectToAction("Index", "Home");
+        }
+        //PBKDF2 Hashing
+        public string HashPassword(string password)
+        {
+            var hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                password: password,
+                salt: new byte[128 / 8],
+                prf: KeyDerivationPrf.HMACSHA1,
+                iterationCount: 10000,
+                numBytesRequested: 256 / 8));
+            return hashed;
         }
     }
 }

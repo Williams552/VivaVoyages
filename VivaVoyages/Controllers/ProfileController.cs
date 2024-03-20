@@ -5,6 +5,7 @@ using VivaVoyages.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using VivaVoyages.Filters;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
 namespace VivaVoyages.Controllers
 {
@@ -47,7 +48,12 @@ namespace VivaVoyages.Controllers
             if (string.IsNullOrEmpty(customer.PhoneNumber))
             {
                 ModelState.AddModelError("phoneNumber", "Phone number is required");
-                // Trả về view với model để người dùng có thể nhập lại thông tin
+                return View(customer);
+            }
+            // Sử dụng regex để kiểm tra định dạng số điện thoại
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(customer.PhoneNumber, @"^0[0-9]{9}$"))
+            {
+                ModelState.AddModelError("phoneNumber", "Phone number must be 10 digits long and start with 0.");
                 return View(customer);
             }
             if (string.IsNullOrEmpty(customer.Address))
@@ -60,6 +66,17 @@ namespace VivaVoyages.Controllers
             {
                 ModelState.AddModelError("email", "Email is required");
                 // Trả về view với model để người dùng có thể nhập lại thông tin
+                return View(customer);
+            }
+            DateOnly today = DateOnly.FromDateTime(DateTime.Today);
+            if (customer.Dob == DateOnly.MinValue)
+            {
+                ModelState.AddModelError("dob", "Birthday is required.");
+                return View(customer);
+            }
+            else if (customer.Dob >= today)
+            {
+                ModelState.AddModelError("dob", "Birthday must be a date in the past.");
                 return View(customer);
             }
             customer.Status = "Active";
@@ -86,8 +103,6 @@ namespace VivaVoyages.Controllers
                 return NotFound();
             }
 
-            // Chú ý: Sử dụng model Customer có thể tiết lộ thông tin không mong muốn.
-            // Trong ví dụ này, chúng ta sẽ chỉ sử dụng customerId và password fields.
             return View(customer);
         }
 
@@ -119,9 +134,11 @@ namespace VivaVoyages.Controllers
 
                 TempData["ChangePasswordSuccess"] = "Password changed successfully.";
 
-                // Cập nhật mật khẩu mới - trong thực tế, bạn nên băm mật khẩu này
+                newPassword = HashPassword(newPassword);
                 customer.Password = newPassword;
                 _context.SaveChanges();
+                ViewData["SuccessMessage"] = "Password changed successfully.";
+
 
                 return RedirectToAction("Index");
             }
@@ -146,23 +163,24 @@ namespace VivaVoyages.Controllers
             ViewData["CustomerId"] = customer.CustomerId;
             ViewData["FullName"] = customer.FullName;
 
-        var customerTours = await _context.Orders
-        .Where(o => o.CustomerId == id)
-        .Include(o => o.Tour)
-        .Include(o => o.Passengers) // Đảm bảo include thông tin về Passenger
-        .GroupBy(o => o.TourId)
-        .Select(g => new CustomerTourView
-        {
-            TourName = g.First().Tour.TourName,
-            PassengerCount = g.SelectMany(o => o.Passengers).Count(), // Tính tổng số hành khách cho mỗi Tour
-            DateStart = g.First().Tour.DateStart.ToString("dd/MM/yyyy"),
-            TourDates = g.First().Tour.TourDates,
-            TourGuide = g.First().Tour.TourGuide,
-            Cost = g.First().Tour.Cost,
-            Status = g.First().Status
-            // Các thuộc tính khác như trước
-        })
-        .ToListAsync();
+            var customerTours = await _context.Orders
+            .Where(o => o.CustomerId == id)
+            .Include(o => o.Tour)
+            .Include(o => o.Passengers) // Đảm bảo include thông tin về Passenger
+            .GroupBy(o => o.TourId)
+            .Select(g => new CustomerTourView
+            {
+                OrderId = g.First().OrderId,
+                TourName = g.First().Tour.TourName,
+                PassengerCount = g.SelectMany(o => o.Passengers).Count(), // Tính tổng số hành khách cho mỗi Tour
+                DateStart = g.First().Tour.DateStart.ToString("dd/MM/yyyy"),
+                TourDates = g.First().Tour.TourDates,
+                TourGuide = g.First().Tour.TourGuide,
+                Cost = g.First().Tour.Cost,
+                Status = g.First().Status
+                // Các thuộc tính khác như trước
+            })
+            .ToListAsync();
 
             if (!customerTours.Any())
             {
@@ -172,6 +190,23 @@ namespace VivaVoyages.Controllers
 
             // Trả về view với danh sách các tours
             return View(customerTours);
+        }
+
+        public IActionResult SignOut()
+        {
+            HttpContext.Session.Remove("LoggedInCustomer");
+            return RedirectToAction("Index", "Home");
+        }
+        //PBKDF2 Hashing
+        public string HashPassword(string password)
+        {
+            var hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                password: password,
+                salt: new byte[128 / 8],
+                prf: KeyDerivationPrf.HMACSHA1,
+                iterationCount: 10000,
+                numBytesRequested: 256 / 8));
+            return hashed;
         }
 
     }

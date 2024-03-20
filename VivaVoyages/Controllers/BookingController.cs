@@ -42,20 +42,20 @@ namespace VivaVoyages.Controllers
             try
             {
                 Customer customer = HttpContext.Session.GetObject<Customer>("LoggedInCustomer");
-                int numbOfPassenger =0;
-                int numbOfSR =0;
+                int numbOfPassenger = 0;
+                int numbOfSR = 0;
 
                 //Add the passengers to the database
                 List<Passenger> passengers = JsonConvert.DeserializeObject<List<Passenger>>(passengersJson);
                 foreach (var passenger in passengers)
                 {
-                    numbOfPassenger ++;
-                    if(passenger.SingleRoom == true) numbOfSR ++;
+                    numbOfPassenger++;
+                    if (passenger.SingleRoom == true) numbOfSR++;
                     passenger.CustomerId = customer.CustomerId;
                     _context.Passengers.Add(passenger);
-                    
+
                 }
-                var tour =  _context.Tours.Find(tourId);
+                var tour = _context.Tours.Find(tourId);
 
                 Order order = new Order
                 {
@@ -64,7 +64,7 @@ namespace VivaVoyages.Controllers
                     StaffId = _context.Staff.FirstOrDefault().StaffId,
                     DateCreated = DateTime.Now,
                     Status = "Pending",
-                    Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR))*(1+tour.Tax/100)
+                    Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR)) * (1 + tour.Tax / 100)
 
                 };
 
@@ -109,6 +109,53 @@ namespace VivaVoyages.Controllers
         {
             var passengerList = _context.Passengers.ToList();
             return View(passengerList);
+        }
+
+        public async Task<IActionResult> OrderCancel(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var order = await _context.Orders
+                .Include(o => o.Tour)
+                .Include(o => o.Customer)
+                .Include(o => o.Passengers)
+                .Include(o => o.Staff)
+                .FirstOrDefaultAsync(m => m.OrderId == id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            return View(order);
+        }
+        
+        // Action to cancel all orders for a specific tour
+        [HttpPost, ActionName("OrderCancel")]
+        public async Task<IActionResult> OrderCancelConfirmed(int id)
+        {
+            try
+            {
+                //delete order
+                var order = await _context.Orders.FindAsync(id);
+                _context.Orders.Remove(order);
+                await _context.SaveChangesAsync();
+                //remove passengers
+                var passengers = _context.Passengers.Where(p => p.OrderId == id).ToList();
+                foreach (var passenger in passengers)
+                {
+                    _context.Passengers.Remove(passenger);
+                }
+                await _context.SaveChangesAsync();
+            }
+            catch
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            return RedirectToAction("Index", "Profile");
         }
 
     }
