@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {}
+    "D:\\code\\QQ\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {}
   },
   "projects": {
-    "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {
+    "D:\\code\\QQ\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+        "projectUniqueName": "D:\\code\\QQ\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
         "projectName": "VivaVoyages",
-        "projectPath": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
-        "packagesPath": "C:\\Users\\tiend\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT SP 24\\VivaVoyages\\VivaVoyages\\obj\\",
+        "projectPath": "D:\\code\\QQ\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+        "packagesPath": "C:\\Users\\truon\\.nuget\\packages\\",
+        "outputPath": "D:\\code\\QQ\\VivaVoyages\\VivaVoyages\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tiend\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\truon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -101,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

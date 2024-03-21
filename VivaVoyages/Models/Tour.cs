@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-
 namespace VivaVoyages.Models;
 
 public partial class Tour
@@ -28,8 +27,13 @@ public partial class Tour
 
     public string? ImagePath { get; set; }
 
-    [NotMapped]
-    public IFormFile ImageFile { get; set; }
+    public string? CouponCode { get; set; }
+
+     [NotMapped]
+    public IFormFile ImageFile {get; set;}
+
+    public virtual Coupon? CouponCodeNavigation { get; set; }
+
     public virtual ICollection<Destination> Destinations { get; set; } = new List<Destination>();
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();

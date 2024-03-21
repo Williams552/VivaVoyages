@@ -33,13 +33,13 @@ public partial class VivaVoyagesContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        //=> optionsBuilder.UseSqlServer("Server=LAPTOP-VPP4I6FK;Database=VivaVoyages;uid=carturbo69;pwd=0909051619;encrypt=true;trustServerCertificate=true;");
-          => optionsBuilder.UseSqlServer("Server=TIENDAT\\MSSQLSERVER05;Database=VivaVoyages;uid=Sa;pwd=tiendat2003;encrypt=true;trustServerCertificate=true;");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-19I1A1S\\MSSQLSERVER01;Database=VivaVoyages;uid=sa;pwd=123;encrypt=true;trustServerCertificate=true;Trusted_Connection=True;");
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Coupon>(entity =>
         {
-            entity.HasKey(e => e.CouponCode).HasName("PK__Coupons__D349080100AFA52C");
+            entity.HasKey(e => e.CouponCode).HasName("PK__Coupons__D349080147EEA531");
 
             entity.Property(e => e.CouponCode)
                 .HasMaxLength(255)
@@ -49,7 +49,7 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64B8E47B597A");
+            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64B8048B2B87");
 
             entity.ToTable("Customer");
 
@@ -83,7 +83,7 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Destination>(entity =>
         {
-            entity.HasKey(e => e.DestinationId).HasName("PK__Destinat__DB5FE4AC83DBDD35");
+            entity.HasKey(e => e.DestinationId).HasName("PK__Destinat__DB5FE4ACEE88C07F");
 
             entity.ToTable("Destination");
 
@@ -96,16 +96,16 @@ public partial class VivaVoyagesContext : DbContext
 
             entity.HasOne(d => d.Place).WithMany(p => p.Destinations)
                 .HasForeignKey(d => d.PlaceId)
-                .HasConstraintName("FK__Destinati__Place__38996AB5");
+                .HasConstraintName("FK__Destinati__Place__4CA06362");
 
             entity.HasOne(d => d.Tour).WithMany(p => p.Destinations)
                 .HasForeignKey(d => d.TourId)
-                .HasConstraintName("FK__Destinati__TourI__37A5467C");
+                .HasConstraintName("FK__Destinati__TourI__4BAC3F29");
         });
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF49FD71AF");
+            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF81CAB43E");
 
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.CouponCode)
@@ -122,26 +122,26 @@ public partial class VivaVoyagesContext : DbContext
 
             entity.HasOne(d => d.CouponCodeNavigation).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CouponCode)
-                .HasConstraintName("FK__Orders__CouponCo__2F10007B");
+                .HasConstraintName("FK__Orders__CouponCo__4316F928");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Orders__Customer__2C3393D0");
+                .HasConstraintName("FK__Orders__Customer__403A8C7D");
 
             entity.HasOne(d => d.Staff).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.StaffId)
-                .HasConstraintName("FK__Orders__StaffID__2D27B809");
+                .HasConstraintName("FK__Orders__StaffID__412EB0B6");
 
             entity.HasOne(d => d.Tour).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.TourId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Orders__TourID__2E1BDC42");
+                .HasConstraintName("FK__Orders__TourID__4222D4EF");
         });
 
         modelBuilder.Entity<Passenger>(entity =>
         {
-            entity.HasKey(e => e.PassengerId).HasName("PK__Passenge__88915F90BA8DD316");
+            entity.HasKey(e => e.PassengerId).HasName("PK__Passenge__88915F9011C29E85");
 
             entity.Property(e => e.PassengerId).HasColumnName("PassengerID");
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
@@ -156,17 +156,17 @@ public partial class VivaVoyagesContext : DbContext
             entity.HasOne(d => d.Customer).WithMany(p => p.Passengers)
                 .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Passenger__Custo__34C8D9D1");
+                .HasConstraintName("FK__Passenger__Custo__48CFD27E");
 
             entity.HasOne(d => d.Order).WithMany(p => p.Passengers)
                 .HasForeignKey(d => d.OrderId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Passenger__Order__33D4B598");
+                .HasConstraintName("FK__Passenger__Order__47DBAE45");
         });
 
         modelBuilder.Entity<Place>(entity =>
         {
-            entity.HasKey(e => e.PlaceId).HasName("PK__Places__D5222B4EA163472A");
+            entity.HasKey(e => e.PlaceId).HasName("PK__Places__D5222B4EFA2A1445");
 
             entity.Property(e => e.PlaceId).HasColumnName("PlaceID");
             entity.Property(e => e.Address)
@@ -185,7 +185,7 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Staff>(entity =>
         {
-            entity.HasKey(e => e.StaffId).HasName("PK__Staff__96D4AAF7ADA735C0");
+            entity.HasKey(e => e.StaffId).HasName("PK__Staff__96D4AAF7FDA394EF");
 
             entity.Property(e => e.StaffId).HasColumnName("StaffID");
             entity.Property(e => e.Address)
@@ -210,12 +210,15 @@ public partial class VivaVoyagesContext : DbContext
 
         modelBuilder.Entity<Tour>(entity =>
         {
-            entity.HasKey(e => e.TourId).HasName("PK__Tour__604CEA10C948E0FF");
+            entity.HasKey(e => e.TourId).HasName("PK__Tour__604CEA105BBC2142");
 
             entity.ToTable("Tour");
 
             entity.Property(e => e.TourId).HasColumnName("TourID");
             entity.Property(e => e.Cost).HasColumnType("money");
+            entity.Property(e => e.CouponCode)
+                .HasMaxLength(255)
+                .IsUnicode(false);
             entity.Property(e => e.ExpectedProfit).HasColumnType("money");
             entity.Property(e => e.ImagePath)
                 .HasMaxLength(255)
@@ -228,6 +231,10 @@ public partial class VivaVoyagesContext : DbContext
             entity.Property(e => e.TourName)
                 .HasMaxLength(255)
                 .IsUnicode(false);
+
+            entity.HasOne(d => d.CouponCodeNavigation).WithMany(p => p.Tours)
+                .HasForeignKey(d => d.CouponCode)
+                .HasConstraintName("FK__Tour__CouponCode__3B75D760");
         });
 
         OnModelCreatingPartial(modelBuilder);

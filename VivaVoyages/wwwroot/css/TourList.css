@@ -54,7 +54,7 @@
 }
 
 .it-cp h5 {
-    margin-right: 10px; /* Khoảng cách giữa cost và booking */
+    margin-right: -76px; /* Khoảng cách giữa cost và booking */
 }
 
 .col-it {
@@ -613,4 +613,22 @@ margin-left: -12px;
 
 .caa{
     border-bottom: 1px solid #ccc;
+}
+
+.tour-cost p {
+    display: inline-block;
+    
+}
+
+.tour-cost .cp{
+    color: red;
+}
+
+.it-cp .cp{
+    color: red;
+    margin-right: 10px;
+}
+
+#lcp{
+    margin-top: 70px;
 }
