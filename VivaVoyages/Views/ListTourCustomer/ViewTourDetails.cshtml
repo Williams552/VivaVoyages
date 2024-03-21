@@ -31,11 +31,8 @@
             <dt><h2>@Model.TourName</h2></dt>
         </div>
         <div class="it-cp">
-            <h5 style="display: inline-block;"><strong style="color: red;"><p class="totalCostElement" style="display: inline-block;"></p></strong>/Guest</h5>
-            @if (Model.CouponCodeNavigation != null)
-                {
-                     <p class="cp" ><strong>-</strong> @Model.CouponCodeNavigation.Discount đ</p>
-                }
+            <h5 style="display: inline-block;  "><strong style="color: red; "><p class="totalCostElement" style="display: inline-block;"></p></strong>/Guest</h5>
+            
 
             <div class="col-it">
                 <a asp-action="Create" asp-controller="Booking" asp-route-id="@Model.TourId"

@@ -30,10 +30,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/SWP/VivaVoyages/VivaVoyages/Views/Booking/CreateInStaff.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xDcmVhdGVJblN0YWZmLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/SWP/VivaVoyages/VivaVoyages/Views/Booking/ListPassengers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xMaXN0UGFzc2VuZ2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -202,6 +198,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/SWP/VivaVoyages/VivaVoyages/Views/Revenues/RevenueStatistics.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV2ZW51ZXNcUmV2ZW51ZVN0YXRpc3RpY3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/SWP/VivaVoyages/VivaVoyages/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -240,6 +240,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/SWP/VivaVoyages/VivaVoyages/Views/Staff/TourIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZcVG91ckluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/SWP/VivaVoyages/VivaVoyages/Views/Statistical/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGlzdGljYWxcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/SWP/VivaVoyages/VivaVoyages/Views/Tour/Create.cshtml]
