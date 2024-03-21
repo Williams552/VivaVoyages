@@ -21,9 +21,9 @@
                         style="padding: 0px;position: absolute;background: #21252976;margin: 0px;margin-top: -390px;width: 619.85px;margin-right: 0;border-radius: 35px;margin-bottom: 0;padding-left: 86px;margin-left: 48px;padding-right: 108px;height: 223px;border-color: var(--bs-tertiary-color);">
                         <h1 style="width: 459.85px;padding-right: 0px;margin-top: 8px;"><span
                                 style="color: rgb(255, 255, 255);">@Model.ToList()[0].TourName</span></h1>
-                        <p style="width: 334.85px;"><br><span
+                        @* <p style="width: 334.85px;"><br><span
                                 style="color: rgb(255, 255, 255);">@Model.ToList()[0].Destinations.ToList()[0].Description</span>
-                        </p>
+                        </p> *@
                         <a asp-controller="ListTourCustomer" asp-action="ViewTourDetails"
                             asp-route-id="@Model.ToList()[0].TourId" class="btn btn-primary"
                             style="margin-left: 0px;width: 239.312px;background: var(--bs-body-bg);"><span
@@ -36,9 +36,9 @@
                         style="padding: 0px;position: absolute;background: #21252976;margin: 0px;margin-top: -390px;width: 619.85px;margin-right: 0;border-radius: 35px;margin-bottom: 0;padding-left: 86px;margin-left: 48px;padding-right: 108px;height: 223px;border-color: var(--bs-tertiary-color);">
                         <h1 style="width: 459.85px;padding-right: 0px;margin-top: 8px;"><span
                                 style="color: rgb(255, 255, 255);">@Model.ToList()[1].TourName</span></h1>
-                        <p style="width: 334.85px;"><br><span
+                        @* <p style="width: 334.85px;"><br><span
                                 style="color: rgb(255, 255, 255);">@Model.ToList()[1].Destinations.ToList()[0].Description
-                            </span></p>
+                            </span></p> *@
                         <a asp-controller="ListTourCustomer" asp-action="ViewTourDetails"
                             asp-route-id="@Model.ToList()[1].TourId" class="btn btn-primary"
                             style="margin-left: 0px;width: 239.312px;background: var(--bs-body-bg);"><span
@@ -51,9 +51,9 @@
                         style="padding: 0px;position: absolute;background: #21252976;margin: 0px;margin-top: -390px;width: 619.85px;margin-right: 0;border-radius: 35px;margin-bottom: 0;padding-left: 86px;margin-left: 48px;padding-right: 108px;height: 223px;border-color: var(--bs-tertiary-color);">
                         <h1 style="width: 459.85px;padding-right: 0px;margin-top: 8px;"><span
                                 style="color: rgb(255, 255, 255);">@Model.ToList()[2].TourName </span></h1>
-                        <p style="width: 334.85px;"><br><span
+                        @* <p style="width: 334.85px;"><br><span
                                 style="color: rgb(255, 255, 255);">@Model.ToList()[2].Destinations.ToList()[0].Description
-                            </span></p>
+                            </span></p> *@
                         <a asp-controller="ListTourCustomer" asp-action="ViewTourDetails"
                             asp-route-id="@Model.ToList()[2].TourId" class="btn btn-primary"
                             style="margin-left: 0px;width: 239.312px;background: var(--bs-body-bg);"><span

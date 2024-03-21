@@ -19,12 +19,13 @@
 
 <body>
 
-
+     <h2 style="margin-top: 20px">Discount Code This Month</h2>
     <div id="lcp" class="tours-container">
         @foreach (var item in Model)
-        {
-            <div class="tour-item">
-                <h1>@item.CouponCode</h1>
+        {   
+           
+        <div id="cp-code" class="tour-item">
+         <h1> @item.CouponCode</h1>      
                 <div class="tour-list">
                     <p class="tini">
                         <span>@item.DateStart.ToString("dd/MM/yyyy")</span> -

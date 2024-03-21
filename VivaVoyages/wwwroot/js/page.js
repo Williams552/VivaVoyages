@@ -25,6 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Hiển thị các tour của trang hiện tại
+        tours.forEach(function(tour) {
+            tour.style.display = 'none';
+        });
+
+        // Hiển thị các tour của trang hiện tại
+        for (var i = startIndex; i < endIndex; i++) {
+            tours[i].style.display = 'block';
+        }
     }
     
     // Tạo các nút phân trang
