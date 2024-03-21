@@ -9,11 +9,13 @@ using Microsoft.DotNet.Scaffolding.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using VivaVoyages.Filters;
 using VivaVoyages.Models;
 
 
 namespace VivaVoyages.Controllers
 {
+    [ServiceFilter(typeof(CustomerLoginFilter))]
     public class BookingController : Controller
     {
         private readonly VivaVoyagesContext _context;
@@ -55,7 +57,7 @@ namespace VivaVoyages.Controllers
                 int numbOfSR = 0;
 
                 var tour = _context.Tours.Find(tourId);
-                
+
 
                 Order order = new Order
                 {
@@ -66,8 +68,6 @@ namespace VivaVoyages.Controllers
                     DateCreated = DateTime.Now,
                     Status = "Pending",
                 };
-
-                var coupon = _context.Coupons.Find(order.CouponCode);
 
                 // Add the Order to the context
                 _context.Orders.Add(order);
@@ -86,8 +86,20 @@ namespace VivaVoyages.Controllers
                     _context.Passengers.Add(passenger);
                     _context.SaveChanges();
                 }
-                order.Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR)) * (1 + tour.Tax / 100) - coupon.Discount;
+                order.Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR)) * (1 + tour.Tax / 100);
+                var coupon = _context.Coupons.Find(order.CouponCode);
+                if (coupon != null)
+                {
+                    if (coupon.DateEnd < DateOnly.FromDateTime(DateTime.Now))
+                    {
+                        ViewData["Error"] = "Coupon is expired";
+                        return RedirectToAction("Create", new { id = tourId });
+                    }
+                    order.Total = order.Total - coupon.Discount;
+                }
 
+                _context.Orders.Update(order);
+                _context.SaveChanges();
 
                 return RedirectToAction("Index", "Payment", new { orderId = order.OrderId });
             }

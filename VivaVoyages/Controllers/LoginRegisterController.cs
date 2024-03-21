@@ -23,6 +23,11 @@ namespace VivaVoyages.Controllers
         [HttpPost]
         public IActionResult Register(Customer obj)
         {
+            if (obj.Dob.Year > DateTime.Now.Year - 18)
+            {
+                ModelState.AddModelError("Dob", "Date of birth must great than 18 years ago");
+            }
+
             if (ModelState.IsValid)
             {
                 // Check if the email is already in use
