@@ -19,11 +19,25 @@
                             class="navbar-toggler-icon"></span></button>
                     <div id="navcol-2" class="collapse navbar-collapse">
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Tour" asp-action="Index" >Tours</a></li>
-                            <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Place" asp-action="Index">Places</a></li>
-                            <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Coupon" asp-action="Index">Coupons</a></li>
-                            <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Destination" asp-action="Index">Destination</a></li>
-                            <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Tour" asp-action="Index">Sign Out</a></li>
+                            <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Staff"
+                                    asp-action="TourIndex">Tour Index</a></li>
+                            <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Staff"
+                                    asp-action="PendingOrders">Pending Orders</a></li>
+                            <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Staff"
+                                    asp-action="CustomerManagement">Manage Customer</a></li>
+                            @if (ViewContext.HttpContext.Session.GetObject<Staff>("LoggedInStaff").Role == "Administrator")
+                            {
+                                <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Tour"
+                                        asp-action="Index">Tours</a></li>
+                                <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Place"
+                                        asp-action="Index">Places</a></li>
+                                <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Coupon"
+                                        asp-action="Index">Coupons</a></li>
+                                <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Destination"
+                                        asp-action="Index">Destination</a></li>
+                            }
+                            <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Tour"
+                                    asp-action="Index">Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -41,8 +55,10 @@
                 <div>
                     <ul class="list-inline float-start"
                         style="display: inline-flex;transform: perspective(0px) translateX(0px);transform-origin: center;">
-                        <li class="list-inline-item me-4"><a class="link-secondary"  asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li class="list-inline-item me-4"><a class="link-secondary"  asp-area="" asp-controller="Tour" asp-action="Index">Staff</a></li>
+                        <li class="list-inline-item me-4"><a class="link-secondary" asp-area="" asp-controller="Home"
+                                asp-action="Index">Home</a></li>
+                        <li class="list-inline-item me-4"><a class="link-secondary" asp-area="" asp-controller="Tour"
+                                asp-action="Index">Staff</a></li>
                     </ul>
                     <ul class="list-inline float-end" style="display: inline-flex;position: static;">
                         <li class="list-inline-item me-4"><svg class="bi bi-facebook" xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +81,7 @@
                             </svg></li>
                     </ul>
                 </div>
-                <p class="d-inline-flex mb-0">Copyright © 2024 VivaVoyage</p>
+                <p class="d-inline-flex mb-0">Copyright © 2024 VivaVoyages</p>
             </div>
         </footer>
     </div>
