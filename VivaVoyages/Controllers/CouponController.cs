@@ -57,6 +57,10 @@ namespace VivaVoyages.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CouponCode,Discount,DateStart,DateEnd")] Coupon coupon)
         {
+            if (coupon.Discount <= 0)
+            {
+                ModelState.AddModelError("Discount", "Discount much be greater than 0");
+            }
             if (ModelState.IsValid)
             {
                 // Check if DateStart is before DateEnd
