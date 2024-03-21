@@ -44,6 +44,9 @@
                         <dt class="col-sm-4">Tour Guide:</dt>
                         <dd class="col-sm-8">@Model.Tour.TourGuide</dd>
 
+                        <dt class="col-sm-4">Single Room:</dt>
+                        <dd class="col-sm-8">@Model.Tour.SingleRoomCost</dd>
+
                         <dt class="col-sm-4">Tax:</dt>
                         <dd class="col-sm-8">@Model.Tour.Tax</dd>
                     </dl>
@@ -86,6 +89,7 @@
 
     <!-- Book Tour Form -->
     <form id="bookTourForm" method="post" asp-action="Create" asp-controller="Booking">
+        <input type="text" asp-for="CouponCode">
         <input type="hidden" name="TourId" value="@Model.TourId" />
         <input type="hidden" id="passengersJson" name="PassengersJson" />
         <button type="submit" class="btn btn-primary mt-3">Book</button>
@@ -106,7 +110,11 @@
                         '<label for="Passengers[' + passengersList.length + '].Age">Age:</label>' +
                         '<input type="number" name="Passengers[' + passengersList.length + '].Age" class="form-control" />' +
                         '<label for="Passengers[' + passengersList.length + '].Gender">Gender:</label>' +
-                        '<input type="text" name="Passengers[' + passengersList.length + '].Gender" class="form-control" />' +
+                        '<div class="gender-radios">' +
+                        '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="M">Male</label>' +
+                        '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="F">Female</label>' +
+                        '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="O">Other</label>' +
+                        '</div>' +
                         '<label for="Passengers[' + passengersList.length + '].SingleRoom">Single Room:</label>' +
                         '<input type="checkbox" name="Passengers[' + passengersList.length + '].SingleRoom" />' +
                         '<input type="hidden" name="Passengers[' + passengersList.length + '].OrderID" value="' + orderId + '" />' +

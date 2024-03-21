@@ -48,6 +48,10 @@
   z-index: 2;
 }
 
+#btn-sesion{
+  
+}
+
 @media (max-width: 991.98px) {
   #login-block {
       opacity: .95;

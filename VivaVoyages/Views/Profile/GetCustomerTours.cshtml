@@ -70,7 +70,12 @@
                                             <td>@tour.Total</td>
                                             <td>@tour.Status</td>
                                             <td>
-                                                @if (tour.Status == "Pending")
+                                                
+                                                <a class="btn btn-danger" asp-controller="Booking" asp-action="OrderCancel"
+                                                    asp-route-id="@tour.OrderId">Details</a>
+                                            </td>
+                                            <td>
+                                            @if (tour.Status == "Pending")
                                                 {
                                                     <a href="@Url.Action("Index", "Payment", new { orderId = tour.OrderId })"
                                                         class="btn btn-primary">Payment</a>

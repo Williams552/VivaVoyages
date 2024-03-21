@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "VerifyEmail";
+}
+
+<h1>Verify Email</h1>
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
+<form asp-action="VerifyEmail" method="post">
+    <div class="mb-3">
+        <label for="Email" class="form-label">Email Address</label>
+        <input readonly type="email" class="form-control" id="Email" name="Email" value="@ViewBag.Email">
+    </div>
+    <div class="mb-3">
+        <label for="Code" class="form-label">Verification Code</label>
+        <input type="text" class="form-control" id="Code" name="Code" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Verify</button>
+</form>

@@ -1,0 +1,68 @@
+@model Order
+
+@{
+    ViewData["Title"] = "Cancel Order";
+}
+
+<div class="container">
+    <h1>Cancel Order</h1>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3">Order ID</dt>
+        <dd class="col-sm-9">@Model.OrderId</dd>
+
+        <dt class="col-sm-3">Customer ID</dt>
+        <dd class="col-sm-9">@Model.CustomerId</dd>
+
+        <dt class="col-sm-3">Staff ID</dt>
+        <dd class="col-sm-9">@Model.StaffId</dd>
+
+        <dt class="col-sm-3">Tour ID</dt>
+        <dd class="col-sm-9">@Model.TourId</dd>
+
+        <dt class="col-sm-3">Coupon Code</dt>
+        <dd class="col-sm-9">@Model.CouponCode</dd>
+
+        <dt class="col-sm-3">Status</dt>
+        <dd class="col-sm-9">@Model.Status</dd>
+
+        <dt class="col-sm-3">Date Created</dt>
+        <dd class="col-sm-9">@Model.DateCreated.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+
+        @if (Model.CouponCodeNavigation != null)
+        {
+            <dt class="col-sm-3">Coupon Details</dt>
+            <dd class="col-sm-9">@Model.CouponCodeNavigation</dd>
+        }
+
+        <dt class="col-sm-3">Customer Details</dt>
+        <dd class="col-sm-9">@Model.Customer.FullName - @Model.Customer.Email</dd>
+
+        @if (Model.Staff != null)
+        {
+            <dt class="col-sm-3">Staff Details</dt>
+            <dd class="col-sm-9">@Model.Staff.FullName - @Model.Staff.Email</dd>
+        }
+
+        <dt class="col-sm-3">Tour Details</dt>
+        <dd class="col-sm-9">@Model.Tour.TourName - @Model.Tour.Destinations</dd>
+
+        <dt class="col-sm-3">Passengers</dt>
+        <dd class="col-sm-9">
+            <ul>
+                @foreach (var passenger in Model.Passengers)
+                {
+                    <li>@passenger.FullName - @passenger.Age years old</li>
+                }
+            </ul>
+        </dd>
+    </dl>
+    @if (Model.Status == "Pending")
+    {
+        <form method="post" asp-action="OrderCancel" asp-controller="Booking">
+            <button type="submit" class="btn btn-danger">Cancel Order</button>
+        </form>
+    }
+    <a asp-action="Index" asp-controller="Profile" class="btn btn-secondary">Back to List</a>
+</div>

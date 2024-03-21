@@ -2,6 +2,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using VivaVoyages.Models;
 using IEmailSender = Microsoft.AspNetCore.Identity.UI.Services.IEmailSender;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System.Security.Cryptography;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace VivaVoyages.Controllers
 {
@@ -30,11 +34,23 @@ namespace VivaVoyages.Controllers
                     ModelState.AddModelError("Email", "Email already exists");
                     return View(obj);
                 }
-                _db.Customers.Add(obj);
-                _db.SaveChanges();
+                else
+                {
+                    obj.Password = HashPassword(obj.Password);
+                    //Verification codes(Reset code = random 8 number)
+                    var random = new Random();
+                    var resetCode = random.Next(10000000, 99999999).ToString();
+                    obj.ResetCode = resetCode;
 
-                // Redirect to the login page or any other desired page
-                return RedirectToAction("Login");
+                    //send email to user
+                    SendEmail(obj.Email, "Verify your account", "Your reset code is: " + resetCode);
+
+                    _db.Customers.Add(obj);
+                    _db.SaveChanges();
+
+                    // Redirect to the login page or any other desired page
+                    return RedirectToAction("VerifyEmail", "LoginRegister", new { Email = obj.Email });
+                }
             }
 
             // If ModelState is not valid, return to the registration view with validation errors
@@ -49,15 +65,25 @@ namespace VivaVoyages.Controllers
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
+            password = HashPassword(password);
             var customer = _db.Customers.FirstOrDefault(c => c.Email == email && c.Password == password);
             if (customer != null)
             {
-                HttpContext.Session.SetObject("LoggedInCustomer", customer);
-                return RedirectToAction("Index", "Home");
+                if (customer.Status == "Active")
+                {
+                    HttpContext.Session.SetObject("LoggedInCustomer", customer);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    // If the account is not active, redirect to the verify email
+                    return RedirectToAction("VerifyEmail", "LoginRegister", new { Email = email });
+                }
+
             }
             else
             {
-                ViewBag.Error = "Email or password is wrong";
+                ModelState.AddModelError("Email", "Email or password is wrong");
                 return View();
             }
         }
@@ -78,7 +104,13 @@ namespace VivaVoyages.Controllers
             this.Email = model.Email;
             if (customer != null)
             {
-                model.ResetCode = Guid.NewGuid().ToString();
+                //ResetCode = 8 random number
+                var random = new Random();
+                var resetCode = random.Next(10000000, 99999999).ToString();
+                customer.ResetCode = resetCode;
+                _db.Customers.Update(customer);
+                _db.SaveChanges();
+
                 SendEmail(model.Email, "Reset Password", "Reset code: " + model.ResetCode);
                 TempData["Email"] = model.Email;
                 return RedirectToAction("ResetPassword");
@@ -108,7 +140,9 @@ namespace VivaVoyages.Controllers
             {
                 if (customer.ResetCode == forgotPassword.ResetCode) // Thay bằng cách kiểm tra reset code hợp lệ
                 {
+                    forgotPassword.NewPassword = HashPassword(forgotPassword.NewPassword);
                     customer.Password = forgotPassword.NewPassword;
+                    customer.ResetCode = "";
 
                     _db.Customers.Update(customer);
                     _db.SaveChanges();
@@ -134,6 +168,7 @@ namespace VivaVoyages.Controllers
         [HttpPost]
         public IActionResult StaffLogin(string email, string password)
         {
+            // password = HashPassword(password);
             var staff = _db.Staff.FirstOrDefault(c => c.Email == email && c.Password == password);
 
             if (staff != null)
@@ -164,6 +199,44 @@ namespace VivaVoyages.Controllers
         {
             HttpContext.Session.Remove("LoggedInCustomer");
             return RedirectToAction("Index", "Home");
+        }
+        //PBKDF2 Hashing
+        public string HashPassword(string password)
+        {
+            var hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                password: password,
+                salt: new byte[128 / 8],
+                prf: KeyDerivationPrf.HMACSHA1,
+                iterationCount: 10000,
+                numBytesRequested: 256 / 8));
+            return hashed;
+        }
+        //VerifyEmail Get
+        public IActionResult VerifyEmail(string Email)
+        {
+            ViewBag.Email = Email;
+            return View();
+        }
+        //VerifyEmail Post
+        [HttpPost]
+        public IActionResult VerifyEmail(string Email, string Code)
+        {
+
+            var customer = _db.Customers.FirstOrDefault(c => c.Email == Email);
+            if (customer.ResetCode == Code)
+            {
+                customer.Status = "Active";
+                customer.ResetCode = "";
+                _db.Customers.Update(customer);
+                _db.SaveChanges();
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                ViewBag.Error = "Code is wrong";
+                ViewBag.Email = Email;
+                return View();
+            }
         }
     }
 }
