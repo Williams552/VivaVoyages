@@ -1,57 +1,42 @@
 @model Staff
 @{
+    Layout="";
     ViewData["Title"] = "StaffLogin";
 }
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css " />
+    <link rel="stylesheet" href="~/css/animate.min.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/styleLogin.css" asp-append-version="true" />
-    <title>Document</title>
-</head>
+    @section Script {
+        <partial name="_ValidationScriptsPartial" />
+    }
+</head> <body>
+<main>
+    <div id="main">
+        <div class="text-center" id="info" style="height: 500px;margin-top: 62px;"><img id="ventaspro-logo"
+                src="~/img/ThePhong3.png" width="200">
+            <div class="div-2">WELCOME BACK VIVA DOSE!</div>
+            <form asp-action="StaffLogin" method="post" class="text-start" id="form-login">
+                <div class="mb-3">
+                    <label class="form-label" id="lbl-usuario" for="txt-usuario">Email</label>
+                    <input class="form-control" type="text" id="txt-usuario" asp-for="Email"><span
+                        asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" id="lbl-usuario" for="txt-usuario">Password</label>
+                    <input class="form-control" type="password" id="txt-usuario" asp-for="Password"><span
+                        asp-validation-for="Email" class="text-danger"></span>
+                </div>
 
-<body>
-    <main>
-        <div class="div-0">
-            <div class="div-1">
-                <div class="div-2">WELCOME BACK VIVA DOSE!</div>
-                <div class="div-3">
-                    <span>
-                        Don’t have a account,
-                    </span>
-                    <span>
-                        Sign up
-                    </span>
-                </div>
-                <form action="StaffLogin" method="post">
-                    <div class="div-4">Username</div>
-                    <div class="div-5"><input type="text" asp-for="Email" class="input-1"></div>
-                    <div class="div-6">Password</div>
-                    <div class="div-7">
-                        <input type="password" asp-for="Password" class="input-1">
-                    </div>
-                    <div class="div-8">
-                        <div class="div-9">
-                            <img loading="lazy"
-                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/c06ed290ebdd75e58decf1a1bfc209f4262d66a202a6ccba111b150a077904cb?"
-                                class="img-3" />
-                            <div class="div-10">Remember me</div>
-                        </div>
-                        <div class="div-11">Forget password?</div>
-                    </div>
-                    <div class="div-12"><button type="submit" class="button-1">Sign In</button></div>
-                </form>
-                <div class="div-13">or continue with</div>
-                <div class="div-14">
-                    <img loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d75b7c634575ade6789413d6246c57e1f2368e399f218876d894e2420b20421?"
-                        class="img-4" />
-                </div>
-            </div>
+                <button class="btn btn-primary" id="btn-sesion" type="submit"
+                        style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;width: 89.8625px;">Login</button>
+            </form>
         </div>
-    </main>
+    </div>
+</main>
 </body>
 
 <head>

@@ -62,7 +62,7 @@
                         
                 </div>
 
-    <div class="roww">
+   <div  class="roww">
 
 
         <div class="img-dt">
@@ -71,19 +71,17 @@
 
         <div class="img-place">
 
-            @foreach (var item in Model.Destinations)
-{
-    
-    @if (!string.IsNullOrEmpty(item.Place.ImagePath))
+     @foreach (var destination in Model.Destinations.Take(4))
+
+{   
+    @if (!string.IsNullOrEmpty(destination.Place.ImagePath))
     {
-        <img src="@Url.Content(item.Place.ImagePath)" alt="Place Image" class="place-image">
+        <img src="@Url.Content(destination.Place.ImagePath)" alt="Place Image" class="place-image">
     }
     else
     {
         <img style="display: none;" src="#" alt="Place Image" class="place-image">
     }
-
-    
 }
 
         </div>
