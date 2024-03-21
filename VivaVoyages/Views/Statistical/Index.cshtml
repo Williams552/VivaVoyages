@@ -1,0 +1,62 @@
+@model IEnumerable<Statistical>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #passengerChart {
+            /* Sử dụng transform để thu nhỏ biểu đồ */
+            transform: scale(0.75);
+            /* Đảm bảo biểu đồ vẫn nằm ở giữa sau khi thu nhỏ */
+            transform-origin: top left;
+            /* Giữ cho khu vực bên ngoài của canvas không chiếm không gian không cần thiết */
+            overflow: hidden;
+            /* Có thể cần điều chỉnh kích thước này để phù hợp */
+            width: 120%; /* Đặt kích thước ban đầu của canvas */
+            height: 80%; /* Đặt kích thước ban đầu của canvas */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 style="margin-bottom: 20px;">Tours and Number of Passengers</h2>
+
+    <div id="passengerChartWrapper">
+        <canvas id="passengerChart"></canvas>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('passengerChart').getContext('2d');
+        var passengerChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(Json.Serialize(Model.Select(m => m.Tour.TourName))),
+                datasets: [{
+                    label: 'Number of Passengers',
+                    data: @Html.Raw(Json.Serialize(Model.Select(m => m.PassengerCount))),
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
