@@ -17,7 +17,7 @@
 <div>
     <h4>Place</h4>
     <hr />
-    
+
     <dl class="row" style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); padding: 10 10;">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PlaceName)
@@ -38,7 +38,7 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="PlaceId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

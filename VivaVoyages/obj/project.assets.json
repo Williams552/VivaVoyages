@@ -8186,19 +8186,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cartu\\.nuget\\packages\\": {}
+    "C:\\Users\\admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+      "projectUniqueName": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-8\\VivaVoyages\\VivaVoyages.csproj",
       "projectName": "VivaVoyages",
-      "projectPath": "E:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
-      "packagesPath": "C:\\Users\\cartu\\.nuget\\packages\\",
-      "outputPath": "E:\\SWP\\VivaVoyages\\VivaVoyages\\obj\\",
+      "projectPath": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-8\\VivaVoyages\\VivaVoyages.csproj",
+      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+      "outputPath": "P:\\SE1707_SP24\\PRN211\\VivaVoyages-8\\VivaVoyages\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\cartu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

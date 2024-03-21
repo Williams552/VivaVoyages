@@ -22,10 +22,6 @@ namespace VivaVoyages.Controllers
         }
         public IActionResult ListTours()
         {
-            var toursWithCoupon = _db.Tours
-                            .Where(t => !string.IsNullOrEmpty(t.CouponCode))
-                            .Include(t => t.CouponCodeNavigation) // Bao gồm thông tin từ Coupon
-                            .ToList();
             IEnumerable<Tour> listem = _db.Tours.ToList();
             return View(listem);
         }

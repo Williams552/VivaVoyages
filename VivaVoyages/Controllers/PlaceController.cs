@@ -63,12 +63,14 @@ namespace VivaVoyages.Controllers
                 await _context.SaveChangesAsync();
                 if (place.Image != null && place.Image.Length > 0)
                 {
-                    var imagePath = "~/img/" + "Tour" + place.PlaceId + place.Image.FileName.Substring(place.Image.FileName.LastIndexOf("."));
+                    var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "Place" + place.PlaceId + Path.GetExtension(place.Image.FileName));
+
                     using (var stream = new FileStream(imagePath, FileMode.Create))
                     {
                         await place.Image.CopyToAsync(stream);
                     }
-                    place.ImagePath = "~/img/" + "Tour" + place.PlaceId + place.Image.FileName.Substring(place.Image.FileName.LastIndexOf("."));
+
+                    place.ImagePath = "/img/Place" + place.PlaceId + Path.GetExtension(place.Image.FileName);
                 }
                 _context.Update(place);
                 await _context.SaveChangesAsync();
@@ -99,7 +101,7 @@ namespace VivaVoyages.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PlaceId,PlaceName,Address,Description")] Place place)
+        public async Task<IActionResult> Edit(int id, Place place)
         {
             if (id != place.PlaceId)
             {
@@ -144,17 +146,6 @@ namespace VivaVoyages.Controllers
                 return NotFound();
             }
 
-            //remove the image from the server
-            var imagePath = place.ImagePath;
-            if (imagePath != null)
-            {
-                var fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", imagePath.Substring(1));
-                if (System.IO.File.Exists(fullPath))
-                {
-                    System.IO.File.Delete(fullPath);
-                }
-            }
-
             return View(place);
         }
 
@@ -163,14 +154,32 @@ namespace VivaVoyages.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var place = await _context.Places.FindAsync(id);
-            if (place != null)
+            try
             {
-                _context.Places.Remove(place);
-            }
+                var place = await _context.Places.FindAsync(id);
+                if (place != null)
+                {
+                    _context.Places.Remove(place);
+                }
+                //remove the image from the server
+                var imagePath = place.ImagePath;
+                if (imagePath != null)
+                {
+                    var fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", imagePath.Substring(1));
+                    if (System.IO.File.Exists(fullPath))
+                    {
+                        System.IO.File.Delete(fullPath);
+                    }
+                }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception e)
+            {
+                TempData["error"] = "This place is used in another table, you can't delete it";
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         private bool PlaceExists(int id)

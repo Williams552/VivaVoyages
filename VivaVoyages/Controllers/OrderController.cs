@@ -196,6 +196,11 @@ namespace VivaVoyages.Controllers
                     order.CouponCode = CouponCode;
                     order.Total = order.Total - coupon.Discount;
                 }
+                else
+                {
+                    TempData["Error"] = "Coupon is wrong!";
+                    return RedirectToAction("Create", new { id = tourId });
+                }
 
                 _context.Orders.Update(order);
                 _context.SaveChanges();

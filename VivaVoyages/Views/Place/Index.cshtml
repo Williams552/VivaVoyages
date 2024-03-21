@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="~/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="~/css/Footer-Dark-icons.css">
 </head>
+
 <body>
     <div class="container">
         <div style="padding-top: 100px;">
@@ -25,11 +27,18 @@
                             <h1>Places&nbsp;</h1>
                             <p>With Staff</p>
                         </div>
+                        @if (TempData["error"] != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @TempData["error"]
+                            </div>
+                        }
                         <div class="col"></div>
                         <div
                             class="col d-md-flex d-lg-flex justify-content-center justify-content-md-end align-items-md-center justify-content-lg-end align-items-lg-center">
-                            <a asp-action="Create" class="link-light btn" 
-                                style="padding: 17px 16px;width: auto;height: auto;background: rgb(0,103,255);">Create Place</a>
+                            <a asp-action="Create" class="link-light btn"
+                                style="padding: 17px 16px;width: auto;height: auto;background: rgb(0,103,255);">Create
+                                Place</a>
                             <ul class="list-inline d-grid d-lg-flex">
                                 <li class="list-inline-item d-md-flex justify-content-md-center align-items-md-center">
                                 </li>
@@ -43,27 +52,30 @@
                                     <th>PlaceID</th>
                                     <th><strong><span style="color: rgb(33, 37, 41);">PlaceName</span></strong></th>
                                     <th><span style="color: rgb(33, 37, 41);">Address</span></th>
-                                    <th><span style="color: rgb(33, 37, 41); background-color: var(--bs-table-bg);">Description</span></th>
+                                    <th><span
+                                            style="color: rgb(33, 37, 41); background-color: var(--bs-table-bg);">Description</span>
+                                    </th>
                                     <th class="text-center" style="width: 479.487px;">Acction</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model) {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.PlaceId)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.PlaceName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Address)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Description)
-                                    </td>
-                                    <td class="text-center m-auto" style="width: 479.487px;">
-                                        <a asp-action="Details" asp-route-id="@item.PlaceId" class="btn"
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PlaceId)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PlaceName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Address)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Description)
+                                        </td>
+                                        <td class="text-center m-auto" style="width: 479.487px;">
+                                            <a asp-action="Details" asp-route-id="@item.PlaceId" class="btn"
                                                 style="width: 90px;height: 45px;color: rgb(0,128,255);font-size: 20px;"><svg
                                                     class="bi bi-info-square" xmlns="http://www.w3.org/2000/svg" width="1em"
                                                     height="1em" fill="currentColor" viewBox="0 0 16 16">
@@ -92,9 +104,10 @@
                                                     <path
                                                         d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z">
                                                     </path>
-                                                </svg></a></td>
-                                </tr>
-                            }
+                                                </svg></a>
+                                        </td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -107,4 +120,5 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 </body>
+
 </html>
