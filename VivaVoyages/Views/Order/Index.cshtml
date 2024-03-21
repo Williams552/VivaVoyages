@@ -1,11 +1,13 @@
 @model IEnumerable<VivaVoyages.Models.Order>
 
-<h2>Orders</h2>
+@{
+ Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
 
-<p>
-    <a asp-action="Create" class="btn btn-success">Create New</a>
-</p>
+<div >
+<div style="border-radius: 23px;border: 1.4px solid rgb(24,113,203) ; padding: 20px;" >
 
+    <h2>Orders</h2>
 
 <table class="table">
     <thead>
@@ -37,3 +39,8 @@
         }
     </tbody>
 </table>
+
+
+</div>
+</div>
+

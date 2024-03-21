@@ -6,6 +6,7 @@ namespace VivaVoyages.Models;
 
 public partial class Tour
 {
+     [Display(Name = "Customer Id")]
     public int TourId { get; set; }
 
     [DisplayName("Tour Name")]
@@ -33,11 +34,13 @@ public partial class Tour
     [DisplayName("Single Room Cost")]
     public decimal? SingleRoomCost { get; set; }
 
+     [Display(Name = "Image Path")]
     public string? ImagePath { get; set; }
 
+ [Display(Name = "Image File")]
     [NotMapped]
     public IFormFile ImageFile { get; set; }
-
+     [Display(Name = "Coupon code")]
     public string? CouponCode { get; set; }
 
     public virtual Coupon? CouponCodeNavigation { get; set; }
