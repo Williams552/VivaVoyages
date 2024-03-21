@@ -198,6 +198,7 @@ namespace VivaVoyages.Controllers
         public IActionResult SignOut()
         {
             HttpContext.Session.Remove("LoggedInCustomer");
+            HttpContext.Session.Remove("LoggedInStaff");
             return RedirectToAction("Index", "Home");
         }
         //PBKDF2 Hashing
