@@ -68,7 +68,7 @@
                         @Html.DisplayFor(modelItem => item.Total)
                     </td>
                     <td>
-                        <a class="btn btn-primary" asp-controller="Order" asp-action="Edit" asp-route-id="@item.OrderId">Edit History</a> 
+                        <a class="btn btn-primary" asp-controller="Order" asp-action="EditAndReturn" asp-route-id="@item.OrderId"  asp-route-customerId="@item.CustomerId">Edit Order Status</a> 
                     </td>
                 </tr>
             }

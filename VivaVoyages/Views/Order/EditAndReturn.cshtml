@@ -1,0 +1,39 @@
+@model VivaVoyages.Models.Order
+
+@{
+     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+    var tourList = ViewData["TourId"];
+}
+
+<div  style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); padding: 20;">
+<h2>Edit Order</h2>
+
+<form asp-action="EditAndReturn" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <input type="hidden" asp-for="CustomerId" />
+    <input type="hidden" asp-for="TourId">
+    <input type="hidden" asp-for="OrderId" />
+    <input type="hidden" asp-for="StaffId" />
+    <input type="hidden" asp-for="CouponCode" />
+    <input type="hidden" asp-for="DateCreated">
+
+    
+    <div class="form-group">
+        <label asp-for="Status">Status</label>
+        <select asp-for="Status" class="form-control">
+            <option value="Confirmed">Confirmed</option>
+            <option value="Pending">Pending</option>
+            <option value="Paid">Paid</option>
+            <option value="Cancelled">Cancelled</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+
+    <div style="padding-top: 20;" class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a asp-controller="Staff" asp-action="CustomerOrder" class="btn btn-secondary" asp-route-customerId="@ViewBag.CustomerId">Back to List</a>
+    </div>
+</form>
+</div>
+

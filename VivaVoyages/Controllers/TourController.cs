@@ -55,6 +55,18 @@ namespace VivaVoyages.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Tour tour, List<Destination> destinations)
         {
+            if (tour.MaxPasseger <= 0)
+            {
+                ModelState.AddModelError("MaxPasseger", "Number max passenger much be greater than 0");
+            }
+            if (tour.Cost <= 0)
+            {
+                ModelState.AddModelError("Cost", "Cost much be greater than 0");
+            }
+            if (tour.ExpectedProfit <= 0)
+            {
+                ModelState.AddModelError("ExpectedProfit", "Expected profit much be greater than 0");
+            }
             if (tour.DateStart < DateOnly.FromDateTime(DateTime.Now))
             {
                 ModelState.AddModelError("DateStart", "Date Start must be in the future");
@@ -157,6 +169,18 @@ namespace VivaVoyages.Controllers
                 var tourEndDate = tourStartDate.AddDays(tour.TourDates);
                 foreach (var destination in destinations)
                 {
+                    if (tour.MaxPasseger <= 0)
+                    {
+                        ModelState.AddModelError("MaxPasseger", "Number max passenger much be greater than 0");
+                    }
+                    if (tour.Cost <= 0)
+                    {
+                        ModelState.AddModelError("Cost", "Cost much be greater than 0");
+                    }
+                    if (tour.ExpectedProfit <= 0)
+                    {
+                        ModelState.AddModelError("ExpectedProfit", "Expected profit much be greater than 0");
+                    }
                     if (destination.DateVisit < tourStartDate || destination.DateVisit > tourEndDate)
                     {
                         ModelState.AddModelError("destinations", "Destination date must be within tour start and end dates.");
