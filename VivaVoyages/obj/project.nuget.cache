@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jEo9EJZ0L5esB47bYyZAh2Wmrwp25AUwoHPYnQQj2mYQjDL+7jnZ4KewcIV7oJXPe9JiIQbvRMetsQh19gfDpA==",
+  "dgSpecHash": "IdTkKo8aqEYvoIS21r+Z0yxC3pvN5bHPs58XLAZnBQf557eZFTtvcSLCPz5OXJNTj+fMrriMFxrB6iMniKNHEA==",
   "success": true,
-  "projectFilePath": "E:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+  "projectFilePath": "e:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cartu\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\cartu\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

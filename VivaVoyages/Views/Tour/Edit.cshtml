@@ -87,6 +87,10 @@
                                         <a asp-action="EditAndReturn" asp-controller="Destination"
                                             asp-route-id="@destination.DestinationId" asp-route-tourId="@Model.TourId">Edit
                                             Destination</a>
+                                        <a asp-action="DeleteAndReturn" asp-controller="Destination"
+                                            asp-route-id="@destination.DestinationId" asp-route-tourId="@Model.TourId">Delete
+                                            Destination</a>
+
                                     </td>
 
                                 </tr>
@@ -97,6 +101,7 @@
                     {
                         <p>No destinations found for this tour.</p>
                     }
+                    <a asp-action="CreateAndReturn" asp-controller="Destination" asp-route-tourId="@Model.TourId">Add Destination</a>
                 </div>
 
 
