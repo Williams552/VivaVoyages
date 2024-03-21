@@ -7,10 +7,10 @@
 <div class="container mt-4">
     <div class="row">
         <!-- Tour Information -->
-        <div  class="col-md-6"  >
-            <div  class="card">
+        <div class="col-md-6">
+            <div class="card">
                 <img src="@Url.Content(@Model.Tour.ImagePath)" alt="Tour Image" class="card-img-top">
-                <div  class="card-body">
+                <div class="card-body">
                     <h5 class="card-title">@Model.Tour.TourName</h5>
                     <p class="card-text"><strong>@Model.Tour.Cost</strong>đ/guest</p>
                 </div>
@@ -88,14 +88,19 @@
     </div>
 
     <!-- Book Tour Form -->
-    <form id="bookTourForm" method="post" asp-action="Create" asp-controller="Booking">
-        <input type="text" asp-for="CouponCode">
-        <input type="hidden" name="TourId" value="@Model.TourId" />
-        <input type="hidden" id="passengersJson" name="PassengersJson" />
-        <button type="submit" class="btn btn-primary mt-3">Book</button>
-    </form>
-
-
+    <div class="col-sm-6">
+        @if (ViewData["Error"] != null)
+        {
+            <div class="alert alert-danger">@ViewData["Error"]</div>
+        }
+        <form id="bookTourForm" method="post" asp-action="Create" asp-controller="Booking">
+            <label for="CouponCode">Coupon Code:</label>
+            <input type="text" asp-for="CouponCode" class="form-control">
+            <input type="hidden" name="TourId" value="@Model.TourId" />
+            <input type="hidden" id="passengersJson" name="PassengersJson" />
+            <button type="submit" class="btn btn-primary mt-3">Book</button>
+        </form>
+    </div>
 
     @section scripts {
         <script>
@@ -106,17 +111,20 @@
                 function addPassengerInput(orderId) {
                     var passengerHtml = '<div class="passenger-inputs">' +
                         '<label for="Passengers[' + passengersList.length + '].FullName">Full Name:</label>' +
-                        '<input type="text" name="Passengers[' + passengersList.length + '].FullName" class="form-control" />' +
+                        '<input type="text" name="Passengers[' + passengersList.length + '].FullName" class="form-control passenger-name" />' +
+                        '<div class="error-message" style="color: red;"></div>' + // Thêm phần tử cho thông báo lỗi
                         '<label for="Passengers[' + passengersList.length + '].Age">Age:</label>' +
-                        '<input type="number" name="Passengers[' + passengersList.length + '].Age" class="form-control" />' +
+                        '<input type="number" name="Passengers[' + passengersList.length + '].Age" class="form-control passenger-age" />' +
+                        '<div class="error-message" style="color: red;"></div>' + // Thêm phần tử cho thông báo lỗi
                         '<label for="Passengers[' + passengersList.length + '].Gender">Gender:</label>' +
                         '<div class="gender-radios">' +
                         '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="M">Male</label>' +
                         '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="F">Female</label>' +
                         '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="O">Other</label>' +
                         '</div>' +
+                        '<div class="error-message" style="color: red;"></div>' + // Thêm phần tử cho thông báo lỗi
                         '<label for="Passengers[' + passengersList.length + '].SingleRoom">Single Room:</label>' +
-                        '<input type="checkbox" name="Passengers[' + passengersList.length + '].SingleRoom" />' +
+                        '<input type="checkbox" name="Passengers[' + passengersList.length + '].SingleRoom" class="passenger-single-room" />' +
                         '<input type="hidden" name="Passengers[' + passengersList.length + '].OrderID" value="' + orderId + '" />' +
                         '<button type="button" class="btn btn-danger btn-sm remove-passenger">Remove</button>' +
                         '</div>';
@@ -131,6 +139,35 @@
                         SingleRoom: false,
                         OrderID: orderId
                     });
+                }
+
+                // Function to check if a passenger has all required information
+                function validatePassenger(passengerIndex) {
+                    var passenger = passengersList[passengerIndex];
+                    var valid = true;
+
+                    if (!passenger.FullName) {
+                        $(".passenger-inputs:eq(" + passengerIndex + ") .error-message:eq(0)").html("Please enter full name.");
+                        valid = false;
+                    } else {
+                        $(".passenger-inputs:eq(" + passengerIndex + ") .error-message:eq(0)").html(""); // Clear error message
+                    }
+
+                    if (!passenger.Age) {
+                        $(".passenger-inputs:eq(" + passengerIndex + ") .error-message:eq(1)").html("Please enter age.");
+                        valid = false;
+                    } else {
+                        $(".passenger-inputs:eq(" + passengerIndex + ") .error-message:eq(1)").html(""); // Clear error message
+                    }
+
+                    if (!passenger.Gender) {
+                        $(".passenger-inputs:eq(" + passengerIndex + ") .error-message:eq(2)").html("Please select gender.");
+                        valid = false;
+                    } else {
+                        $(".passenger-inputs:eq(" + passengerIndex + ") .error-message:eq(2)").html(""); // Clear error message
+                    }
+
+                    return valid;
                 }
 
                 // Event handler for the "Add Passenger" button
@@ -153,6 +190,9 @@
                     var index = $(this).closest('.passenger-inputs').index();
                     var property = $(this).attr('name').split('.')[1];
                     passengersList[index][property] = $(this).val();
+
+                    // Clear error message when input changes
+                    $(this).closest('.passenger-inputs').find('.error-message').html("");
                 });
 
                 // Event handler for checkbox changes
@@ -161,15 +201,41 @@
                     var index = $(this).closest('.passenger-inputs').index();
                     var property = $(this).attr('name').split('.')[1];
                     passengersList[index][property] = $(this).prop('checked');
+
+                    // Check if age is under 12 and SingleRoom checkbox is checked
+                    var passengerAge = parseInt($(this).closest('.passenger-inputs').find('.passenger-age').val());
+                    if (passengerAge < 12 && passengersList[index]['SingleRoom']) {
+                        $(this).prop('checked', false); // Uncheck the checkbox
+                        $(this).closest('.passenger-inputs').find('.error-message').text("Single rooms are only available for passengers over 12 years old");
+                    } else {
+                        $(this).closest('.passenger-inputs').find('.error-message').text(""); // Clear error message
+                    }
                 });
 
                 // Submit form when the "Book" button is clicked
                 $('#bookTourForm').submit(function (e) {
-                    // Update the hidden field with the current passengersList
-                    $('#passengersJson').val(JSON.stringify(passengersList));
+                    var isValid = true;
 
-                    // Continue with form submission
-                    return true;
+                    // Check if all passengers have valid information
+                    for (var i = 0; i < passengersList.length; i++) {
+                        if (!validatePassenger(i)) {
+                            isValid = false;
+                        }
+                    }
+
+                    if (!isValid) {
+                        e.preventDefault(); // Prevent form submission
+                        // Scroll to the first error message
+                        $('html, body').animate({
+                            scrollTop: $(".error-message:visible:first").offset().top
+                        }, 1000);
+                    } else {
+                        // Update the hidden field with the current passengersList
+                        $('#passengersJson').val(JSON.stringify(passengersList));
+
+                        // Continue with form submission
+                        return true;
+                    }
                 });
             });
         </script>
