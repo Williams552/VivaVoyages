@@ -106,6 +106,45 @@
                 <div class="form-group">
                     <label asp-for="ImageFile" class="control-label">Tour Image</label>
                     <input asp-for="ImageFile" class="form-control" />
+                <!-- Destination Inputs -->
+                <div>
+                    <h2>Destinations</h2>
+                    @if (Model.Destinations.Any())
+                    {
+                        <table>
+                            <tr>
+                                <th>Destination ID</th>
+                                <th>Description</th>
+                                <th>Date Visit</th>
+                                <th>Place Id</th>
+                                <th> </th>
+                            </tr>
+                            @foreach (var destination in Model.Destinations)
+                            {
+                                <tr>
+                                    <td>@destination.DestinationId</td>
+                                    <td>@destination.Description</td>
+                                    <td>@destination.DateVisit</td>
+                                    <td>@destination.PlaceId</td>
+                                    <td>
+                                        <a asp-action="EditAndReturn" asp-controller="Destination"
+                                            asp-route-id="@destination.DestinationId" asp-route-tourId="@Model.TourId">Edit
+                                            Destination</a>
+                                        <a asp-action="DeleteAndReturn" asp-controller="Destination"
+                                            asp-route-id="@destination.DestinationId" asp-route-tourId="@Model.TourId">Delete
+                                            Destination</a>
+
+                                    </td>
+
+                                </tr>
+                            }
+                        </table>
+                    }
+                    else
+                    {
+                        <p>No destinations found for this tour.</p>
+                    }
+                    <a asp-action="CreateAndReturn" asp-controller="Destination" asp-route-tourId="@Model.TourId">Add Destination</a>
                 </div>
 
                 <div id="destinationsContainer">

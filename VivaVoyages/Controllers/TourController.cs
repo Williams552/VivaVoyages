@@ -10,7 +10,7 @@ using VivaVoyages.Models;
 
 namespace VivaVoyages.Controllers
 {
-    //[ServiceFilter(typeof(AdminLoginFilter))]
+    [ServiceFilter(typeof(AdminLoginFilter))]
     public class TourController : Controller
     {
         private readonly VivaVoyagesContext _context;
