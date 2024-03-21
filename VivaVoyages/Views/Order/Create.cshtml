@@ -1,119 +1,286 @@
-@model Order
 @{
-    var customerList = ViewData["CustomerId"];
-    var staffList = ViewData["StaffId"];
-    var tourList = ViewData["TourId"];
+    var customerList = ViewData["CustomerId"] as List<Customer>;
+    var staffList = ViewData["StaffId"] as List<Staff>;
+    var tourList = ViewData["TourId"] as List<Tour>;
 }
 
-<h2>Create Order</h2>
+@model Order
 
-<form asp-action="Create" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+@{
+    ViewData["Title"] = "Create Order";
+}
 
-    <div class="form-group">
-        <label asp-for="CustomerId">Customer</label>
-        <select asp-for="CustomerId"
-            asp-items="@(new SelectList((System.Collections.IEnumerable)customerList, "CustomerId", "FullName"))"
-            class="form-control"></select>
-        <span asp-validation-for="CustomerId" class="text-danger"></span>
+<style>
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        margin-right: 20px;
+        /* Cách lề phải giữa các dropdown */
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f6f6f6;
+        min-width: 230px;
+        overflow: auto;
+        border: 1px solid #ddd;
+        z-index: 1;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        /* Hiệu ứng shadow */
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown a:hover {
+        background-color: #ddd;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .selected-info {
+        margin-top: 10px;
+        /* Cách lề trên của text box */
+    }
+</style>
+
+<h1>Create Order</h1>
+
+@if (ViewData["Error"] != null)
+{
+    <div class="alert alert-danger">@ViewData["Error"]</div>
+}
+
+<div class="dropdown">
+    <button onclick="toggleDropdown('customerDropdown')" class="dropbtn">Select Customer</button>
+    <div id="customerDropdown" class="dropdown-content">
+        <input type="text" placeholder="Search.." id="customerInput"
+            onkeyup="filterFunction('customerInput', 'customerDropdown')">
+        @foreach (var customer in customerList)
+        {
+            <a href="#"
+                onclick="selectItem('@customer.CustomerId', '@customer.FullName', 'customerId', '@customer.CustomerId', 'customerDropdown')">@customer.FullName</a>
+        }
     </div>
+</div>
 
-    <div class="form-group">
-        <label asp-for="StaffId">Staff</label>
-        <select asp-for="StaffId"
-            asp-items="@(new SelectList((System.Collections.IEnumerable)staffList, "StaffId", "FullName"))"
-            class="form-control"></select>
-        <span asp-validation-for="StaffId" class="text-danger"></span>
+<div class="dropdown">
+    <button onclick="toggleDropdown('tourDropdown')" class="dropbtn">Select Tour</button>
+    <div id="tourDropdown" class="dropdown-content">
+        <input type="text" placeholder="Search.." id="tourInput" onkeyup="filterFunction('tourInput', 'tourDropdown')">
+        @foreach (var tour in tourList)
+        {
+            <a href="#"
+                onclick="selectItem('@tour.TourId', '@tour.TourName', 'tourId', '@tour.TourId', 'tourDropdown')">@tour.TourName</a>
+        }
     </div>
+</div>
 
-    <div class="form-group">
-        <label asp-for="TourId">Tour</label>
-        <select asp-for="TourId"
-            asp-items="@(new SelectList((System.Collections.IEnumerable)tourList, "TourId", "TourName"))"
-            class="form-control"></select>
-        <span asp-validation-for="TourId" class="text-danger"></span>
-    </div>
+@if(TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
 
+
+<form method="post" id="bookTourForm">
     <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
-        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        <label for="customerId">Customer Email:</label>
+        <input type="text" class="form-control" id="customerId" name="customerId" readonly />
     </div>
+    <div class="form-group">
+        <label for="tourId">Tour Name:</label>
+        <input type="text" class="form-control" id="tourId" name="tourId" readonly />
+    </div>
+    <div class="form-group">
+        <label for="couponCode">Coupon Code:</label>
+        <input type="text" class="form-control" id="couponCode" name="CouponCode" />
+    </div>
+    <div class="form-group">
+        <input type="hidden" id="passengersJson" name="passengersJson" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create Order</button>
 </form>
 
-@section scripts {
+
 <script>
-    $(document).ready(function () {
-        var passengersList = []; // Danh sách hành khách
+    function toggleDropdown(dropdownId) {
+        document.getElementById(dropdownId).classList.toggle("show");
+    }
 
-        // Function to add a new set of passenger inputs
-        function addPassengerInput(orderId) {
-            var passengerHtml = '<div class="passenger-inputs">' +
-                '<label for="Passengers[' + passengersList.length + '].FullName">Full Name:</label>' +
-                '<input type="text" name="Passengers[' + passengersList.length + '].FullName" class="form-control" />' +
-                '<label for="Passengers[' + passengersList.length + '].Age">Age:</label>' +
-                '<input type="number" name="Passengers[' + passengersList.length + '].Age" class="form-control" />' +
-                '<label for="Passengers[' + passengersList.length + '].Gender">Gender:</label>' +
-                '<div class="gender-radios">' +
-                '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="M">Male</label>' +
-                '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="F">Female</label>' +
-                '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="O">Other</label>' +
-                '</div>' +
-                '<label for="Passengers[' + passengersList.length + '].SingleRoom">Single Room:</label>' +
-                '<input type="checkbox" name="Passengers[' + passengersList.length + '].SingleRoom" />' +
-                '<input type="hidden" name="Passengers[' + passengersList.length + '].OrderID" value="' + orderId + '" />' +
-                '<button type="button" class="btn btn-danger btn-sm remove-passenger">Remove</button>' +
-                '</div>';
-
-            $("#passenger-container").append(passengerHtml);
-
-            // Create a new passenger object with OrderID and add it to passengersList
-            passengersList.push({
-                FullName: '',
-                Age: 0,
-                Gender: '',
-                SingleRoom: false,
-                OrderID: orderId
-            });
+    function filterFunction(inputId, dropdownId) {
+        var input, filter, div, a, i;
+        input = document.getElementById(inputId);
+        filter = input.value.toUpperCase();
+        div = document.getElementById(dropdownId);
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
         }
+    }
 
-        // Event handler for the "Add Passenger" button
-        $("#addPassenger").click(function () {
-            // Assume you have the current OrderID available (replace 1 with the actual OrderID)
-            var currentOrderId = 1;
-            addPassengerInput(currentOrderId);
-        });
-
-        // Event handler for dynamically added "Remove" button
-        $(document).on('click', '.remove-passenger', function () {
-            var index = $(this).closest('.passenger-inputs').index();
-            passengersList.splice(index, 1); // Xóa hành khách khỏi danh sách
-            $(this).closest('.passenger-inputs').remove();
-        });
-
-        // Event handler for input changes
-        $(document).on('input', '.passenger-inputs input', function () {
-            // Update the corresponding property in passengersList
-            var index = $(this).closest('.passenger-inputs').index();
-            var property = $(this).attr('name').split('.')[1];
-            passengersList[index][property] = $(this).val();
-        });
-
-        // Event handler for checkbox changes
-        $(document).on('change', '.passenger-inputs input[type="checkbox"]', function () {
-            // Update the corresponding property in passengersList
-            var index = $(this).closest('.passenger-inputs').index();
-            var property = $(this).attr('name').split('.')[1];
-            passengersList[index][property] = $(this).prop('checked');
-        });
-
-        // Submit form when the "Book" button is clicked
-        $('#bookTourForm').submit(function (e) {
-            // Update the hidden field with the current passengersList
-            $('#passengersJson').val(JSON.stringify(passengersList));
-
-            // Continue with form submission
-            return true;
-        });
-    });
+    function selectItem(itemId, itemName, inputId, inputValue, dropdownId) {
+        document.getElementById(inputId).value = inputValue;
+        document.getElementById(dropdownId).classList.remove("show");
+    }
 </script>
+
+
+<!-- Passengers Section -->
+<div id="passenger-section" class="mt-4">
+    <h3>Passengers</h3>
+    <div id="passenger-container">
+        <!-- Container for passenger inputs -->
+    </div>
+    <button type="button" id="addPassenger" class="btn btn-success">Add Passenger</button>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            var passengersList = []; // Danh sách hành khách
+
+            // Function to add a new set of passenger inputs
+            function addPassengerInput(orderId) {
+                var passengerHtml = '<div class="passenger-inputs">' +
+                    '<label for="Passengers[' + passengersList.length + '].FullName">Full Name:</label>' +
+                    '<input type="text" name="Passengers[' + passengersList.length + '].FullName" class="form-control passenger-name" />' +
+                    '<div class="error-message" style="color: red;"></div>' + // Thêm phần tử cho thông báo lỗi
+                    '<label for="Passengers[' + passengersList.length + '].Age">Age:</label>' +
+                    '<input type="number" name="Passengers[' + passengersList.length + '].Age" class="form-control passenger-age" />' +
+                    '<div class="error-message" style="color: red;"></div>' + // Thêm phần tử cho thông báo lỗi
+                    '<label for="Passengers[' + passengersList.length + '].Gender">Gender:</label>' +
+                    '<div class="gender-radios">' +
+                    '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="M">Male</label>' +
+                    '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="F">Female</label>' +
+                    '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="O">Other</label>' +
+                    '</div>' +
+                    '<div class="error-message" style="color: red;"></div>' + // Thêm phần tử cho thông báo lỗi
+                    '<label for="Passengers[' + passengersList.length + '].SingleRoom">Single Room:</label>' +
+                    '<input type="checkbox" name="Passengers[' + passengersList.length + '].SingleRoom" class="passenger-single-room" />' +
+                    '<input type="hidden" name="Passengers[' + passengersList.length + '].OrderID" value="' + orderId + '" />' +
+                    '<button type="button" class="btn btn-danger btn-sm remove-passenger">Remove</button>' +
+                    '</div>';
+
+                $("#passenger-container").append(passengerHtml);
+
+                // Create a new passenger object with OrderID and add it to passengersList
+                passengersList.push({
+                    FullName: '',
+                    Age: 0,
+                    Gender: '',
+                    SingleRoom: false,
+                    OrderID: orderId
+                });
+            }
+
+            // Function to check if a passenger has all required information
+            function validatePassenger(passengerIndex) {
+                var passenger = passengersList[passengerIndex];
+                var valid = true;
+
+                if (!passenger.FullName) {
+                    $(".passenger-inputs:eq(" + passengerIndex + ") .error-message:eq(0)").html("Please enter full name.");
+                    valid = false;
+                } else {
+                    $(".passenger-inputs:eq(" + passengerIndex + ") .error-message:eq(0)").html(""); // Clear error message
+                }
+
+                if (!passenger.Age) {
+                    $(".passenger-inputs:eq(" + passengerIndex + ") .error-message:eq(1)").html("Please enter age.");
+                    valid = false;
+                } else {
+                    $(".passenger-inputs:eq(" + passengerIndex + ") .error-message:eq(1)").html(""); // Clear error message
+                }
+
+                if (!passenger.Gender) {
+                    $(".passenger-inputs:eq(" + passengerIndex + ") .error-message:eq(2)").html("Please select gender.");
+                    valid = false;
+                } else {
+                    $(".passenger-inputs:eq(" + passengerIndex + ")                .error-message:eq(2)").html(""); // Clear error message
+                }
+
+                return valid;
+            }
+
+            // Event handler for the "Add Passenger" button
+            $("#addPassenger").click(function () {
+                // Assume you have the current OrderID available (replace 1 with the actual OrderID)
+                var currentOrderId = 1;
+                addPassengerInput(currentOrderId);
+            });
+
+            // Event handler for dynamically added "Remove" button
+            $(document).on('click', '.remove-passenger', function () {
+                var index = $(this).closest('.passenger-inputs').index();
+                passengersList.splice(index, 1); // Xóa hành khách khỏi danh sách
+                $(this).closest('.passenger-inputs').remove();
+            });
+
+            // Event handler for input changes
+            $(document).on('input', '.passenger-inputs input', function () {
+                // Update the corresponding property in passengersList
+                var index = $(this).closest('.passenger-inputs').index();
+                var property = $(this).attr('name').split('.')[1];
+                passengersList[index][property] = $(this).val();
+
+                // Clear error message when input changes
+                $(this).closest('.passenger-inputs').find('.error-message').html("");
+            });
+
+            // Event handler for checkbox changes
+            $(document).on('change', '.passenger-inputs input[type="checkbox"]', function () {
+                // Update the corresponding property in passengersList
+                var index = $(this).closest('.passenger-inputs').index();
+                var property = $(this).attr('name').split('.')[1];
+                passengersList[index][property] = $(this).prop('checked');
+
+                // Check if age is under 12 and SingleRoom checkbox is checked
+                var passengerAge = parseInt($(this).closest('.passenger-inputs').find('.passenger-age').val());
+                if (passengerAge < 12 && passengersList[index]['SingleRoom']) {
+                    $(this).prop('checked', false); // Uncheck the checkbox
+                    $(this).closest('.passenger-inputs').find('.error-message').text("Single rooms are only available for passengers over 12 years old");
+                } else {
+                    $(this).closest('.passenger-inputs').find('.error-message').text(""); // Clear error message
+                }
+            });
+
+            // Submit form when the "Book" button is clicked
+            $('#bookTourForm').submit(function (e) {
+                var isValid = true;
+
+                // Check if all passengers have valid information
+                for (var i = 0; i < passengersList.length; i++) {
+                    if (!validatePassenger(i)) {
+                        isValid = false;
+                    }
+                }
+
+                if (!isValid) {
+                    e.preventDefault(); // Prevent form submission
+                    // Scroll to the first error message
+                    $('html, body').animate({
+                        scrollTop: $(".error-message:visible:first").offset().top
+                    }, 1000);
+                } else {
+                    // Update the hidden field with the current passengersList
+                    $('#passengersJson').val(JSON.stringify(passengersList));
+
+                    // Continue with form submission
+                    return true;
+                }
+            });
+        });
+    </script>
 }

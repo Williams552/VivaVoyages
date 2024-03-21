@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using VivaVoyages.Filters;
 using VivaVoyages.Models;
 
@@ -16,7 +17,7 @@ namespace VivaVoyages.Controllers
 
     public class OrderController : Controller
     {
-    
+
         private readonly VivaVoyagesContext _context;
         private List<Customer> customers;
         private List<Staff> staff;
@@ -107,28 +108,74 @@ namespace VivaVoyages.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Order order, string passengerJson)
+        public async Task<IActionResult> Create(int tourId, int customerId, string passengersJson, string CouponCode)
         {
-
-            order.Tour = _context.Tours.Find(order.TourId);
-            order.Customer = _context.Customers.Find(order.CustomerId);
-            order.Staff = _context.Staff.Find(order.StaffId);
-            order.DateCreated = DateTime.Now;
-            order.Status = "Pending";
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(order);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //check passengersJson
+                if (passengersJson == "[]")
+                {
+                    TempData["Error"] = "Enter infomation of passengers";
+                    return RedirectToAction("Create", new { id = tourId });
+                }
+
+                Staff staff = HttpContext.Session.GetObject<Staff>("LoggedInStaff");
+                int numbOfPassenger = 0;
+                int numbOfSR = 0;
+
+                var tour = _context.Tours.Find(tourId);
+
+                Order order = new Order
+                {
+                    CustomerId = customerId,
+                    TourId = tourId,
+                    //Find the staff has less orders pending to assign the order to
+                    StaffId = staff.StaffId,
+                    DateCreated = DateTime.Now,
+                    Status = "Pending",
+                };
+
+                // Add the Order to the context
+                _context.Orders.Add(order);
+
+                // Save changes to the database
+                _context.SaveChanges();
+
+
+                //Add the passengers to the database
+                List<Passenger> passengers = JsonConvert.DeserializeObject<List<Passenger>>(passengersJson);
+                foreach (var passenger in passengers)
+                {
+                    numbOfPassenger++;
+                    if (passenger.SingleRoom == true) numbOfSR++;
+                    passenger.CustomerId = customerId;
+                    passenger.OrderId = order.OrderId;
+                    _context.Passengers.Add(passenger);
+                    _context.SaveChanges();
+                }
+                order.Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR)) * (1 + tour.Tax / 100);
+                var coupon = _context.Coupons.Find(CouponCode);
+                if (coupon != null)
+                {
+                    if (coupon.DateEnd < DateOnly.FromDateTime(DateTime.Now))
+                    {
+                        TempData["Error"] = "Coupon is expired";
+                        return RedirectToAction("Create", new { id = tourId });
+                    }
+                    order.CouponCode = CouponCode;
+                    order.Total = order.Total - coupon.Discount;
+                }
+
+                _context.Orders.Update(order);
+                _context.SaveChanges();
+
+                return RedirectToAction("Index", "Order", new { orderId = order.OrderId });
             }
-
-            // If ModelState is not valid, return to the view with the order model
-            return View(order);
+            catch (Exception ex)
+            {
+                // Log the exception or handle it appropriately
+                return RedirectToAction("Error", "Home");
+            }
         }
-        private bool OrderExists(int id)
-        {
-            return _context.Orders.Any(e => e.OrderId == id);
-        }
-
     }
 }
