@@ -5,18 +5,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace VivaVoyages.Models;
 
 public partial class Customer
-{
+{    [Display(Name = "Customer Id")]
     public int CustomerId { get; set; }
-
+ [Display(Name = "Full Name")]
     [Required]
     public string FullName { get; set; } = null!;
-
+ 
     [Required]
     public string Address { get; set; } = null!;
 
     [Required]
     public string Email { get; set; } = null!;
-
+ [Display(Name = "Phone Number")]
     [Required]
     public string PhoneNumber { get; set; } = null!;
 

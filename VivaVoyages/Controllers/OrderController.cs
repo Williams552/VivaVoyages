@@ -88,6 +88,37 @@ namespace VivaVoyages.Controllers
             return View(order);
         }
 
+
+        public async Task<IActionResult> EditAndReturn(int? id, int customerId)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var order = await _context.Orders.FindAsync(id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["TourId"] = tours;
+            ViewData["CustomerId"] = customerId;
+
+            return View(order);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditAndReturn(int id, Order order)
+        {
+            _context.Update(order);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("CustomerOrder", "Staff", new { customerId = order.CustomerId });
+
+        }
+
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
