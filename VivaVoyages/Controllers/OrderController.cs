@@ -7,12 +7,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using VivaVoyages.Filters;
 using VivaVoyages.Models;
 
 namespace VivaVoyages.Controllers
 {
+    [ServiceFilter(typeof(StaffLoginFilter))]
+
     public class OrderController : Controller
     {
+    
         private readonly VivaVoyagesContext _context;
         private List<Customer> customers;
         private List<Staff> staff;

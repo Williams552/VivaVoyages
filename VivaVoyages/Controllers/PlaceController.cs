@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using VivaVoyages.Filters;
 using VivaVoyages.Models;
 
 namespace VivaVoyages.Controllers
 {
+    [ServiceFilter(typeof(AdminLoginFilter))]
     public class PlaceController : Controller
     {
         private readonly VivaVoyagesContext _context;
@@ -70,7 +72,7 @@ namespace VivaVoyages.Controllers
                 }
                 _context.Update(place);
                 await _context.SaveChangesAsync();
-                
+
                 return RedirectToAction(nameof(Index));
             }
             return View(place);

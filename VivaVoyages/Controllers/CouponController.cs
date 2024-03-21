@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using VivaVoyages.Filters;
 using VivaVoyages.Models;
 
 namespace VivaVoyages.Controllers
 {
+    [ServiceFilter(typeof(AdminLoginFilter))]
     public class CouponController : Controller
     {
         private readonly VivaVoyagesContext _context;
@@ -57,6 +59,13 @@ namespace VivaVoyages.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Check if DateStart is before DateEnd
+                if (coupon.DateStart >= coupon.DateEnd)
+                {
+                    ModelState.AddModelError("DateEnd", "End date must be after start date.");
+                    return View(coupon);
+                }
+
                 _context.Add(coupon);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -95,6 +104,12 @@ namespace VivaVoyages.Controllers
 
             if (ModelState.IsValid)
             {
+                // Check if DateStart is before DateEnd
+                if (coupon.DateStart >= coupon.DateEnd)
+                {
+                    ModelState.AddModelError("DateEnd", "End date must be after start date.");
+                    return View(coupon);
+                }
                 try
                 {
                     _context.Update(coupon);
