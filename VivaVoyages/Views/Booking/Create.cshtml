@@ -89,15 +89,15 @@
 
     <!-- Book Tour Form -->
     <div class="col-sm-6">
-        @if (ViewData["Error"] != null)
+        @if (TempData["Error"] != null)
         {
-            <div class="alert alert-danger">@ViewData["Error"]</div>
+            <div class="alert alert-danger">@TempData["Error"]</div>
         }
         <form id="bookTourForm" method="post" asp-action="Create" asp-controller="Booking">
             <label for="CouponCode">Coupon Code:</label>
             <input type="text" asp-for="CouponCode" class="form-control">
             <input type="hidden" name="TourId" value="@Model.TourId" />
-            <input type="hidden" id="passengersJson" name="PassengersJson" />
+            <input type="hidden" id="passengersJson" name="passengersJson" />
             <button type="submit" class="btn btn-primary mt-3">Book</button>
         </form>
     </div>

@@ -48,7 +48,7 @@ namespace VivaVoyages.Controllers
                 //check passengersJson
                 if (passengersJson == "[]")
                 {
-                    ViewData["Error"] = "Enter infomation of passengers";
+                    TempData["Error"] = "Enter infomation of passengers";
                     return RedirectToAction("Create", new { id = tourId });
                 }
 
@@ -93,9 +93,10 @@ namespace VivaVoyages.Controllers
                 {
                     if (coupon.DateEnd < DateOnly.FromDateTime(DateTime.Now))
                     {
-                        ViewData["Error"] = "Coupon is expired";
+                        TempData["Error"] = "Coupon is expired";
                         return RedirectToAction("Create", new { id = tourId });
                     }
+                    order.CouponCode = CouponCode;
                     order.Total = order.Total - coupon.Discount;
                 }
 
