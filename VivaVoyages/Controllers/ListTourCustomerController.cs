@@ -103,6 +103,16 @@ namespace VivaVoyages.Controllers
             return View(toursWithCoupon);
         }
 
+        public IActionResult PromotionEvent()
+        {
+         DateOnly currentDate = DateOnly.FromDateTime(DateTimeOffset.Now.Date);
+            var activeCoupons  = _db.Coupons
+                                    .Where(c => c.DateStart <= currentDate && c.DateEnd >= currentDate )
+                                    .ToList();
+                                    
+            return View(activeCoupons);
+        }
+
 
     }
 }

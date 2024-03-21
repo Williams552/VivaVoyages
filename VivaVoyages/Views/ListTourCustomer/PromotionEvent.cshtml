@@ -1,0 +1,53 @@
+@model IEnumerable<VivaVoyages.Models.Coupon>
+@{
+    ViewData["Title"] = "ListToursWithCoupon";
+}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/TourList.css" asp-append-version="true" />
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div id="lcp" class="tours-container">
+        @foreach (var item in Model)
+        {
+            <div class="tour-item">
+                <h1>@item.CouponCode</h1>
+                <div class="tour-list">
+                    <p class="tini">
+                        <span>@item.DateStart.ToString("dd/MM/yyyy")</span> -
+                        <span>@item.DateEnd.ToString("dd/MM/yyyy")</span>
+                    </p>
+                    <p>@item.Discount</p>
+
+                </div>
+
+            </div>
+            
+    
+        }
+
+    </div>
+
+    <ul id="pagination-container"></ul>
+
+
+
+    <script src="~/js/page.js"></script>
+
+
+</body>
+
+</html>

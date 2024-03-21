@@ -67,6 +67,7 @@ namespace VivaVoyages.Controllers
                     StaffId = _context.Staff.OrderBy(s => s.Orders.Count(o => o.Status == "Pending")).FirstOrDefault().StaffId,
                     DateCreated = DateTime.Now,
                     Status = "Pending",
+                    Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR)) * (1 + tour.Tax / 100)
                 };
 
                 // Add the Order to the context
@@ -74,6 +75,7 @@ namespace VivaVoyages.Controllers
 
                 // Save changes to the database
                 _context.SaveChanges();
+
 
                 //Add the passengers to the database
                 List<Passenger> passengers = JsonConvert.DeserializeObject<List<Passenger>>(passengersJson);
