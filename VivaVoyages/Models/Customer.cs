@@ -8,22 +8,30 @@ public partial class Customer
 {
     public int CustomerId { get; set; }
 
+    [Required]
     public string FullName { get; set; } = null!;
 
+    [Required]
     public string Address { get; set; } = null!;
 
+    [Required]
     public string Email { get; set; } = null!;
 
+    [Required]
     public string PhoneNumber { get; set; } = null!;
 
+    [Required]
     public string Gender { get; set; } = null!;
 
+    [Display(Name = "Date of Birth")]
     public DateOnly Dob { get; set; }
 
+    [Required]
     public string Password { get; set; } = null!;
 
     public string? ResetCode { get; set; }
 
+    
     public string Status { get; set; } = null!;
 
     [Display(Name = "Confirm Password")]

@@ -9,11 +9,13 @@ using Microsoft.DotNet.Scaffolding.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using VivaVoyages.Filters;
 using VivaVoyages.Models;
 
 
 namespace VivaVoyages.Controllers
 {
+    [ServiceFilter(typeof(CustomerLoginFilter))]
     public class BookingController : Controller
     {
         private readonly VivaVoyagesContext _context;
@@ -46,7 +48,7 @@ namespace VivaVoyages.Controllers
                 //check passengersJson
                 if (passengersJson == "[]")
                 {
-                    ModelState.AddModelError("Passengers", "Please enter the passengers information");
+                    ViewData["Error"] = "Enter infomation of passengers";
                     return RedirectToAction("Create", new { id = tourId });
                 }
 
@@ -86,7 +88,20 @@ namespace VivaVoyages.Controllers
                     _context.Passengers.Add(passenger);
                     _context.SaveChanges();
                 }
+                order.Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR)) * (1 + tour.Tax / 100);
+                var coupon = _context.Coupons.Find(order.CouponCode);
+                if (coupon != null)
+                {
+                    if (coupon.DateEnd < DateOnly.FromDateTime(DateTime.Now))
+                    {
+                        ViewData["Error"] = "Coupon is expired";
+                        return RedirectToAction("Create", new { id = tourId });
+                    }
+                    order.Total = order.Total - coupon.Discount;
+                }
 
+                _context.Orders.Update(order);
+                _context.SaveChanges();
 
                 return RedirectToAction("Index", "Payment", new { orderId = order.OrderId });
             }
@@ -96,7 +111,6 @@ namespace VivaVoyages.Controllers
                 return RedirectToAction("Error", "Home");
             }
         }
-
 
         // POST: Booking/Save
         [HttpPost]

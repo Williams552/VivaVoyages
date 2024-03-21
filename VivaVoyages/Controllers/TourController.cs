@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using VivaVoyages.Filters;
 using VivaVoyages.Models;
@@ -60,6 +55,10 @@ namespace VivaVoyages.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Tour tour, List<Destination> destinations)
         {
+            if (tour.DateStart < DateOnly.FromDateTime(DateTime.Now))
+            {
+                ModelState.AddModelError("DateStart", "Date Start must be in the future");
+            }
             ModelState.Remove("ImagePath");
             if (ModelState.IsValid)
             {
@@ -239,7 +238,5 @@ namespace VivaVoyages.Controllers
         {
             return _context.Tours.Any(e => e.TourId == id);
         }
-        
-
     }
 }

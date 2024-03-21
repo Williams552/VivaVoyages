@@ -16,7 +16,6 @@ public partial class Place
 
     public string? ImagePath { get; set; }
 
-
     [NotMapped]
     public IFormFile? Image { get; set; }
 

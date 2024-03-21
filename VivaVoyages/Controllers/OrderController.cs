@@ -88,7 +88,8 @@ namespace VivaVoyages.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var order = await _context.Orders.FindAsync(id);
-            _context.Orders.Remove(order);
+            order.Status = "Cancelled";
+            _context.Update(order);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -102,8 +103,9 @@ namespace VivaVoyages.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerId,StaffId,TourId,Status,DateCreated")] Order order)
+        public async Task<IActionResult> Create(Order order, string passengerJson)
         {
+
             order.Tour = _context.Tours.Find(order.TourId);
             order.Customer = _context.Customers.Find(order.CustomerId);
             order.Staff = _context.Staff.Find(order.StaffId);
