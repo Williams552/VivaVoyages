@@ -16,6 +16,5 @@ namespace VivaVoyages.Models
         public decimal? Total { get; set; }
 
         public string Status { get; set; }
-        public int OrderId { get; set; }
     }
 }
