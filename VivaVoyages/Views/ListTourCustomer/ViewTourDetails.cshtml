@@ -32,14 +32,17 @@
         </div>
         <div class="it-cp">
             <h5 style="display: inline-block;"><strong style="color: red;"><p class="totalCostElement" style="display: inline-block;"></p></strong>/Guest</h5>
+            @if (Model.CouponCodeNavigation != null)
+                {
+                     <p class="cp" ><strong>-</strong> @Model.CouponCodeNavigation.Discount đ</p>
+                }
 
             <div class="col-it">
                 <a asp-action="Create" asp-controller="Booking" asp-route-id="@Model.TourId"
                     class="btn btn-primary btn-lg " style="width: 170px;"><i id="bk" class="bi bi-cart2"></i>Booking</a>
                 <a id="btn-open" class="btn btn-primary btn-lg contact" style="width: 170px;" href="#"><i id="call" class="bi bi-telephone"></i>Contact</a>
-
-                <!--Modal-->
                 
+                <!--Modal-->
             </div>
         </div>
     </div>
@@ -127,7 +130,7 @@
                     <div class="tourdt">
                         <p id="ds"><strong>@item.DateVisit</strong></p>
                         <p><strong>@item.Place.PlaceName</strong></p>
-                 
+                
                     </div>
                 </div>
             </div>
@@ -209,8 +212,13 @@
             <strong>Tax:</strong>
         </div>
         <strong class="item-dt" >10% </strong>
+         
+</div>
+<div>
+    <p style="color: red;">Price does not include tax</p>
 </div>
     </div>
+   
 
     <div class="tg">
             <div class="hdv">

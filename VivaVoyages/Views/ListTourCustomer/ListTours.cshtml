@@ -1,4 +1,5 @@
 
+@model IEnumerable<VivaVoyages.Models.Tour>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,10 +37,19 @@
                         <p>@item.TourName</p>
                     </a>
                     <p><strong>Tour code:</strong> @item.TourId</p>
-                    <p><strong>Cost:</strong> @(item.Cost + item.ExpectedProfit)đ</p>
+                
+                    <div class="tour-cost">
+                    <p><strong>Cost:</strong> @(item.Cost + item.ExpectedProfit) đ</p>
+                    @if (!string.IsNullOrEmpty(item.CouponCode))
+                    {
+                        <p class="cp" ><strong>-</strong> @item.CouponCodeNavigation.Discount đ</p>
+                    }
+                </div>
+                   
                 </div>
             </div>
         }
+        
     </div>
 
     <ul id="pagination-container"></ul>
