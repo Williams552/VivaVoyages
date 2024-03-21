@@ -53,8 +53,17 @@ namespace VivaVoyages.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PlaceId,PlaceName,Address,Description")] Place place)
+        public async Task<IActionResult> Create(Place place)
         {
+            if (place.Image != null && place.Image.Length > 0)
+            {
+                var imagePath = "~/img/" + "Tour" + place.PlaceName + place.Image.FileName.Substring(place.Image.FileName.LastIndexOf("."));
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    await place.Image.CopyToAsync(stream);
+                }
+                place.ImagePath = "~/img/" + "Tour" + place.PlaceName + place.Image.FileName.Substring(place.Image.FileName.LastIndexOf("."));
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(place);

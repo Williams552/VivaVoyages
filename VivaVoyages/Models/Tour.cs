@@ -26,11 +26,11 @@ public partial class Tour
     public decimal? SingleRoomCost { get; set; }
 
     public string? ImagePath { get; set; }
+    
+    [NotMapped]
+    public IFormFile ImageFile { get; set; }
 
     public string? CouponCode { get; set; }
-
-     [NotMapped]
-    public IFormFile ImageFile {get; set;}
 
     public virtual Coupon? CouponCodeNavigation { get; set; }
 

@@ -70,10 +70,8 @@
                                             <td>@tour.Cost</td>
                                             <td>@tour.Status</td>
                                             <td>
-                                                <a class="btn btn-danger" asp-controller="ListTourCustomer"
-                                                    asp-action="ViewTourDetails" asp-route-id="@tour.OrderId">Details</a> |
                                                 <a class="btn btn-danger" asp-controller="Booking" asp-action="OrderCancel"
-                                                    asp-route-id="@tour.OrderId">Cancel</a>
+                                                    asp-route-id="@tour.OrderId">Details</a>
                                             </td>
                                         </tr>
                                     }

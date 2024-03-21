@@ -10,7 +10,7 @@ using VivaVoyages.Models;
 
 namespace VivaVoyages.Controllers
 {
-    //[ServiceFilter(typeof(AdminLoginFilter))]
+    [ServiceFilter(typeof(AdminLoginFilter))]
     public class TourController : Controller
     {
         private readonly VivaVoyagesContext _context;
@@ -60,24 +60,9 @@ namespace VivaVoyages.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Tour tour, List<Destination> destinations)
         {
-            // Handle image upload
-            if (tour.ImageFile != null && tour.ImageFile.Length > 0)
-            {
-                var imagePath = "wwwroot/img/" + "Tour" + tour.TourName + tour.ImageFile.FileName.Substring(tour.ImageFile.FileName.LastIndexOf("."));
-                using (var stream = new FileStream(imagePath, FileMode.Create))
-                {
-                    await tour.ImageFile.CopyToAsync(stream);
-                }
-                tour.ImagePath = "~/img/" + "Tour" + tour.TourName + tour.ImageFile.FileName.Substring(tour.ImageFile.FileName.LastIndexOf("."));
-            }
-
             ModelState.Remove("ImagePath");
             if (ModelState.IsValid)
             {
-                _context.Add(tour);
-                await _context.SaveChangesAsync();
-
-
                 if (destinations != null && destinations.Any())
                 {
                     using (var context = new VivaVoyagesContext())
@@ -87,9 +72,25 @@ namespace VivaVoyages.Controllers
                             destination.TourId = tour.TourId;
                             context.Add(destination);
                         }
-                        await _context.SaveChangesAsync();
                     }
                 }
+
+                _context.Add(tour);
+                await _context.SaveChangesAsync();
+
+                if (tour.ImageFile != null && tour.ImageFile.Length > 0)
+                {
+                    var imagePath = "wwwroot/img/" + "Tour" + tour.TourId + tour.ImageFile.FileName.Substring(tour.ImageFile.FileName.LastIndexOf("."));
+                    using (var stream = new FileStream(imagePath, FileMode.Create))
+                    {
+                        await tour.ImageFile.CopyToAsync(stream);
+                    }
+                    tour.ImagePath = "~/img/" + "Tour" + tour.TourName + tour.ImageFile.FileName.Substring(tour.ImageFile.FileName.LastIndexOf("."));
+                }
+
+                _context.Update(tour);
+                await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -120,6 +121,8 @@ namespace VivaVoyages.Controllers
                 return NotFound();
             }
 
+            ViewData["Place"] = _context.Places.ToList();
+
             return View(tour);
         }
 
@@ -134,7 +137,7 @@ namespace VivaVoyages.Controllers
             {
                 return NotFound();
             }
-
+            ModelState.Remove("ImageFile");
             if (ModelState.IsValid)
             {
                 try
@@ -236,7 +239,7 @@ namespace VivaVoyages.Controllers
         {
             return _context.Tours.Any(e => e.TourId == id);
         }
-
+        
 
     }
 }

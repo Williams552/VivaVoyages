@@ -120,6 +120,7 @@ namespace VivaVoyages.Controllers
                 }
 
                 // Kiểm tra mật khẩu cũ
+                oldPassword = HashPassword(oldPassword);
                 if (customer.Password != oldPassword)
                 {
                     ModelState.AddModelError(string.Empty, "Old password is incorrect.");

@@ -12,6 +12,9 @@
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
 
+    
+    @* <link rel="stylesheet" href="~/css/Createtour.css" /> *@
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -30,15 +33,18 @@
                                                     <option value="">Select a place</option> <!-- Default option -->
         @foreach (var place in ViewBag.Place)
         {
-                                                            <option value="@place.PlaceId">ID: @place.PlaceId place: @place.PlaceName</option>
+                                                                <option value="@place.PlaceId">ID: @place.PlaceId place: @place.PlaceName</option>
         }
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="Destinations_${destinationIndex}__DateVisit" class="control-label">DateVisit</label>
                                                 <input type="date" id="Destinations_${destinationIndex}__DateVisit" name="Destinations[${destinationIndex}].DateVisit" class="form-control" />
+                                            </div >
+                                            <div style="padding: 10 0;">
+                                                <button type="button" class="btn btn-danger deleteDestinationBtn" data-destination-index="${destinationIndex}">Delete Destination</button>
                                             </div>
-                                            <button type="button" class="btn btn-danger deleteDestinationBtn" data-destination-index="${destinationIndex}">Delete Destination</button>
+                                            
                                         </div>`;
                 $("#destinationsContainer").append(destinationHtml);
                 destinationIndex++;
@@ -56,75 +62,78 @@
 
 <body>
 
+
     <h4>Tour</h4>
     <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Create" enctype="multipart/form-data">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="TourName" class="control-label"></label>
-                    <input asp-for="TourName" class="form-control" />
-                    <span asp-validation-for="TourName" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ExpectedProfit" class="control-label"></label>
-                    <input asp-for="ExpectedProfit" class="form-control" />
-                    <span asp-validation-for="ExpectedProfit" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="DateStart" class="control-label"></label>
-                    <input asp-for="DateStart" class="form-control" />
-                    <span asp-validation-for="DateStart" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="TourDates" class="control-label"></label>
-                    <input asp-for="TourDates" class="form-control" />
-                    <span asp-validation-for="TourDates" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="MaxPasseger" class="control-label"></label>
-                    <input asp-for="MaxPasseger" class="form-control" />
-                    <span asp-validation-for="MaxPasseger" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="TourGuide" class="control-label"></label>
-                    <input asp-for="TourGuide" class="form-control" />
-                    <span asp-validation-for="TourGuide" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Cost" class="control-label"></label>
-                    <input asp-for="Cost" class="form-control" />
-                    <span asp-validation-for="Cost" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Tax" class="control-label"></label>
-                    <input asp-for="Tax" class="form-control" />
-                    <span asp-validation-for="Tax" class="text-danger"></span>
-                </div>
+    <div  class="container">
+        <div  class="row" style="justify-content: center;">
+            <div  class="col-md-6" style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); ">
+                <form asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div style="padding-top: 10px;" class="form-group">
+                        <label asp-for="TourName" class="control-label"></label>
+                        <input asp-for="TourName" class="form-control" />
+                        <span asp-validation-for="TourName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ExpectedProfit" class="control-label"></label>
+                        <input asp-for="ExpectedProfit" class="form-control" />
+                        <span asp-validation-for="ExpectedProfit" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DateStart" class="control-label"></label>
+                        <input asp-for="DateStart" class="form-control" />
+                        <span asp-validation-for="DateStart" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TourDates" class="control-label"></label>
+                        <input asp-for="TourDates" class="form-control" />
+                        <span asp-validation-for="TourDates" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MaxPasseger" class="control-label"></label>
+                        <input asp-for="MaxPasseger" class="form-control" />
+                        <span asp-validation-for="MaxPasseger" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TourGuide" class="control-label"></label>
+                        <input asp-for="TourGuide" class="form-control" />
+                        <span asp-validation-for="TourGuide" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cost" class="control-label"></label>
+                        <input asp-for="Cost" class="form-control" />
+                        <span asp-validation-for="Cost" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Tax" class="control-label"></label>
+                        <input asp-for="Tax" class="form-control" />
+                        <span asp-validation-for="Tax" class="text-danger"></span>
+                    </div>
 
                 <div class="form-group">
-                    <label for="ImagePath" class="control-label">Tour Image</label>
-                    <input asp-for="ImagePath" class="form-control" />
+                    <label asp-for="ImageFile" class="control-label">Tour Image</label>
+                    <input asp-for="ImageFile" class="form-control" />
                 </div>
 
-                <div id="destinationsContainer">
-                    <!-- Destination fields will be dynamically added here -->
-                </div>
+                    <div id="destinationsContainer">
+                        <!-- Destination fields will be dynamically added here -->
+                    </div>
+<div style="padding: 10 0;" > <button type="button" id="addDestinationBtn" class="btn btn-primary">Add Destination</button></div>
+                   
 
-                <button type="button" id="addDestinationBtn" class="btn btn-primary">Add Destination</button>
-
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
-            </form>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
+   </div>
 
 
 
-    <div>
-        <a asp-action="Index">Back to List</a>
+    <div style="text-align: center; padding: 10 0;">
+        <a class="btn btn-primary" asp-action="Index">Back to List</a>
     </div>
 
 </body>

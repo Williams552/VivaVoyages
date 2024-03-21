@@ -22,13 +22,18 @@
                     src="/img/Logo.png" width="200">
                 <h3 class="text-center"></h3>
                 <form class="text-start" id="form-login" asp-action="Login" method="post">
-                    <div asp-validation-summary="All" class="text-danger"></div>
-                    <div class="mb-3"><label class="form-label" id="lbl-usuario" for="txt-usuario">Email</label>
-                    <input asp-for="Email" class="form-control" type="text" id="txt-usuario"></div>
-                    <div class="mb-3"><label class="form-label" id="lbl-password"
+                    @* <div asp-validation-summary="All" class="text-danger"></div> *@
+                    <div class="mb-3"><label style="font-size: 20px ;" class="form-label" id="lbl-usuario" for="txt-usuario">Email</label>
+                    <input asp-for="Email" class="form-control" type="text" id="txt-usuario"><span asp-validation-for="Email" class="text-danger"></span></div>
+                    
+                    <div style="font-size: 20px ; class="mb-3"><label class="form-label" id="lbl-password"
                             for="txt-password">Password</label>
                     <input asp-for="Password" class="form-control" type="password"id="txt-password">
+                    <span asp-validation-for="Password"
+                        class="text-danger"></span>
+                         <a style="text-decoration: none; font-size: 13px; text-align: center; color:#256db4;" asp-action="ForgotPassword">Forgot Password</a>
                     </div>
+                    <br>
                     <input type="hidden" asp-for="CustomerId" />
                     <input type="hidden" asp-for="FullName" />
                     <input type="hidden" asp-for="Address" />
@@ -37,11 +42,13 @@
                     <input type="hidden" asp-for="Dob" />
                     <input type="hidden" asp-for="ResetCode" />
                     <input type="hidden" asp-for="Status" />
+                   
                     <button class="btn btn-primary" id="btn-sesion" type="submit"
-                        style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;width: 89.8625px;">Login</button><button
-                        class="btn btn-primary" id="btn-sesion-1" type="button" asp-action="Register"
-                        style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;margin-left: 81px;">Register</button>
+                        style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;width: 89.8625px;">Login</button>
+                        <a asp-action="Register" class="btn btn-primary" id="btn-sesion" type="button"
+                        style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;width: 89.8625px; margin-left: 60px;">Register</a>
                 </form>
+             
             </div>
         </div>
         <script src="~/js/bootstrap.min.js"></script>
