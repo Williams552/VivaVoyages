@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "e:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {}
+    "E:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {}
   },
   "projects": {
-    "e:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {
+    "E:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "e:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+        "projectUniqueName": "E:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
         "projectName": "VivaVoyages",
-        "projectPath": "e:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+        "projectPath": "E:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
         "packagesPath": "C:\\Users\\cartu\\.nuget\\packages\\",
-        "outputPath": "e:\\SWP\\VivaVoyages\\VivaVoyages\\obj\\",
+        "outputPath": "E:\\SWP\\VivaVoyages\\VivaVoyages\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cartu\\AppData\\Roaming\\NuGet\\NuGet.Config",
