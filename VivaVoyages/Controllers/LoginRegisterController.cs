@@ -116,7 +116,7 @@ namespace VivaVoyages.Controllers
                 _db.Customers.Update(customer);
                 _db.SaveChanges();
 
-                SendEmail(model.Email, "Reset Password", "Reset code: " + model.ResetCode);
+                SendEmail(model.Email, "Reset Password", "Reset code: " + resetCode);
                 TempData["Email"] = model.Email;
                 return RedirectToAction("ResetPassword");
             }
@@ -141,6 +141,7 @@ namespace VivaVoyages.Controllers
         public IActionResult ResetPassword(ForgotPassword forgotPassword)
         {
             var customer = _db.Customers.FirstOrDefault(c => c.Email == forgotPassword.Email);
+
             if (customer != null)
             {
                 if (customer.ResetCode == forgotPassword.ResetCode) // Thay bằng cách kiểm tra reset code hợp lệ
@@ -155,13 +156,13 @@ namespace VivaVoyages.Controllers
                 }
                 else
                 {
-                    ViewBag.Error = "Reset code is wrong";
+                    ModelState.AddModelError("ResetCode", "Reset code is wrong");
                     return View();
                 }
             }
             else
             {
-                ViewBag.Error = "Email not found";
+                ModelState.AddModelError("Email", "Email not found");
                 return View();
             }
         }

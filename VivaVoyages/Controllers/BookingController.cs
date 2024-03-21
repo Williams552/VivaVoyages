@@ -41,7 +41,7 @@ namespace VivaVoyages.Controllers
         // POST: Booking/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(int tourId, string passengersJson)
+        public IActionResult Create(int tourId, string passengersJson, string CouponCode)
         {
             try
             {
@@ -67,7 +67,6 @@ namespace VivaVoyages.Controllers
                     StaffId = _context.Staff.OrderBy(s => s.Orders.Count(o => o.Status == "Pending")).FirstOrDefault().StaffId,
                     DateCreated = DateTime.Now,
                     Status = "Pending",
-                    Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR)) * (1 + tour.Tax / 100)
                 };
 
                 // Add the Order to the context
@@ -89,7 +88,7 @@ namespace VivaVoyages.Controllers
                     _context.SaveChanges();
                 }
                 order.Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR)) * (1 + tour.Tax / 100);
-                var coupon = _context.Coupons.Find(order.CouponCode);
+                var coupon = _context.Coupons.Find(CouponCode);
                 if (coupon != null)
                 {
                     if (coupon.DateEnd < DateOnly.FromDateTime(DateTime.Now))

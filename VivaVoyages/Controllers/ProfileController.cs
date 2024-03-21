@@ -150,8 +150,6 @@ namespace VivaVoyages.Controllers
             }
         }
 
-
-
         public async Task<IActionResult> GetCustomerTours(int id)
         {
             var customer = await _context.Customers
@@ -165,23 +163,23 @@ namespace VivaVoyages.Controllers
             ViewData["FullName"] = customer.FullName;
 
             var customerTours = await _context.Orders
-            .Where(o => o.CustomerId == id)
-            .Include(o => o.Tour)
-            .Include(o => o.Passengers) // Đảm bảo include thông tin về Passenger
-            .GroupBy(o => o.TourId)
-            .Select(g => new CustomerTourView
-            {
-                OrderId = g.First().OrderId,
-                TourName = g.First().Tour.TourName,
-                PassengerCount = g.SelectMany(o => o.Passengers).Count(), // Tính tổng số hành khách cho mỗi Tour
-                DateStart = g.First().Tour.DateStart.ToString("dd/MM/yyyy"),
-                TourDates = g.First().Tour.TourDates,
-                TourGuide = g.First().Tour.TourGuide,
-                Total = g.First().Total,
-                Status = g.First().Status
-                // Các thuộc tính khác như trước
-            })
-            .ToListAsync();
+                .Where(o => o.CustomerId == id)
+                .Include(o => o.Tour)
+                .Include(o => o.Passengers) // Đảm bảo include thông tin về Passenger
+                                            //.GroupBy(o => o.TourId) // Loại bỏ phần nhóm này
+                .Select(g => new CustomerTourView
+                {
+                    OrderId = g.OrderId,
+                    TourName = g.Tour.TourName,
+                    PassengerCount = g.Passengers.Count(), // Tính tổng số hành khách cho mỗi Tour
+                    DateStart = g.Tour.DateStart.ToString("dd/MM/yyyy"),
+                    TourDates = g.Tour.TourDates,
+                    TourGuide = g.Tour.TourGuide,
+                    Total = g.Total,
+                    Status = g.Status
+                    // Các thuộc tính khác như trước
+                })
+                .ToListAsync();
 
             if (!customerTours.Any())
             {

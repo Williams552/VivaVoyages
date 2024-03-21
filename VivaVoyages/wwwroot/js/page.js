@@ -15,14 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
         var endIndex = Math.min(startIndex + itemsPerPage, tours.length);
 
         // Ẩn tất cả các tour
-        tours.forEach(function(tour) {
-            tour.style.display = 'none';
-        });
 
         // Hiển thị các tour của trang hiện tại
-        for (var i = startIndex; i < endIndex; i++) {
-            tours[i].style.display = 'block';
-        }
     }
     
     // Tạo các nút phân trang

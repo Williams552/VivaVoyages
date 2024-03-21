@@ -14,6 +14,7 @@
 
 <body>
     <div  style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); padding: 20;">
+
 <table class="table">
         <thead>
             <tr>
@@ -67,7 +68,7 @@
                         @Html.DisplayFor(modelItem => item.Total)
                     </td>
                     <td>
-                        <a class="btn btn-primary" asp-controller="Order" asp-action="Edit" asp-route-id="@item.OrderId">Edit History</a> 
+                        <a class="btn btn-primary" asp-controller="Order" asp-action="EditAndReturn" asp-route-id="@item.OrderId"  asp-route-customerId="@item.CustomerId">Edit Order Status</a> 
                     </td>
                 </tr>
             }

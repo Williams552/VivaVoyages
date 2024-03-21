@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
 
-    
+
     @* <link rel="stylesheet" href="~/css/Createtour.css" /> *@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -32,7 +32,7 @@
                                                     <option value="">Select a place</option> <!-- Default option -->
         @foreach (var place in ViewBag.Place)
         {
-                                                                <option value="@place.PlaceId">ID: @place.PlaceId place: @place.PlaceName</option>
+                                                                    <option value="@place.PlaceId">ID: @place.PlaceId place: @place.PlaceName</option>
         }
                                                 </select>
                                             </div>
@@ -43,7 +43,7 @@
                                             <div style="padding: 10 0;">
                                                 <button type="button" class="btn btn-danger deleteDestinationBtn" data-destination-index="${destinationIndex}">Delete Destination</button>
                                             </div>
-                                            
+
                                         </div>`;
                 $("#destinationsContainer").append(destinationHtml);
                 destinationIndex++;
@@ -64,9 +64,9 @@
 
     <h4>Tour</h4>
     <hr />
-    <div  class="container">
-        <div  class="row" style="justify-content: center;">
-            <div  class="col-md-6" style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); ">
+    <div class="container">
+        <div class="row" style="justify-content: center;">
+            <div class="col-md-6" style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); ">
                 <form asp-action="Create" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div style="padding-top: 10px;" class="form-group">
@@ -109,26 +109,32 @@
                         <input type="number" asp-for="Tax" class="form-control" />
                         <span asp-validation-for="Tax" class="text-danger"></span>
                     </div>
-                 
-
-                <div class="form-group">
-                    <label asp-for="ImageFile" class="control-label">Tour Image</label>
-                    <input asp-for="ImageFile" class="form-control" />
-                </div>
-
-                    <div id="destinationsContainer">
-                        <!-- Destination fields will be dynamically added here -->
-                    </div>
-<div style="padding: 10 0;" > <button type="button" id="addDestinationBtn" class="btn btn-primary">Add Destination</button></div>
-                   
 
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
-                    </div>
+                        <label asp-for="SingleRoomCost" class="control-label"></label>
+                        <input asp-for="SingleRoomCost" class="form-control" />
+                        <span asp-validation-for="SingleRoomCost" class="text-danger"></span>
+
+
+                        <div class="form-group">
+                            <label asp-for="ImageFile" class="control-label">Tour Image</label>
+                            <input asp-for="ImageFile" class="form-control" />
+                        </div>
+
+                        <div id="destinationsContainer">
+                            <!-- Destination fields will be dynamically added here -->
+                        </div>
+                        <div style="padding: 10 0;"> <button type="button" id="addDestinationBtn"
+                                class="btn btn-primary">Add Destination</button></div>
+
+
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
                 </form>
             </div>
         </div>
-   </div>
+    </div>
 
 
 
