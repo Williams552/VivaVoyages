@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Build.Framework;
+using Microsoft.DotNet.Scaffolding.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -41,9 +43,35 @@ namespace VivaVoyages.Controllers
         {
             try
             {
+                //check passengersJson
+                if (passengersJson=="[]")
+                {
+                    ModelState.AddModelError("Passengers", "Please enter the passengers information");
+                    return RedirectToAction("Create", new { id = tourId });
+                }
+
                 Customer customer = HttpContext.Session.GetObject<Customer>("LoggedInCustomer");
                 int numbOfPassenger = 0;
                 int numbOfSR = 0;
+
+                var tour = _context.Tours.Find(tourId);
+
+                Order order = new Order
+                {
+                    CustomerId = customer.CustomerId,
+                    TourId = tourId,
+                    //Find the staff has less orders pending to assign the order to
+                    StaffId = _context.Staff.OrderBy(s => s.Orders.Count(o => o.Status == "Pending")).FirstOrDefault().StaffId,
+                    DateCreated = DateTime.Now,
+                    Status = "Pending",
+                    Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR)) * (1 + tour.Tax / 100)
+                };
+
+                // Add the Order to the context
+                _context.Orders.Add(order);
+
+                // Save changes to the database
+                _context.SaveChanges();
 
                 //Add the passengers to the database
                 List<Passenger> passengers = JsonConvert.DeserializeObject<List<Passenger>>(passengersJson);
@@ -52,27 +80,11 @@ namespace VivaVoyages.Controllers
                     numbOfPassenger++;
                     if (passenger.SingleRoom == true) numbOfSR++;
                     passenger.CustomerId = customer.CustomerId;
+                    passenger.OrderId = order.OrderId;
                     _context.Passengers.Add(passenger);
-
+                    _context.SaveChanges();
                 }
-                var tour = _context.Tours.Find(tourId);
 
-                Order order = new Order
-                {
-                    CustomerId = customer.CustomerId,
-                    TourId = tourId,
-                    StaffId = _context.Staff.FirstOrDefault().StaffId,
-                    DateCreated = DateTime.Now,
-                    Status = "Pending",
-                    Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR)) * (1 + tour.Tax / 100)
-
-                };
-
-                // Add the Order to the context
-                _context.Orders.Add(order);
-
-                // Save changes to the database
-                _context.SaveChanges();
 
                 return RedirectToAction("Index", "Home");
             }
@@ -131,30 +143,30 @@ namespace VivaVoyages.Controllers
 
             return View(order);
         }
-        
+
         // Action to cancel all orders for a specific tour
         [HttpPost, ActionName("OrderCancel")]
         public async Task<IActionResult> OrderCancelConfirmed(int id)
         {
             try
             {
-                //delete order
+                // Find the order
                 var order = await _context.Orders.FindAsync(id);
-                _context.Orders.Remove(order);
-                await _context.SaveChangesAsync();
-                //remove passengers
-                var passengers = _context.Passengers.Where(p => p.OrderId == id).ToList();
-                foreach (var passenger in passengers)
+
+                if (order == null)
                 {
-                    _context.Passengers.Remove(passenger);
+                    // Order not found, handle accordingly
+                    return RedirectToAction("OrderNotFound", "Error");
                 }
+
+                order.Status = "Cancelled";
+                _context.Update(order);
                 await _context.SaveChangesAsync();
             }
-            catch
+            catch (Exception ex)
             {
                 return RedirectToAction("Error", "Home");
             }
-
             return RedirectToAction("Index", "Profile");
         }
 

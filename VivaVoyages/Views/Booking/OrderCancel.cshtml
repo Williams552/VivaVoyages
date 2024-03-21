@@ -58,12 +58,11 @@
             </ul>
         </dd>
     </dl>
-
-    <form method="post" asp-action="OrderCancel" asp-controller="Booking">
-        <div class="mb-3">
-            <label for="reason" class="form-label">Reason for Cancellation</label>
-            <textarea class="form-control" id="reason" name="reason" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-danger">Cancel Order</button>
-    </form>
+    @if (Model.Status == "Pending")
+    {
+        <form method="post" asp-action="OrderCancel" asp-controller="Booking">
+            <button type="submit" class="btn btn-danger">Cancel Order</button>
+        </form>
+    }
+    <a asp-action="Index" asp-controller="Profile" class="btn btn-secondary">Back to List</a>
 </div>
