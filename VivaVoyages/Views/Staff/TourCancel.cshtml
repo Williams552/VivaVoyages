@@ -16,10 +16,12 @@
 </head>
 
 <body>
+<div>
 
+</div>
     <h3>Are you sure you want to cancel this tour?</h3>
-    <div>
-        <div>
+    <div style="padding: 20 0;">
+        <div style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); padding: 20;" >
             <h4>Tour</h4>
             <hr />
             <dl class="row">
@@ -73,7 +75,7 @@
                 </dd>
             </dl>
         </div>
-        <div>
+        <div style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); padding: 20; margin: 10 0;">
             <h2>Destinations</h2>
             @if (Model.Destinations.Any())
             {
@@ -98,7 +100,7 @@
                 <p>No destinations found for this tour.</p>
             }
         </div>
-        <div>
+        <div style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); padding: 20;">
         <h2>Orders</h2>
         @if (Model.Orders.Any())
         {
@@ -124,10 +126,10 @@
         }
     </div>
 
-        <form asp-action="TourCancel">
+        <form  style="padding: 10 0;" asp-action="TourCancel">
             <input type="hidden" asp-for="TourId" />
-            <input type="submit" value="Cancel" class="btn btn-danger" />
-            <a asp-action="TourIndex">Back to List</a>
+            <input type="submit" value="Cancel" class="btn btn-danger" /> |
+            <a class="btn btn-primary" asp-action="TourIndex">Back to List</a>
         </form>
     </div>
 </body>

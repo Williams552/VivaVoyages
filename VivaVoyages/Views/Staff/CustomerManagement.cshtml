@@ -1,5 +1,6 @@
 @model IEnumerable<VivaVoyages.Models.Customer>
 @{
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
     ViewData["Title"] = "CustomerManagement";
 }
 <!DOCTYPE html>
@@ -12,7 +13,7 @@
 </head>
 
 <body>
-    <table class="table">
+    <div  style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); padding: 20;"> <table class="table">
         <thead>
             <tr>
                 <th>
@@ -65,12 +66,13 @@
                         @Html.DisplayFor(modelItem => item.Status)
                     </td>
                     <td>
-                        <a asp-action="CustomerOrder" asp-route-id="@item.CustomerId">Order History</a> 
+                        <a class="btn btn-primary"  asp-action="CustomerOrder"  asp-route-customerId="@item.CustomerId">Order History</a> 
                     </td>
                 </tr>
             }
         </tbody>
-    </table>
+    </table></div>
+   
 </body>
 
 </html>

@@ -16,9 +16,18 @@
 </head>
 
 <body>
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+    <div  style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); padding: 20;" >
+        <div style="display: flex">
+            <div class="col">
+                            <h1>Tour Index</h1>
+                            <p>With Staff</p>
+                            
+                        </div>
+       
+        
+        </div>
+       
+         
     <table class="table">
         <thead>
             <tr>
@@ -78,13 +87,14 @@
                         @Html.DisplayFor(modelItem => item.Tax)
                     </td>
                     <td>
-                        <a asp-action="TourCancel" asp-route-id="@item.TourId">Cancel this tour!</a> |
-                        <a asp-action="DetailTourOrder" asp-route-id="@item.TourId">Details</a> |
+                        <a class="btn btn-danger" asp-action="TourCancel" asp-route-id="@item.TourId">Cancel this tour!</a> |
+                        <a class="btn btn-primary" asp-action="DetailTourOrder" asp-route-id="@item.TourId">Details</a> |
                     </td>
                 </tr>
             }
         </tbody>
-    </table>
+    </table></div>
+   
 </body>
 
 </html>

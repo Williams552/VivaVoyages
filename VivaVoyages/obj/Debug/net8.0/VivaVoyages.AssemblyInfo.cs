@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VivaVoyages")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d54219118263947eb06524b20050e59efc42e674")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+583f8eaf8266e290c0a414bd826526f576841c4c")]
 [assembly: System.Reflection.AssemblyProductAttribute("VivaVoyages")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VivaVoyages")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

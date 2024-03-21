@@ -2607,3 +2607,14 @@ D:\PRN211\Project\VivaVoyages\VivaVoyages\obj\Debug\net8.0\scopedcss\projectbund
 D:\PRN211\Project\VivaVoyages\VivaVoyages\obj\Debug\net8.0\VivaVoya.872B1ECC.Up2Date
 D:\PRN211\Project\VivaVoyages\VivaVoyages\obj\Debug\net8.0\VivaVoyages.genruntimeconfig.cache
 D:\PRN211\Project\VivaVoyages\VivaVoyages\obj\Debug\net8.0\ref\VivaVoyages.dll
+D:\PRN211\VivaVoyages\VivaVoyages\bin\Debug\net8.0\JetBrains.Annotations.dll
+D:\PRN211\VivaVoyages\VivaVoyages\bin\Debug\net8.0\System.Web.Mvc.dll
+D:\PRN211\VivaVoyages\VivaVoyages\bin\Debug\net8.0\System.Web.Razor.dll
+D:\PRN211\VivaVoyages\VivaVoyages\bin\Debug\net8.0\System.Web.Helpers.dll
+D:\PRN211\VivaVoyages\VivaVoyages\bin\Debug\net8.0\System.Web.WebPages.Deployment.dll
+D:\PRN211\VivaVoyages\VivaVoyages\bin\Debug\net8.0\System.Web.WebPages.Razor.dll
+D:\PRN211\VivaVoyages\VivaVoyages\bin\Debug\net8.0\System.Web.WebPages.dll
+D:\PRN211\VivaVoyages\VivaVoyages\bin\Debug\net8.0\Microsoft.Web.Infrastructure.dll
+D:\PRN211\VivaVoyages\VivaVoyages\bin\Debug\net8.0\X.PagedList.dll
+D:\PRN211\VivaVoyages\VivaVoyages\bin\Debug\net8.0\X.PagedList.Mvc.dll
+D:\PRN211\VivaVoyages\VivaVoyages\bin\Debug\net8.0\X.PagedList.Web.Common.dll

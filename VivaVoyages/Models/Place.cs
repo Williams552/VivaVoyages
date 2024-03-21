@@ -18,10 +18,7 @@ public partial class Place
     [NotMapped]
     public IFormFile Image { get; set; }
 
-    public string? ImagePath { get; set; }
-
-    [NotMapped]
-    public IFormFile Image { get; set; }
+   
 
     public virtual ICollection<Destination> Destinations { get; set; } = new List<Destination>();
 }

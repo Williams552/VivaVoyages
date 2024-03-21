@@ -32,15 +32,26 @@ namespace VivaVoyages.Controllers
 
         public IActionResult ViewTourDetails(int id)
         {
+            var tour = _db.Tours
+                           .Include(t => t.Destinations)
+                           .Include(t => t.CouponCodeNavigation)
+                           .FirstOrDefault(t => t.TourId == id);
 
-            //--------------------------------------------------------------------//
-            
-            var tour = _db.Tours.Include(t => t.Destinations).Include(t => t.CouponCodeNavigation).FirstOrDefault(t => t.TourId == id);
             tour.Destinations = _db.Destinations.Include(d => d.Place).Where(d => d.TourId == id).ToList();
+
             var otherTours = _db.Tours.Where(t => t.TourId != id).Take(4).ToList();
 
             if (tour != null)
             {
+                // Kiểm tra và ẩn hình ảnh nếu ImagePath của Place là null
+                foreach (var destination in tour.Destinations)
+                {
+                    if (destination.Place != null && string.IsNullOrEmpty(destination.Place.ImagePath))
+                    {
+                        destination.Place.ImagePath = null;
+                    }
+                }
+
                 ViewBag.OtherTours = otherTours; // Chuyển danh sách tour khác vào view
                 return View(tour);
             }

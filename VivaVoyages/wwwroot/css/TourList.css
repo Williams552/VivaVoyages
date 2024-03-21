@@ -3,6 +3,10 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+.place-image {
+    max-width: 100%;
+    height: auto;
+}
 
 .tour-item {
     width: 300px;
@@ -86,7 +90,7 @@
 }
 
 .tour-image {
-    max-width: 650px;
+    max-width: 750px;
     height: 500px;
     
     border-radius: 20px;
@@ -197,6 +201,7 @@
 .img-place{
 margin-top: 30px;
 padding-left:20px ;
+margin-left: 100px;
 
 }
 .img-place img{
@@ -204,7 +209,6 @@ padding-left:20px ;
   width: 210px;
   height: 220px;
   border-radius: 20px;
- 
   padding-bottom: 10px;
   
   
