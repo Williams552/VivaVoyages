@@ -62,28 +62,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cG9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/SWP/VivaVoyages/VivaVoyages/Views/Destination/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25cQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/SWP/VivaVoyages/VivaVoyages/Views/Destination/CreateAndReturn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25cQ3JlYXRlQW5kUmV0dXJuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/SWP/VivaVoyages/VivaVoyages/Views/Destination/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25cRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/SWP/VivaVoyages/VivaVoyages/Views/Destination/DeleteAndReturn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25cRGVsZXRlQW5kUmV0dXJuLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/SWP/VivaVoyages/VivaVoyages/Views/Destination/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25cRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/SWP/VivaVoyages/VivaVoyages/Views/Destination/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/SWP/VivaVoyages/VivaVoyages/Views/Destination/EditAndReturn.cshtml]

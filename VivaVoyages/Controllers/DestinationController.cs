@@ -25,28 +25,7 @@ namespace VivaVoyages.Controllers
             return View(await vivaVoyagesContext.ToListAsync());
         }
 
-        // GET: Destination/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var destination = await _context.Destinations
-                .Include(d => d.Place)
-                .Include(d => d.Tour)
-                .FirstOrDefaultAsync(m => m.DestinationId == id);
-            if (destination == null)
-            {
-                return NotFound();
-            }
-
-            return View(destination);
-        }
-
-        
-
+            
         public IActionResult CreateAndReturn(int? tourId )
         {
             ViewData["Place"] = _context.Places.ToList();
