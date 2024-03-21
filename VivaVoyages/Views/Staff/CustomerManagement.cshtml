@@ -65,7 +65,7 @@
                         @Html.DisplayFor(modelItem => item.Status)
                     </td>
                     <td>
-                        <a asp-action="CustomerOrder" asp-route-id="@item.CustomerId">Order History</a> 
+                        <a asp-action="CustomerOrder" asp-route-customerId="@item.CustomerId">Order History</a> 
                     </td>
                 </tr>
             }

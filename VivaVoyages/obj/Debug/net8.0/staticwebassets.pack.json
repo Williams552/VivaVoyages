@@ -189,6 +189,10 @@
       "PackagePath": "staticwebassets\\img\\9.png"
     },
     {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\DaNang.png",
+      "PackagePath": "staticwebassets\\img\\DaNang.png"
+    },
+    {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\Logo.png",
       "PackagePath": "staticwebassets\\img\\Logo.png"
     },
@@ -197,12 +201,12 @@
       "PackagePath": "staticwebassets\\img\\ThePhong3.png"
     },
     {
-      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\Tour0.png",
-      "PackagePath": "staticwebassets\\img\\Tour0.png"
-    },
-    {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\Tour4.png",
       "PackagePath": "staticwebassets\\img\\Tour4.png"
+    },
+    {
+      "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\Tour5.png",
+      "PackagePath": "staticwebassets\\img\\Tour5.png"
     },
     {
       "Id": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\account.jpg",

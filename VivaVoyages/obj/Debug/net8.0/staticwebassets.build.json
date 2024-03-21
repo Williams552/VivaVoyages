@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xqdCv7kNy4GiadOn8xUIWWxDmz7GnGyeH3ZL85Aa4a0=",
+  "Hash": "nmv6K/3S3/qj7LqQ9e9MpewtvXLeHy+z+rZ+fMKWKYA=",
   "Source": "VivaVoyages",
   "BasePath": "_content/VivaVoyages",
   "Mode": "Default",
@@ -1062,6 +1062,25 @@
       "OriginalItemSpec": "wwwroot\\img\\dallat4.png"
     },
     {
+      "Identity": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\DaNang.png",
+      "SourceId": "VivaVoyages",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\",
+      "BasePath": "_content/VivaVoyages",
+      "RelativePath": "img/DaNang.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\DaNang.png"
+    },
+    {
       "Identity": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\handbook.jpg",
       "SourceId": "VivaVoyages",
       "SourceType": "Discovered",
@@ -1309,25 +1328,6 @@
       "OriginalItemSpec": "wwwroot\\img\\ThePhong3.png"
     },
     {
-      "Identity": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\Tour0.png",
-      "SourceId": "VivaVoyages",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\",
-      "BasePath": "_content/VivaVoyages",
-      "RelativePath": "img/Tour0.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\Tour0.png"
-    },
-    {
       "Identity": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\Tour4.png",
       "SourceId": "VivaVoyages",
       "SourceType": "Discovered",
@@ -1345,6 +1345,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Tour4.png"
+    },
+    {
+      "Identity": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\Tour5.png",
+      "SourceId": "VivaVoyages",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\",
+      "BasePath": "_content/VivaVoyages",
+      "RelativePath": "img/Tour5.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Tour5.png"
     },
     {
       "Identity": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\visa.png",
