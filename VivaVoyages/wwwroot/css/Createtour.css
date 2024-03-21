@@ -1,0 +1,34 @@
+/* styles.css */
+.container {
+    width: 80%; /* Đặt chiều rộng của khung là 80% của trình duyệt */
+    margin: auto; /* Để căn giữa nội dung trong trang */
+    padding: 20px; /* Tạo khoảng cách giữa nội dung và khung */
+    background-color: #fff; /* Màu nền của khung */
+    border-radius: 10px; /* Kết hợp với box-shadow để tạo hiệu ứng bo tròn cho khung */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng bóng đổ */
+}
+
+.row {
+    display: flex; /* Sử dụng Flexbox để căn giữa các cột */
+    justify-content: center; /* Căn giữa các cột theo chiều ngang */
+}
+
+.col-md-4 {
+    flex: 0 0 50%; /* Đặt kích thước của cột là 50% chiều rộng của trình duyệt */
+    max-width: 50%; /* Đảm bảo cột không vượt quá 50% chiều rộng của trình duyệt */
+}
+
+form {
+    width: 100%; /* Đảm bảo form có chiều rộng 100% */
+}
+
+#destinationsContainer {
+    padding: 10px 0; /* Tạo khoảng cách giữa các điểm đến */
+}
+
+.destination {
+    border: 1px solid #ccc; /* Đặt đường viền cho mỗi điểm đến */
+    border-radius: 5px; /* Bo tròn góc của mỗi điểm đến */
+    padding: 10px; /* Tạo khoảng cách bên trong mỗi điểm đến */
+    margin-bottom: 10px; /* Tạo khoảng cách giữa các điểm đến */
+}

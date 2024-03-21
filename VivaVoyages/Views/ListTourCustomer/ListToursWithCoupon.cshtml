@@ -1,0 +1,63 @@
+
+@model IEnumerable<VivaVoyages.Models.Tour>
+@{
+    ViewData["Title"] = "ListToursWithCoupon";
+}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/TourList.css" asp-append-version="true" />
+    <title>Document</title>
+</head>
+
+<body>
+    
+
+    <div id="lcp" class="tours-container">
+        @foreach (var item in Model)
+        {
+            <div class="tour-item">
+                <a asp-action="ViewTourDetails" asp-route-id="@item.TourId">
+                    <img src="@Url.Content(item.ImagePath)" alt="Tour Image" class="tour-imagea">
+                </a>
+                <div class="tour-list">
+                    <p class="tini">
+                        <span>@item.DateStart.ToString("dd/MM/yyyy")</span> - <span>@item.TourDates day</span>
+                    </p>
+                    <a asp-action="ViewTourDetails" asp-route-id="@item.TourId">
+                        <p>@item.TourName</p>
+                    </a>
+                    <p><strong>Tour code:</strong> @item.TourId</p>
+                
+                    <div class="tour-cost">
+                    <p><strong>Cost:</strong> @(item.Cost + item.ExpectedProfit) đ</p>
+                    @if (!string.IsNullOrEmpty(item.CouponCode))
+                    {
+                        <p class="cp" ><strong>-</strong> @item.CouponCodeNavigation.Discount đ</p>
+                    }
+                </div>
+                   
+                </div>
+            </div>
+        }
+        
+    </div>
+
+    <ul id="pagination-container"></ul>
+
+
+
+    <script src="~/js/page.js"></script>
+
+   
+</body>
+
+</html>

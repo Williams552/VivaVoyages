@@ -22,6 +22,10 @@ namespace VivaVoyages.Controllers
         }
         public IActionResult ListTours()
         {
+            var toursWithCoupon = _db.Tours
+                            .Where(t => !string.IsNullOrEmpty(t.CouponCode))
+                            .Include(t => t.CouponCodeNavigation) // Bao gồm thông tin từ Coupon
+                            .ToList();
             IEnumerable<Tour> listem = _db.Tours.ToList();
             return View(listem);
         }
@@ -29,7 +33,9 @@ namespace VivaVoyages.Controllers
         public IActionResult ViewTourDetails(int id)
         {
 
-            var tour = _db.Tours.Include(t => t.Destinations).FirstOrDefault(t => t.TourId == id);
+            //--------------------------------------------------------------------//
+            
+            var tour = _db.Tours.Include(t => t.Destinations).Include(t => t.CouponCodeNavigation).FirstOrDefault(t => t.TourId == id);
             tour.Destinations = _db.Destinations.Include(d => d.Place).Where(d => d.TourId == id).ToList();
             var otherTours = _db.Tours.Where(t => t.TourId != id).Take(4).ToList();
 
@@ -41,24 +47,27 @@ namespace VivaVoyages.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult ListToursSearch()
+
+         public IActionResult ListToursSearch()
         {
+            
             IEnumerable<Tour> listem = _db.Tours.ToList();
             return View(listem);
         }
+
 
         public IActionResult SearchTours(string searchTerm)
         {
             if (string.IsNullOrEmpty(searchTerm))
             {
-                var allTours = _db.Tours.ToList();
-                return View("ListTours", allTours);
+                // Trả về view "ListTours" khi không có điều kiện tìm kiếm được cung cấp
+                return RedirectToAction("ListTours");
             }
 
-            var searchTermLower = searchTerm.ToLower();
-            var foundTours = _db.Tours.Where(t => t.TourName.ToLower().Contains(searchTermLower)).ToList();
+           var searchTermLower = searchTerm.ToLower();
+            var foundTours = _db.Tours.Where(t => t.TourName.ToLower().Contains(searchTermLower)).Include(t => t.CouponCodeNavigation) // Bao gồm thông tin từ Coupon
+                                    .ToList();
 
-            // Kiểm tra nếu không có tour nào được tìm thấy
             if (foundTours.Count == 0)
             {
                 return RedirectToAction("notfound");
@@ -67,14 +76,21 @@ namespace VivaVoyages.Controllers
             return View("ListToursSearch", foundTours);
         }
 
-
         public IActionResult notfound()
         {
             // TODO: Your code here
             return View();
         }
 
-
+        
+        public IActionResult ListToursWithCoupon()
+        {
+            var toursWithCoupon = _db.Tours
+                                    .Where(t => !string.IsNullOrEmpty(t.CouponCode))
+                                    .Include(t => t.CouponCodeNavigation) // Bao gồm thông tin từ Coupon
+                                    .ToList();
+            return View(toursWithCoupon);
+        }
 
 
     }

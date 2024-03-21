@@ -1,10 +1,11 @@
-
+@model Order
 @{
     ViewData["Title"] = "Index";
 }
 
 <!DOCTYPE html>
 <html data-bs-theme="light">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -17,32 +18,43 @@
     <link rel="stylesheet" href="~/css/pikaday.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
     <main class="page projects-page">
         <section class="portfolio-block projects-cards">
             <div class="container" id="images">
                 <div class="heading">
-                    <h2 style="font-family: Alef, sans-serif;" class="text-center">Tour payment</h2>
+                    <h2 style="Overpass, sans-serif;" class="text-center">Tour payment</h2>
+                    <h6 class="text-start" style="Overpass, sans-serif; color: red">Order code: @Model.OrderId</h6>
+                    <h6 class="text-start" style="Overpass, sans-serif; color: red">Total Amount: @Model.Total</h6>
+                    <div class="text-start mt-4">
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Back to Home</a>
+                    </div>
+
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
                         <div class="card border-0">
                             <div class="card-body">
-                                <img class="card-img-top scale-on-hover" src="~/img/mobile.jpeg" alt="Card Image" id="image1">
+                                <img class="card-img-top scale-on-hover" src="~/img/mobile.jpeg" alt="Card Image"
+                                    id="image1">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <img class="card-img-top scale-on-hover" src="~/img/amm.png" alt="Card Image"
+                                    id="image2">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="card border-0">
                             <div class="card-body">
-                                <img class="card-img-top scale-on-hover" src="~/img/amm.png" alt="Card Image" id="image2">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0">
-                            <div class="card-body">
-                                <img class="card-img-top scale-on-hover" src="~/img/visa.png" alt="Card Image" id="image3">
+                                <img class="card-img-top scale-on-hover" src="~/img/visa.png" alt="Card Image"
+                                    id="image3">
                             </div>
                         </div>
                     </div>
@@ -52,67 +64,87 @@
         </section>
     </main>
     <script>
-        $(document).ready(function() {
-            $('#image1').click(function() {
+        $(document).ready(function () {
+            var orderId = '@Model.OrderId';
+            $('body').on('click', '#image1', function () {
                 $('#formContainer').html(`
                     <div class="card">
                         <div class="card-body">
-                            <form action="@Url.Action("ProcessPayment", "Payment")" method="post">
+                            <form class="img1" action="@Url.Action("ProcessPayment", "Payment")" method="post">
+        @Html.AntiForgeryToken()
                             <img width="300" height="300" src="/img/qr.jpg">
                             <br>
-                            <input type="hidden" name="orderId" value="@Model.OrderId" />
-                            <button class="btn btn-primary" type="button">Accept</button>
+                             <input type="hidden" name="orderId" value="@Model.OrderId" />
+                            <button class="btn btn-primary" type="submit">Accept</button>
                             </form>
                         </div>
                     </div>
                 `);
             });
-            $('#image2').click(function() {
+            $('body').on('click', '#image2', function () {
                 $('#formContainer').html(`
                     <div class="card">
                         <div class="card-body">
-                            <form action="@Url.Action("ProcessPayment", "Payment")" method="post">
+                           <form  action="@Url.Action("ProcessPayment", "Payment")" method="post">
+        @Html.AntiForgeryToken()
                                 <div class="form-group">
                                     <label>Number card:</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="numberCard" required pattern="\\d{19}" title="Card number must be 19 digits.">
                                 </div>
                                 <div class="form-group">
                                     <label>Card holder:</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="cardHolder" required style="text-transform: uppercase;">
                                 </div>
                                 <div class="form-group">
                                     <label>Expiration date:</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="expirationDate" required pattern="^(0[1-9]|1[0-2])\\/([0-9]{2})$" title="Expiration date must be in MM/YY format.">
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox"> I agree to the Payment Terms and Conditions</label>
+                                    <label><input type="checkbox" required> I agree to the Payment Terms and Conditions</label>
                                 </div>
-                                <input type="hidden" name="orderId" value="@Model.OrderId" />
-                                <button class="btn btn-primary" type="button">Accept</button>
+                                 <input type="hidden" name="orderId" value="@Model.OrderId" />
+                                <button class="btn btn-primary" type="submit">Accept</button>
                             </form>
                         </div>
                     </div>
                 `);
+                // Automatically convert Card Holder name input to uppercase
+                $('input[name="cardHolder"]').on('input', function () {
+                    $(this).val($(this).val().toUpperCase());
+                });
+
+                // Form submission handler
+                $('#paymentForm').on('submit', function (e) {
+                    var termsChecked = $('input[name="terms"]').is(':checked');
+
+                    // Check if terms and conditions checkbox is checked
+                    if (!termsChecked) {
+                        alert('You must agree to the Payment Terms and Conditions.');
+                        e.preventDefault();
+                        return false;
+                    }
+                });
             });
-            $('#image3').click(function() {
+            $('body').on('click', '#image3', function () {
                 $('#formContainer').html(`
                     <div class="card">
                         <div class="card-body">
-                            <form action="@Url.Action("ProcessPayment", "Payment")" method="post">
+                           <form action="@Url.Action("ProcessPayment", "Payment")" method="post">
+        @Html.AntiForgeryToken()
                                 <div class="form-group">
                                     <label>Number card:</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" required pattern="\\d{19}" title="Card number must be 19 digits.">
                                 </div>
                                 <div class="form-group">
                                     <label>Expiration date:</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="expirationDate" required pattern="^(0[1-9]|1[0-2])\\/([0-9]{2})$" title="Expiration date must be in MM/YY format.">
                                 </div>
                                 <div class="form-group">
                                     <label>CSC:</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" required pattern="\\d{3}" title="CSC must be 3 digits.">
                                 </div>
-                                <input type="hidden" name="orderId" value="@Model.OrderId" />
-                                <button class="btn btn-primary" type="button">Accept</button>
+                                 <input type="hidden" name="orderId" value="@Model.OrderId" />
+                                <button class="btn btn-primary" type="submit">Accept</button>
                             </form>
                         </div>
                     </div>
@@ -124,4 +156,5 @@
     <script src="~/js/pikaday.min.js"></script>
     <script src="~/js/theme.js"></script>
 </body>
+
 </html>

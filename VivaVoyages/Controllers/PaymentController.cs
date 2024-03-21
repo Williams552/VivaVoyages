@@ -9,7 +9,6 @@ using VivaVoyages.Models;
 
 namespace VivaVoyages.Controllers
 {
-    
     public class PaymentController : Controller
     {
         private readonly VivaVoyagesContext _context;
@@ -19,25 +18,32 @@ namespace VivaVoyages.Controllers
             _context = context;
         }
 
-        // GET: Payment/Index
         [HttpGet]
         public IActionResult Index(int orderId)
         {
+            if (orderId <= 0)
+            {
+                return NotFound();
+            }
+
             var order = _context.Orders.Find(orderId);
             if (order == null)
             {
                 return NotFound();
             }
 
-            // Truyền order vào view để hiển thị thông tin cần thanh toán
             return View(order);
         }
         
-        // POST: Payment/ProcessPayment
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult ProcessPayment(int orderId)
         {
+            if (orderId <= 0)
+            {
+                return NotFound();
+            }
+
             var order = _context.Orders.Find(orderId);
             if (order == null)
             {
@@ -46,27 +52,23 @@ namespace VivaVoyages.Controllers
 
             try
             {
-                // Giả lập quá trình thanh toán thành công
                 order.Status = "Paid";
                 _context.SaveChanges();
 
-                // Chuyển hướng người dùng đến một trang hoặc hành động xác nhận thanh toán thành công
-                return RedirectToAction("PaymentSuccess", new { orderId = orderId });
+                return RedirectToAction("PaymentSuccess",new { orderId = orderId });
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it appropriately
-                // Hiển thị thông báo lỗi hoặc trang lỗi
+                // Ví dụ về log lỗi, bạn cần cài đặt logger thực sự trong ứng dụng của mình
+                Console.Error.WriteLine($"An error occurred while processing payment: {ex.Message}");
                 return RedirectToAction("Error", "Home");
             }
         }
 
-        // GET: Payment/PaymentSuccess
         public IActionResult PaymentSuccess(int orderId)
         {
             ViewBag.OrderId = orderId;
             return View();
         }
-        
     }
 }

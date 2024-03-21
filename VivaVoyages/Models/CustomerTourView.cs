@@ -13,8 +13,9 @@ namespace VivaVoyages.Models
         public string DateStart { get; set; }
         public int TourDates { get; set; }
         public string TourGuide { get; set; }
-        public decimal Cost { get; set; }
+        public decimal? Total { get; set; }
 
         public string Status { get; set; }
+        public int OrderId { get; set; }
     }
 }

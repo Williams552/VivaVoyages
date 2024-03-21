@@ -1,7 +1,4 @@
-@{
-    ViewData["Title"] = "ListToursSearch";
-}
-
+@model IEnumerable<VivaVoyages.Models.Tour>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,43 +6,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/TourList.css" asp-append-version="true" />
-    <title>Document</title>
+    <title>List Tours Search</title>
 </head>
 <body>
     <div class="search-container">
         <form id="search-form" action="@Url.Action("SearchTours", "ListTourCustomer")" method="get">
-           <div class="input-group">
-            <input type="text" name="searchTerm" placeholder="Search tours...">
-            <button type="submit" class="search-button"><i id="search-icon" class="bi bi-search"></i></button>
-        </div>
+            <div class="input-group">
+                <input type="text" name="searchTerm" placeholder="Search tours...">
+                <button type="submit" class="search-button"><i id="search-icon" class="bi bi-search"></i></button>
+            </div>
         </form>
     </div>
 
     <div class="tours-container">
-    @foreach(var item in Model)
-    {
-        <div class="tour-item">
-            <a asp-action="ViewTourDetails" asp-route-id="@item.TourId">
-                <img src="@Url.Content(item.ImagePath)" alt="Tour Image" class="tour-imagea">
-            </a>   
-            <div class="tour-list">
-                <p class="tini">
-                    <span>@item.DateStart.ToString("dd/MM/yyyy")</span> - <span>@item.TourDates day</span>
-                </p>
+        @foreach(var item in Model)
+        {
+            <div class="tour-item">
                 <a asp-action="ViewTourDetails" asp-route-id="@item.TourId">
-                    <p>@item.TourName</p>
-                </a>
-                <p><strong>Tour code:</strong> @item.TourId</p>
-                
-                <p><strong>Cost:</strong> @(item.Cost + item.ExpectedProfit)đ</p>
+                    <img src="@Url.Content(item.ImagePath)" alt="Tour Image" class="tour-imagea">
+                </a>   
+                <div class="tour-list">
+                    <p class="tini">
+                        <span>@item.DateStart.ToString("dd/MM/yyyy")</span> - <span>@item.TourDates day</span>
+                    </p>
+                    <a asp-action="ViewTourDetails" asp-route-id="@item.TourId">
+                        <p>@item.TourName</p>
+                    </a>
+                    <p><strong>Tour code:</strong> @item.TourId</p>
+
+                    <div class="tour-cost">
+                    <p><strong>Cost:</strong> @(item.Cost + item.ExpectedProfit) đ</p>
+                    @if (!string.IsNullOrEmpty(item.CouponCode))
+                    {
+                        <p class="cp" ><strong>-</strong> @item.CouponCodeNavigation.Discount đ</p>
+                    }
+                </div>
+                   
+                    
+                    
+                </div>
             </div>
-        </div>
-    }
-   
+        }
     </div>
-    
-
-</div>
-
 </body>
 </html>
