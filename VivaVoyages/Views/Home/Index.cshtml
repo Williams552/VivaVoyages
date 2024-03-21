@@ -114,76 +114,33 @@
         </div>
     </div>
 
-    <div class="container" style="padding-top: 68px;">
-        <div class="row">
-            <div class="col">
-                <h1
-                    style="margin-left: 461px;padding-left: 68px;padding-bottom: 41px;margin-right: 496px;width: 390px;">
-                    <strong>Special <span style="color: rgb(48, 228, 144);">Offers</span></strong>
-                </h1>
-            </div>
-        </div>
-        <div class="row"
-            style="background: rgb(238, 227, 227);border-radius: 28px;padding-top: 37px;padding-bottom: 27px;width: 1275px;margin-left: 18px;">
-            <div class="col" style="margin-left: -38px;width: 297px;"><img
-                    style="margin-left: 36px;width: 600px;height: 310px;padding: 0px;" src="~/img/5.png">
-                <div class="row"
-                    style=" z-index: 1; position: absolute;margin-top: -93px;margin-left: 58px;width: 550.162px;background: rgba(120, 112, 112, 0.956);border-radius: 9px;height: 78px;">
-                    <div class="col">
-                        <p style="font-size: 17px;">Quang Ninh<br><strong>Ha Long Bay</strong></p>
-                    </div>
-                    <div class="col">
-                        <p style="font-size: 17px;">Dates<br><strong>16.07 – 21.07</strong><br><br></p>
-                    </div>
-                    <div class="col">
-                        <p style="font-size: 17px;">Price<br><strong>8,000,000 VND </strong><br><strong><span
-                                    style="color: rgb(217, 20, 7);"> 20% OFF</span></strong></p>
+    <div class="container" style="margin-top: 50px;">
+    <div class="row justify-content-center" style="margin-left: 100px;">
+        @foreach (var tour in Model.Skip(3).Take(2))
+        {
+            <div class="col-6 mb-4">
+                <div style=" width: 500px;" class="tour-item">
+                    <a href="@Url.Action("ViewTourDetails", "ListTourCustomer", new { id = tour.TourId })">
+                        <img src="@Url.Content(tour.ImagePath)" alt="Tour Image" class="tour-imagea">
+                    </a>
+                    <div class="tour-list">
+                        <p class="tini">
+                            <span>@tour.DateStart.ToString("dd/MM/yyyy")</span> - <span>@tour.TourDates day</span>
+                        </p>
+                        <strong>@tour.TourName</strong>
+                        @foreach (var destination in tour.Destinations)
+                        {
+                            <p>@destination.Description</p>
+                        }
+                        <div class="tour-cost">
+                            <a href="@Url.Action("ViewTourDetails", "ListTourCustomer", new { id = tour.TourId })" class="btn btn-primary">Learn More</a>
+                        </div>
                     </div>
                 </div>
-                <h1
-                    style="margin-left: 38px;padding-top: 14px;font-size: 30px;font-family: 'Montserrat';font-weight: bold;">
-                    Ha Long Bay, Quang Ninh</h1>
-                <p style="margin-left: 44px;font-size: 18px;width: 542px;font-family: 'Montserrat';">Visit Chuc Tam Chuc
-                    spiritual tourism complex - which is expected to become the largest spiritual tourism complex in the
-                    world when completed in 2024 Cruise Ha Long Bay - enjoy the majestic beauty of Dinh Huong - Trong
-                    Mai (Fighting Chicken) - Stone Dog islands.<br><br></p>
-                <button class="btn btn-primary" type="button"
-                    style="width: 216.1px;height: 52.6px;margin-top: -24px;margin-left: 103px;color: var(--bs-emphasis-color);background: var(--bs-body-bg);border-width: 1.8px;border-radius: 6px;">Lear
-                    More</button>
-                <button id="bookingBtn" class="btn btn-primary" type="button"
-                    style="width: 216.1px;height: 52.6px;margin-top: -24px;margin-left: 38px;background: #2B4D93;border-radius: 6px;">Booking</button>
             </div>
-            <div class="col" style="width: 300.5px;"><img
-                    style="margin-left: 36px;width: 600px;height: 310px;padding: 0px;" src="~/img/15.png">
-                <div class="row"
-                    style="position: absolute;margin-top: -93px;margin-left: 58px;width: 550.162px;background: rgba(120, 112, 112, 0.956) ;border-radius: 9px;height: 79px;">
-                    <div class="col">
-                        <p style="font-size: 17px;">Khanh Hoa<br><strong>Nha Trang</strong></p>
-                    </div>
-                    <div class="col">
-                        <p style="font-size: 17px;">Dates<br><strong>5.05 – 10.05</strong><br><br></p>
-                    </div>
-                    <div class="col">
-                        <p style="font-size: 17px;">Price<br><strong>6,000,000 VND </strong><br><strong><span
-                                    style="color: rgb(217, 20, 7);"> 10% OFF</span></strong></p>
-                    </div>
-                </div>
-                <h1
-                    style="margin-left: 38px;padding-top: 14px;font-size: 30px;font-family: 'Montserrat';font-weight: bold;">
-                    Khanh Hoa, Nha Trang</h1>
-                <p style="margin-left: 44px;font-size: 18px;width: 542px;font-family: 'Montserrat';">Nha Trang is a
-                    coastal city and the center of politics, economics, culture, science and technology and tourism of
-                    Khanh Hoa province. Currently, there are still many relics of the Cham people still in existence,
-                    because this land used to belong to the kingdom of Champa.<br><br></p>
-                <button class="btn btn-primary" type="button"
-                    style="width: 216.1px;height: 52.6px;margin-top: -24px;margin-left: 103px;color: var(--bs-emphasis-color);background: var(--bs-body-bg);border-width: 1.8px;border-radius: 6px;">Lear
-                    More</button>
-                <button id="bookingBtn" class="btn btn-primary" type="button"
-                    style="width: 216.1px;height: 52.6px;margin-top: -24px;margin-left: 38px;background: #2B4D93;border-radius: 6px;">Booking</button>
-            </div>
-        </div>
-        <div class="row" style="margin-top: 87px;"></div>
+        }
     </div>
+</div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
