@@ -13,23 +13,19 @@
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <input type="hidden" asp-for="CustomerId" />
+    <input type="hidden" asp-for="TourId">
     <input type="hidden" asp-for="OrderId" />
     <input type="hidden" asp-for="StaffId" />
+    <input type="hidden" asp-for="CouponCode" />
     <input type="hidden" asp-for="DateCreated">
 
-    <div class="form-group">
-        <label asp-for="TourId">Tour</label>
-        <select asp-for="TourId"
-            asp-items="@(new SelectList((System.Collections.IEnumerable)tourList, "TourId", "TourName"))"
-            class="form-control"></select>
-        <span asp-validation-for="TourId" class="text-danger"></span>
-    </div>
-
+    
     <div class="form-group">
         <label asp-for="Status">Status</label>
         <select asp-for="Status" class="form-control">
             <option value="Confirmed">Confirmed</option>
             <option value="Pending">Pending</option>
+            <option value="Paid">Paid</option>
             <option value="Cancelled">Cancelled</option>
         </select>
         <span asp-validation-for="Status" class="text-danger"></span>
