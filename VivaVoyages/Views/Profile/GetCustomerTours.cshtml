@@ -27,7 +27,8 @@
                             <div class="div-3">@ViewData["FullName"]</div>
                         </div>
                         <div class="div-4"></div>
-                        <a asp-action="Index" asp-route-id="@ViewData["CustomerId"]" class="div-5" style="text-decoration: none;">Account</a>
+                        <a asp-action="Index" asp-route-id="@ViewData["CustomerId"]" class="div-5"
+                            style="text-decoration: none;">Account</a>
                         <a asp-action="Index" asp-route-id="@ViewData["CustomerId"]" class="div-9"
                             style="text-decoration: none;">Personal Information</a>
                         <a asp-action="ChangePassword" asp-route-id="@ViewData["CustomerId"]" class="div-9"
@@ -54,6 +55,7 @@
                                         <th>Tour Guide</th>
                                         <th>Cost</th>
                                         <th>Status</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,6 +69,10 @@
                                             <td>@tour.TourGuide</td>
                                             <td>@tour.Cost</td>
                                             <td>@tour.Status</td>
+                                            <td>
+                                                <a class="btn btn-danger" asp-controller="Booking" asp-action="OrderCancel"
+                                                    asp-route-id="@tour.OrderId">Details</a>
+                                            </td>
                                         </tr>
                                     }
                                 </tbody>

@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Build.Framework;
+using Microsoft.DotNet.Scaffolding.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -41,31 +43,28 @@ namespace VivaVoyages.Controllers
         {
             try
             {
-                Customer customer = HttpContext.Session.GetObject<Customer>("LoggedInCustomer");
-                int numbOfPassenger =0;
-                int numbOfSR =0;
-
-                //Add the passengers to the database
-                List<Passenger> passengers = JsonConvert.DeserializeObject<List<Passenger>>(passengersJson);
-                foreach (var passenger in passengers)
+                //check passengersJson
+                if (passengersJson=="[]")
                 {
-                    numbOfPassenger ++;
-                    if(passenger.SingleRoom == true) numbOfSR ++;
-                    passenger.CustomerId = customer.CustomerId;
-                    _context.Passengers.Add(passenger);
-                    
+                    ModelState.AddModelError("Passengers", "Please enter the passengers information");
+                    return RedirectToAction("Create", new { id = tourId });
                 }
-                var tour =  _context.Tours.Find(tourId);
+
+                Customer customer = HttpContext.Session.GetObject<Customer>("LoggedInCustomer");
+                int numbOfPassenger = 0;
+                int numbOfSR = 0;
+
+                var tour = _context.Tours.Find(tourId);
 
                 Order order = new Order
                 {
                     CustomerId = customer.CustomerId,
                     TourId = tourId,
-                    StaffId = _context.Staff.FirstOrDefault().StaffId,
+                    //Find the staff has less orders pending to assign the order to
+                    StaffId = _context.Staff.OrderBy(s => s.Orders.Count(o => o.Status == "Pending")).FirstOrDefault().StaffId,
                     DateCreated = DateTime.Now,
                     Status = "Pending",
-                    Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR))*(1+tour.Tax/100)
-
+                    Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR)) * (1 + tour.Tax / 100)
                 };
 
                 // Add the Order to the context
@@ -73,6 +72,19 @@ namespace VivaVoyages.Controllers
 
                 // Save changes to the database
                 _context.SaveChanges();
+
+                //Add the passengers to the database
+                List<Passenger> passengers = JsonConvert.DeserializeObject<List<Passenger>>(passengersJson);
+                foreach (var passenger in passengers)
+                {
+                    numbOfPassenger++;
+                    if (passenger.SingleRoom == true) numbOfSR++;
+                    passenger.CustomerId = customer.CustomerId;
+                    passenger.OrderId = order.OrderId;
+                    _context.Passengers.Add(passenger);
+                    _context.SaveChanges();
+                }
+
 
                 return RedirectToAction("Index", "Home");
             }
@@ -109,6 +121,53 @@ namespace VivaVoyages.Controllers
         {
             var passengerList = _context.Passengers.ToList();
             return View(passengerList);
+        }
+
+        public async Task<IActionResult> OrderCancel(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var order = await _context.Orders
+                .Include(o => o.Tour)
+                .Include(o => o.Customer)
+                .Include(o => o.Passengers)
+                .Include(o => o.Staff)
+                .FirstOrDefaultAsync(m => m.OrderId == id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            return View(order);
+        }
+
+        // Action to cancel all orders for a specific tour
+        [HttpPost, ActionName("OrderCancel")]
+        public async Task<IActionResult> OrderCancelConfirmed(int id)
+        {
+            try
+            {
+                // Find the order
+                var order = await _context.Orders.FindAsync(id);
+
+                if (order == null)
+                {
+                    // Order not found, handle accordingly
+                    return RedirectToAction("OrderNotFound", "Error");
+                }
+
+                order.Status = "Cancelled";
+                _context.Update(order);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+            return RedirectToAction("Index", "Profile");
         }
 
     }

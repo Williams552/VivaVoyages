@@ -7,10 +7,12 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
 </head>
+
 <body>
 
 <h4>Place</h4>
@@ -34,6 +36,11 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                    <label asp-for="Image" class="control-label"></label>
+                    <input asp-for="Image" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"></span>        
+            </div>
             <div style="padding: 10 0;" class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -46,4 +53,5 @@
 </div>
 
 </body>
+
 </html>

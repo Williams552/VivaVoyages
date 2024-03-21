@@ -4,19 +4,19 @@
     ViewData["Title"] = "Profile";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true" />
     <title>Document</title>
 </head>
 
 <body>
     <main>
-
+        @if (TempData["ChangePasswordSuccess"] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                @TempData["ChangePasswordSuccess"]
+            </div>
+        }
         <div class="container">
             <div class="row">
                 <!-- Left Column -->
@@ -34,7 +34,8 @@
 
                         <a asp-action="GetCustomerTours" asp-route-id="@Model.CustomerId" class="div-11"
                             style="text-decoration: none;">Tour management</a>
-                        <div class="div-12">sign out</div>
+                        <a style="text-decoration: none;" class="div-12" asp-action="SignOut"
+                            asp-controller="LoginRegister">sign out</a>
                     </div>
                 </div>
 
@@ -89,7 +90,4 @@
             </div>
         </div>
     </main>
-
 </body>
-
-</html>

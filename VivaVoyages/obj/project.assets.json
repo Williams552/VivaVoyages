@@ -8186,19 +8186,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\truon\\.nuget\\packages\\": {}
+    "C:\\Users\\cartu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PRN211\\Project\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+      "projectUniqueName": "e:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
       "projectName": "VivaVoyages",
-      "projectPath": "D:\\PRN211\\Project\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
-      "packagesPath": "C:\\Users\\truon\\.nuget\\packages\\",
-      "outputPath": "D:\\PRN211\\Project\\VivaVoyages\\VivaVoyages\\obj\\",
+      "projectPath": "e:\\SWP\\VivaVoyages\\VivaVoyages\\VivaVoyages.csproj",
+      "packagesPath": "C:\\Users\\cartu\\.nuget\\packages\\",
+      "outputPath": "e:\\SWP\\VivaVoyages\\VivaVoyages\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\truon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cartu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8285,7 +8285,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
