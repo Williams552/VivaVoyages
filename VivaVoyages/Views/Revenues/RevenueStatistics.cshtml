@@ -1,6 +1,8 @@
 @model IEnumerable<Revenues>
 @{
     ViewData["Title"] = "RevenueStatistics";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+
 }
 
 <head>
@@ -34,7 +36,7 @@
                     y: {
                         beginAtZero: true,
                         ticks: {
-                            callback: function(value, index, values) {
+                            callback: function (value, index, values) {
                                 // Giả định rằng doanh thu được tính bằng USD, cập nhật nếu cần
                                 return '$' + value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
                             }
