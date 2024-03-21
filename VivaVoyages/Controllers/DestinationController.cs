@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using VivaVoyages.Filters;
 using VivaVoyages.Models;
 
 namespace VivaVoyages.Controllers
 {
+[ServiceFilter(typeof(AdminLoginFilter))]
     public class DestinationController : Controller
     {
         private readonly VivaVoyagesContext _context;

@@ -59,6 +59,20 @@ namespace VivaVoyages.Controllers
             {
                 ModelState.AddModelError("DateStart", "Date Start must be in the future");
             }
+            // Server-side validation for tour start and end dates
+            if (destinations != null)
+            {
+                var tourStartDate = tour.DateStart;
+                var tourEndDate = tourStartDate.AddDays(tour.TourDates);
+                foreach (var destination in destinations)
+                {
+                    if (destination.DateVisit < tourStartDate || destination.DateVisit > tourEndDate)
+                    {
+                        ModelState.AddModelError("destinations", "Destination date must be within tour start and end dates.");
+                        break;
+                    }
+                }
+            }
             ModelState.Remove("ImagePath");
             if (ModelState.IsValid)
             {
@@ -135,6 +149,20 @@ namespace VivaVoyages.Controllers
             if (id != tour.TourId)
             {
                 return NotFound();
+            }
+            // Server-side validation for tour start and end dates
+            if (destinations != null)
+            {
+                var tourStartDate = tour.DateStart;
+                var tourEndDate = tourStartDate.AddDays(tour.TourDates);
+                foreach (var destination in destinations)
+                {
+                    if (destination.DateVisit < tourStartDate || destination.DateVisit > tourEndDate)
+                    {
+                        ModelState.AddModelError("destinations", "Destination date must be within tour start and end dates.");
+                        break;
+                    }
+                }
             }
             ModelState.Remove("ImageFile");
             if (ModelState.IsValid)
