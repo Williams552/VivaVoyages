@@ -12,21 +12,24 @@
 
     <div class="form-group">
         <label asp-for="CustomerId">Customer</label>
-        <select asp-for="CustomerId" asp-items="@(new SelectList((System.Collections.IEnumerable)customerList, "CustomerId", "FullName"))"
+        <select asp-for="CustomerId"
+            asp-items="@(new SelectList((System.Collections.IEnumerable)customerList, "CustomerId", "FullName"))"
             class="form-control"></select>
         <span asp-validation-for="CustomerId" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="StaffId">Staff</label>
-        <select asp-for="StaffId" asp-items="@(new SelectList((System.Collections.IEnumerable)staffList, "StaffId", "FullName"))"
+        <select asp-for="StaffId"
+            asp-items="@(new SelectList((System.Collections.IEnumerable)staffList, "StaffId", "FullName"))"
             class="form-control"></select>
         <span asp-validation-for="StaffId" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="TourId">Tour</label>
-        <select asp-for="TourId" asp-items="@(new SelectList((System.Collections.IEnumerable)tourList, "TourId", "TourName"))"
+        <select asp-for="TourId"
+            asp-items="@(new SelectList((System.Collections.IEnumerable)tourList, "TourId", "TourName"))"
             class="form-control"></select>
         <span asp-validation-for="TourId" class="text-danger"></span>
     </div>
@@ -37,6 +40,80 @@
     </div>
 </form>
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+@section scripts {
+<script>
+    $(document).ready(function () {
+        var passengersList = []; // Danh sách hành khách
+
+        // Function to add a new set of passenger inputs
+        function addPassengerInput(orderId) {
+            var passengerHtml = '<div class="passenger-inputs">' +
+                '<label for="Passengers[' + passengersList.length + '].FullName">Full Name:</label>' +
+                '<input type="text" name="Passengers[' + passengersList.length + '].FullName" class="form-control" />' +
+                '<label for="Passengers[' + passengersList.length + '].Age">Age:</label>' +
+                '<input type="number" name="Passengers[' + passengersList.length + '].Age" class="form-control" />' +
+                '<label for="Passengers[' + passengersList.length + '].Gender">Gender:</label>' +
+                '<div class="gender-radios">' +
+                '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="M">Male</label>' +
+                '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="F">Female</label>' +
+                '   <label><input type="radio" name="Passengers[' + passengersList.length + '].Gender" value="O">Other</label>' +
+                '</div>' +
+                '<label for="Passengers[' + passengersList.length + '].SingleRoom">Single Room:</label>' +
+                '<input type="checkbox" name="Passengers[' + passengersList.length + '].SingleRoom" />' +
+                '<input type="hidden" name="Passengers[' + passengersList.length + '].OrderID" value="' + orderId + '" />' +
+                '<button type="button" class="btn btn-danger btn-sm remove-passenger">Remove</button>' +
+                '</div>';
+
+            $("#passenger-container").append(passengerHtml);
+
+            // Create a new passenger object with OrderID and add it to passengersList
+            passengersList.push({
+                FullName: '',
+                Age: 0,
+                Gender: '',
+                SingleRoom: false,
+                OrderID: orderId
+            });
+        }
+
+        // Event handler for the "Add Passenger" button
+        $("#addPassenger").click(function () {
+            // Assume you have the current OrderID available (replace 1 with the actual OrderID)
+            var currentOrderId = 1;
+            addPassengerInput(currentOrderId);
+        });
+
+        // Event handler for dynamically added "Remove" button
+        $(document).on('click', '.remove-passenger', function () {
+            var index = $(this).closest('.passenger-inputs').index();
+            passengersList.splice(index, 1); // Xóa hành khách khỏi danh sách
+            $(this).closest('.passenger-inputs').remove();
+        });
+
+        // Event handler for input changes
+        $(document).on('input', '.passenger-inputs input', function () {
+            // Update the corresponding property in passengersList
+            var index = $(this).closest('.passenger-inputs').index();
+            var property = $(this).attr('name').split('.')[1];
+            passengersList[index][property] = $(this).val();
+        });
+
+        // Event handler for checkbox changes
+        $(document).on('change', '.passenger-inputs input[type="checkbox"]', function () {
+            // Update the corresponding property in passengersList
+            var index = $(this).closest('.passenger-inputs').index();
+            var property = $(this).attr('name').split('.')[1];
+            passengersList[index][property] = $(this).prop('checked');
+        });
+
+        // Submit form when the "Book" button is clicked
+        $('#bookTourForm').submit(function (e) {
+            // Update the hidden field with the current passengersList
+            $('#passengersJson').val(JSON.stringify(passengersList));
+
+            // Continue with form submission
+            return true;
+        });
+    });
+</script>
 }

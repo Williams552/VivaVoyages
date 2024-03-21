@@ -19,6 +19,15 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         var tour = _context.Tours.Include(d => d.Destinations).ToList();
+
+        if (tour.Count < 3)
+        {
+            for (int i = 0; i < 3 - tour.Count; i++)
+            {
+                tour.Add(new Tour { Destinations = new List<Destination> { new Destination() } });
+            }
+        }
+
         return View(tour);
     }
 
