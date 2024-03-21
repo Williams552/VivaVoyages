@@ -55,6 +55,7 @@ namespace VivaVoyages.Controllers
                 int numbOfSR = 0;
 
                 var tour = _context.Tours.Find(tourId);
+                
 
                 Order order = new Order
                 {
@@ -64,8 +65,9 @@ namespace VivaVoyages.Controllers
                     StaffId = _context.Staff.OrderBy(s => s.Orders.Count(o => o.Status == "Pending")).FirstOrDefault().StaffId,
                     DateCreated = DateTime.Now,
                     Status = "Pending",
-                    Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR)) * (1 + tour.Tax / 100)
                 };
+
+                var coupon = _context.Coupons.Find(order.CouponCode);
 
                 // Add the Order to the context
                 _context.Orders.Add(order);
@@ -84,6 +86,7 @@ namespace VivaVoyages.Controllers
                     _context.Passengers.Add(passenger);
                     _context.SaveChanges();
                 }
+                order.Total = ((tour.Cost + tour.ExpectedProfit) * numbOfPassenger + (tour.SingleRoomCost * numbOfSR)) * (1 + tour.Tax / 100) - coupon.Discount;
 
 
                 return RedirectToAction("Index", "Payment", new { orderId = order.OrderId });

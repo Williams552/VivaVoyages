@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nmv6K/3S3/qj7LqQ9e9MpewtvXLeHy+z+rZ+fMKWKYA=",
+  "Hash": "ik4Xofm5P3viSz9Wtus37ejkNA7t7KS8IYSZq8EvRY4=",
   "Source": "VivaVoyages",
   "BasePath": "_content/VivaVoyages",
   "Mode": "Default",
@@ -1345,25 +1345,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Tour4.png"
-    },
-    {
-      "Identity": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\Tour5.png",
-      "SourceId": "VivaVoyages",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\",
-      "BasePath": "_content/VivaVoyages",
-      "RelativePath": "img/Tour5.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\Tour5.png"
     },
     {
       "Identity": "E:\\SWP\\VivaVoyages\\VivaVoyages\\wwwroot\\img\\visa.png",
