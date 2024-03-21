@@ -17,6 +17,8 @@
             <th>Staff</th>
             <th>Tour</th>
             <th>Status</th>
+            <th>Coupon Code</th>
+            <th>Total</th>
             <th>Date Created</th>
             <th></th>
         </tr>
@@ -30,10 +32,12 @@
                 <td>@order.StaffId</td>
                 <td>@order.TourId</td>
                 <td>@order.Status</td>
+                <td>@order.CouponCode</td>
+                <td>@order.Total</td>
                 <td>@order.DateCreated.ToString("yyyy-MM-dd HH:mm:ss")</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@order.OrderId">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@order.OrderId">Delete</a>
+                    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@order.OrderId">Edit</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@order.OrderId">Delete</a>
                 </td>
             </tr>
         }
