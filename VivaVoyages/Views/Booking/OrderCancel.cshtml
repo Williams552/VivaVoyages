@@ -4,8 +4,9 @@
     ViewData["Title"] = "Cancel Order";
 }
 
-<div class="container">
-    <h1>Cancel Order</h1>
+<div class="container" style="padding: 20px;">
+    <div style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); padding: 20px; " >
+<h1>Cancel Order</h1>
     <hr />
 
     <dl class="row">
@@ -58,11 +59,15 @@
             </ul>
         </dd>
     </dl>
-    @if (Model.Status == "Pending")
+    </div>
+    <div >
+@if (Model.Status == "Pending")
     {
         <form method="post" asp-action="OrderCancel" asp-controller="Booking">
             <button type="submit" class="btn btn-danger">Cancel Order</button>
         </form>
     }
-    <a asp-action="Index" asp-controller="Profile" class="btn btn-secondary">Back to List</a>
+    <a style="margin-top: 20px;" asp-action="getcustomertours" asp-controller="Profile" class="btn btn-secondary">Back to List</a>
+    </div>
+    
 </div>
