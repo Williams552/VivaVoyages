@@ -1,0 +1,52 @@
+@model IEnumerable<Revenues>
+@{
+    ViewData["Title"] = "RevenueStatistics";
+}
+
+<head>
+    <title>Doanh Thu Tour</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <h2>Tour Revenue as a canvas diagram</h2>
+
+    <div style="width: 80%; margin: auto;">
+        <canvas id="revenueChart"></canvas>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('revenueChart').getContext('2d');
+        var revenueChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(Json.Serialize(Model.Select(m => m.TourName))),
+                datasets: [{
+                    label: 'Revenue',
+                    data: @Html.Raw(Json.Serialize(Model.Select(m => m.TotalProfit))),
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value, index, values) {
+                                // Giả định rằng doanh thu được tính bằng USD, cập nhật nếu cần
+                                return '$' + value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
