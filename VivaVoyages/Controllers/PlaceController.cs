@@ -139,6 +139,17 @@ namespace VivaVoyages.Controllers
                 return NotFound();
             }
 
+            //remove the image from the server
+            var imagePath = place.ImagePath;
+            if (imagePath != null)
+            {
+                var fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", imagePath.Substring(1));
+                if (System.IO.File.Exists(fullPath))
+                {
+                    System.IO.File.Delete(fullPath);
+                }
+            }
+
             return View(place);
         }
 

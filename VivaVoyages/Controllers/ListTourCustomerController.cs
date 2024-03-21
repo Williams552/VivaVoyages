@@ -33,11 +33,11 @@ namespace VivaVoyages.Controllers
             tour.Destinations = _db.Destinations.Include(d => d.Place).Where(d => d.TourId == id).ToList();
             var otherTours = _db.Tours.Where(t => t.TourId != id).Take(4).ToList();
 
-    if (tour != null)
-    {
-        ViewBag.OtherTours = otherTours; // Chuyển danh sách tour khác vào view
-        return View(tour);
-    }
+            if (tour != null)
+            {
+                ViewBag.OtherTours = otherTours; // Chuyển danh sách tour khác vào view
+                return View(tour);
+            }
             return RedirectToAction("Index", "Home");
         }
 
@@ -74,8 +74,8 @@ namespace VivaVoyages.Controllers
             return View();
         }
 
-     
-       
+
+
 
     }
 }

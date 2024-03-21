@@ -27,7 +27,7 @@ public partial class Tour
     public decimal? SingleRoomCost { get; set; }
 
     public string? ImagePath { get; set; }
-    
+
     [NotMapped]
     public IFormFile ImageFile { get; set; }
 
