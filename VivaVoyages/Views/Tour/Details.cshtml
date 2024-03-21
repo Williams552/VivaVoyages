@@ -11,14 +11,15 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Details</title>
+    
 </head>
 
 <body>
-
-    <div>
+    
+    <div style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); padding-left: 15px; padding-top: 10px; ">
         <h4>Tour</h4>
         <hr />
-        <dl class="row">
+        <dl class="row" >
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.TourName)
             </dt>
@@ -69,19 +70,19 @@
             </dd>
         </dl>
     </div>
-    <div>
+    <div style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); padding: 15px; margin: 20px 0; ">
         <h2>Destinations</h2>
         @if (Model.Destinations.Any())
         {
             <table>
-                <tr>
+                <tr style="text-align: center;">
                     <th>Destination ID</th>
                     <th>Description</th>
                     <th>Date Visit</th>
                 </tr>
                 @foreach (var destination in Model.Destinations)
                 {
-                    <tr>
+                    <tr >
                         <td>@destination.DestinationId</td>
                         <td>@destination.Description</td>
                         <td>@destination.DateVisit</td>
@@ -94,9 +95,8 @@
             <p>No destinations found for this tour.</p>
         }
     </div>
-    <div>
-        <a asp-action="Edit" asp-route-id="@Model?.TourId">Edit</a> |
-        <a asp-action="Index">Back to List</a>
+     <div style="">
+        <a class="btn btn-primary" asp-action="Index">Back to List</a>
     </div>
 </body>
 

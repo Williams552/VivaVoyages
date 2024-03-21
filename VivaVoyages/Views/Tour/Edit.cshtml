@@ -9,19 +9,28 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Edit tour</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
 </head>
 
 <body>
 
     <h4>Tour</h4>
     <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Edit">
+    <div>
+        
+    </div>
+    <div class="row"style="justify-content: center;">
+        <div class="col-md-6"  >
+            <form  asp-action="Edit" >
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="TourId" />
+                <div style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); ; padding: 10 10;">
                 <div class="form-group">
                     <label asp-for="TourName" class="control-label"></label>
                     <input asp-for="TourName" class="form-control" />
@@ -62,9 +71,9 @@
                     <input asp-for="Tax" class="form-control" />
                     <span asp-validation-for="Tax" class="text-danger"></span>
                 </div>
-
+</div>
                 <!-- Destination Inputs -->
-                <div>
+                <div style="border-radius: 23px;border: 1.4px solid rgb(24,113,203); padding: 10 10; margin: 20px 0;">
                     <h2>Destinations</h2>
                     @if (Model.Destinations.Any())
                     {
@@ -101,15 +110,15 @@
 
 
 
-                <div class="form-group">
+                <div class="form-group" style="text-align: center;">
                     <input type="submit" value="Save" class="btn btn-primary" />
                 </div>
             </form>
         </div>
     </div>
 
-    <div>
-        <a asp-action="Index">Back to List</a>
+    <div style="text-align: center;">
+        <a class="btn btn-primary" asp-action="Index">Back to List</a>
     </div>
 
 </body>
