@@ -86,7 +86,7 @@ namespace VivaVoyages.Controllers
                 }
 
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Payment", new { orderId = order.OrderId });
             }
             catch (Exception ex)
             {
