@@ -44,9 +44,9 @@ namespace VivaVoyages.Controllers
             try
             {
                 //check passengersJson
-                if (passengersJson=="[]")
+                if (passengersJson == "[]")
                 {
-                    ModelState.AddModelError("Passengers", "Please enter the passengers information");
+                    ViewData["Error"] = "Enter infomation of passengers";
                     return RedirectToAction("Create", new { id = tourId });
                 }
 
@@ -94,7 +94,6 @@ namespace VivaVoyages.Controllers
                 return RedirectToAction("Error", "Home");
             }
         }
-
 
         // POST: Booking/Save
         [HttpPost]
