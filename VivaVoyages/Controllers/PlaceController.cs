@@ -55,19 +55,22 @@ namespace VivaVoyages.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Place place)
         {
-            if (place.Image != null && place.Image.Length > 0)
-            {
-                var imagePath = "~/img/" + "Tour" + place.PlaceName + place.Image.FileName.Substring(place.Image.FileName.LastIndexOf("."));
-                using (var stream = new FileStream(imagePath, FileMode.Create))
-                {
-                    await place.Image.CopyToAsync(stream);
-                }
-                place.ImagePath = "~/img/" + "Tour" + place.PlaceName + place.Image.FileName.Substring(place.Image.FileName.LastIndexOf("."));
-            }
             if (ModelState.IsValid)
             {
                 _context.Add(place);
                 await _context.SaveChangesAsync();
+                if (place.Image != null && place.Image.Length > 0)
+                {
+                    var imagePath = "~/img/" + "Tour" + place.PlaceId + place.Image.FileName.Substring(place.Image.FileName.LastIndexOf("."));
+                    using (var stream = new FileStream(imagePath, FileMode.Create))
+                    {
+                        await place.Image.CopyToAsync(stream);
+                    }
+                    place.ImagePath = "~/img/" + "Tour" + place.PlaceId + place.Image.FileName.Substring(place.Image.FileName.LastIndexOf("."));
+                }
+                _context.Update(place);
+                await _context.SaveChangesAsync();
+                
                 return RedirectToAction(nameof(Index));
             }
             return View(place);

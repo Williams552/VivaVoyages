@@ -85,7 +85,7 @@ namespace VivaVoyages.Controllers
                     {
                         await tour.ImageFile.CopyToAsync(stream);
                     }
-                    tour.ImagePath = "~/img/" + "Tour" + tour.TourName + tour.ImageFile.FileName.Substring(tour.ImageFile.FileName.LastIndexOf("."));
+                    tour.ImagePath = "~/img/" + "Tour" + tour.TourId + tour.ImageFile.FileName.Substring(tour.ImageFile.FileName.LastIndexOf("."));
                 }
 
                 _context.Update(tour);
