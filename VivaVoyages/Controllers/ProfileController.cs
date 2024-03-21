@@ -177,7 +177,7 @@ namespace VivaVoyages.Controllers
                 DateStart = g.First().Tour.DateStart.ToString("dd/MM/yyyy"),
                 TourDates = g.First().Tour.TourDates,
                 TourGuide = g.First().Tour.TourGuide,
-                Cost = g.First().Tour.Cost,
+                Total = g.First().Total,
                 Status = g.First().Status
                 // Các thuộc tính khác như trước
             })
